@@ -4,7 +4,9 @@ let
   setMultiple = value: list: lib.genAttrs list (x: value);
   enableMultiple = list: setMultiple { enable = true; } list;
 in {
-  imports = [ ./hardware-configuration.nix ];
+  # nix-channel --add https://github.com/nix-community/home-manager/archive/release-21.11.tar.gz home-manager
+  # nix-channel --update
+  imports = [ ./hardware-configuration.nix <home-manager/nixos> ];
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -13,7 +15,7 @@ in {
 
   networking = {
     hostName = "desktop";
-    wireless.enable = true;
+    #wireless.enable = true;
   };
 
   time.timeZone = "Canada/Eastern";
