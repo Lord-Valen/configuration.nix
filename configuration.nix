@@ -1,12 +1,12 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
+  home-manager = builtins.fetchTarball
+    "https://github.com/nix-community/home-manager/archive/master.tar.gz";
   setMultiple = value: list: lib.genAttrs list (x: value);
   enableMultiple = list: setMultiple { enable = true; } list;
 in {
-  # nix-channel --add https://github.com/nix-community/home-manager/archive/release-21.11.tar.gz home-manager
-  # nix-channel --update
-  imports = [ ./hardware-configuration.nix <home-manager/nixos> ];
+  imports = [ ./hardware-configuration.nix (import "${home-manager}/nixos") ];
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -60,6 +60,14 @@ in {
         enableContribAndExtras = true;
       };
     };
+  };
+
+  home-manager.users.lord-valen = {
+    # XMonad config
+    #xdg.configFile."xmonad".source = ./config/xmonad;
+    xsession.windowManager.xmonad = {
+      config = ./config/xmonad/xmonad.hs;
+    } // setMultiple true [ "enable" "enableContribAndExtras" ];
   };
 
   system.stateVersion = "21.11";
