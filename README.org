@@ -1,0 +1,11 @@
+#+TITLE: Lord-Valen's configuration.nix
+* Where We Are and Where We're Going
+** /So far, this is a pretty dismal NixOS config!/
++ Basic system configurations (currently only lives in a VM)
++ User configuration
++ XMonad configuration
+** /Come with me and you'll be / In a world of pure imagination!/
++ Modular system for easier mutation
++ Leverage the module system with different host configurations
++ Modules accessible via flake, promoting quick and easy inter-user collaboration
++ Mobile NixOS configuration via flake? *Yes please!*

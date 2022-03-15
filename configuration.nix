@@ -64,7 +64,7 @@ in {
 
   home-manager.users.lord-valen = {
     # XMonad config
-    #xdg.configFile."xmonad".source = ./config/xmonad;
+    xdg.configFile."xmonad/xpm".source = ./config/xmonad/xpm;
     xsession.windowManager.xmonad = {
       config = ./config/xmonad/xmonad.hs;
     } // setMultiple true [ "enable" "enableContribAndExtras" ];
