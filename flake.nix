@@ -3,15 +3,29 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixpkgs-unstable";
-    fu.url = "githug:numtide/flake-utils";
+    fu.url = "github:numtide/flake-utils";
     hm = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, fu, hm }:
+  outputs = inputs@{ self, nixpkgs, fu, hm }:
     fu.lib.eachDefaultSystem (system:
-      let pkgs = nixpkgs.legacyPackages.${system};
-      in { devShell = pkgs.mkShell { packages = with pkgs; [ nixfmt ]; }; });
+      let
+        inherit (lib.my) mapHosts;
+        pkgs = nixpkgs.legacyPackages.${system};
+        lib = nixpkgs.lib.extend (self: super: {
+          mine = import ./lib {
+            inherit pkgs inputs;
+            lib = self;
+          };
+        });
+      in {
+        lib = lib.mine;
+
+        nixosConfigurations = mapHosts ./hosts/${system};
+
+        devShell = pkgs.mkShell { packages = with pkgs; [ nixfmt ]; };
+      });
 }

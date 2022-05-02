@@ -5,13 +5,20 @@ let
   #   "https://github.com/nix-community/nix-doom-emacs/archive/master.tar.gz") {
   #     doomPrivateDir = ./config/doom;
   #   };
-  home-manager = builtins.fetchTarball
-    "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+
+
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
   emacs-overlay = builtins.fetchTarball
     "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
   setMultiple = value: list: lib.genAttrs list (x: value);
   enableMultiple = list: setMultiple { enable = true; } list;
 in {
+  nix = {
+    package = pkgs.nixFlakes; # or versioned attributes like nix_2_7
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+   };
   imports = [ ./hardware-configuration.nix (import "${home-manager}/nixos") ];
 
   nixpkgs.overlays = [ (import "${emacs-overlay}") ];
@@ -21,7 +28,6 @@ in {
     efi.canTouchEfiVariables = true;
   };
 
-  networking.hostName = "desktop";
   time.timeZone = "Canada/Eastern";
 
   fonts = {
