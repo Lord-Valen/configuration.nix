@@ -59,6 +59,8 @@ in {
       enable = true;
       libinput.enable = true;
       displayManager.sddm.enable = true;
+      windowManager.xmonad =
+        setMultiple true [ "enable" "enableContribAndExtras" ];
     };
   };
 
@@ -82,18 +84,20 @@ in {
 
     # XMonad config
     xdg.configFile."xmonad/xpm".source = ./config/xmonad/xpm;
-    xsession.windowManager.xmonad = {
-      config = ./config/xmonad/xmonad.hs;
-    } // setMultiple true [ "enable" "enableContribAndExtras" ];
+    xsession.windowManager.xmonad.config = ./config/xmonad/xmonad.hs;
 
     # Doom config
     xdg.configFile."doom".source = ./config/doom;
     xdg.configFile."emacs".source =
       builtins.fetchGit "https://github.com/hlissner/doom-emacs.git";
+    programs.emacs = {
+      enable = true;
+      package = pkgs.emacsNativeComp;
+    };
     services.emacs = {
       enable = true;
       defaultEditor = true;
-      package = pkgs.emacsGcc;
+      package = pkgs.emacsNativeComp;
     };
   };
 
