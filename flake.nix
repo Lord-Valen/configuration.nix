@@ -3,29 +3,33 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixpkgs-unstable";
-    fu.url = "github:numtide/flake-utils";
+    fup.url = "github:gytis-ivaskevicius/flake-utils-plus";
     hm = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, fu, hm }:
-    fu.lib.eachDefaultSystem (system:
-      let
-        inherit (lib.my) mapHosts;
-        pkgs = nixpkgs.legacyPackages.${system};
-        lib = nixpkgs.lib.extend (self: super: {
-          mine = import ./lib {
-            inherit pkgs inputs;
-            lib = self;
-          };
-        });
-      in {
-        lib = lib.mine;
+  outputs = { self, nixpkgs, fup, hm }@inputs:
+    let
+      inherit (fup.lib) mkFlake exportModules;
+      pkgs = self.pkgs.x86_64-linux.nixpkgs;
+    in fup.lib.mkFlake {
+      inherit self inputs;
+      supportedSystems = fup.lib.defaultSystems;
 
-        nixosConfigurations = mapHosts ./hosts/${system};
+      channelsConfig.allowUnfree = true;
 
-        devShell = pkgs.mkShell { packages = with pkgs; [ nixfmt ]; };
-      });
+      nixosModules = exportModules [ ./hosts/vm ];
+
+      hostDefaults.modules = [ hm.nixosModule ];
+      # hostDefaults.modules = with self.nixosModules [ doom xmonad valen time ]; # Optional modules
+
+      hosts = { vm.modules = with self.nixosModules; [ vm ]; };
+
+      outputsBuilder = channels: {
+        devShell =
+          channels.nixpkgs.mkShell { packages = with pkgs; [ nixfmt ]; };
+      };
+    };
 }

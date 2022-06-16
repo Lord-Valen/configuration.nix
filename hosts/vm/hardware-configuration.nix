@@ -10,7 +10,7 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/etc/nixos" = {
-    device = "virt-share";
+    device = "/virt-share";
     fsType = "9p";
     options = [ "trans=virtio" "version=9p2000.L" ];
   };

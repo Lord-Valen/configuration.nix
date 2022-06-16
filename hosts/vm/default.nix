@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, lib, hm, ... }:
 with lib;
 let
   # doom-emacs = pkgs.callPackage (builtins.fetchTarball
@@ -6,22 +6,17 @@ let
   #     doomPrivateDir = ./config/doom;
   #   };
 
-
-  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
-  emacs-overlay = builtins.fetchTarball
-    "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
   setMultiple = value: list: lib.genAttrs list (x: value);
   enableMultiple = list: setMultiple { enable = true; } list;
 in {
-  nix = {
-    package = pkgs.nixFlakes; # or versioned attributes like nix_2_7
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-   };
-  imports = [ ./hardware-configuration.nix (import "${home-manager}/nixos") ];
+  imports = [ ./hardware-configuration.nix ];
 
-  nixpkgs.overlays = [ (import "${emacs-overlay}") ];
+  # nix = {
+  #   package = pkgs.nixFlakes; # or versioned attributes like nix_2_7
+  #   extraOptions = ''
+  #     experimental-features = nix-command flakes
+  #   '';
+  # };
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -58,7 +53,7 @@ in {
     initialPassword = "password";
   };
 
-  environment.systemPackages = with pkgs; [ neovim git wget kitty xclip rofi ];
+  environment.systemPackages = with pkgs; [ neovim git wget xclip ];
 
   services = {
     xserver = {
@@ -86,20 +81,35 @@ in {
       # Doom Module Dependencies
       ## :lang nix
       nixfmt
+
+      ## :lang haskell
+      haskellPackages.haskell-language-server
+      haskellPackages.hoogle
+
+      # XMonad-config Dependencies
+      xmobar
+      xscreensaver
+      rofi
+      kitty
+      trayer
     ];
 
     # XMonad config
-    xdg.configFile."xmonad/xpm".source = ./config/xmonad/xpm;
+    xdg.configFile."xmonad".source =
+      builtins.fetchGit "https://github.com/Lord-Valen/xmonad-config.git";
     xsession.windowManager.xmonad.config = ./config/xmonad/xmonad.hs;
 
     # Doom config
-    xdg.configFile."doom".source = ./config/doom;
+    xdg.configFile."doom".source = builtins.fetchGit
+      "https://github.com/Lord-Valen/doom-emacs-config.git"; # ./config/doom;
     xdg.configFile."emacs".source =
       builtins.fetchGit "https://github.com/hlissner/doom-emacs.git";
+
     programs.emacs = {
       enable = true;
       package = pkgs.emacsNativeComp;
     };
+
     services.emacs = {
       enable = true;
       defaultEditor = true;
@@ -107,5 +117,5 @@ in {
     };
   };
 
-  system.stateVersion = "21.11";
+  system.stateVersion = "22.05";
 }
