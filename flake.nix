@@ -11,6 +11,8 @@
   };
 
   outputs = { self, nixpkgs, fup, hm }@inputs:
+    with builtins;
+    with nixpkgs.lib;
     let
       inherit (fup.lib) mkFlake exportModules;
       pkgs = self.pkgs.x86_64-linux.nixpkgs;
@@ -20,10 +22,9 @@
 
       channelsConfig.allowUnfree = true;
 
-      nixosModules = exportModules [ ./hosts/vm ];
+      nixosModules = exportModules [ ./hosts/vm ./modules/emacs ];
 
-      hostDefaults.modules = [ hm.nixosModule ];
-      # hostDefaults.modules = with self.nixosModules [ doom xmonad valen time ]; # Optional modules
+      hostDefaults.modules = with self.nixosModules; [ hm.nixosModule emacs ];
 
       hosts = { vm.modules = with self.nixosModules; [ vm ]; };
 
