@@ -22,9 +22,13 @@
 
       channelsConfig.allowUnfree = true;
 
-      nixosModules = exportModules [ ./hosts/vm ./modules/emacs ];
+      nixosModules = exportModules [ ./hosts ./hosts/vm ./modules/emacs ];
 
-      hostDefaults.modules = with self.nixosModules; [ hm.nixosModule emacs ];
+      hostDefaults.modules = with self.nixosModules; [
+        hm.nixosModules.home-manager
+        emacs
+        hosts
+      ];
 
       hosts = { vm.modules = with self.nixosModules; [ vm ]; };
 
