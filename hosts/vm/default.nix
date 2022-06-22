@@ -73,7 +73,7 @@ in {
     # XMonad config
     xdg.configFile."xmonad".source =
       builtins.fetchGit "https://github.com/Lord-Valen/xmonad-config.git";
-    xsession.windowManager.xmonad.config = ./config/xmonad/xmonad.hs;
+    # xsession.windowManager.xmonad.config = ./config/xmonad/xmonad.hs;
   };
 
   system.stateVersion = "22.05";
