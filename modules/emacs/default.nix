@@ -21,6 +21,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    environment.packages = with pkgs; [ git ];
     home-manager.users.lord-valen.home.packages = with pkgs; [
       # Doom Dependencies
       git
@@ -49,10 +50,18 @@ in {
     };
 
     system.userActivationScripts = mkIf cfg.doom.enable {
-      installDoomEmacs = ''
+      doomEmacs = ''
+        if [ -d "$HOME/.emacs.d ]; then
+          rm -rf "$HOME/.emacs.d"
+        fi
+        if [ -d "$HOME/.doom.d ]; then
+          rm -rf "$HOME/.doom.d"
+        fi
+        if [ ! -d "$XDG_CONFIG_HOME/doom" ]; then
+          ${pkgs.git}/bin/git clone "https://github.com/Lord-Valen/doom-emacs-config.git" "$XDG_CONFIG_HOME/doom"
+        fi
         if [ ! -d "$XDG_CONFIG_HOME/emacs" ]; then
-           git clone --depth=1 --single-branch "${cfg.doom.doomUrl}" "$XDG_CONFIG_HOME/emacs"
-           git clone "${cfg.doom.configUrl}" "$XDG_CONFIG_HOME/doom"
+          ${pkgs.git}/bin/git clone --depth=1 --single-branch "https://github.com/hlissner/doom-emacs.git" "$XDG_CONFIG_HOME/emacs"
         fi
       '';
     };
