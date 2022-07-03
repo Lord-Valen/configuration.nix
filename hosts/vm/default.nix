@@ -23,8 +23,6 @@ in {
 
   time.timeZone = "Canada/Eastern";
 
-  environment.systemPackages = with pkgs; [ neovim git wget xclip ];
-
   services = {
     xserver = {
       enable = true;
