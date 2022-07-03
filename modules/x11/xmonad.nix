@@ -37,7 +37,7 @@ in {
     };
 
     system.userActivationScripts.xmonad = ''
-      if [ -d "$HOME/.xmonad ]; then
+      if [ -d "$HOME/.xmonad" ]; then
         rm -rf "$HOME/.xmonad"
       fi
       if [ ! -d "$XDG_CONFIG_HOME/xmonad" ]; then
