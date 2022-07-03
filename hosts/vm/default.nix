@@ -1,12 +1,14 @@
 { config, pkgs, lib, hm, ... }:
+
 with lib;
+
 let
   setMultiple = value: list: lib.genAttrs list (x: value);
   enableMultiple = list: setMultiple { enable = true; } list;
 in {
   imports = [ ./hardware-configuration.nix ];
 
-  modules = setMultiple true [ emacs.enable emacs.doom.enable ];
+  modules = setMultiple true [ emacs.enable emacs.doom.enable pipewire ];
 
   boot.loader = {
     systemd-boot.enable = true;

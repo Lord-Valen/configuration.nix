@@ -1,14 +1,14 @@
 { config, pkgs, lib, hm, ... }:
 
-{
+with lib;
+
+let
+  setMultiple = value: list: lib.genAttrs list (x: value);
+  enableMultiple = list: setMultiple { enable = true; } list;
+in {
   imports = [ ./hardware-configuration.nix ];
 
-  modules = {
-    emacs = {
-      enable = true;
-      doom.enable = true;
-    };
-  };
+  modules = setMultiple true [ emacs emacs.doom pipewire ];
 
   time.timeZone = "Canada/Eastern";
   i18n.defaultLocale = "en_CA.UTF-8";
@@ -22,11 +22,6 @@
     };
   };
 
-  # For pipewire
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-
   services = {
     xserver = {
       enable = true;
@@ -35,13 +30,6 @@
       libinput.enable = true;
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
-    };
-
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
     };
 
     printing.enable = true;

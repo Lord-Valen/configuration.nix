@@ -32,6 +32,7 @@
         ./modules/users
 
         ./modules/emacs
+        ./modules/pipewire
       ];
 
       hostDefaults.modules = with self.nixosModules; [
@@ -43,6 +44,7 @@
         users
 
         emacs
+        pipewire
       ];
 
       hosts = {
