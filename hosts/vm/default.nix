@@ -15,14 +15,6 @@ in {
 
   time.timeZone = "Canada/Eastern";
 
-  users.users.lord-valen = {
-    isNormalUser = true;
-    createHome = true;
-    uid = 1000;
-    extraGroups = [ "wheel" ];
-    initialPassword = "lv";
-  };
-
   environment.systemPackages = with pkgs; [ neovim git wget xclip ];
 
   services = {

@@ -15,14 +15,6 @@
 
   environment.systemPackages = with pkgs; [ neovim git ];
 
-  users.users.lord-valen = {
-    isNormalUser = true;
-    createHome = true;
-    uid = 1000;
-    extraGroups = [ "networkmanager" "wheel" ];
-    initialPassword = "lv";
-  };
-
   programs = {
     gnupg.agent = {
       enable = true;

@@ -26,9 +26,12 @@
         ./hosts
         ./hosts/vm
         ./hosts/satellite
-        ./modules/emacs
+
         ./modules/xdg
         ./modules/fonts
+        ./modules/users
+
+        ./modules/emacs
       ];
 
       hostDefaults.modules = with self.nixosModules; [
@@ -37,6 +40,7 @@
         xdg
         fonts
         hosts
+        users
 
         emacs
       ];
