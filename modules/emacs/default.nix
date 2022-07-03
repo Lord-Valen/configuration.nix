@@ -21,7 +21,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.packages = with pkgs; [ git ];
+    environment.systemPackages = with pkgs; [ git ];
     home-manager.users.lord-valen.home.packages = with pkgs; [
       # Doom Dependencies
       git
