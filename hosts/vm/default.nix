@@ -13,7 +13,7 @@ with lib;
     pipewire.enable = true;
     x11 = {
       enable = true;
-      xmonad.enable = true;
+      gnome.enable = true;
     };
   };
 
