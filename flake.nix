@@ -23,10 +23,10 @@
       channelsConfig.allowUnfree = true;
 
       nixosModules = exportModules [
-        ./hosts
         ./hosts/vm
         ./hosts/satellite
 
+        ./modules/home
         ./modules/xdg
         ./modules/fonts
         ./modules/users
@@ -37,9 +37,9 @@
       hostDefaults.modules = with self.nixosModules; [
         hm.nixosModules.home-manager
 
+        home
         xdg
         fonts
-        hosts
         users
 
         emacs
