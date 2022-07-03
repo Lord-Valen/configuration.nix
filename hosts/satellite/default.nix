@@ -11,7 +11,7 @@
   };
 
   time.timeZone = "Canada/Eastern";
-  i18n.defaultLocale = "en_CA.utf8";
+  i18n.defaultLocale = "en_CA.UTF-8";
 
   environment.systemPackages = with pkgs; [ neovim git ];
 
