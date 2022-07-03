@@ -12,6 +12,6 @@
       XDG_BIN_HOME = "$HOME/.local/bin";
     };
 
-    home-manager.users.${config.user.name}.xdg.enable = true;
+    home-manager.users."${config.user}".xdg.enable = true;
   };
 }

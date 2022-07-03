@@ -30,8 +30,8 @@
         ./modules/home
         ./modules/xdg
         ./modules/fonts
-        ./modules/users
 
+        ./modules/user
         ./modules/emacs
         ./modules/pipewire
         ./modules/x11
@@ -44,8 +44,8 @@
         home
         xdg
         fonts
-        users
 
+        user
         emacs
         pipewire
         x11

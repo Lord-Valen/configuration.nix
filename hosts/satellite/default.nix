@@ -36,7 +36,7 @@ with lib;
     openssh.enable = true;
   };
 
-  home-manager.users.lord-valen.home.packages = with pkgs; [
+  home-manager.users."${config.user}".home.packages = with pkgs; [
     brave
     discord
     vscode
