@@ -63,6 +63,7 @@ in {
         if [ ! -d "$XDG_CONFIG_HOME/emacs" ]; then
           ${pkgs.git}/bin/git clone --depth=1 --single-branch "https://github.com/hlissner/doom-emacs.git" "$XDG_CONFIG_HOME/emacs"
         fi
+        ${pkgs.git}/bin/git -C $XDG_CONFIG_HOME/doom pull
       '';
     };
   };
