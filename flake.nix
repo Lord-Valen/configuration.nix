@@ -22,7 +22,8 @@
 
       channelsConfig.allowUnfree = true;
 
-      nixosModules = exportModules [ ./hosts ./hosts/vm ./modules/emacs ];
+      nixosModules =
+        exportModules [ ./hosts ./hosts/vm ./hosts/satellite ./modules/emacs ];
 
       hostDefaults.modules = with self.nixosModules; [
         hm.nixosModules.home-manager
@@ -30,7 +31,10 @@
         hosts
       ];
 
-      hosts = { vm.modules = with self.nixosModules; [ vm ]; };
+      hosts = {
+        vm.modules = with self.nixosModules; [ vm ];
+        satellite.modules = with self.nixosModules; [ satellite ];
+      };
 
       outputsBuilder = channels: {
         devShell =
