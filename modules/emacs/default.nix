@@ -58,10 +58,10 @@ in {
           rm -rf "$HOME/.doom.d"
         fi
         if [ ! -d "$XDG_CONFIG_HOME/doom" ]; then
-          ${pkgs.git}/bin/git clone "https://github.com/Lord-Valen/doom-emacs-config.git" "$XDG_CONFIG_HOME/doom"
+          ${pkgs.git}/bin/git clone "${cfg.doom.configUrl}" "$XDG_CONFIG_HOME/doom"
         fi
         if [ ! -d "$XDG_CONFIG_HOME/emacs" ]; then
-          ${pkgs.git}/bin/git clone --depth=1 --single-branch "https://github.com/hlissner/doom-emacs.git" "$XDG_CONFIG_HOME/emacs"
+          ${pkgs.git}/bin/git clone --depth=1 --single-branch "${cfg.doom.doomUrl}" "$XDG_CONFIG_HOME/emacs"
         fi
         ${pkgs.git}/bin/git -C $XDG_CONFIG_HOME/doom pull
       '';
