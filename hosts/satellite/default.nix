@@ -48,9 +48,12 @@
     openssh.enable = true;
   };
 
-  home-manager.users.lord-valen = {
-    home.packages = with pkgs; [ brave discord vscode ghc ];
-  };
+  home-manager.users.lord-valen.home.packages = with pkgs; [
+    brave
+    discord
+    vscode
+    ghc
+  ];
 
   system.stateVersion = "22.05";
 }
