@@ -6,12 +6,7 @@ let
 in {
   imports = [ ./hardware-configuration.nix ];
 
-  modules = {
-    emacs = {
-      enable = true;
-      doom.enable = true;
-    };
-  };
+  modules = setMultiple true [ emacs.enable emacs.doom.enable ];
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -19,26 +14,6 @@ in {
   };
 
   time.timeZone = "Canada/Eastern";
-
-  fonts = {
-    fontDir.enable = true;
-    enableDefaultFonts = true;
-    enableGhostscriptFonts = true;
-    fonts = with pkgs; [
-      pkgs.emacs-all-the-icons-fonts
-      (nerdfonts.override {
-        fonts = [ "FiraCode" "FiraMono" "Noto" "Ubuntu" ];
-      })
-    ];
-    fontconfig = {
-      defaultFonts = {
-        serif = [ "FiraCode" ];
-        sansSerif = [ "FiraCode" ];
-        monospace = [ "FiraMono" ];
-        emoji = [ "Noto" ];
-      };
-    };
-  };
 
   users.users.lord-valen = {
     isNormalUser = true;

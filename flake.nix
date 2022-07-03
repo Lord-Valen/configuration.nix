@@ -28,13 +28,17 @@
         ./hosts/satellite
         ./modules/emacs
         ./modules/xdg
+        ./modules/fonts
       ];
 
       hostDefaults.modules = with self.nixosModules; [
         hm.nixosModules.home-manager
-        emacs
+
         xdg
+        fonts
         hosts
+
+        emacs
       ];
 
       hosts = {
