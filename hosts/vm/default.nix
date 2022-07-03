@@ -8,7 +8,7 @@ let
 in {
   imports = [ ./hardware-configuration.nix ];
 
-  modules = setMultiple true [ emacs.enable emacs.doom.enable pipewire ];
+  modules = setMultiple true [ emacs.enable emacs.doom.enable pipewire.enable ];
 
   boot.loader = {
     systemd-boot.enable = true;

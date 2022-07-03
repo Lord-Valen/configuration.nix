@@ -8,7 +8,7 @@ let
 in {
   imports = [ ./hardware-configuration.nix ];
 
-  modules = setMultiple true [ emacs emacs.doom pipewire ];
+  modules = setMultiple true [ emacs.enable emacs.doom.enable pipewire.enable ];
 
   time.timeZone = "Canada/Eastern";
   i18n.defaultLocale = "en_CA.UTF-8";
