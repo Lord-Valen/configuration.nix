@@ -15,6 +15,7 @@ with lib;
       enable = true;
       gnome.enable = true;
     };
+    networking.enable = true;
   };
 
   boot.loader = {

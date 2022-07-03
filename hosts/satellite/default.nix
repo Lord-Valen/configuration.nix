@@ -19,6 +19,7 @@ with lib;
       enable = true;
       xmonad.enable = true;
     };
+    networking.enable = true;
   };
 
   time.timeZone = "Canada/Eastern";
