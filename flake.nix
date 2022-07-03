@@ -34,6 +34,7 @@
 
         ./modules/emacs
         ./modules/pipewire
+        ./modules/x11
       ];
 
       hostDefaults.modules = with self.nixosModules; [
@@ -47,6 +48,7 @@
 
         emacs
         pipewire
+        x11
       ];
 
       hosts = {

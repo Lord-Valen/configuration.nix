@@ -2,10 +2,11 @@
 
 with lib;
 
-let
-  setMultiple = value: list: lib.genAttrs list (x: value);
-  enableMultiple = list: setMultiple { enable = true; } list;
-in {
+# let
+#   setMultiple = value: list: lib.genAttrs list (x: value);
+#   enableMultiple = list: setMultiple { enable = true; } list;
+# in
+{
   imports = [ ./hardware-configuration.nix ];
 
   modules = {
@@ -14,6 +15,10 @@ in {
       doom.enable = true;
     };
     pipewire.enable = true;
+    x11 = {
+      enable = true;
+      gnome.enable = true;
+    };
   };
 
   time.timeZone = "Canada/Eastern";
@@ -27,15 +32,6 @@ in {
   };
 
   services = {
-    xserver = {
-      enable = true;
-      layout = "us";
-      xkbVariant = "";
-      libinput.enable = true;
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
-    };
-
     printing.enable = true;
     openssh.enable = true;
   };

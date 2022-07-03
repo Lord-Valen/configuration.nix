@@ -12,6 +12,6 @@
       XDG_BIN_HOME = "$HOME/.local/bin";
     };
 
-    home-manager.users.lord-valen.xdg.enable = true;
+    home-manager.users.${config.user.name}.xdg.enable = true;
   };
 }

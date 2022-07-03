@@ -21,8 +21,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ git ];
-    home-manager.users.lord-valen.home.packages = with pkgs; [
+    environment.systemPackages = with pkgs; [
       # Doom Dependencies
       git
       (ripgrep.override { withPCRE2 = true; })
