@@ -30,20 +30,11 @@ in {
       trayer
     ];
 
-    environment.sessionVariables = {
-      XMONAD_CONFIG_DIR = "$XDG_CONFIG_HOME/xmonad";
-      XMONAD_DATA_DIR = "$XDG_DATA_HOME/xmonad";
-      XMONAD_CACHE_DIR = "$XDG_CACHE_HOME/xmonad";
-    };
-
     system.userActivationScripts.xmonad = ''
-      if [ -d "$HOME/.xmonad" ]; then
-        rm -rf "$HOME/.xmonad"
+      if [ ! -d "$HOME/.xmonad" ]; then
+        ${pkgs.git}/bin/git clone "${cfg.configUrl}" "$HOME/.xmonad"
       fi
-      if [ ! -d "$XDG_CONFIG_HOME/xmonad" ]; then
-        ${pkgs.git}/bin/git clone "${cfg.configUrl}" "$XDG_CONFIG_HOME/xmonad"
-      fi
-      ${pkgs.git}/bin/git -C $XDG_CONFIG_HOME/xmonad pull
+      ${pkgs.git}/bin/git -C $HOME/.xmonad pull
     '';
   };
 }
