@@ -23,7 +23,10 @@ in {
       enable = true;
       layout = cfg.layout;
       xkbVariant = cfg.xkbVariant;
-      libinput.enable = true;
+      libinput = {
+        enable = true;
+        touchpad.naturalScrolling = true;
+      };
     };
   };
 }
