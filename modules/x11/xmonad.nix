@@ -30,6 +30,8 @@ in {
       trayer
     ];
 
+    home-manager.users.${config.user}.xdg.configFile."xmobar".source =
+      ../../dotfiles/.config/xmobar;
     system.userActivationScripts.xmonad = ''
       if [ ! -d "$HOME/.xmonad" ]; then
         ${pkgs.git}/bin/git clone "${cfg.configUrl}" "$HOME/.xmonad"
