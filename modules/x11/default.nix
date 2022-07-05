@@ -19,13 +19,36 @@ in {
   };
 
   config = mkIf cfg.enable {
-    services.xserver = {
-      enable = true;
-      layout = cfg.layout;
-      xkbVariant = cfg.xkbVariant;
-      libinput = {
+    services = {
+      picom = {
         enable = true;
-        touchpad.naturalScrolling = true;
+        inactiveOpacity = 0.8;
+        menuOpacity = 0.8;
+        opacityRules = [ "100:class_g = 'zoom'" ];
+        fade = true;
+        fadeSteps = [ 0.1 0.1 ];
+        vSync = true;
+        settings = {
+          frame-opacity = 0.6;
+          blur = {
+            method = "kawase";
+            strength = 3;
+            background = false;
+            background-frame = false;
+            background-fixed = false;
+            kern = "3x3box";
+          };
+        };
+      };
+
+      xserver = {
+        enable = true;
+        layout = cfg.layout;
+        xkbVariant = cfg.xkbVariant;
+        libinput = {
+          enable = true;
+          touchpad.naturalScrolling = true;
+        };
       };
     };
   };
