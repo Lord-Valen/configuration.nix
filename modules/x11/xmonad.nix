@@ -20,6 +20,7 @@ in {
         menuOpacity = 0.8;
         opacityRules = [ "100:class_g = 'zoom'" ];
         fade = true;
+        fadeSteps = [ 0.1 0.1 ];
         vSync = true;
         settings = {
           frame-opacity = 0.6;
