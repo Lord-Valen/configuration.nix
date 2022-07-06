@@ -37,6 +37,7 @@ in {
 
       # Doom Module Dependencies
       ## :tools lsp
+      nodejs
       nodePackages.npm
 
       ## :lang common-lisp
