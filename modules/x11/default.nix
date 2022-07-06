@@ -51,5 +51,9 @@ in {
         };
       };
     };
+
+    home-manager.users.${config.user}.xdg.configFile = {
+
+    };
   };
 }

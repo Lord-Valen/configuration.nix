@@ -21,7 +21,9 @@ in {
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
+    # For use in the activation script
+    environment.systemPackages = [ pkgs.git ];
+    home-manager.users.${config.user}.home.packages = with pkgs; [
       # Doom Dependencies
       git
       (ripgrep.override { withPCRE2 = true; })
@@ -34,12 +36,35 @@ in {
       zstd
 
       # Doom Module Dependencies
+      ## :tools lsp
+      nodePackages.npm
+
+      ## :lang common-lisp
+      sbcl
+
+      ## :lang haskell
+      cabal-install
+      haskellPackages.haskell-language-server
+      haskellPackages.hoogle
+
       ## :lang nix
       nixfmt
 
-      ## :lang haskell
-      haskellPackages.haskell-language-server
-      haskellPackages.hoogle
+      ## :lang org
+      graphviz
+
+      ## :lang rust
+      rust-analyzer
+      cargo
+      rustc
+
+      ## :lang sh
+      shellcheck
+
+      ## :app everywhere
+      xorg.xwininfo
+      xdotool
+      xclip
     ];
 
     services.emacs = {
