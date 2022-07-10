@@ -59,7 +59,7 @@
       };
 
       outputsBuilder = channels: {
-        devShell =
+        devShells.default =
           channels.nixpkgs.mkShell { packages = with pkgs; [ nixfmt ]; };
       };
     };
