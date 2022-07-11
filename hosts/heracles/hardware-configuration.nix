@@ -20,16 +20,21 @@
     };
 
     loader = {
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
       grub = {
         enable = true;
-        device = "/dev/disk/by-label/BOOT";
+        efiSupport = true;
+        device = "nodev";
         useOSProber = true;
       };
     };
   };
 
   fileSystems = {
-    "/boot" = {
+    "/boot/efi" = {
       label = "BOOT";
       fsType = "vfat";
     };
