@@ -14,14 +14,15 @@ in {
     home-manager.users.${config.user}.home.packages = with pkgs;
       [ virt-manager ];
 
-    virtualisation = (mkMerge [
-      mkIf
-      cfg.android.enable
-      (mkMerge [
-        (mkIf config.modules.x11.enable { anbox.enable = true; })
-        (mkIf config.modules.wayland.enable { waydroid.enable = true; })
-      ])
-      { libvirtd.enable = true; }
-    ]);
+    # Returns a function where a set is expected
+    # virtualisation = (mkMerge [
+    #   mkIf
+    #   cfg.android.enable
+    #   (mkMerge [
+    #     (mkIf config.modules.x11.enable { anbox.enable = true; })
+    #     (mkIf config.modules.wayland.enable { waydroid.enable = true; })
+    #   ])
+    #   { libvirtd.enable = true; }
+    # ]);
   };
 }
