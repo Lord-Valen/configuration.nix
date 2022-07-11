@@ -53,7 +53,7 @@ in {
     };
 
     home-manager.users.${config.user}.xdg.configFile = {
-
+      "wallpaper".source = ../../dotfiles/.config/wallpaper;
     };
   };
 }

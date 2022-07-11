@@ -4,6 +4,7 @@ with lib;
 
 let cfg = config.modules.emacs;
 in {
+  imports = [ ./academicWriting.nix ];
   options.modules.emacs = {
     enable = mkEnableOption "Emacs module";
     doom = rec {
@@ -37,6 +38,7 @@ in {
 
       # Doom Module Dependencies
       ## :tools lsp
+      python3Full
       nodejs
       nodePackages.npm
 

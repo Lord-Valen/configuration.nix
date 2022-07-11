@@ -36,6 +36,12 @@
         ./modules/pipewire
         ./modules/x11
         ./modules/networking
+        ./modules/tidal
+        ./modules/monero
+        ./modules/vm
+        ./modules/docker
+        ./modules/ipfs
+        ./modules/games
       ];
 
       hostDefaults.modules = with self.nixosModules; [
@@ -51,6 +57,12 @@
         pipewire
         x11
         networking
+        tidal
+        monero
+        vm
+        docker
+        ipfs
+        games
       ];
 
       hosts = {
