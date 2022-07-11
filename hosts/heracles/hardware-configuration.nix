@@ -5,7 +5,7 @@
 
   boot = {
     kernelModules = [ "kvm-intel" ];
-    extraKernelModules = [ ];
+    extraModulePackages = [ ];
     initrd = {
       availableKernelModules = [
         "ehci_pci"
