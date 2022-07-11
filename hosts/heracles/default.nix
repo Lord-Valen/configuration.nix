@@ -26,7 +26,7 @@ with lib;
     docker.enable = true;
     games.enable = true;
     ipfs.enable = true;
-    vm.enable = true;
+    # vm.enable = true;
   };
 
   time.timeZone = "Canada/Eastern";
