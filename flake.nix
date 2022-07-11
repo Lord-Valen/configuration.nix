@@ -24,7 +24,7 @@
 
       nixosModules = exportModules [
         ./hosts
-        ./hosts/vm
+        ./hosts/box
         ./hosts/satellite
         ./hosts/heracles
 
@@ -67,7 +67,7 @@
       ];
 
       hosts = {
-        vm.modules = with self.nixosModules; [ vm ];
+        box.modules = with self.nixosModules; [ box ];
         satellite.modules = with self.nixosModules; [ satellite ];
         heracles.modules = with self.nixosModules; [ heracles ];
       };

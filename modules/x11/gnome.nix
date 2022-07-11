@@ -7,9 +7,9 @@ in {
   options.modules.x11.gnome = { enable = mkEnableOption "GNOME module"; };
 
   config = mkIf cfg.enable {
-    # services.xserver = {
-    #   displayManager.gdm.enable = true;
-    #   desktopManager.gnome.enable = true;
-    # };
+    services.xserver = {
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
+    };
   };
 }
