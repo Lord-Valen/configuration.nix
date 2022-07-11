@@ -26,6 +26,7 @@
         ./hosts
         ./hosts/vm
         ./hosts/satellite
+        ./hosts/heracles
 
         ./modules/home
         ./modules/xdg
@@ -68,6 +69,7 @@
       hosts = {
         vm.modules = with self.nixosModules; [ vm ];
         satellite.modules = with self.nixosModules; [ satellite ];
+        heracles.modules = with self.nixosModules; [ heracles ];
       };
 
       outputsBuilder = channels: {
