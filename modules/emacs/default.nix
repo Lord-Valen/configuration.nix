@@ -33,7 +33,6 @@ in {
       # Doom Optional Dependencies
       fd
       imagemagick
-      (mkIf (config.programs.gnupg.agent.enable) pinentry_emacs)
       zstd
 
       # Doom Module Dependencies
@@ -42,10 +41,15 @@ in {
       nodejs
       nodePackages.npm
 
+      ## :lang cc
+      ghc
+      glslang
+
       ## :lang common-lisp
       sbcl
 
       ## :lang haskell
+      ghc
       cabal-install
       haskellPackages.haskell-language-server
       haskellPackages.hoogle
