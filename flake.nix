@@ -18,15 +18,12 @@
       pkgs = self.pkgs.x86_64-linux.nixpkgs;
     in fup.lib.mkFlake {
       inherit self inputs;
-      supportedSystems = fup.lib.defaultSystems;
+      supportedSystems = [ "x86_64-linux" ];
 
       channelsConfig.allowUnfree = true;
 
       nixosModules = exportModules [
         ./hosts
-        ./hosts/box
-        ./hosts/satellite
-        ./hosts/heracles
 
         ./modules/home
         ./modules/xdg
@@ -67,9 +64,9 @@
       ];
 
       hosts = {
-        box.modules = with self.nixosModules; [ box ];
-        satellite.modules = with self.nixosModules; [ satellite ];
-        heracles.modules = with self.nixosModules; [ heracles ];
+        box.modules = [ ./hosts/box ];
+        satellite.modules = [ ./hosts/satellite ];
+        heracles.modules = [ ./hosts/heracles ];
       };
 
       outputsBuilder = channels: {
