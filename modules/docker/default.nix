@@ -12,6 +12,8 @@ in {
       enableOnBoot = true;
     };
 
+    environment.systemPackages = with pkgs; [ docker-compose ];
+
     home-manager.users.${config.user}.xdg.configFile."docker".source =
       ../../dotfiles/.config/docker;
   };
