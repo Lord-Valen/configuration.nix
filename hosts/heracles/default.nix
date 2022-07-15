@@ -42,6 +42,7 @@ with lib;
   services = {
     printing.enable = true;
     openssh.enable = true;
+    xserver.videoDrivers = [ "amdgpu" ];
   };
 
   home-manager.users."${config.user}".home.packages = with pkgs; [

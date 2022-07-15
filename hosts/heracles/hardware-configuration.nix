@@ -16,8 +16,14 @@
         "sd_mod"
         "sr_mod"
       ];
-      kernelModules = [ ];
+      kernelModules = [ "amdgpu" ];
     };
+    kernelParams = [
+      "radeon.si_support=0"
+      "amdgpu.si_support=1"
+      "radeon.cik_support=0"
+      "amdgpu.cik_support=1"
+    ];
 
     loader = {
       efi = {
@@ -78,6 +84,13 @@
 
   swapDevices = [{ device = "/swap/swapfile"; }];
   networking.useDHCP = lib.mkDefault true;
-  hardware.cpu.intel.updateMicrocode =
-    lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware = {
+    opengl = {
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+
+    cpu.intel.updateMicrocode =
+      lib.mkDefault config.hardware.enableRedistributableFirmware;
+  };
 }
