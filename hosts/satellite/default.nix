@@ -20,6 +20,7 @@ with lib;
       xmonad.enable = true;
     };
     networking.enable = true;
+    tidal.enable = true;
   };
 
   time.timeZone = "Canada/Eastern";
