@@ -21,6 +21,7 @@ with lib;
     };
     networking.enable = true;
     tidal.enable = true;
+    dev.haskell.enable = true;
   };
 
   time.timeZone = "Canada/Eastern";

@@ -27,6 +27,7 @@ with lib;
     games.enable = true;
     ipfs.enable = true;
     vm.enable = true;
+    dev.haskell.enable = true;
   };
 
   time.timeZone = "Canada/Eastern";

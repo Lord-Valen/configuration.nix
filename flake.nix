@@ -40,6 +40,7 @@
         ./modules/docker
         ./modules/ipfs
         ./modules/games
+        ./modules/dev
       ];
 
       hostDefaults.modules = with self.nixosModules; [
@@ -61,6 +62,7 @@
         docker
         ipfs
         games
+        dev
       ];
 
       hosts = {
