@@ -15,6 +15,8 @@ in {
       gamemode.enable = true;
     };
 
+    hardware = { steam-hardware.enable = true; };
+
     home-manager.users.${config.user}.home.packages = with pkgs; [
       protonup
       heroic
