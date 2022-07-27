@@ -19,6 +19,7 @@ in {
       protonup
       heroic
       lutris
+      polymc
     ];
   };
 }
