@@ -2,10 +2,6 @@
 
 with lib;
 
-# let
-#   setMultiple = value: list: lib.genAttrs list (x: value);
-#   enableMultiple = list: setMultiple { enable = true; } list;
-# in
 {
   imports = [ ./hardware-configuration.nix ];
 
@@ -28,6 +24,7 @@ with lib;
     ipfs.enable = true;
     vm.enable = true;
     dev.haskell.enable = true;
+    syncthing.enable = true;
   };
 
   time.timeZone = "Canada/Eastern";
@@ -44,6 +41,27 @@ with lib;
     printing.enable = true;
     openssh.enable = true;
     xserver.videoDrivers = [ "amdgpu" ];
+    syncthing = {
+      folders = {
+        "photos" = {
+          id = "sm-g950w_7ywz-photos";
+          path = "/data/oracle-photos";
+          devices = [ "oracle" ];
+        };
+        "books" = {
+          id = "fheng-o2wyn";
+          path = "/data/media/books";
+          type = "sendonly";
+          devices = [ "oracle" ];
+        };
+        "music" = {
+          id = "zfumc-pfy38";
+          path = "/data/media/music";
+          type = "sendonly";
+          devices = [ "oracle" ];
+        };
+      };
+    };
   };
 
   home-manager.users."${config.user}".home.packages = with pkgs; [

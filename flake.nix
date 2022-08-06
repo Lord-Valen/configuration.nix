@@ -41,6 +41,7 @@
         ./modules/ipfs
         ./modules/games
         ./modules/dev
+        ./modules/syncthing.nix
       ];
 
       hostDefaults.modules = with self.nixosModules; [
@@ -63,6 +64,7 @@
         ipfs
         games
         dev
+        syncthing
       ];
 
       hosts = {
