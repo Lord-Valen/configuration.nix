@@ -1,0 +1,9 @@
+# Include the system locale compose file
+include "%L"
+
+# Key sequences
+<Multi_key> <p> <i>     : "π" U03C0 # Pi
+<Multi_key> <P> <I>     : "π" U03C0 # Pi
+
+<Multi_key> <i> <n> <f> : "∞" U221E # infinity
+<Multi_key> <I> <N> <F> : "∞" U221E # infinity

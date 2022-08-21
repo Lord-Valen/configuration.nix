@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name: chicago template
+# key: chicago
+# --
+#+author:
+#+date:
+#+options: toc:nil
+#+exclude_tags: noexport
+#+latex_class: chicago
+#+latex_header: \studentnum{}
+#+latex_header: \instructor{}
+#+latex_header: \course{}
+#+latex_header: \coursenum{}
+* Notes :noexport:
+* Content :ignore:
+** Introduction :ignore:
+** Conclusion :ignore
+* Bibliography
+#+bibliography: $1{~/org-roam/lib.bib}
+#+cite_export: biblatex
+#+print_bibliography:

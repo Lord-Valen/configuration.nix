@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+for dir in "$HOME"/.config/docker/*/; do
+    if [ -f "$dir"/up ]; then
+        sudo docker-compose -f "$dir"/docker-compose.y*ml up -d
+    fi
+done

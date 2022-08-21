@@ -1,0 +1,8 @@
+[submodule ".config/doom"]
+	path = .config/doom
+	url = https://github.com/Lord-Valen/doom-emacs-config.git
+	update = rebase
+[submodule ".config/xmonad"]
+	path = .config/xmonad
+	url = https://github.com/Lord-Valen/xmonad-config.git
+	update = rebase

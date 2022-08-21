@@ -1,0 +1,20 @@
+# -*- mode: snippet -*-
+# name: apa-template
+# key: apa
+# --
+#+author:
+#+options: toc:nil
+#+exclude_tags: noexport
+#+latex_class: apa
+#+latex_header: \authorsaffiliations{}
+#+latex_header: \professor{}
+#+latex_header: \course{}
+#+latex_header: \duedate{}
+* Notes :noexport:
+* Content :ignore:
+** Introduction :ignore:
+** Conclusion :ignore:
+* Bibliography :ignore:
+#+bibliography: $1{~/org-roam/lib.bib}
+#+cite_export: biblatex
+#+print_bibliography:

@@ -1,0 +1,41 @@
+* root :elfeed:
+** Parties :politics:
+*** Libertarian Parties :liberty:
+**** [[https://www.libertarian.ca/blog.rss][Libertarian Party of Canada]]
+**** [[https://libertarian.on.ca/rss.xml][Ontario Libertarian Party]] :ontario:
+*** Governing Parties :gov:
+**** [[https://liberal.ca/feed/][Liberal Party of Canada]]
+*** Populist Parties :pop:
+
+** Podcasts :podc:
+*** Tech :tech:
+**** [[https://surveillancereport.tech/feed][Surveillance Report]] :privacy:security:
+
+** Blogs :blog:
+*** Tech :tech:
+**** [[https://ariadne.space/feed][Ariadne's Space]] :foss:linux:
+**** [[https://www.pine64.org/blog/feed][Pine64]] :foss:fosh:
+**** [[https://www.sifive.com/feed.xml][SiFive]] :fosh:riscv:
+**** [[https://www.kalzumeus.com/feed/articles/][kalzumeus]] :patio11:finance:
+*** Finance :finance:
+**** [[https://bam.kalzumeus.com/archive/rss/][Bits About Money]] :patio11:tech:
+
+** News :news:
+*** Tech :tech:
+**** [[https://www.eff.org/rss/updates.xml][EFF]] :foss:
+**** [[https://news.itsfoss.com/feed][It's FOSS]] :foss:
+**** [[https://riscv.org/feed/][RISC-V]] :foss:fosh:riscv:
+**** [[https://www.fedscoop.com/feed][FEDSCOOP]] :scoop:
+**** Security :security:
+***** [[https://www.wired.com/feed/security/rss][WIRED Security]] :wired:
+***** [[https://feeds.feedburner.com/TheHackersNews][The Hacker News]]
+***** [[https://www.cyberscoop.com/feed/][CYBERSCOOP]] :scoop:
+***** [[https://www.bleepingcomputer.com/feed/][BleepingComputer]]
+
+** Linux :linux:
+*** [[https://archlinux.org/feeds/news][archlinux]] :arch:
+*** [[https://weekly.nixos.org/feeds/all.rss.xml][NixOS]] :nixos:
+**** [[https://mobile.nixos.org/index.xml][Mobile NixOS]] :mobile:
+
+** Android :android:
+*** [[https://calyxos.org/feed.xml][CalyxOS]] :foss:privacy:

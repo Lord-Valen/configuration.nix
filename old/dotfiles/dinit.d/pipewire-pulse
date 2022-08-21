@@ -1,0 +1,4 @@
+type = process
+depends-on = pipewire
+command = /usr/sbin/pipewire-pulse
+restart = true

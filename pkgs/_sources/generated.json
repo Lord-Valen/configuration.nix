@@ -1,0 +1,16 @@
+{
+    "protonup-ng": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "protonup-ng",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-rys9Noa3+w4phttfcI1OGEDfHMy8s80bm8kM8TzssQA=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/p/protonup-ng/protonup-ng-0.2.1.tar.gz"
+        },
+        "version": "0.2.1"
+    }
+}

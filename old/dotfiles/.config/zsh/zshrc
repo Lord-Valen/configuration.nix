@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+[ -f "$HOME/.config/sh/shrc" ] && . "$HOME/.config/sh/shrc"
+
+autoload -U colors && colors
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+setopt autocd
+stty stop undef

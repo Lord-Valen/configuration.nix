@@ -1,0 +1,4 @@
+# nvfetcher.toml
+[protonup-ng]
+src.pypi = "protonup-ng"
+fetch.pypi = "protonup-ng"

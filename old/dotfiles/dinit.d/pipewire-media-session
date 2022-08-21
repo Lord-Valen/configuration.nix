@@ -1,0 +1,4 @@
+type = process
+depends-on = pipewire-pulse
+command = /usr/sbin/pipewire-media-session
+restart = true
