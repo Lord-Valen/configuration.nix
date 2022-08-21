@@ -112,7 +112,8 @@
             users = digga.lib.rakeLeaves ./users;
           };
           suites = with profiles; rec {
-            base = [ core.nixos fonts users.nixos users.lord-valen users.root ];
+            base =
+              [ core.nixos fonts users.nixos users.lord-valen users.root gpg ];
             tangible = base ++ [ audio.common networking ];
 
             server = base ++ [ networking ];
