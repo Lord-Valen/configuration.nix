@@ -60,8 +60,22 @@
     };
   };
 
-  outputs = { self, nixpkgs, stable, unstable, nur, hardware, nix-doom-emacs
-    , home, deploy, agenix, nvfetcher, arion, digga, ... }@inputs:
+  outputs =
+    { self
+    , nixpkgs
+    , stable
+    , unstable
+    , nur
+    , hardware
+    , nix-doom-emacs
+    , home
+    , deploy
+    , agenix
+    , nvfetcher
+    , arion
+    , digga
+    , ...
+    }@inputs:
     digga.lib.mkFlake {
       inherit self inputs;
 
@@ -112,9 +126,8 @@
             users = digga.lib.rakeLeaves ./users;
           };
           suites = with profiles; rec {
-            base =
-              [ core.nixos fonts users.nixos users.lord-valen users.root gpg ];
-            tangible = base ++ [ audio.common networking ];
+            base = [ core.nixos fonts users.nixos users.root gpg ];
+            tangible = base ++ [ audio.common networking users.lord-valen ];
 
             server = base ++ [ networking ];
 
