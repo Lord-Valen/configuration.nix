@@ -12,16 +12,22 @@
   inputs = {
     stable.url = "github:nixos/nixpkgs/nixos-22.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.follows = "stable";
+    nur.url = "github:nix-community/NUR";
 
     hardware.url = "github:nixos/nixos-hardware";
 
-    nixos-generators.url = "github:nix-community/nixos-generators";
-
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs = {
+        nixpkgs.follows = "stable";
+        nixlib.follows = "stable";
+      };
+    };
 
     nix-doom-emacs = {
       url = "github:nix-community/nix-doom-emacs";
-      inputs.emacs-overlay.follows = "emacs-overlay";
+      inputs.nixpkgs.follows = "stable";
     };
 
     home = {
@@ -53,6 +59,7 @@
       url = "github:divnix/digga";
       inputs = {
         nixpkgs.follows = "stable";
+        nixpkgs-unstable.follows = "unstable";
         nixlib.follows = "stable";
         home-manager.follows = "home";
         deploy.follows = "deploy";
@@ -60,22 +67,8 @@
     };
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , stable
-    , unstable
-    , nur
-    , hardware
-    , nix-doom-emacs
-    , home
-    , deploy
-    , agenix
-    , nvfetcher
-    , arion
-    , digga
-    , ...
-    }@inputs:
+  outputs = { self, nixpkgs, stable, unstable, nur, hardware, nix-doom-emacs
+    , home, deploy, agenix, nvfetcher, arion, digga, ... }@inputs:
     digga.lib.mkFlake {
       inherit self inputs;
 
