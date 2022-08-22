@@ -141,7 +141,7 @@
         users = {
           nixos = { suites, profiles, ... }: { imports = suites.base; };
           lord-valen = { suites, profiles, ... }: {
-            imports = suites.base ++ (with profiles; [ doom wallpaper ]);
+            imports = suites.base ++ (with profiles; [ doom wallpaper xmobar ]);
           };
         };
       };
