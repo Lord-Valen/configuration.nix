@@ -56,6 +56,11 @@
     xclip
   ];
 
+  services.emacs = {
+    enable = true;
+    defaultEditor = true;
+  };
+
   programs.doom-emacs = {
     enable = true;
     doomPrivateDir = ./doom.d;
