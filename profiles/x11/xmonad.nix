@@ -3,7 +3,7 @@
 {
   imports = [ ./common.nix ];
 
-  environment.systemPackages = with pkgs; [ xmobar rofi kitty trayer ];
+  environment.systemPackages = with pkgs; [ brave xmobar rofi kitty trayer ];
 
   fonts.fonts = with pkgs; [ fira-code font-awesome ];
 
