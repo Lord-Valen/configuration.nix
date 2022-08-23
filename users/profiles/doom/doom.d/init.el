@@ -14,110 +14,95 @@
 ;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
 ;;      directory (for easy access to its source code).
 
-(when (daemonp)
-  (exec-path-from-shell-initialize))
-(doom! :input
-       ;; (layout)
+(when (daemonp) (exec-path-from-shell-initialize))
+(doom!
+  :app
+  calendar
+  everywhere
+  (rss +org)
 
-       :completion
-       company
-       helm
+  :checkers
+  grammar
+  (spell +aspell)
+  syntax
 
-       :ui
-       doom
-       doom-dashboard
-       doom-quit
-       (emoji +unicode)       ; 🙂
-       hl-todo                ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
-       hydra
-       indent-guides
-       (ligatures +extra)     ; =>>>>=
-       modeline
-       nav-flash
-       ophints
-       (popup +defaults)
-       tabs
-       (treemacs +lsp)
-       unicode
-       vc-gutter
-       vi-tilde-fringe
-       window-select
-       ;; workspaces
+  :completion
+  company
+  vertico
 
-       :editor
-       (evil +everywhere)
-       file-templates
-       fold
-       (format +onsave)
-       lispy
-       parinfer
-       snippets
-       word-wrap
+  :config
+  (default +bindings +smartparens)
+  literate
 
-       :emacs
-       dired
-       electric
-       ;; ibuffer          ; interactive buffer management
-       undo
-       vc
+  :editor
+  (evil +everywhere)
+  file-templates
+  fold
+  (format +onsave)
+  lispy
+  multiple-cursors
+  rotate-text
+  parinfer
+  snippets
+  word-wrap
 
-       :term
-       eshell
+  :emacs
+  (dired +icons)
+  electric
+  (ibuffer +icons)
+  (undo +tree)
+  vc
 
-       :checkers
-       syntax
-       (spell +flyspell)
-       grammar
+  :lang
+  common-lisp
+  data
+  emacs-lisp
+  (haskell +lsp)                        ; >>=
+  (javascript +lsp)
+  (json +lsp)
+  (latex +fold +lsp)
+  markdown
+  (nix +lsp)
+  (org +dragndrop +pandoc +roam2)
+  (rust +lsp)
+  (sh +lsp)
+  (web +lsp)
+  (yaml +lsp)
 
-       :tools
-       ;; ansible
-       biblio  ; Writes a PhD for you (citation needed)
-       ;; debugger          ; stepping through code, to help you add bugs
-       ;; direnv
-       (docker +lsp)
-       editorconfig                ; let someone else argue about tabs vs spaces
-       (eval +overlay)
-       gist
-       (lookup +dictionary)
-       lsp
-       (magit +forge)
-       ;; make              ; run make tasks from Emacs
-       ;; pass              ; password manager for nerds
-       pdf
-       ;; prodigy           ; managing external services & code builders
-       rgb
-       ;; tmux              ; an API for interacting with tmux
+  :os
+  tty
 
-       :os
-       (:if IS-MAC macos)
-       tty                              ; improve the terminal Emacs experience
+  :term
+  eshell
 
-       :lang
-       ;; (cc +lsp)
-       common-lisp
-       ;; (csharp +lsp)
-       ;; data              ; config/data formats
-       emacs-lisp
-       ;; (ess +lsp)        ; emacs speaks statistics
-       (haskell +lsp)   ; >>=
-       (json +lsp)
-       (javascript +lsp)
-       (latex +lsp)
-       ;; (lua +lsp)         ; one-based indices? one-based indices
-       ;; markdown
-       (nix +lsp)
-       (org +roam2)
-       (rust +lsp)
-       (sh +lsp)
-       (yaml +lsp)
+  :tools
+  biblio
+  direnv
+  editorconfig
+  (eval +overlay)
+  gist
+  (lookup +dictionary +offline)
+  lsp
+  (magit +forge)
+  pdf
+  rgb
+  taskrunner
 
-       :app
-       calendar
-       emms
-       everywhere
-       irc
-       (rss +org)
-
-       :config
-       literate
-       (default +bindings +smartparens))
+  :ui
+  doom
+  doom-dashboard
+  doom-quit
+  (emoji +github +unicode)              ; 🙂
+  hl-todo                               ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
+  indent-guides
+  (ligatures +extra)                    ; =>>>>=
+  modeline
+  nav-flash
+  ophints
+  (popup +defaults)
+  tabs
+  unicode
+  vc-gutter
+  vi-tilde-fringe
+  window-select
+  workspaces)

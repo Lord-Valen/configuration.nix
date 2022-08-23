@@ -1,21 +1,5 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-(defmacro :hook (hook-name &rest body)
-  "A simple wrapper around `add-hook'"
-  (declare (indent defun))
-  (let* ((hook-name (format "%s-hook" (symbol-name hook-name)))
-         (hook-sym (intern hook-name))
-         (first (car body))
-         (local (eq :local first))
-         (body (if local (cdr body) body))
-         (first (car body))
-         (body (if (consp first)
-                   (if (eq (car first) 'quote)
-                       first
-                     `(lambda () ,@body))
-                 `',first)))
-    `(add-hook ',hook-sym ,body nil ,local)))
-
 (defun mine/latex-headers (headers)
   (mapconcat (function (lambda (x) (format "#+LATEX_HEADER: %s" x))) headers "\n"))
 
@@ -59,39 +43,6 @@
   :config
   (setq browse-url-browser-function 'eww-browse-url
         browse-url-secondary-browser-function 'browse-url-default-browser))
-
-(setq creds "$XDG_CONFIG_HOME/doom/creds.el"
-      nick "lord-valen")
-(defun pass (server) (with-temp-buffer
-                        (insert-file-contents-literally creds)
-                        (plist-get (read (buffer-string)) :pass)))
-
-(setq circe-network-options
-      '(("Freenode" :host "chat.freenode.net" :port (6667 . 6697)
-         :tls t
-         :nick nick
-         :sasl-username nick
-         :sasl-password pass
-         :channels ("#philosophy"
-                    "#idleRPG"
-                    "#physics"
-                    "#science"
-                    "#emacs"
-                    "#"))))
-
-(setq circe-format-say "{nick:-16s}> {body}"
-      circe-format-self-say "{nick:-16s}> {body}"
-      circe-format-message "{nick:-16s} => {chattarget}> {body}"
-      circe-format-self-message "{nick:-16s} => {chattarget}> {body}")
-
-(add-hook 'circe-chat-mode-hook 'my-circe-prompt)
-(defun my-circe-prompt ()
-  (lui-set-prompt
-   (concat (propertize (concat (buffer-name) ">")
-                       'face 'circe-prompt-face)
-           " ")))
-
-(setq circe-reduce-lurker-spam t)
 
 (use-package! projectile
   :config
@@ -273,18 +224,3 @@
                  (preserve-size . (t nil))
                  (window-parameters . ((no-other-window . t)
                                        (no-delete-other-windows . t))))))
-
-(use-package! helm-bibtex
-  :after org
-  :config
-  ;; (setq bibtex-completion-bibliography '("~/org-roam/lib.bib"))
-  (add-to-list 'org-capture-templates
-               '(("a"                   ; key
-                  "Article"             ; name
-                  entry                 ; type
-                                        ;(file+headline (concatenate 'string org-directory "/foo.org) "Article")  ; target
-                  "\* %^{Title} %(org-set-tags)  :article: \n:PROPERTIES:\n:Created: %U\n:Linked: %a\n:END:\n%i\nBrief description:\n%?" ; template
-                  :prepend t            ; properties
-                  :empty-lines 1        ; properties
-                  :created t            ; properties
-                  ))))

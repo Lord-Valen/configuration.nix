@@ -13,47 +13,78 @@
     fd
     imagemagick
     zstd
-    emacs-all-the-icons-fonts
 
     # Doom Module Dependencies
-    ## :tools lsp
+    ## :app
+    ### everywhere
+    xclip
+    xdotool
+    xorg.xprop
+    xorg.xwininfo
+
+    ## :checkers
+    ### grammar
+    languagetool
+
+    ### spell
+    aspell
+    aspellDicts.en
+    aspellDicts.en-computers
+    aspellDicts.en-science
+
+    ## :tools
+    ### lsp
     unzip
     python3Full
     nodejs
     nodePackages.npm
 
-    ## :lang cc
-    ghc
-    glslang
-
-    ## :lang common-lisp
+    ## :lang
+    ### common-lisp
     sbcl
 
-    ## :lang haskell
+    ### haskell
     ghc
     cabal-install
     haskellPackages.haskell-language-server
     haskellPackages.hoogle
 
-    ## :lang nix
+    ### latex
+    texlive.combined.scheme-full
+
+    ### markdown
+    mdl
+    pandoc
+
+    ### nix
     nixfmt
     rnix-lsp
 
-    ## :lang org
+    ### org
     graphviz
+    sqlite
 
-    ## :lang rust
-    rust-analyzer
-    cargo
+    ### rust
     rustc
+    cargo
+    rustfmt
+    rust-analyzer
 
-    ## :lang sh
+    ### sh
+    shfmt
     shellcheck
 
-    ## :app everywhere
-    xorg.xwininfo
-    xdotool
-    xclip
+    ## :term
+    ### eshell
+    bash
+
+    ## :tools
+    ### direnv
+    direnv
+
+    ## :ui
+    ### doom-dashboard
+    emacs-all-the-icons-fonts
   ];
 
   services.emacs = {
