@@ -119,13 +119,13 @@
             users = digga.lib.rakeLeaves ./users;
           };
           suites = with profiles; rec {
-            base = [ core.nixos fonts users.nixos users.root gpg ];
-            tangible = base ++ [ audio.common networking users.lord-valen ];
+            base = [ core.nixos fonts users.nixos users.root gpg pkgscfg ];
 
+            pc = base ++ [ audio.common networking users.lord-valen discord ];
             server = base ++ [ networking ];
 
-            desktop = tangible ++ [ ipfs x11.xmonad audio.jack ];
-            laptop = tangible ++ [ ];
+            desktop = pc ++ [ ipfs x11.xmonad audio.jack ];
+            laptop = pc ++ [ ];
           };
         };
 
