@@ -8,6 +8,28 @@
 
   system.stateVersion = "22.05";
 
+  services.syncthing = {
+    folders = {
+      "photos" = {
+        id = "sm-g950_7ywz-photos";
+        path = "/data/oracle-photos";
+        devices = [ "oracle" ];
+      };
+      "books" = {
+        id = "fheng-o2wyn";
+        path = "/data/media/books";
+        type = "sendonly";
+        devices = [ "oracle" ];
+      };
+      "music" = {
+        id = "zfumc-pfy38";
+        path = "/data/media/music";
+        type = "sendonly";
+        devices = [ "oracle" ];
+      };
+    };
+  };
+
   boot = {
     loader = {
       efi = {
