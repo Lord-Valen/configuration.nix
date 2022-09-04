@@ -3,6 +3,8 @@
 {
   imports = suites.laptop ++ (with profiles; [ latex ]);
 
+  time.timeZone = "Canada/Eastern";
+
   system.stateVersion = "22.05";
 
   boot = {

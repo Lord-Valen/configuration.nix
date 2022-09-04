@@ -4,6 +4,8 @@
   imports = suites.desktop
     ++ (with profiles; [ latex games.steam tidal arion.servarr vm syncthing ]);
 
+  time.timeZone = "Canada/Eastern";
+
   system.stateVersion = "22.05";
 
   boot = {
