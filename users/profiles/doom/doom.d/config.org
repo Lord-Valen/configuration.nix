@@ -7,8 +7,8 @@
 - [[#lexical-binding][Lexical Binding]]
 - [[#functions][Functions]]
   - [[#latex-headers][latex-headers]]
-- [[#name-and-email][Name and Email]]
-- [[#appearance][Appearance]]
+- [[#basic][Basic]]
+- [[#ligatures][Ligatures]]
 - [[#package-config][Package Config]]
   - [[#colemak-evil][Colemak Evil]]
   - [[#elcord][Elcord]]
@@ -29,18 +29,18 @@
 (defun mine/latex-headers (headers)
   (mapconcat (function (lambda (x) (format "#+LATEX_HEADER: %s" x))) headers "\n"))
 #+end_src
-* Name and Email
+* Basic
 #+begin_src emacs-lisp :tangle yes
 (setq user-full-name "Lord Valen"
       user-mail-address "lord_valen@pm.me")
+
 (setq shell-file-name "bash")
-#+end_src
-* Appearance
-Set fonts and font sizes. Select Doom Theme.
-#+begin_src emacs-lisp :tangle yes
+
 (setq doom-font (font-spec :family "FiraCode Nerd Font" :size 13)
       doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font")
-      doom-big-font (font-spec :family "FiraCode Nerd Font" :size 18))
+      doom-big-font (font-spec :family "FiraCode Nerd Font" :size 18)
+      doom-unicode-font doom-font)
+
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
@@ -49,6 +49,13 @@ Set fonts and font sizes. Select Doom Theme.
       doom-themes-enable-italic t
       global-prettify-symbols-mode t
       doom-theme 'doom-outrun-electric)
+#+end_src
+* Ligatures
+#+begin_src emacs-lisp
+(plist-put! +ligatures-extra-symbols
+            ;; Types
+            :true       "⊤"
+            :false      "⊥")
 #+end_src
 * Package Config
 ** Colemak Evil

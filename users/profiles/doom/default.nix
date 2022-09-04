@@ -96,17 +96,17 @@
     enable = true;
     doomPrivateDir = ./doom.d;
     emacsPackagesOverlay = self: super: {
-      git-ontology-snippets = self.trivialBuild {
-        pname = "git-ontology-snippets";
-        ename = "git-ontology-snippets";
-        version = "1.0.2";
-        src = pkgs.fetchFromGitHub {
-          owner = "Lord-Valen";
-          repo = "git-ontology-snippets.el";
-          rev = "fc0529";
-          sha256 = "15y3y76xqw7qhd68vcdccyd7cv44pp9bblpi0z0m6rnhm6z14xgl";
-        };
-      };
+      # git-ontology-snippets = self.trivialBuild {
+      #   pname = "git-ontology-snippets";
+      #   ename = "git-ontology-snippets";
+      #   version = "2.0.1";
+      #   src = pkgs.fetchFromGitHub {
+      #     owner = "Lord-Valen";
+      #     repo = "git-ontology-snippets.el";
+      #     rev = "0d0e0d9904f0bd8eeefccbf1b49811e53f04f692";
+      #     sha256 = "02q072lcf96j0mbaix6z1d1v9q88bgzc3iwdz3g7q591w7p0p04s";
+      #   };
+      # };
     };
   };
 }

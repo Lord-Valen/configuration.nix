@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: value
+# key: val
+# --
+:gear: \`value\` $0

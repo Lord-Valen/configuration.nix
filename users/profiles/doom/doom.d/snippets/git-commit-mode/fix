@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: fix
+# key: fix
+# --
+:bug: \`fix\` $0

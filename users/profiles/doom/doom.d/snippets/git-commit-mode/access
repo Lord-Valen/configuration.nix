@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: access
+# key: acc
+# --
+:lock: \`access\` $0

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: env
+# key: env
+# --
+:recycle: \`env\` $0

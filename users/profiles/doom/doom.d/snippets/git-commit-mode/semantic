@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: semantic
+# key: sem
+# --
+:notes: \`semantic\` $0

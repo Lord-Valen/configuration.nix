@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: style
+# key: sty
+# --
+:gem: \`style\` $0

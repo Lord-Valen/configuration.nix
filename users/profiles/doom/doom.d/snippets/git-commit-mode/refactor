@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: refactor
+# key: ref
+# --
+:bulb: \`refactor\` $0

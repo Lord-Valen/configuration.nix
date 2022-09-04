@@ -5,11 +5,14 @@
 
 (setq user-full-name "Lord Valen"
       user-mail-address "lord_valen@pm.me")
+
 (setq shell-file-name "bash")
 
 (setq doom-font (font-spec :family "FiraCode Nerd Font" :size 13)
       doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font")
-      doom-big-font (font-spec :family "FiraCode Nerd Font" :size 18))
+      doom-big-font (font-spec :family "FiraCode Nerd Font" :size 18)
+      doom-unicode-font doom-font)
+
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
@@ -18,6 +21,11 @@
       doom-themes-enable-italic t
       global-prettify-symbols-mode t
       doom-theme 'doom-outrun-electric)
+
+(plist-put! +ligatures-extra-symbols
+            ;; Types
+            :true       "⊤"
+            :false      "⊥")
 
 (use-package! evil-colemak-basics
   :after evil

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: feat
+# key: feat
+# --
+:rocket: \`feat\` $0
