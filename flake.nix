@@ -67,8 +67,22 @@
     };
   };
 
-  outputs = { self, nixpkgs, stable, unstable, nur, hardware, nix-doom-emacs
-    , home, deploy, agenix, nvfetcher, arion, digga, ... }@inputs:
+  outputs =
+    { self
+    , nixpkgs
+    , stable
+    , unstable
+    , nur
+    , hardware
+    , nix-doom-emacs
+    , home
+    , deploy
+    , agenix
+    , nvfetcher
+    , arion
+    , digga
+    , ...
+    }@inputs:
     digga.lib.mkFlake {
       inherit self inputs;
 
@@ -121,10 +135,10 @@
           suites = with profiles; rec {
             base = [ core.nixos fonts users.nixos users.root gpg pkgscfg ];
 
-            pc = base ++ [ audio.common networking users.lord-valen discord ];
+            pc = base ++ [ audio.common networking x11.xmonad users.lord-valen discord ];
             server = base ++ [ networking ];
 
-            desktop = pc ++ [ ipfs x11.xmonad audio.jack ];
+            desktop = pc ++ [ ipfs audio.jack ];
             laptop = pc ++ [ ];
           };
         };
