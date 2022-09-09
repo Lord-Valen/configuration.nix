@@ -135,7 +135,7 @@
           suites = with profiles; rec {
             base = [ core.nixos fonts users.nixos users.root gpg pkgscfg ];
 
-            pc = base ++ [ audio.common networking x11.xmonad users.lord-valen discord ];
+            pc = base ++ [ audio.common networking x11.xmonad printing users.lord-valen discord ];
             server = base ++ [ networking ];
 
             desktop = pc ++ [ ipfs audio.jack ];
