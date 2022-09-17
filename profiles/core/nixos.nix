@@ -45,10 +45,15 @@
   };
 
   nix = {
-    # Improve nix store disk usage
-    autoOptimiseStore = true;
-    optimise.automatic = true;
     allowedUsers = [ "@wheel" ];
+
+    # Improve nix store disk usage
+    settings.auto-optimise-store = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 1w";
+    };
   };
 
   programs.bash = {
