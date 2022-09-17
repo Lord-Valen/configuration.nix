@@ -1,5 +1,5 @@
 * Nix Configuration
-[[https:builtwithnix.org][https:builtwithnix.org/badge.svg]]
+[[https://builtwithnix.org][https://builtwithnix.org/badge.svg]]
 
 This repository is home to the nix code that builds my systems.
 
