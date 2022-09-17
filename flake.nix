@@ -88,7 +88,16 @@
 
       supportedSystems = [ "x86_64-linux" ];
 
-      channelsConfig = { allowUnfree = true; };
+      channelsConfig = {
+        # I want to keep proprietary software to a minimum.
+        # allowUnfreePredicate forces me to keep track of what proprietary software I allow.
+        allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
+          "discord"
+          "hplip"
+          "steam"
+          "steam-original"
+        ];
+      };
 
       channels = {
         stable = {
@@ -128,20 +137,27 @@
           ];
         };
 
-        importables = rec {
-          profiles = digga.lib.rakeLeaves ./profiles // {
-            users = digga.lib.rakeLeaves ./users;
-          };
-          suites = with profiles; rec {
-            base = [ core.nixos fonts users.nixos users.root gpg pkgscfg ];
+        importables =
+          let
+            profiles = digga.lib.rakeLeaves ./profiles // { users = digga.lib.rakeLeaves ./users; };
+          in
+          {
+            profiles = profiles;
+            suites =
+              let
+                inherit (profiles)
+                  core users audio x11 networking fonts gpg printing discord ipfs;
+              in
+              rec {
+                base = [ core.nixos fonts users.nixos users.root gpg ];
 
-            pc = base ++ [ audio.common networking x11.xmonad printing users.lord-valen discord ];
-            server = base ++ [ networking ];
+                pc = base ++ [ audio.common networking x11.xmonad printing users.lord-valen discord ];
+                server = base ++ [ networking ];
 
-            desktop = pc ++ [ ipfs audio.jack ];
-            laptop = pc ++ [ ];
+                desktop = pc ++ [ ipfs audio.jack ];
+                laptop = pc ++ [ ];
+              };
           };
-        };
 
         imports = [ (digga.lib.importHosts ./hosts) ];
         hosts = {
@@ -151,17 +167,31 @@
       };
 
       home = {
-        importables = rec {
-          profiles = digga.lib.rakeLeaves ./users/profiles;
-          suites = with profiles; rec { base = [ direnv git xdg ]; };
-        };
+        importables =
+          let
+            profiles = digga.lib.rakeLeaves ./users/profiles;
+          in
+          {
+            profiles = profiles;
+            suites =
+              let
+                inherit (profiles)
+                  direnv git xdg;
+              in
+              { base = [ direnv git xdg ]; };
+          };
 
         imports = [ (digga.lib.importExportableModules ./users/modules) ];
         modules = [ nix-doom-emacs.hmModule ];
         users = {
           nixos = { suites, profiles, ... }: { imports = suites.base; };
           lord-valen = { suites, profiles, ... }: {
-            imports = suites.base ++ (with profiles; [ doom wallpaper xmobar ]);
+            imports = suites.base ++ (
+              let
+                inherit (profiles) doom wallpaper xmobar;
+              in
+              [ doom wallpaper xmobar ]
+            );
           };
         };
       };
