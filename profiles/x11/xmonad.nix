@@ -13,6 +13,7 @@
       windowManager.xmonad = {
         enable = true;
         enableContribAndExtras = true;
+        enableConfiguredRecompile = true;
         config = ./xmonad.d/xmonad.hs;
       };
     };

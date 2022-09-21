@@ -155,7 +155,6 @@ myStartupHook = do
   spawnOnce "nm-applet &"
   spawnOnce "volumeicon &"
   spawnOnce $ "killall trayer; trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor primary --transparent true --alpha 0 " ++ colorTrayer ++ " --height 30 &"
-  spawnOnce "feh --no-fehbg --bg-fill -z ~/.config/wallpaper/*" -- feh set random wallpaper
 
 myScratchPads :: [NamedScratchpad]
 myScratchPads =

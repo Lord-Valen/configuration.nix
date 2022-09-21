@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:
 
 {
-  xdg.configFile."wallpaper".source = ./wallpaper.d;
+  home.file.".background-image".source = ./wallpaper.d;
 }
