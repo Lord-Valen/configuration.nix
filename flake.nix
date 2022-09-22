@@ -146,12 +146,24 @@
             suites =
               let
                 inherit (profiles)
-                  core users audio x11 networking fonts gpg printing discord ipfs;
+                  core
+                  users
+                  audio
+                  x11
+                  networking
+                  fonts
+                  gpg
+                  printing
+                  discord
+                  ipfs
+                  telegram
+                  matrix;
               in
               rec {
                 base = [ core.nixos fonts users.nixos users.root gpg ];
+                chat = [ discord telegram matrix ];
 
-                pc = base ++ [ audio.common networking x11.xmonad printing users.lord-valen discord ];
+                pc = base ++ chat ++ [ audio.common networking x11.xmonad printing users.lord-valen ];
                 server = base ++ [ networking ];
 
                 desktop = pc ++ [ ipfs audio.jack ];
