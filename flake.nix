@@ -157,13 +157,18 @@
                   discord
                   ipfs
                   telegram
-                  matrix;
+                  matrix
+                  onlyoffice;
               in
               rec {
                 base = [ core.nixos fonts users.nixos users.root gpg ];
                 chat = [ discord telegram matrix ];
+                office = [ onlyoffice printing ];
 
-                pc = base ++ chat ++ [ audio.common networking x11.xmonad printing users.lord-valen ];
+                pc = base
+                  ++ chat
+                  ++ office
+                  ++ [ audio.common networking x11.xmonad users.lord-valen ];
                 server = base ++ [ networking ];
 
                 desktop = pc ++ [ ipfs audio.jack ];
