@@ -3,9 +3,16 @@
 {
   imports = [ ./common.nix ];
 
-  environment.systemPackages = with pkgs; [ brave xmobar rofi kitty trayer ];
+  environment.systemPackages = [
+    pkgs.brave
+    pkgs.xmobar
+    pkgs.rofi
+    pkgs.kitty
+    pkgs.trayer
+    pkgs.flameshot
+  ];
 
-  fonts.fonts = with pkgs; [ fira-code font-awesome ];
+  fonts.fonts = [ pkgs.fira-code pkgs.font-awesome ];
 
   services = {
     xserver = {
