@@ -46,6 +46,7 @@
     ### haskell
     ghc
     cabal-install
+    ormolu
     haskellPackages.haskell-language-server
     haskellPackages.hoogle
 
