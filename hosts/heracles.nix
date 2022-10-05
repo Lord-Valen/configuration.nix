@@ -2,7 +2,7 @@
 
 {
   imports = suites.desktop
-    ++ (with profiles; [ latex games.steam tidal arion.servarr vm syncthing ]);
+    ++ (with profiles; [ latex games.lutris games.steam tidal arion.servarr vm syncthing ]);
 
   time.timeZone = "Canada/Eastern";
 
