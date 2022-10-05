@@ -15,6 +15,6 @@
 ** Introduction :ignore:
 ** Conclusion :ignore:
 * Bibliography :ignore:
-#+bibliography: $1{~/org-roam/lib.bib}
+#+bibliography: lib.bib
 #+cite_export: biblatex
 #+print_bibliography:

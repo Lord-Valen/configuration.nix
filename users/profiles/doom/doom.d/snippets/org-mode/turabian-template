@@ -1,12 +1,16 @@
 # -*- mode: snippet -*-
-# name: Chicago Style
-# key: chicago
+# name: Turabian Style
+# key: turabian
 # --
 #+author:
 #+date:
 #+options: toc:nil
 #+exclude_tags: noexport
-#+latex_class: chicago
+#+latex_class: turabian
+#+latex-header: \documentclass{turabian-researchpaper}
+#+latex-header: \subtitle{}
+#+latex_header: \submissioninfo{}
+#+latex_header: \course{}
 * Notes :noexport:
 * Content :ignore:
 ** Introduction :ignore:

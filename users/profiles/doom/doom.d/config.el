@@ -71,54 +71,36 @@
   (require 'ox-extra)
   (ox-extras-activate '(ignore-headlines))
   (--map (add-to-list 'org-latex-classes it)
-         '(("chicago" "\\documentclass[letterpaper,12pt]{article}
+         '(("chicago"
+            "\\documentclass[letterpaper,12pt]{article}
 [PACKAGES]
 \\usepackage{newtxtext}
 \\usepackage{url}
 \\usepackage{doi}
 \\usepackage[notes,backend=biber]{biblatex-chicago}
 \\usepackage[margin=1in]{geometry}
-
-[EXTRA]
-\\doublespacing
-\\makeatletter
-\\newcommand\\@mymakefnmark{\\normalfont\\@thefnmark.\\hfill}
-\\renewcommand\\@makefntext[1]{%
-    \\parindent 1em%
-    \\noindent
-    \\hb@xt@1.8em{\\hss\\@mymakefnmark}\\RaggedRight#1}
-\\def\\studentnum#1{\\gdef\\@studentnum{#1}}
-\\def\\course#1{\\gdef\\@course{#1}}
-\\def\\instructor#1{\\gdef\\@instructor{#1}}
-\\def\\institution#1{\\gdef\\@affiliation{#1}}
-\\renewcommand{\\maketitle}{
-\\begin{titlepage}
-\\begin{center}
-\\null
-\\vfill
-\\@title \\\\
-\\@subtitle \\\\
-\\vfill
-\\@author \\\\
-\\@studentnum \\\\
-\\@course \\\\
-\\@coursenum \\\\
-\\@coursesec \\\\
-\\@instructor \\\\
-\\@institution \\\\
-\\@date \\\\
-\\vfill
-\\end{center}
-\\end{titlepage}}
-\\makeatother"
+"
             ("\\section{%s}" . "\\section*{%s}")
             ("\\subsection{%s}" . "\\subsection*{%s}")
             ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
             ("\\paragraph{%s}" . "\\paragraph*{%s}")
             ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
             ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
-
-           ("apa" "\\documentclass[stu,biblatex,12pt]{apa7}
+           ("turabian"
+            "[PACKAGES]
+\\usepackage{newtxtext}
+\\usepackage{url}
+\\usepackage{doi}
+\\usepackage[notes]{biblatex-chicago}
+\\usepackage{turabian-formatting}"
+            ("\\section{%s}" . "\\section{%s}")
+            ("\\subsection{%s}" . "\\subsection{%s}")
+            ("\\subsubsection{%s}" . "\\subsubsection{%s}")
+            ("\\paragraph{%s}" . "\\paragraph{%s}")
+            ("\\subparagraph{%s}" . "\\subparagraph{%s}")
+            ("\\subsubparagraph{%s}" . "\\subsubparagraph{%s}"))
+           ("apa"
+            "\\documentclass[stu,biblatex,12pt]{apa7}
 [PACKAGES]
 \\usepackage{newtxtext}
 \\usepackage{url}
@@ -129,8 +111,8 @@
             ("\\paragraph{%s}" . "\\paragraph*{%s}")
             ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
             ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
-
-           '("altacv" "\\documentclass[10pt,letterpaper,ragged2e,withhyper]{altacv}
+           ("altacv"
+            "\\documentclass[10pt,letterpaper,ragged2e,withhyper]{altacv}
 [PACKAGES]
 \\usepackage{paracol}
 \\usepackage[rm]{roboto}
@@ -170,7 +152,7 @@
 \\renewcommand{\\ratingmarker}{\\faCircle}
 "
 
-             ("\\cvsection{%s}" . "\\cvsection{%s}")))))
+            ("\\cvsection{%s}" . "\\cvsection{%s}")))))
 (setq org-latex-hyperref-template nil
       org-latex-logfiles-extensions (quote ("lof" "lot" "tex~" "aux" "idx" "log" "out" "toc" "nav" "snm" "vrb" "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl" "xmpi" "run.xml" "bcf" "acn" "acr" "alg" "glg" "gls" "ist")))
 
