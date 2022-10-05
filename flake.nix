@@ -197,7 +197,7 @@
                 inherit (profiles)
                   direnv git xdg;
               in
-              { base = [ direnv git xdg ]; };
+              { base = [ direnv git.common xdg ]; };
           };
 
         imports = [ (digga.lib.importExportableModules ./users/modules) ];
@@ -207,9 +207,9 @@
           lord-valen = { suites, profiles, ... }: {
             imports = suites.base ++ (
               let
-                inherit (profiles) doom wallpaper xmobar;
+                inherit (profiles) git doom wallpaper xmobar;
               in
-              [ doom wallpaper xmobar ]
+              [ doom wallpaper xmobar git.valen ]
             );
           };
         };

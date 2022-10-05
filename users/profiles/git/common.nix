@@ -3,6 +3,8 @@
     enable = true;
 
     extraConfig = {
+      merge.confictStyle = "zdiff3";
+      init.defaultBranch = "main";
       pull.rebase = false;
     };
 
