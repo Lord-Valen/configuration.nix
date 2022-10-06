@@ -87,12 +87,14 @@
             ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
             ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
            ("turabian"
-            "[PACKAGES]
+            "\\documentclass{turabian-researchpaper}
+[PACKAGES]
 \\usepackage{newtxtext}
 \\usepackage{url}
 \\usepackage{doi}
 \\usepackage[notes]{biblatex-chicago}
-\\usepackage{turabian-formatting}"
+\\usepackage{turabian-formatting}
+"
             ("\\section{%s}" . "\\section{%s}")
             ("\\subsection{%s}" . "\\subsection{%s}")
             ("\\subsubsection{%s}" . "\\subsubsection{%s}")
@@ -151,7 +153,6 @@
 \\renewcommand{\\itemmarker}{{\\small\\textbullet}}
 \\renewcommand{\\ratingmarker}{\\faCircle}
 "
-
             ("\\cvsection{%s}" . "\\cvsection{%s}")))))
 (setq org-latex-hyperref-template nil
       org-latex-logfiles-extensions (quote ("lof" "lot" "tex~" "aux" "idx" "log" "out" "toc" "nav" "snm" "vrb" "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl" "xmpi" "run.xml" "bcf" "acn" "acr" "alg" "glg" "gls" "ist")))

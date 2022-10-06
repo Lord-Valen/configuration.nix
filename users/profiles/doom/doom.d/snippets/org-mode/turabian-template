@@ -7,7 +7,6 @@
 #+options: toc:nil
 #+exclude_tags: noexport
 #+latex_class: turabian
-#+latex-header: \documentclass{turabian-researchpaper}
 #+latex-header: \subtitle{}
 #+latex_header: \submissioninfo{}
 #+latex_header: \course{}
