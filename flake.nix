@@ -174,7 +174,7 @@
                 server = base ++ [ networking ];
 
                 desktop = pc ++ [ ipfs audio.jack ];
-                laptop = pc ++ [ ];
+                laptop = pc ++ [ x11.colemak ];
               };
           };
 
