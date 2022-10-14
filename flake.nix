@@ -160,12 +160,13 @@
                   ipfs
                   telegram
                   matrix
+                  latex
                   onlyoffice;
               in
               rec {
                 base = [ core.nixos fonts users.nixos users.root gpg ];
                 chat = [ discord telegram matrix ];
-                office = [ onlyoffice printing ];
+                office = [ latex onlyoffice printing ];
 
                 pc = base
                   ++ chat
@@ -182,6 +183,7 @@
         hosts = {
           heracles = { };
           satellite = { };
+          autolycus.modules = [ hardware.nixosModules.lenovo-thinkpad-t430 ];
         };
       };
 
