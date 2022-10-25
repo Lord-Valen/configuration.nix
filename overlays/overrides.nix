@@ -15,6 +15,7 @@ channels: final: prev: {
     starship
     deploy-rs
     onlyoffice-bin
+    nil
     ;
 
   haskellPackages = prev.haskellPackages.override

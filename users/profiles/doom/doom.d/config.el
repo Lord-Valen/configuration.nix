@@ -52,6 +52,14 @@
   (setq browse-url-browser-function 'eww-browse-url
         browse-url-secondary-browser-function 'browse-url-default-browser))
 
+(use-package! lsp-mode
+  :config
+  (add-to-list 'lsp-language-id-configuration '(nix-mode . "nil"))
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection "nil")
+                    :activation-fn (lsp-activate-on "nil")
+                    :server-id 'nil-ls)))
+
 (use-package! projectile
   :config
   (setq projectile-project-search-path '(("~/dev" . 1))))

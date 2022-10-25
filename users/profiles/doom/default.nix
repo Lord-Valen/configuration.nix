@@ -59,7 +59,8 @@
 
     ### nix
     nixfmt
-    rnix-lsp
+    nil
+    # rnix-lsp
 
     ### org
     graphviz
