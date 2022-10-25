@@ -150,6 +150,7 @@
                 inherit (profiles)
                   core
                   users
+                  dev
                   audio
                   x11
                   networking
@@ -167,10 +168,12 @@
                 base = [ core.nixos fonts users.nixos users.root gpg ];
                 chat = [ discord telegram matrix ];
                 office = [ latex onlyoffice printing ];
+                develop = [ dev.npm ];
 
                 pc = base
                   ++ chat
                   ++ office
+                  ++ develop
                   ++ [ audio.common networking x11.xmonad users.lord-valen ];
                 server = base ++ [ networking ];
 
