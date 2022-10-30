@@ -4,7 +4,6 @@
   imports = [ ./common.nix ];
 
   environment.systemPackages = [
-    pkgs.brave
     pkgs.xmobar
     pkgs.rofi
     pkgs.kitty

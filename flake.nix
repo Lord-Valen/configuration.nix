@@ -162,19 +162,21 @@
                   telegram
                   matrix
                   latex
-                  onlyoffice;
+                  onlyoffice
+                  zotero
+                  browser;
               in
               rec {
                 base = [ core.nixos fonts users.nixos users.root gpg ];
                 chat = [ discord telegram matrix ];
-                office = [ latex onlyoffice printing ];
+                office = [ zotero latex onlyoffice printing ];
                 develop = [ dev.npm ];
 
                 pc = base
                   ++ chat
                   ++ office
                   ++ develop
-                  ++ [ audio.common networking x11.xmonad users.lord-valen ];
+                  ++ [ audio.common networking browser x11.xmonad users.lord-valen ];
                 server = base ++ [ networking ];
 
                 desktop = pc ++ [ ipfs audio.jack ];

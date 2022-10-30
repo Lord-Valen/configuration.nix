@@ -38,6 +38,7 @@
     python3Full
     nodejs
     nodePackages.npm
+    nodePackages.prettier
 
     ## :lang
     ### common-lisp

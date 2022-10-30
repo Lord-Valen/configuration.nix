@@ -1,6 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    xorg.xkill
+  ];
+
   services = {
     xserver = {
       enable = true;
