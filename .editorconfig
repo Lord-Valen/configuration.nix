@@ -16,7 +16,7 @@ indent_size = 2
 indent_size = unset
 
 # Ignore diffs/patches
-[*.{diff,patch}]
+[*.{lock,diff,patch}]
 end_of_line = unset
 insert_final_newline = unset
 trim_trailing_whitespace = unset
