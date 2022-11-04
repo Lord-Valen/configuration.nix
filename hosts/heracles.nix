@@ -1,8 +1,15 @@
 { suites, profiles, ... }:
 
 {
-  imports = suites.desktop
-    ++ (with profiles; [ latex games.lutris games.steam tidal arion.servarr vm syncthing ]);
+  imports = suites.desktop ++ (with profiles; [
+    games.heroic
+    games.lutris
+    games.steam
+    tidal
+    arion.servarr
+    vm
+    syncthing
+  ]);
 
   time.timeZone = "Canada/Eastern";
 
