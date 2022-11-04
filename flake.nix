@@ -12,6 +12,11 @@
   ];
 
   inputs = {
+    flake-compat = {
+      url = "github:edolstra/flake-compat";
+      flake = false;
+    };
+    
     stable.url = "github:nixos/nixpkgs/nixos-22.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.follows = "stable";
