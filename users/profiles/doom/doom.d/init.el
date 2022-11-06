@@ -48,7 +48,7 @@
   (latex +fold +lsp)
   markdown
   (nix +lsp)
-  (org +dragndrop +pandoc +roam2)
+  (org +dragndrop +pandoc)
   (rust +lsp)
   (sh +lsp)
   (web +lsp)
