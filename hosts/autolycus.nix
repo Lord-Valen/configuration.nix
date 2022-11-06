@@ -1,7 +1,9 @@
 { suites, profiles, ... }:
 
 {
-  imports = suites.laptop;
+  imports = suites.laptop ++ (with profiles; [
+    tidal
+  ]);
 
   time.timeZone = "Canada/Eastern";
 

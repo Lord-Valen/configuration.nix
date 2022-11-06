@@ -1,7 +1,7 @@
 { suites, profiles, ... }:
 
 {
-  imports = suites.laptop ++ (with profiles; [ latex ]);
+  imports = suites.laptop;
 
   time.timeZone = "Canada/Eastern";
 
