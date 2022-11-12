@@ -3,7 +3,7 @@ channels: final: prev: {
   __dontExport = true; # overrides clutter up actual creations
 
   inherit (channels.unstable)
-    cachix dhall discord element-desktop rage nix-index nixpkgs-fmt
+    cachix dhall discord element-desktop rage nix-index alejandra
     signal-desktop starship deploy-rs onlyoffice-bin nil heroic;
 
   haskellPackages = prev.haskellPackages.override (old: {
