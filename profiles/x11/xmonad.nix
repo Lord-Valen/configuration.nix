@@ -13,6 +13,10 @@
 
   fonts.fonts = [ pkgs.fira-code pkgs.font-awesome ];
 
+  programs = {
+    gnupg.agent.pinentryFlavor = "gtk2";
+  };
+
   services = {
     xserver = {
       displayManager.lightdm.enable = true;
