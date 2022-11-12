@@ -9,13 +9,12 @@
 # `Run Com "/where/ever/trayer-padding-icon.sh" [] "trayerpad" 10`
 # and use `%trayerpad%` in your template.
 
-
 # Function to create a transparent Wx1 px XPM icon
-create_xpm_icon () {
+create_xpm_icon() {
     timestamp=$(date)
-    pixels=$(for i in `seq $1`; do echo -n "."; done)
+    pixels=$(for i in $(seq $1); do echo -n "."; done)
 
-    cat << EOF > "$2"
+    cat <<EOF >"$2"
 /* XPM *
 static char * trayer_pad_xpm[] = {
 /* This XPM icon is used for padding in xmobar to */
