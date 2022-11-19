@@ -1,10 +1,10 @@
-{ pkgs
-, extraModulesPath
-, inputs
-, lib
-, ...
-}:
-let
+{
+  pkgs,
+  extraModulesPath,
+  inputs,
+  lib,
+  ...
+}: let
   inherit
     (pkgs)
     agenix
@@ -13,34 +13,41 @@ let
     mdbook
     nixUnstable
     treefmt
+    alejandra
+    shfmt
     nvfetcher-bin
     ;
+  inherit (pkgs.nodePackages) prettier;
 
   hooks = import ./hooks;
 
-  pkgWithCategory = category: package: { inherit package category; };
+  pkgWithCategory = category: package: {inherit package category;};
   devos = pkgWithCategory "devos";
+  formatter = pkgWithCategory "formatter";
   linter = pkgWithCategory "linter";
   docs = pkgWithCategory "docs";
-in
-{
+in {
   _file = toString ./.;
 
-  imports = [ "${extraModulesPath}/git/hooks.nix" ];
-  git = { inherit hooks; };
+  imports = ["${extraModulesPath}/git/hooks.nix"];
+  git = {inherit hooks;};
 
   commands =
     [
       (devos nixUnstable)
       (devos agenix)
-
       {
         category = "devos";
         name = nvfetcher-bin.pname;
         help = nvfetcher-bin.meta.description;
         command = "cd $PRJ_ROOT/pkgs; ${nvfetcher-bin}/bin/nvfetcher -c ./sources.toml $@";
       }
-      (linter treefmt)
+
+      (formatter treefmt)
+      (formatter alejandra)
+      (formatter shfmt)
+      (formatter prettier)
+
       (linter editorconfig-checker)
 
       (docs mdbook)
