@@ -2,3 +2,7 @@
 [protonup-ng]
 src.pypi = "protonup-ng"
 fetch.pypi = "protonup-ng"
+
+[ipfs-desktop]
+src.github = "ipfs/ipfs-desktop"
+fetch.github = "ipfs/ipfs-desktop"
