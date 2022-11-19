@@ -16,7 +16,7 @@
       url = "github:edolstra/flake-compat";
       flake = false;
     };
-    
+
     stable.url = "github:nixos/nixpkgs/nixos-22.05";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.follows = "stable";
@@ -74,52 +74,53 @@
     };
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , stable
-    , unstable
-    , nur
-    , hardware
-    , nix-doom-emacs
-    , home
-    , deploy
-    , agenix
-    , nvfetcher
-    , arion
-    , digga
-    , ...
-    }@inputs:
+  outputs = {
+    self,
+    nixpkgs,
+    stable,
+    unstable,
+    nur,
+    hardware,
+    nix-doom-emacs,
+    home,
+    deploy,
+    agenix,
+    nvfetcher,
+    arion,
+    digga,
+    ...
+  } @ inputs:
     digga.lib.mkFlake {
       inherit self inputs;
 
-      supportedSystems = [ "x86_64-linux" ];
+      supportedSystems = ["x86_64-linux"];
 
       channelsConfig = {
         # I want to keep proprietary software to a minimum.
         # allowUnfreePredicate forces me to keep track of what proprietary software I allow.
-        allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [
-          "discord"
-          "hplip"
-          "steam"
-          "steam-original"
-        ];
+        allowUnfreePredicate = pkg:
+          builtins.elem (nixpkgs.lib.getName pkg) [
+            "discord"
+            "hplip"
+            "steam"
+            "steam-original"
+          ];
       };
 
       channels = {
         stable = {
-          imports = [ (digga.lib.importOverlays ./overlays) ];
-          overlays = [ ];
+          imports = [(digga.lib.importOverlays ./overlays)];
+          overlays = [];
         };
-        unstable = { };
+        unstable = {};
       };
 
-      lib = import ./lib { lib = digga.lib // stable.lib; };
+      lib = import ./lib {lib = digga.lib // stable.lib;};
 
       sharedOverlays = [
         (final: prev: {
           __dontExport = true;
-          lib = prev.lib.extend (lfinal: lprev: { our = self.lib; });
+          lib = prev.lib.extend (lfinal: lprev: {our = self.lib;});
         })
 
         nur.overlay
@@ -133,9 +134,9 @@
         hostDefaults = {
           system = "x86_64-linux";
           channelName = "stable";
-          imports = [ (digga.lib.importExportableModules ./modules) ];
+          imports = [(digga.lib.importExportableModules ./modules)];
           modules = [
-            { lib.our = self.lib; }
+            {lib.our = self.lib;}
             digga.nixosModules.bootstrapIso
             digga.nixosModules.nixConfig
             home.nixosModules.home-manager
@@ -144,85 +145,93 @@
           ];
         };
 
-        importables =
-          let
-            profiles = digga.lib.rakeLeaves ./profiles // { users = digga.lib.rakeLeaves ./users; };
-          in
-          {
-            profiles = profiles;
-            suites =
-              let
-                inherit (profiles)
-                  core
-                  users
-                  dev
-                  audio
-                  x11
-                  networking
-                  fonts
-                  gpg
-                  printing
-                  discord
-                  ipfs
-                  telegram
-                  matrix
-                  latex
-                  onlyoffice
-                  zotero
-                  browser;
-              in
-              rec {
-                base = [ core.nixos fonts users.nixos users.root gpg ];
-                chat = [ discord telegram matrix ];
-                office = [ zotero latex onlyoffice printing ];
-                develop = [ dev.npm ];
+        importables = let
+          profiles = digga.lib.rakeLeaves ./profiles // {users = digga.lib.rakeLeaves ./users;};
+        in {
+          profiles = profiles;
+          suites = let
+            inherit
+              (profiles)
+              core
+              users
+              dev
+              audio
+              x11
+              networking
+              fonts
+              gpg
+              printing
+              discord
+              ipfs
+              telegram
+              matrix
+              latex
+              onlyoffice
+              zotero
+              browser
+              ;
+          in rec {
+            base = [core.nixos fonts users.nixos users.root gpg];
+            chat = [discord telegram matrix];
+            office = [zotero latex onlyoffice printing];
+            develop = [dev.npm];
 
-                pc = base
-                  ++ chat
-                  ++ office
-                  ++ develop
-                  ++ [ audio.common networking browser x11.xmonad users.lord-valen ];
-                server = base ++ [ networking ];
+            pc =
+              base
+              ++ chat
+              ++ office
+              ++ develop
+              ++ [audio.common networking browser x11.xmonad users.lord-valen];
+            server = base ++ [networking];
 
-                desktop = pc ++ [ ipfs audio.jack ];
-                laptop = pc ++ [ x11.colemak ];
-              };
+            desktop = pc ++ [ipfs audio.jack];
+            laptop = pc ++ [x11.colemak];
           };
+        };
 
-        imports = [ (digga.lib.importHosts ./hosts) ];
+        imports = [(digga.lib.importHosts ./hosts)];
         hosts = {
-          heracles = { };
-          satellite = { };
-          autolycus.modules = [ hardware.nixosModules.lenovo-thinkpad-t430 ];
+          heracles = {};
+          satellite = {};
+          autolycus.modules = [hardware.nixosModules.lenovo-thinkpad-t430];
         };
       };
 
       home = {
-        importables =
-          let
-            profiles = digga.lib.rakeLeaves ./users/profiles;
-          in
-          {
-            profiles = profiles;
-            suites =
-              let
-                inherit (profiles)
-                  direnv git xdg;
-              in
-              { base = [ direnv git.common xdg ]; };
-          };
+        importables = let
+          profiles = digga.lib.rakeLeaves ./users/profiles;
+        in {
+          profiles = profiles;
+          suites = let
+            inherit
+              (profiles)
+              direnv
+              git
+              xdg
+              ;
+          in {base = [direnv git.common xdg];};
+        };
 
-        imports = [ (digga.lib.importExportableModules ./users/modules) ];
-        modules = [ nix-doom-emacs.hmModule ];
+        imports = [(digga.lib.importExportableModules ./users/modules)];
+        modules = [nix-doom-emacs.hmModule];
         users = {
-          nixos = { suites, profiles, ... }: { imports = suites.base; };
-          lord-valen = { suites, profiles, ... }: {
-            imports = suites.base ++ (
-              let
-                inherit (profiles) git doom wallpaper xmobar;
-              in
-              [ doom wallpaper xmobar git.valen ]
-            );
+          nixos = {
+            suites,
+            profiles,
+            ...
+          }: {imports = suites.base;};
+          lord-valen = {
+            suites,
+            profiles,
+            ...
+          }: {
+            imports =
+              suites.base
+              ++ (
+                let
+                  inherit (profiles) git doom wallpaper xmobar;
+                in [doom wallpaper xmobar git.valen]
+              );
           };
         };
       };
@@ -232,6 +241,6 @@
       homeConfigurations =
         digga.lib.mkHomeConfigurations self.nixosConfigurations;
 
-      deploy.nodes = digga.lib.mkDeployNodes self.nixosConfigurations { };
+      deploy.nodes = digga.lib.mkDeployNodes self.nixosConfigurations {};
     };
 }

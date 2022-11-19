@@ -1,6 +1,8 @@
-{ suites, profiles, ... }:
-
 {
+  suites,
+  profiles,
+  ...
+}: {
   imports = suites.laptop;
 
   time.timeZone = "Canada/Eastern";
@@ -42,7 +44,7 @@
       };
     };
 
-    kernelModules = [ "kvm-amd" ];
+    kernelModules = ["kvm-amd"];
   };
 
   fileSystems."/" = {
@@ -50,8 +52,7 @@
     fsType = "ext4";
   };
 
-  swapDevices =
-    [{ device = "/dev/disk/by-uuid/5b455084-e717-4ded-88c2-9714031ccad0"; }];
+  swapDevices = [{device = "/dev/disk/by-uuid/5b455084-e717-4ded-88c2-9714031ccad0";}];
 
   hardware.cpu.amd.updateMicrocode = true;
 }

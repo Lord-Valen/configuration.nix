@@ -1,5 +1,8 @@
-{ config, lib, pkgs, ... }:
-
 {
-  environment.systemPackages = [ pkgs.element-desktop ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  environment.systemPackages = [pkgs.element-desktop];
 }

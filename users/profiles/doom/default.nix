@@ -1,12 +1,15 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
     # Doom Dependencies
     git
-    (ripgrep.override { withPCRE2 = true; })
+    (ripgrep.override {withPCRE2 = true;})
     gnutls
 
     # Doom Optional Dependencies

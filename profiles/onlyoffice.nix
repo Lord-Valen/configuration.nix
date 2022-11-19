@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   fonts = {
     fonts = [
       pkgs.fira
@@ -8,5 +11,5 @@
     ];
     fontDir.enable = true;
   };
-  environment.systemPackages = [ pkgs.onlyoffice-bin ];
+  environment.systemPackages = [pkgs.onlyoffice-bin];
 }

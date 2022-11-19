@@ -1,5 +1,8 @@
-{ config, lib, pkgs, ... }:
-
 {
-  environment.systemPackages = with pkgs; [ heroic ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  environment.systemPackages = with pkgs; [heroic];
 }

@@ -1,7 +1,10 @@
-{ config, lib, pkgs, ... }:
-
 {
-  imports = [ ./common.nix ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [./common.nix];
 
   environment.systemPackages = [
     pkgs.xmobar
@@ -11,7 +14,7 @@
     pkgs.flameshot
   ];
 
-  fonts.fonts = [ pkgs.fira-code pkgs.font-awesome ];
+  fonts.fonts = [pkgs.fira-code pkgs.font-awesome];
 
   programs = {
     gnupg.agent.pinentryFlavor = "gtk2";

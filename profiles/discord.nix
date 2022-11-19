@@ -1,5 +1,8 @@
-{ config, lib, pkgs, ... }:
-
 {
-  environment.systemPackages = with pkgs; [ discord betterdiscordctl ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  environment.systemPackages = with pkgs; [discord betterdiscordctl];
 }

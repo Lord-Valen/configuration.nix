@@ -1,9 +1,13 @@
-{ suites, profiles, ... }:
-
 {
-  imports = suites.laptop ++ (with profiles; [
-    tidal
-  ]);
+  suites,
+  profiles,
+  ...
+}: {
+  imports =
+    suites.laptop
+    ++ (with profiles; [
+      tidal
+    ]);
 
   time.timeZone = "Canada/Eastern";
 
@@ -41,21 +45,21 @@
     "/" = {
       encrypted.label = "MAIN";
       fsType = "btrfs";
-      options = [ "subvol=/@" ];
+      options = ["subvol=/@"];
     };
 
     "/home" = {
       encrypted.label = "MAIN";
       fsType = "btrfs";
-      options = [ "subdol=/@home" ];
+      options = ["subdol=/@home"];
     };
 
     "/swap" = {
       label = "MAIN";
       fsType = "btrfs";
-      options = [ "subvol=/@swap" ];
+      options = ["subvol=/@swap"];
     };
   };
 
-  swapDevices = [{ device = "/swap/swapfile"; }];
+  swapDevices = [{device = "/swap/swapfile";}];
 }

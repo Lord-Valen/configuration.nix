@@ -1,5 +1,8 @@
-{ config, lib, pkgs, ... }:
-
 {
-  environment.systemPackages = [ pkgs.tdesktop ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  environment.systemPackages = [pkgs.tdesktop];
 }

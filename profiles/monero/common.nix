@@ -1,7 +1,10 @@
-{ config, lib, pkgs, ... }:
-
 {
-  environment.systemPackages = with pkgs; [ monero-gui ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  environment.systemPackages = with pkgs; [monero-gui];
 
-  services = { monero = { enable = true; }; };
+  services = {monero = {enable = true;};};
 }

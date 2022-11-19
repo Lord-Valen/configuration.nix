@@ -1,15 +1,19 @@
-{ suites, profiles, ... }:
-
 {
-  imports = suites.desktop ++ (with profiles; [
-    games.heroic
-    games.lutris
-    games.steam
-    tidal
-    arion.servarr
-    vm
-    syncthing
-  ]);
+  suites,
+  profiles,
+  ...
+}: {
+  imports =
+    suites.desktop
+    ++ (with profiles; [
+      games.heroic
+      games.lutris
+      games.steam
+      tidal
+      arion.servarr
+      vm
+      syncthing
+    ]);
 
   time.timeZone = "Canada/Eastern";
 
@@ -20,19 +24,19 @@
       "photos" = {
         id = "sm-g950_7ywz-photos";
         path = "/data/oracle-photos";
-        devices = [ "oracle" ];
+        devices = ["oracle"];
       };
       "books" = {
         id = "fheng-o2wyn";
         path = "/data/media/books";
         type = "sendonly";
-        devices = [ "oracle" ];
+        devices = ["oracle"];
       };
       "music" = {
         id = "zfumc-pfy38";
         path = "/data/media/music";
         type = "sendonly";
-        devices = [ "oracle" ];
+        devices = ["oracle"];
       };
     };
   };
@@ -51,7 +55,7 @@
       };
     };
 
-    kernelModules = [ "kvm-intel" ];
+    kernelModules = ["kvm-intel"];
     kernelParams = [
       "radeon.si_support=0"
       "amdgpu.si_support=1"
@@ -68,7 +72,7 @@
         "sd_mod"
         "sr_mod"
       ];
-      kernelModules = [ "amdgpu" ];
+      kernelModules = ["amdgpu"];
     };
   };
 
@@ -81,41 +85,41 @@
     "/" = {
       label = "MAIN";
       fsType = "btrfs";
-      options = [ "subvol=/@" ];
+      options = ["subvol=/@"];
     };
 
     "/home" = {
       label = "MAIN";
       fsType = "btrfs";
-      options = [ "subvol=/@home" ];
+      options = ["subvol=/@home"];
     };
 
     "/docker" = {
       label = "MAIN";
       fsType = "btrfs";
-      options = [ "subvol=/@docker" ];
+      options = ["subvol=/@docker"];
     };
 
     "/swap" = {
       label = "MAIN";
       fsType = "btrfs";
-      options = [ "subvol=/@swap" ];
+      options = ["subvol=/@swap"];
     };
 
     "/data" = {
       label = "DATA";
       fsType = "btrfs";
-      options = [ "subvol=/@" ];
+      options = ["subvol=/@"];
     };
 
     "/home/lord-valen/games" = {
       label = "GAME";
       fsType = "btrfs";
-      options = [ "subvol=/@" ];
+      options = ["subvol=/@"];
     };
   };
 
-  swapDevices = [{ device = "/swap/swapfile"; }];
+  swapDevices = [{device = "/swap/swapfile";}];
 
   hardware = {
     opengl = {

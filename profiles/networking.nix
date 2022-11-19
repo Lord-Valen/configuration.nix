@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   networking = {
     enableIPv6 = true;
     wireless.iwd.enable = true;
