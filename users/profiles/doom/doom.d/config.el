@@ -1,8 +1,5 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-(defun mine/latex-headers (headers)
-  (mapconcat (function (lambda (x) (format "#+LATEX_HEADER: %s" x))) headers "\n"))
-
 (setq user-full-name "Lord Valen"
       user-mail-address "lord_valen@pm.me")
 
@@ -39,13 +36,6 @@
   (add-to-list 'elcord-mode-icon-alist '(emacs-lisp-mode . "emacs_icon"))
   (setq elcord-use-major-mode-as-main-icon t)
   (elcord-mode))
-
-(use-package! elfeed-org
- :config
- (setq rmh-elfeed-org-files (--map (substitute-env-in-file-name it) (list "$XDG_CONFIG_HOME/doom/elfeed.org"))
-       elfeed-search-filter "@1-week-ago +unread ")
- (add-hook 'elfeed-new-entry-hook (elfeed-make-tagger :before "2 weeks ago" :remove 'unread))
- (add-hook 'elfeed-search-mode-hook 'elfeed-update))
 
 (use-package! eww
   :config

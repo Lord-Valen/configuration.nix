@@ -5,7 +5,6 @@
   :app
   calendar
   everywhere
-  (rss +org)
 
   :checkers
   grammar
