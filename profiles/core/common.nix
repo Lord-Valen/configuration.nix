@@ -62,16 +62,17 @@ in {
       # nix
       n = "nix";
       nepl = "n repl '<nixpkgs>'";
+      nr = "n run";
       nd = "n develop";
-      nsh = "n shell";
-      ns = "n search --no-update-lock-file";
-      nsn = "ns nixos";
-      nso = "ns override";
+      ns = "n shell";
       np = "n profile";
       npl = "np list";
       npi = "np install";
       npr = "np remove";
+      npu = "np upgrade";
+      npua = "npu '.*'";
       nf = "n flake";
+      nfu = "nf update";
       nfck = "nf check";
 
       # manix
