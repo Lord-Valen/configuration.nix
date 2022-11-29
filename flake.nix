@@ -17,7 +17,7 @@
       flake = false;
     };
 
-    stable.url = "github:nixos/nixpkgs/nixos-22.05";
+    stable.url = "github:nixos/nixpkgs/nixos-22.11";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.follows = "stable";
     nur.url = "github:nix-community/NUR";
