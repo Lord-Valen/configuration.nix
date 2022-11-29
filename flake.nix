@@ -20,7 +20,6 @@
     stable.url = "github:nixos/nixpkgs/nixos-22.11";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.follows = "stable";
-    nur.url = "github:nix-community/NUR";
 
     hardware.url = "github:nixos/nixos-hardware";
 
@@ -79,7 +78,6 @@
     nixpkgs,
     stable,
     unstable,
-    nur,
     hardware,
     nix-doom-emacs,
     home,
@@ -103,6 +101,7 @@
             "discord"
             "hplip"
             "steam"
+            "steam-run"
             "steam-original"
           ];
       };
@@ -123,7 +122,6 @@
           lib = prev.lib.extend (lfinal: lprev: {our = self.lib;});
         })
 
-        nur.overlay
         agenix.overlay
         nvfetcher.overlay
 
@@ -171,7 +169,7 @@
               browser
               ;
           in rec {
-            base = [core.nixos fonts users.nixos users.root gpg];
+            base = [core fonts users.nixos users.root gpg];
             chat = [discord telegram matrix];
             office = [zotero latex onlyoffice printing];
             develop = [dev.npm];

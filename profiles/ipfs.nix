@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: {
-  services.ipfs = {
+  services.kubo = {
     enable = true;
     enableGC = true;
-    extraConfig.Gateway.PublicGateways = null;
+    settings.Gateway.PublicGateways = null;
   };
 }

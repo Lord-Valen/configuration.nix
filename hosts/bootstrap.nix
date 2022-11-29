@@ -1,7 +1,7 @@
 {profiles, ...}: {
   imports = [
     # profiles.networking
-    profiles.core.nixos
+    profiles.core
     profiles.users.root # make sure to configure ssh keys
     profiles.users.nixos
   ];
