@@ -21,22 +21,33 @@
 
   services.syncthing = {
     folders = {
-      "photos" = {
+      "Oracle Photos" = {
         id = "sm-g950_7ywz-photos";
         path = "/data/oracle-photos";
-        devices = ["oracle"];
+        devices = ["Oracle"];
+      };
+      "Pythia Photos" = {
+        id = "pixel_7_n835-photos";
+        path = "/data/pythia-photos";
+        devices = ["Pythia"];
       };
       "books" = {
         id = "fheng-o2wyn";
         path = "/data/media/books";
         type = "sendonly";
-        devices = ["oracle"];
+        devices = [
+          "Oracle"
+          "Pythia"
+        ];
       };
       "music" = {
         id = "zfumc-pfy38";
         path = "/data/media/music";
         type = "sendonly";
-        devices = ["oracle"];
+        devices = [
+          "Oracle"
+          "Pythia"
+        ];
       };
     };
   };
