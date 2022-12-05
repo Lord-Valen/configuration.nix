@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: docs
-# key: doc
+# key: docs
 # --
 :pencil: \`docs\` $0

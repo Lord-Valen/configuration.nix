@@ -5,9 +5,11 @@
 
 (setq shell-file-name "bash")
 
-(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 13)
-      doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font")
-      doom-big-font (font-spec :family "FiraCode Nerd Font" :size 18)
+(setq frame-title-format "DOOM")
+
+(setq doom-font (font-spec :family "Fira Code" :size 13)
+      doom-variable-pitch-font (font-spec :family "Fira Code")
+      doom-big-font (font-spec :family "Fira Code" :size 18)
       doom-unicode-font doom-font)
 
 (custom-set-faces!
@@ -41,14 +43,6 @@
   :config
   (setq browse-url-browser-function 'eww-browse-url
         browse-url-secondary-browser-function 'browse-url-default-browser))
-
-(use-package! lsp-mode
-  :config
-  (add-to-list 'lsp-language-id-configuration '(nix-mode . "nil"))
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection "nil")
-                    :activation-fn (lsp-activate-on "nil")
-                    :server-id 'nil-ls)))
 
 (use-package! projectile
   :config
