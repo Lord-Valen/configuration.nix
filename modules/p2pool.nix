@@ -56,9 +56,11 @@ in {
 
       xmrig = {
         enable = true;
-        settings = {
-          pool.url = "127.0.0.1:3333";
-        };
+        settings.pools = [
+          {
+            url = "127.0.0.1:3333";
+          }
+        ];
       };
     };
 
