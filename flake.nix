@@ -169,7 +169,7 @@
               browser
               ;
           in rec {
-            base = [core fonts users.nixos users.root gpg];
+            base = [core fonts users.root gpg];
             chat = [discord telegram matrix];
             office = [zotero latex onlyoffice printing];
             develop = [dev.npm];
