@@ -3,16 +3,9 @@ channels: final: prev: {
 
   inherit
     (channels.nixpkgs-unstable)
-    cachix
-    dhall
     discord
     element-desktop
-    rage
-    nix-index
-    alejandra
     signal-desktop
-    starship
-    deploy-rs
     onlyoffice-bin
     nil
     heroic
