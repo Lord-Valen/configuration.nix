@@ -5,6 +5,6 @@
 }: {
   modules = with inputs; [];
   exportedModules = [
-    ./devos.nix
+    ./digga.nix
   ];
 }
