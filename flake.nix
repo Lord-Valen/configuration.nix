@@ -17,56 +17,55 @@
       flake = false;
     };
 
-    stable.url = "github:nixos/nixpkgs/nixos-22.11";
-    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.follows = "stable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     hardware.url = "github:nixos/nixos-hardware";
 
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs = {
-        nixpkgs.follows = "stable";
-        nixlib.follows = "stable";
+        nixpkgs.follows = "nixpkgs";
+        nixlib.follows = "nixpkgs";
       };
     };
 
     nix-doom-emacs = {
       url = "github:nix-community/nix-doom-emacs";
-      inputs.nixpkgs.follows = "stable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home = {
       url = "github:nix-community/home-manager/release-22.05";
-      inputs.nixpkgs.follows = "stable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     deploy = {
       url = "github:serokell/deploy-rs";
-      inputs.nixpkgs.follows = "stable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     agenix = {
       url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "stable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nvfetcher = {
       url = "github:berberman/nvfetcher";
-      inputs.nixpkgs.follows = "stable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     arion = {
       url = "github:hercules-ci/arion";
-      inputs.nixpkgs.follows = "stable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     digga = {
       url = "github:divnix/digga";
       inputs = {
-        nixpkgs.follows = "stable";
-        nixpkgs-unstable.follows = "unstable";
-        nixlib.follows = "stable";
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-unstable.follows = "nixpkgs-unstable";
+        nixlib.follows = "nixpkgs";
         home-manager.follows = "home";
         deploy.follows = "deploy";
       };
@@ -76,8 +75,7 @@
   outputs = {
     self,
     nixpkgs,
-    stable,
-    unstable,
+    nixpkgs-unstable,
     hardware,
     nix-doom-emacs,
     home,
@@ -107,14 +105,14 @@
       };
 
       channels = {
-        stable = {
+        nixpkgs = {
           imports = [(digga.lib.importOverlays ./overlays)];
           overlays = [];
         };
-        unstable = {};
+        nixpkgs-unstable = {};
       };
 
-      lib = import ./lib {lib = digga.lib // stable.lib;};
+      lib = import ./lib {lib = digga.lib // nixpkgs.lib;};
 
       sharedOverlays = [
         (final: prev: {
@@ -131,7 +129,7 @@
       nixos = {
         hostDefaults = {
           system = "x86_64-linux";
-          channelName = "stable";
+          channelName = "nixpkgs";
           imports = [(digga.lib.importExportableModules ./modules)];
           modules = [
             {lib.our = self.lib;}
