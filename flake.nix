@@ -165,6 +165,7 @@
               onlyoffice
               zotero
               browser
+              yubikey
               ;
           in rec {
             base = [core fonts users.root gpg];
@@ -177,7 +178,7 @@
               ++ chat
               ++ office
               ++ develop
-              ++ [audio.common networking browser x11.xmonad users.lord-valen];
+              ++ [audio.common networking yubikey x11.xmonad browser users.lord-valen];
             server = base ++ [networking];
 
             desktop = pc ++ [ipfs audio.jack];
