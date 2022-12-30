@@ -190,6 +190,7 @@
         hosts = {
           heracles = {};
           satellite = {};
+          theseus = {};
           autolycus.modules = [hardware.nixosModules.lenovo-thinkpad-t430];
         };
       };
