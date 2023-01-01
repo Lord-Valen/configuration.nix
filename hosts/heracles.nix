@@ -31,13 +31,8 @@
       };
     };
 
-    kernelModules = ["kvm-intel"];
-    kernelParams = [
-      "radeon.si_support=0"
-      "amdgpu.si_support=1"
-      "radeon.cik_support=0"
-      "amdgpu.cik_support=1"
-    ];
+    kernelModules = ["kvm-amd"];
+    kernelParams = [];
     initrd = {
       availableKernelModules = [
         "ehci_pci"
@@ -48,7 +43,7 @@
         "sd_mod"
         "sr_mod"
       ];
-      kernelModules = ["amdgpu"];
+      kernelModules = [];
     };
   };
 
@@ -96,6 +91,6 @@
       driSupport = true;
       driSupport32Bit = true;
     };
-    cpu.intel.updateMicrocode = true;
+    cpu.amd.updateMicrocode = true;
   };
 }

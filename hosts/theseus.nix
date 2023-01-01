@@ -63,7 +63,12 @@
     };
 
     kernelModules = ["kvm-intel"];
-    kernelParams = [];
+    kernelParams = [
+      "radeon.si_support=0"
+      "amdgpu.si_support=1"
+      "radeon.cik_support=0"
+      "amdgpu.cik_support=1"
+    ];
     initrd = {
       availableKernelModules = [
         "ehci_pci"
@@ -74,7 +79,7 @@
         "sd_mod"
         "sr_mod"
       ];
-      kernelModules = [];
+      kernelModules = ["amdgpu"];
     };
   };
 
