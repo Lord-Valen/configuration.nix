@@ -43,8 +43,6 @@
         };
       };
     };
-
-    kernelModules = ["kvm-amd"];
   };
 
   fileSystems."/" = {

@@ -191,7 +191,7 @@
           heracles = {};
           satellite = {};
           theseus = {};
-          autolycus.modules = [hardware.nixosModules.lenovo-thinkpad-t430];
+          autolycus.modules = [hardware.nixosModules.lenovo-thinkpad-t420];
         };
       };
 

@@ -11,29 +11,22 @@
 
   time.timeZone = "Canada/Eastern";
 
-  system.stateVersion = "22.05";
+  system.stateVersion = "22.11";
 
   boot = {
     loader = {
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
-      };
       grub = {
         enable = true;
         device = "nodev";
         efiSupport = true;
         enableCryptodisk = true;
       };
-    };
-
-    initrd = {
-      luks.devices = {
-        "MAIN" = {
-          device = "/dev/disk/by-label/MAIN";
-        };
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
       };
     };
+    initrd.luks.devices."MAIN".device = "/dev/disk/by-uuid/TODO";
   };
 
   fileSystems = {
@@ -44,18 +37,21 @@
 
     "/" = {
       encrypted.label = "MAIN";
+      device = "/dev/mapper/MAIN";
       fsType = "btrfs";
       options = ["subvol=/@"];
     };
 
     "/home" = {
       encrypted.label = "MAIN";
+      device = "/dev/mapper/MAIN";
       fsType = "btrfs";
       options = ["subdol=/@home"];
     };
 
     "/swap" = {
-      label = "MAIN";
+      encrypted.label = "MAIN";
+      device = "/dev/mapper/MAIN";
       fsType = "btrfs";
       options = ["subvol=/@swap"];
     };
