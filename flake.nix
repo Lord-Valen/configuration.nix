@@ -22,14 +22,6 @@
 
     hardware.url = "github:nixos/nixos-hardware";
 
-    nixos-generators = {
-      url = "github:nix-community/nixos-generators";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        nixlib.follows = "nixpkgs";
-      };
-    };
-
     nix-doom-emacs = {
       url = "github:nix-community/nix-doom-emacs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -89,8 +81,6 @@
     digga.lib.mkFlake {
       inherit self inputs;
 
-      supportedSystems = ["x86_64-linux"];
-
       channelsConfig = {
         # I want to keep proprietary software to a minimum.
         # allowUnfreePredicate forces me to keep track of what proprietary software I allow.
@@ -121,7 +111,7 @@
         })
 
         agenix.overlay
-        nvfetcher.overlay
+        nvfetcher.overlays.default
 
         (import ./pkgs)
       ];
