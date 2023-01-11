@@ -17,6 +17,11 @@
 
   system.stateVersion = "22.05";
 
+  services.xserver.xrandrHeads = [
+    "HDMI-A-0"
+    "DisplayPort-0"
+  ];
+
   boot = {
     loader = {
       grub = {
