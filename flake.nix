@@ -217,8 +217,8 @@
               suites.base
               ++ (
                 let
-                  inherit (profiles) git doom wallpaper xmobar;
-                in [doom wallpaper xmobar git.valen]
+                  inherit (profiles) git doom wallpaper xmobar nushell;
+                in [doom wallpaper xmobar git.valen nushell]
               );
           };
         };

@@ -76,10 +76,10 @@
   doom
   doom-dashboard
   doom-quit
-  (emoji +github +unicode)    ; :rocket: 🙂
-  hl-todo                     ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
+  (emoji +github +unicode)
+  hl-todo
   indent-guides
-  (ligatures +extra)                    ; =>>>>=
+  (ligatures +extra)
   modeline
   nav-flash
   ophints
