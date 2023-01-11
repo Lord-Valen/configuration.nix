@@ -218,6 +218,7 @@ barSpawner _ = mempty
 myStartupHook :: X ()
 myStartupHook = do
   spawnOnce $ "killall trayer; trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor primary --transparent true --alpha 0 " ++ colorTrayer ++ " --height 30 &"
+  spawnOnce "flameshot"
 
 myScratchpads :: [NamedScratchpad]
 myScratchpads =
@@ -394,6 +395,7 @@ myKeymap =
     -- KB_GROUP Commonly used programs
     ("M-<Return>", spawn myTerminal),
     ("M-b", spawn myBrowser),
+    ("M-C-s", spawn "flameshot gui"),
     -- KB_GROUP Kill windows
     ("M-S-q", kill1),
     ("M-S-c", killAll),
