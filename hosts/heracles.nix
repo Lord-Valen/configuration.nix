@@ -11,11 +11,20 @@
       games.steam
       tidal
       vm
+      syncthing
     ]);
 
   time.timeZone = "Canada/Eastern";
 
   system.stateVersion = "22.05";
+
+  services.syncthing.folders = {
+    "Pythia Photos" = {
+      id = "pixel_7_n835-photos";
+      path = "/home/lord-valen/Photos";
+      devices = ["Pythia"];
+    };
+  };
 
   services.xserver.xrandrHeads = [
     "HDMI-A-0"
