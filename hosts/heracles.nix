@@ -45,8 +45,7 @@
       };
     };
 
-    kernelModules = ["kvm-amd"];
-    kernelParams = [];
+    kernelModules = ["kvm_amd"];
     initrd = {
       availableKernelModules = [
         "ehci_pci"
@@ -57,7 +56,7 @@
         "sd_mod"
         "sr_mod"
       ];
-      kernelModules = [];
+      kernelModules = ["amdgpu"];
     };
   };
 
