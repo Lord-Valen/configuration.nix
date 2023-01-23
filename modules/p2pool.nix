@@ -19,6 +19,14 @@ in {
         '';
       };
 
+      mini = mkOption {
+        type = types.bool;
+        default = false;
+        description = lib.mdDoc ''
+          Whether or not to mine on the p2pool-mini sidechain.
+        '';
+      };
+
       outPeers = mkOption {
         type = types.int;
         default = 64;
@@ -74,7 +82,12 @@ in {
       ];
 
       serviceConfig = {
-        ExecStart = "${pkgs.p2pool}/bin/p2pool --host 127.0.0.1 --wallet ${cfg.address}";
+        ExecStart = let
+          miniString =
+            if cfg.mini
+            then "--mini"
+            else "";
+        in "${pkgs.p2pool}/bin/p2pool ${miniString} --host 127.0.0.1 --wallet ${cfg.address}";
         Restart = "always";
       };
     };
