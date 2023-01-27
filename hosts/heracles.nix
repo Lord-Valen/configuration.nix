@@ -6,10 +6,10 @@
   imports =
     suites.desktop
     ++ (with profiles; [
+      audio.music
       games.heroic
       games.lutris
       games.steam
-      tidal
       vm
       syncthing
     ]);

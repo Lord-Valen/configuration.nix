@@ -6,7 +6,7 @@
   imports =
     suites.laptop
     ++ (with profiles; [
-      tidal
+      audio.music
     ]);
 
   time.timeZone = "Canada/Eastern";

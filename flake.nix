@@ -157,7 +157,7 @@
               browser
               yubikey
               ;
-          in rec {
+
             base = [core fonts users.root gpg];
             chat = [discord telegram matrix];
             office = [zotero latex onlyoffice printing];
@@ -169,6 +169,8 @@
               ++ office
               ++ develop
               ++ [audio.common networking yubikey x11.xmonad browser users.lord-valen];
+          in {
+            inherit base chat office develop pc;
             server = base ++ [networking];
 
             desktop = pc ++ [ipfs audio.jack];
