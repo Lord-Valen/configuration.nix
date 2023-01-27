@@ -12,6 +12,7 @@
       games.steam
       vm
       syncthing
+      monero.mine
     ]);
 
   time.timeZone = "Canada/Eastern";
@@ -30,6 +31,8 @@
     "HDMI-A-0"
     "DisplayPort-0"
   ];
+
+  services.p2pool.mini = true;
 
   boot = {
     loader = {
