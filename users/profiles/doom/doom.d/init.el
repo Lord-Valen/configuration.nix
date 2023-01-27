@@ -38,6 +38,7 @@
   vc
 
   :lang
+  cc
   common-lisp
   data
   emacs-lisp

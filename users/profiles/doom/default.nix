@@ -44,6 +44,10 @@
     nodePackages.prettier
 
     ## :lang
+    ### cc
+    gcc
+    ccls
+
     ### common-lisp
     sbcl
 
