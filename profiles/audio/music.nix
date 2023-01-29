@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  imports = [./jack.nix];
+  imports = [./common.nix];
   environment.systemPackages = [
     # DAW
     pkgs.zrythm

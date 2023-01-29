@@ -8,8 +8,9 @@
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    pavucontrol
+  environment.systemPackages = [
+    pkgs.pavucontrol
+    pkgs.carla
   ];
 
   services = {
@@ -20,6 +21,7 @@
         support32Bit = true;
       };
       pulse.enable = true;
+      jack.enable = true;
     };
   };
 }

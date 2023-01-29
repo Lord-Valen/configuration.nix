@@ -173,7 +173,7 @@
             inherit base chat office develop pc;
             server = base ++ [networking];
 
-            desktop = pc ++ [ipfs audio.jack];
+            desktop = pc ++ [ipfs];
             laptop = pc ++ [x11.colemak];
           };
         };
