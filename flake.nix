@@ -12,10 +12,7 @@
   ];
 
   inputs = {
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
-      flake = false;
-    };
+    blank.url = "github:divnix/blank";
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -40,6 +37,7 @@
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.darwin.follows = "blank";
     };
 
     nvfetcher = {
@@ -57,6 +55,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         nixpkgs-unstable.follows = "nixpkgs-unstable";
+        darwin.follows = "blank";
         nixlib.follows = "nixpkgs";
         home-manager.follows = "home";
         deploy.follows = "deploy";
@@ -110,7 +109,7 @@
           lib = prev.lib.extend (lfinal: lprev: {our = self.lib;});
         })
 
-        agenix.overlay
+        agenix.overlays.default
         nvfetcher.overlays.default
 
         (import ./pkgs)
@@ -123,7 +122,6 @@
           imports = [(digga.lib.importExportableModules ./modules)];
           modules = [
             {lib.our = self.lib;}
-            digga.nixosModules.bootstrapIso
             digga.nixosModules.nixConfig
             home.nixosModules.home-manager
             agenix.nixosModules.age
