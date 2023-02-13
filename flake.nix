@@ -207,12 +207,16 @@
             suites,
             profiles,
             ...
-          }: {imports = suites.base;};
+          }: {
+            home.stateVersion = "22.05";
+            imports = suites.base;
+          };
           lord-valen = {
             suites,
             profiles,
             ...
           }: {
+            home.stateVersion = "22.05";
             imports =
               suites.base
               ++ (
