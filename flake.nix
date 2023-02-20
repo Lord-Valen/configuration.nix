@@ -233,6 +233,14 @@
       homeConfigurations =
         digga.lib.mkHomeConfigurations self.nixosConfigurations;
 
-      deploy.nodes = digga.lib.mkDeployNodes self.nixosConfigurations {};
+      deploy.nodes = digga.lib.mkDeployNodes self.nixosConfigurations {
+        theseus = {
+          profilesOrder = ["system" "nixos"];
+          profiles.nixos = {
+            user = "lord-valen";
+            path = deploy.lib.x86_64-linux.activate.home-manager self.homeConfigurationsPortable.x86_64-linux.lord-valen;
+          };
+        };
+      };
     };
 }
