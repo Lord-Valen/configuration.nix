@@ -187,7 +187,7 @@
 
       home = {
         importables = let
-          profiles = digga.lib.rakeLeaves ./users/profiles;
+          profiles = digga.lib.rakeLeaves ./home/profiles;
         in {
           profiles = profiles;
           suites = let
@@ -200,7 +200,7 @@
           in {base = [direnv git.common xdg];};
         };
 
-        imports = [(digga.lib.importExportableModules ./users/modules)];
+        imports = [(digga.lib.importExportableModules ./home/modules)];
         modules = [nix-doom-emacs.hmModule];
         users = {
           nixos = {
