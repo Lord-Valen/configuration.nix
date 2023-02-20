@@ -12,7 +12,7 @@
       games.steam
       vm
       syncthing
-      monero.mine
+      monero.common
     ]);
 
   time.timeZone = "Canada/Eastern";
