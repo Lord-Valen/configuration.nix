@@ -1,5 +1,0 @@
-#!/usr/bin/env zsh
-
-ZDOTDIR=./
-export ZDOTDIR
-[ -f ./zshrc ] && . ./zshrc

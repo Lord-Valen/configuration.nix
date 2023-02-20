@@ -1,3 +1,0 @@
-#!/bin/bash
-emacsclient -s "$USER"-emacsd -c -n
-emacsclient -s /tmp/emacs"$UID"/"$USER"-emacsd -c -n

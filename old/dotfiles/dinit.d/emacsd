@@ -1,3 +1,0 @@
-type = process
-command = /usr/sbin/emacs --fg-daemon
-restart = false
