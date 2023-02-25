@@ -15,9 +15,6 @@
   company
   vertico
 
-  :config
-  (default +bindings +smartparens)
-
   :editor
   (evil +everywhere)
   file-templates
@@ -89,4 +86,8 @@
   vc-gutter
   vi-tilde-fringe
   window-select
-  workspaces)
+  workspaces
+
+  :config
+  ;; This needs to be loaded last due to `featurep' use.
+  (default +bindings +smartparens))
