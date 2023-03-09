@@ -63,28 +63,17 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixpkgs-unstable,
-    hardware,
-    nix-doom-emacs,
-    home,
-    deploy,
-    agenix,
-    nvfetcher,
-    arion,
-    digga,
-    ...
-  } @ inputs:
-    digga.lib.mkFlake {
+  outputs = {self, ...} @ inputs: let
+    lib = inputs.digga.lib // inputs.nixpkgs.lib // builtins;
+  in
+    lib.mkFlake {
       inherit self inputs;
 
       channelsConfig = {
         # I want to keep proprietary software to a minimum.
         # allowUnfreePredicate forces me to keep track of what proprietary software I allow.
         allowUnfreePredicate = pkg:
-          builtins.elem (nixpkgs.lib.getName pkg) [
+          lib.elem (lib.getName pkg) [
             "discord"
             "hplip"
             "steam"
@@ -95,13 +84,13 @@
 
       channels = {
         nixpkgs = {
-          imports = [(digga.lib.importOverlays ./overlays)];
+          imports = [(lib.importOverlays ./overlays)];
           overlays = [];
         };
         nixpkgs-unstable = {};
       };
 
-      lib = import ./lib {lib = digga.lib // nixpkgs.lib;};
+      lib = import ./lib {inherit lib;};
 
       sharedOverlays = [
         (final: prev: {
@@ -109,8 +98,8 @@
           lib = prev.lib.extend (lfinal: lprev: {our = self.lib;});
         })
 
-        agenix.overlays.default
-        nvfetcher.overlays.default
+        inputs.agenix.overlays.default
+        inputs.nvfetcher.overlays.default
 
         (import ./pkgs)
       ];
@@ -119,18 +108,18 @@
         hostDefaults = {
           system = "x86_64-linux";
           channelName = "nixpkgs";
-          imports = [(digga.lib.importExportableModules ./modules)];
+          imports = [(lib.importExportableModules ./modules)];
           modules = [
             {lib.our = self.lib;}
-            digga.nixosModules.nixConfig
-            home.nixosModules.home-manager
-            agenix.nixosModules.age
-            arion.nixosModules.arion
+            inputs.digga.nixosModules.nixConfig
+            inputs.home.nixosModules.home-manager
+            inputs.agenix.nixosModules.age
+            inputs.arion.nixosModules.arion
           ];
         };
 
         importables = let
-          profiles = digga.lib.rakeLeaves ./profiles // {users = digga.lib.rakeLeaves ./users;};
+          profiles = lib.rakeLeaves ./profiles // {users = lib.rakeLeaves ./users;};
         in {
           profiles = profiles;
           suites = let
@@ -176,18 +165,18 @@
           };
         };
 
-        imports = [(digga.lib.importHosts ./hosts)];
+        imports = [(lib.importHosts ./hosts)];
         hosts = {
           heracles = {};
           satellite = {};
           theseus = {};
-          autolycus.modules = [hardware.nixosModules.lenovo-thinkpad-t420];
+          autolycus.modules = [inputs.hardware.nixosModules.lenovo-thinkpad-t420];
         };
       };
 
       home = {
         importables = let
-          profiles = digga.lib.rakeLeaves ./home/profiles;
+          profiles = lib.rakeLeaves ./home/profiles;
         in {
           profiles = profiles;
           suites = let
@@ -200,8 +189,8 @@
           in {base = [direnv git.common xdg];};
         };
 
-        imports = [(digga.lib.importExportableModules ./home/modules)];
-        modules = [nix-doom-emacs.hmModule];
+        imports = [(lib.importExportableModules ./home/modules)];
+        modules = [inputs.nix-doom-emacs.hmModule];
         users = {
           nixos = {
             suites,
@@ -230,17 +219,19 @@
 
       devshell = ./shell;
 
-      homeConfigurations =
-        digga.lib.mkHomeConfigurations self.nixosConfigurations;
+      homeConfigurations = lib.mkHomeConfigurations self.nixosConfigurations;
 
-      deploy.nodes = digga.lib.mkDeployNodes self.nixosConfigurations {
-        theseus = {
-          profilesOrder = ["system" "nixos"];
-          profiles.nixos = {
-            user = "lord-valen";
-            path = deploy.lib.x86_64-linux.activate.home-manager self.homeConfigurationsPortable.x86_64-linux.lord-valen;
+      deploy.nodes = let
+        lib' = lib // inputs.deploy.lib;
+      in
+        lib'.mkDeployNodes self.nixosConfigurations {
+          theseus = {
+            profilesOrder = ["system" "nixos"];
+            profiles.nixos = {
+              user = "lord-valen";
+              path = lib'.x86_64-linux.activate.home-manager self.homeConfigurationsPortable.x86_64-linux.lord-valen;
+            };
           };
         };
-      };
     };
 }
