@@ -61,6 +61,11 @@
         deploy.follows = "deploy";
       };
     };
+
+    # aagl-gtk-on-nix = {
+    #   url = "github:ezKEa/aagl-gtk-on-nix/271df5673a4bda398d2bc3ef5d5bb2f6868e2988";
+    #   flake = false;
+    # };
   };
 
   outputs = {self, ...} @ inputs: let
@@ -68,6 +73,8 @@
   in
     lib.mkFlake {
       inherit self inputs;
+
+      supportedSystems = ["x86_64-linux" "aarch64-linux"];
 
       channelsConfig = {
         # I want to keep proprietary software to a minimum.
@@ -115,6 +122,7 @@
             inputs.home.nixosModules.home-manager
             inputs.agenix.nixosModules.age
             inputs.arion.nixosModules.arion
+            # (import inputs.aagl-gtk-on-nix.module {pkgs = inputs.nixpkgs;})
           ];
         };
 
