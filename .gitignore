@@ -3,3 +3,10 @@ result
 doc/index.html
 
 pkgs/_sources/.shake*
+
+.std
+
+# nixago: ignore-linked-files
+.conform.yaml
+lefthook.yml
+treefmt.toml

@@ -20,23 +20,27 @@
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
 
-    std.url = "github:divnix/std";
-    std-data-collection.url = "github:divnix/std-data-collection";
+    std = {
+      url = "github:divnix/std";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.arion.follows = "arion";
+    };
+
+    std-data-collection = {
+      url = "github:divnix/std-data-collection";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.std.follows = "std";
+    };
 
     hive = {
       url = "github:divnix/hive";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
+        colmena.follows = "colmena";
+        nixos-generators.follows = "nixos-generators";
         disko.follows = "disko";
       };
-    };
-
-    hardware.url = "github:nixos/nixos-hardware";
-
-    nix-doom-emacs = {
-      url = "github:nix-community/nix-doom-emacs";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
@@ -44,21 +48,40 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    colmena = {
+      url = "github:zhaofengli/colmena";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "blank";
+    };
+
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixlib.follows = "nixpkgs";
+    };
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.darwin.follows = "blank";
     };
 
     arion = {
       url = "github:hercules-ci/arion";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # hardware.url = "github:nixos/nixos-hardware";
+
+    # nix-doom-emacs = {
+    #   url = "github:nix-community/nix-doom-emacs";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
+    # agenix = {
+    #   url = "github:ryantm/agenix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.darwin.follows = "blank";
+    # };
 
     # aagl-gtk-on-nix = {
     #   url = "github:ezKEa/aagl-gtk-on-nix/271df5673a4bda398d2bc3ef5d5bb2f6868e2988";
@@ -95,10 +118,11 @@
         # configurations
         nixosConfigurations
         homeConfigurations
+        colmenaConfigurations
+        diskoConfigurations
 
         # devshells
         (devshells "devshells")
-        (nixago "configs")
       ];
 
       # I want to keep proprietary software to a minimum.
@@ -118,6 +142,8 @@
     {
       nixosConfigurations = hive.collect self "nixosConfigurations";
       homeConfigurations = hive.collect self "homeConfigurations";
+      colmenaConfigurations = hive.collect self "colmenaConfigurations";
+      diskoConfigurations = hive.collect self "diskoConfigurations";
     };
 }
 # channels = {
