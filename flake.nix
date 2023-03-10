@@ -19,6 +19,7 @@
     blank.url = "github:divnix/blank";
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
 
     std = {
       url = "github:divnix/std";
@@ -39,7 +40,6 @@
         home-manager.follows = "home-manager";
         colmena.follows = "colmena";
         nixos-generators.follows = "nixos-generators";
-        disko.follows = "disko";
       };
     };
 
@@ -60,28 +60,15 @@
       inputs.nixlib.follows = "nixpkgs";
     };
 
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     arion = {
       url = "github:hercules-ci/arion";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # hardware.url = "github:nixos/nixos-hardware";
-
-    # nix-doom-emacs = {
-    #   url = "github:nix-community/nix-doom-emacs";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    # agenix = {
-    #   url = "github:ryantm/agenix";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.darwin.follows = "blank";
-    # };
+    nix-doom-emacs = {
+      url = "github:nix-community/nix-doom-emacs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # aagl-gtk-on-nix = {
     #   url = "github:ezKEa/aagl-gtk-on-nix/271df5673a4bda398d2bc3ef5d5bb2f6868e2988";
@@ -103,11 +90,15 @@
       cellsFrom = ./comb;
       cellBlocks = with std.blockTypes;
       with hive.blockTypes; [
+        # library
+        (functions "lib")
+
         # modules
         (functions "nixosModules")
         (functions "homeModules")
 
         # profiles
+        (functions "hardwareProfiles")
         (functions "nixosProfiles")
         (functions "homeProfiles")
 
@@ -119,7 +110,9 @@
         nixosConfigurations
         homeConfigurations
         colmenaConfigurations
-        diskoConfigurations
+
+        # pkgs
+        (pkgs "pkgs")
 
         # devshells
         (devshells "devshells")
@@ -143,130 +136,5 @@
       nixosConfigurations = hive.collect self "nixosConfigurations";
       homeConfigurations = hive.collect self "homeConfigurations";
       colmenaConfigurations = hive.collect self "colmenaConfigurations";
-      diskoConfigurations = hive.collect self "diskoConfigurations";
     };
 }
-# channels = {
-#   nixpkgs = {
-#     imports = [(lib.importOverlays ./overlays)];
-#     overlays = [];
-#   };
-#   nixpkgs-unstable = {};
-# };
-#   sharedOverlays = [
-#     (final: prev: {
-#       __dontExport = true;
-#       lib = prev.lib.extend (lfinal: lprev: {our = self.lib;});
-#     })
-#     inputs.agenix.overlays.default
-#     inputs.nvfetcher.overlays.default
-#     (import ./pkgs)
-#   ];
-#   nixos = {
-#     hostDefaults = {
-#       system = "x86_64-linux";
-#       channelName = "nixpkgs";
-#       imports = [(lib.importExportableModules ./modules)];
-#       modules = [
-#         {lib.our = self.lib;}
-#         inputs.digga.nixosModules.nixConfig
-#         inputs.home.nixosModules.home-manager
-#         inputs.agenix.nixosModules.age
-#         inputs.arion.nixosModules.arion
-#         # (import inputs.aagl-gtk-on-nix.module {pkgs = inputs.nixpkgs;})
-#       ];
-#     };
-#     importables = let
-#       profiles = lib.rakeLeaves ./profiles // {users = lib.rakeLeaves ./users;};
-#     in {
-#       profiles = profiles;
-#       suites = let
-#         inherit
-#           (profiles)
-#           core
-#           users
-#           dev
-#           audio
-#           x11
-#           networking
-#           fonts
-#           gpg
-#           printing
-#           discord
-#           ipfs
-#           telegram
-#           matrix
-#           latex
-#           onlyoffice
-#           zotero
-#           browser
-#           yubikey
-#           ;
-#         base = [core fonts users.root gpg];
-#         chat = [discord telegram matrix];
-#         office = [zotero latex onlyoffice printing];
-#         develop = [dev.npm];
-#         pc =
-#           base
-#           ++ chat
-#           ++ office
-#           ++ develop
-#           ++ [audio.common networking yubikey x11.xmonad browser users.lord-valen];
-#       in {
-#         inherit base chat office develop pc;
-#         server = base ++ [networking];
-#         desktop = pc ++ [ipfs];
-#         laptop = pc ++ [x11.colemak];
-#       };
-#     };
-#     imports = [(lib.importHosts ./hosts)];
-#     hosts = {
-#       heracles = {};
-#       satellite = {};
-#       theseus = {};
-#       autolycus.modules = [inputs.hardware.nixosModules.lenovo-thinkpad-t420];
-#     };
-#   };
-#   home = {
-#     importables = let
-#       profiles = lib.rakeLeaves ./home/profiles;
-#     in {
-#       profiles = profiles;
-#       suites = let
-#         inherit
-#           (profiles)
-#           direnv
-#           git
-#           xdg
-#           ;
-#       in {base = [direnv git.common xdg];};
-#     };
-#     imports = [(lib.importExportableModules ./home/modules)];
-#     modules = [inputs.nix-doom-emacs.hmModule];
-#     users = {
-#       nixos = {
-#         suites,
-#         profiles,
-#         ...
-#       }: {
-#         home.stateVersion = "22.05";
-#         imports = suites.base;
-#       };
-#       lord-valen = {
-#         suites,
-#         profiles,
-#         ...
-#       }: {
-#         home.stateVersion = "22.05";
-#         imports =
-#           suites.base
-#           ++ (
-#             let
-#               inherit (profiles) git doom wallpaper xmobar shell;
-#             in [doom wallpaper xmobar git.valen shell.nushell]
-#           );
-#       };
-#     };
-#   };
-# };
-

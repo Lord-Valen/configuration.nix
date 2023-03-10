@@ -14,10 +14,9 @@ in
         (conform {data = {inherit (inputs) cells;};})
       ];
       commands = let
-        inherit (inputs) disko nixos-generators colmena;
+        inherit (inputs) nixos-generators colmena;
         hexagon = attrset: attrset // {category = "hexagon";};
       in [
-        (hexagon {package = disko.packages.disko;})
         (hexagon {package = colmena.packages.colmena;})
         (hexagon {package = nixos-generators.packages.nixos-generate;})
         (hexagon {
