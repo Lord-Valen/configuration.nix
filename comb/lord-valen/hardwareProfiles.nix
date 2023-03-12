@@ -2,6 +2,14 @@
   inputs,
   cell,
 }: {
+  autolycus = {
+    imports = with inputs.nixos-hardware.nixosModules; [
+      lenovo-thinkpad-t420
+    ];
+
+    boot.initrd.availableKernelModules = []; #TODO
+  };
+
   heracles = {
     imports = with inputs.nixos-hardware.nixosModules; [
       common-pc
@@ -64,7 +72,5 @@
         "sr_mod"
       ];
     };
-
-    hardware.opengl.driSupport32Bit = true;
   };
 }

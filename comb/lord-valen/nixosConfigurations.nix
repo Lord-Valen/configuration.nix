@@ -11,6 +11,68 @@
   };
   time.timeZone = "Canada/Eastern";
 in {
+  autolycus = {...}: {
+    inherit bee time;
+
+    imports = with nixosSuites;
+    with nixosProfiles;
+    with hardwareProfiles;
+      [
+        autolycus
+
+        audio.music
+      ]
+      ++ laptop;
+
+    boot = {
+      loader = {
+        grub = {
+          enable = true;
+          device = "nodev";
+          efiSupport = true;
+          enableCryptodisk = true;
+        };
+        efi = {
+          canTouchEfiVariables = true;
+          efiSysMountPoint = "/boot/efi";
+        };
+      };
+      initrd.luks.devices."MAIN".device = "/dev/disk/by-uuid/TODO";
+    };
+
+    fileSystems = {
+      "/boot/efi" = {
+        label = "BOOT";
+        fsType = "vfat";
+      };
+
+      "/" = {
+        encrypted.label = "MAIN";
+        device = "/dev/mapper/MAIN";
+        fsType = "btrfs";
+        options = ["subvol=/@"];
+      };
+
+      "/home" = {
+        encrypted.label = "MAIN";
+        device = "/dev/mapper/MAIN";
+        fsType = "btrfs";
+        options = ["subdol=/@home"];
+      };
+
+      "/swap" = {
+        encrypted.label = "MAIN";
+        device = "/dev/mapper/MAIN";
+        fsType = "btrfs";
+        options = ["subvol=/@swap"];
+      };
+    };
+
+    swapDevices = [{device = "/swap/swapfile";}];
+
+    system.stateVersion = "22.11";
+  };
+
   heracles = {...}: {
     inherit bee time;
 
