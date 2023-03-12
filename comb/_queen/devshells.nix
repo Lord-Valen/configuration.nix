@@ -32,6 +32,37 @@ in
             fi
           '';
         })
+
+        {
+          category = "nix";
+          name = "switch";
+          help = "Switch configurations";
+          command = "sudo nixos-rebuild switch --flake $PRJ_ROOT $@";
+        }
+        {
+          category = "nix";
+          name = "boot";
+          help = "Switch boot configuration";
+          command = "sudo nixos-rebuild boot --flake $PRJ_ROOT $@";
+        }
+        {
+          category = "nix";
+          name = "test";
+          help = "Test configuration";
+          command = "sudo nixos-rebuild test --flake $PRJ_ROOT $@";
+        }
+        {
+          category = "nix";
+          name = "update";
+          help = "Update inputs";
+          command = "nix flake update $PRJ_ROOT $@";
+        }
+        {
+          category = "nix";
+          name = "check";
+          help = "Check flake";
+          command = "nix flake check $PRJ_ROOT $@";
+        }
       ];
     };
   }
