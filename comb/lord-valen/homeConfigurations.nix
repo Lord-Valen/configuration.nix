@@ -5,7 +5,6 @@
   inherit (cell) homeSuites homeProfiles;
 in {
   lord-valen = {
-    # inherit bee home;
     imports = with homeSuites;
     with homeProfiles;
       [
