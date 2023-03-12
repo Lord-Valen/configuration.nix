@@ -82,6 +82,9 @@
     std,
     ...
   } @ inputs: let
+    # I don't need to worry about name collisions.
+    # If you think you might, don't do this.
+    collect = hive.collect // {renamer = cell: target: "${target}";};
     lib = inputs.nixpkgs.lib // builtins;
   in
     hive.growOn {
@@ -130,11 +133,12 @@
         ];
     }
     {
+      lib = std.pick self ["_queen" "lib"];
       devShells = std.harvest self ["_queen" "devshells"];
     }
     {
-      nixosConfigurations = hive.collect self "nixosConfigurations";
-      homeConfigurations = hive.collect self "homeConfigurations";
-      colmenaConfigurations = hive.collect self "colmenaConfigurations";
+      nixosConfigurations = collect self "nixosConfigurations";
+      homeConfigurations = collect self "homeConfigurations";
+      colmenaConfigurations = collect self "colmenaConfigurations";
     };
 }
