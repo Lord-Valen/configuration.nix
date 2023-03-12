@@ -1,4 +1,0 @@
-# nvfetcher.toml
-[ipfs-desktop]
-src.github = "ipfs/ipfs-desktop"
-fetch.github = "ipfs/ipfs-desktop"

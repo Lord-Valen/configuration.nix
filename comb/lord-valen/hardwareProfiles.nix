@@ -15,31 +15,33 @@
     ];
 
     boot = {
-      loader = {
-        grub = {
-          enable = true;
-          efiSupport = true;
-          device = "nodev";
-          useOSProber = true;
-        };
-        efi = {
-          canTouchEfiVariables = true;
-          efiSysMountPoint = "/boot/efi";
-        };
-      };
-
       kernelModules = ["kvm_amd"];
-      initrd = {
-        availableKernelModules = [
-          "xhci_pci"
-          "ahci"
-          "usbhid"
-          "usb_storage"
-          "sd_mod"
-        ];
-      };
+      initrd.availableKernelModules = [
+        "xhci_pci"
+        "ahci"
+        "usbhid"
+        "usb_storage"
+        "sd_mod"
+      ];
     };
 
     hardware.opengl.driSupport32Bit = true;
+  };
+
+  satellite = {
+    imports = with inputs.nixos-hardware.nixosModules; [
+      common-pc-laptop-hdd
+      common-cpu-amd
+    ];
+
+    boot.initrd.availableKernelModules = [
+      "ahci"
+      "ohci_pci"
+      "ehci_pci"
+      "usb_storage"
+      "ums_realtek"
+      "sd_mod"
+      "sr_mod"
+    ];
   };
 }

@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
@@ -68,7 +63,6 @@
     ### nix
     nixfmt
     nil
-    # rnix-lsp
 
     ### org
     graphviz

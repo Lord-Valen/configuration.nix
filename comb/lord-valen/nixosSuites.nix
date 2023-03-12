@@ -5,7 +5,7 @@
   inherit (cell) nixosProfiles;
 in
   with nixosProfiles; rec {
-    base = [core fonts gpg];
+    base = [core fonts gpg users.root];
     chat = [discord telegram matrix];
     office = [zotero latex onlyoffice printing];
     develop = [dev.npm];
@@ -14,7 +14,7 @@ in
       ++ chat
       ++ office
       ++ develop
-      ++ [audio.common networking yubikey x11.xmonad browser];
+      ++ [users.lord-valen audio.common networking yubikey x11.xmonad browser];
 
     server = base ++ [networking];
     desktop = pc ++ [ipfs];
