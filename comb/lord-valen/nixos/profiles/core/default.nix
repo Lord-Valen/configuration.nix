@@ -45,6 +45,7 @@
     };
 
     extraOptions = ''
+      experimental-features = nix-command flakes
       min-free = 536870912
       keep-outputs = true
       keep-derivations = true
