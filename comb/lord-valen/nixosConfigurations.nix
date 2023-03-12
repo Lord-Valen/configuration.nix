@@ -156,4 +156,102 @@ in {
 
     system.stateVersion = "22.05";
   };
+
+  theseus = {...}: {
+    inherit bee time;
+
+    imports = with nixosSuites;
+    with nixosProfiles;
+    with hardwareProfiles;
+      [
+        bee.home.nixosModules.home-manager
+        theseus
+
+        arion.pihole
+        arion.servarr
+        syncthing
+      ]
+      ++ server;
+
+    services.syncthing = {
+      folders = {
+        "Oracle Photos" = {
+          id = "sm-g950_7ywz-photos";
+          path = "/data/oracle-photos";
+          devices = ["Oracle"];
+        };
+        "Pythia Photos" = {
+          id = "pixel_7_n835-photos";
+          path = "/data/pythia-photos";
+          devices = ["Pythia"];
+        };
+        "books" = {
+          id = "fheng-o2wyn";
+          path = "/data/media/books";
+          type = "sendonly";
+          devices = [
+            "Oracle"
+            "Pythia"
+          ];
+        };
+        "music" = {
+          id = "zfumc-pfy38";
+          path = "/data/media/music";
+          type = "sendonly";
+          devices = [
+            "Oracle"
+            "Pythia"
+          ];
+        };
+      };
+    };
+
+    boot.loader = {
+      grub = {
+        enable = true;
+        efiSupport = true;
+        device = "nodev";
+        useOSProber = true;
+      };
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
+    };
+
+    fileSystems = {
+      "/boot/efi" = {
+        label = "BOOT";
+        fsType = "vfat";
+      };
+
+      "/" = {
+        label = "MAIN";
+        fsType = "btrfs";
+        options = ["subvol=/@"];
+      };
+
+      "/docker" = {
+        label = "MAIN";
+        fsType = "btrfs";
+        options = ["subvol=/@docker"];
+      };
+
+      "/swap" = {
+        label = "MAIN";
+        fsType = "btrfs";
+        options = ["subvol=/@swap"];
+      };
+
+      "/data" = {
+        label = "MAIN";
+        fsType = "btrfs";
+        options = ["subvol=/@data"];
+      };
+    };
+
+    swapDevices = [{device = "/swap/swapfile";}];
+
+    system.stateVersion = "22.11";
+  };
 }
