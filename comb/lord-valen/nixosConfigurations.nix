@@ -74,6 +74,8 @@ in {
   };
 
   heracles = {...}: {
+    networking.hostName = "heracles";
+
     inherit bee time;
 
     imports = with nixosSuites;
@@ -165,6 +167,8 @@ in {
   };
 
   satellite = {...}: {
+    networking.hostName = "satellite";
+
     inherit bee time;
 
     imports = with nixosSuites;
@@ -220,6 +224,8 @@ in {
   };
 
   theseus = {...}: {
+    networking.hostName = "theseus";
+
     inherit bee time;
 
     imports = with nixosSuites;
