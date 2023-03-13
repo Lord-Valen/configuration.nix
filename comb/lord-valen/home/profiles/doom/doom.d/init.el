@@ -1,6 +1,6 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
-(when (daemonp) (exec-path-from-shell-initialize))
+;; (when (daemonp) (exec-path-from-shell-initialize))
 (doom!
   :app
   calendar
