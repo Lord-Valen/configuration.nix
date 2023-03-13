@@ -7,6 +7,7 @@
 }: {
   imports = [./starship];
 
+  programs.bash.enable = true;
   home.shellAliases = {
     # quick cd
     ".." = "cd ..";
