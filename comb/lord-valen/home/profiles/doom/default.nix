@@ -85,6 +85,10 @@
     ### direnv
     direnv
 
+    ### lookup
+    sqlite
+    wordnet
+
     ## :ui
     ### doom-dashboard
     emacs-all-the-icons-fonts

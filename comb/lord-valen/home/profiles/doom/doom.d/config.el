@@ -39,20 +39,9 @@
   (setq elcord-use-major-mode-as-main-icon t)
   (elcord-mode))
 
-(use-package! eww
-  :config
-  (setq browse-url-browser-function 'eww-browse-url
-        browse-url-secondary-browser-function 'browse-url-default-browser))
-
 (use-package! projectile
   :config
   (setq projectile-project-search-path '(("~/dev" . 1))))
-
-(use-package! org
-  :config
-  (setq org-directory "~/org-roam/"
-        org-agenda-files '("~/org-roam/agenda.org"))
-  (add-hook 'org-mode-hook #'org-modern-mode))
 
 (use-package! ox-latex
   :after org

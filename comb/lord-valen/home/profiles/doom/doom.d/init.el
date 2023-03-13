@@ -1,9 +1,7 @@
 ;;; init.el -*- lexical-binding: t; -*-
 
-;; (when (daemonp) (exec-path-from-shell-initialize))
 (doom!
   :app
-  calendar
   everywhere
 
   :checkers
@@ -12,8 +10,8 @@
   syntax
 
   :completion
-  company
-  vertico
+  (company +childframe +tng)
+  (vertico +childframe)
 
   :editor
   (evil +everywhere)
@@ -22,8 +20,8 @@
   (format +onsave)
   lispy
   multiple-cursors
-  rotate-text
   parinfer
+  rotate-text
   snippets
   word-wrap
 
@@ -35,7 +33,7 @@
   vc
 
   :lang
-  cc
+  (cc +lsp)
   common-lisp
   data
   emacs-lisp
@@ -43,16 +41,13 @@
   (javascript +lsp)
   (json +lsp)
   (latex +fold +lsp)
-  markdown
+  (markdown +grip)
   (nix +lsp)
-  (org +dragndrop +pandoc)
+  (org +dragndrop +pandoc +present)
   (rust +lsp)
   (sh +lsp)
   (web +lsp)
   (yaml +lsp)
-
-  :os
-  tty
 
   :term
   eshell
@@ -63,8 +58,8 @@
   editorconfig
   (eval +overlay)
   gist
-  (lookup +dictionary +offline)
-  lsp
+  (lookup +dictionary +docsets +offline)
+  (lsp +peek)
   (magit +forge)
   pdf
   rgb
@@ -82,7 +77,6 @@
   nav-flash
   ophints
   (popup +defaults)
-  tabs
   vc-gutter
   vi-tilde-fringe
   window-select
