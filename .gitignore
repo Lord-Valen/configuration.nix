@@ -4,6 +4,7 @@ doc/index.html
 
 pkgs/_sources/.shake*
 
+/*.qcow2
 .std
 
 # nixago: ignore-linked-files
