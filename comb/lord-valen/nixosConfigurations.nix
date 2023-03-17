@@ -232,6 +232,7 @@ in {
     with nixosProfiles;
     with hardwareProfiles;
       [
+        inputs.arion.nixosModules.arion
         bee.home.nixosModules.home-manager
         theseus
 
