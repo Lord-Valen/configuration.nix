@@ -97,7 +97,7 @@ in {
     home-manager = {
       useUserPackages = true;
       useGlobalPkgs = true;
-      users.lord-lord-valen = {
+      users.lord-valen = {
         imports = [inputs.nix-doom-emacs.hmModule cell.homeConfigurations.lord-valen];
         home.stateVersion = "22.05";
       };
