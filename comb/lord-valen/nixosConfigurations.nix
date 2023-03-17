@@ -106,7 +106,7 @@ in {
     services.syncthing.folders = {
       "Pythia Photos" = {
         id = "pixel_7_n835-photos";
-        path = "/home/lord-lord-valen/Photos";
+        path = "/home/lord-valen/Photos";
         devices = ["Pythia"];
       };
     };
@@ -154,7 +154,7 @@ in {
         options = ["subvol=/@swap"];
       };
 
-      "/home/lord-lord-valen/games" = {
+      "/home/lord-valen/games" = {
         label = "GAME";
         fsType = "btrfs";
         options = ["subvol=/@"];
