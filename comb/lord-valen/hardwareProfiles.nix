@@ -24,7 +24,7 @@ in {
       common-gpu-amd
     ];
 
-    services.xserver.xrandrHeads = ["HDMI-A-0" "DisplayPort-0"];
+    services.xserver.xrandrHeads = ["HDMI-1" "DP-1"];
 
     boot = {
       kernelModules = ["kvm_amd"];
