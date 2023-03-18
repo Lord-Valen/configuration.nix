@@ -24,6 +24,15 @@ in {
       ]
       ++ laptop;
 
+    home-manager = {
+      useUserPackages = true;
+      useGlobalPkgs = true;
+      users.lord-valen = {
+        imports = [inputs.nix-doom-emacs.hmModule cell.homeConfigurations.lord-valen-music];
+        home.stateVersion = "22.11";
+      };
+    };
+
     boot = {
       loader = {
         grub = {
@@ -98,7 +107,7 @@ in {
       useUserPackages = true;
       useGlobalPkgs = true;
       users.lord-valen = {
-        imports = [inputs.nix-doom-emacs.hmModule cell.homeConfigurations.lord-valen];
+        imports = [inputs.nix-doom-emacs.hmModule cell.homeConfigurations.lord-valen-music];
         home.stateVersion = "22.05";
       };
     };

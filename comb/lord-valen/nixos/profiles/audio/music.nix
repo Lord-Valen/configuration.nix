@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   ...
 }: {
@@ -15,5 +13,8 @@
     # Tidal
     pkgs.supercollider-with-sc3-plugins
     pkgs.haskellPackages.tidal
+
+    # VCV
+    pkgs.vcv-rack
   ];
 }

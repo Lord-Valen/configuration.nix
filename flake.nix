@@ -130,6 +130,7 @@
           "steam"
           "steam-run"
           "steam-original"
+          "VCV-Rack"
         ];
     }
     {
