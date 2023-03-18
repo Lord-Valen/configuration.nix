@@ -5,7 +5,6 @@
     env = {
       TZ = "Canada/Eastern";
       PIHOLE_DNS = "9.9.9.9;149.112.112.112";
-      FTLCONF_LOCAL_IPV4 = "192.18.250.41";
     };
     restart = "unless-stopped";
   in {
