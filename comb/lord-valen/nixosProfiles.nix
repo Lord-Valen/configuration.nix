@@ -2,4 +2,4 @@
   inputs,
   cell,
 }:
-inputs.cells._queen.lib.rakeLeaves ./nixos/profiles
+inputs.cells._repo.lib.rakeLeaves ./nixos/profiles

@@ -146,8 +146,8 @@
           "VCV-Rack"
         ];
     } {
-      lib = std.pick self ["_queen" "lib"];
-      devShells = std.harvest self ["_queen" "devshells"];
+      lib = std.pick self ["_repo" "lib"];
+      devShells = std.harvest self ["_repo" "devshells"];
     } {
       nixosConfigurations = collect self "nixosConfigurations";
       colmenaConfigurations = collect self "colmenaConfigurations";
