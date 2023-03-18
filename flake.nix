@@ -111,7 +111,6 @@
 
         # configurations
         nixosConfigurations
-        homeConfigurations
         colmenaConfigurations
 
         # pkgs

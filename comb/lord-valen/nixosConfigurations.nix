@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (cell) nixosSuites nixosProfiles hardwareProfiles;
+  inherit (cell) nixosSuites nixosProfiles homeSuites hardwareProfiles;
 
   bee = {
     system = "x86_64-linux";
@@ -28,7 +28,9 @@ in {
       useUserPackages = true;
       useGlobalPkgs = true;
       users.lord-valen = {
-        imports = [inputs.nix-doom-emacs.hmModule cell.homeConfigurations.lord-valen-music];
+        imports = with homeSuites;
+          lord-valen
+          ++ music;
         home.stateVersion = "22.11";
       };
     };
@@ -107,7 +109,9 @@ in {
       useUserPackages = true;
       useGlobalPkgs = true;
       users.lord-valen = {
-        imports = [inputs.nix-doom-emacs.hmModule cell.homeConfigurations.lord-valen-music];
+        imports = with homeSuites;
+          lord-valen
+          ++ music;
         home.stateVersion = "22.05";
       };
     };
@@ -193,7 +197,7 @@ in {
       useUserPackages = true;
       useGlobalPkgs = true;
       users.lord-valen = {
-        imports = [inputs.nix-doom-emacs.hmModule cell.homeConfigurations.lord-valen];
+        imports = with homeSuites; lord-valen;
         home.stateVersion = "22.05";
       };
     };
@@ -258,11 +262,11 @@ in {
       useGlobalPkgs = true;
       users = {
         lord-valen = {
-          imports = [inputs.nix-doom-emacs.hmModule cell.homeConfigurations.lord-valen];
+          imports = with homeSuites; lord-valen;
           home.stateVersion = "22.11";
         };
         nixos = {
-          imports = [cell.homeConfigurations.nixos];
+          imports = with homeSuites; nixos;
           home.stateVersion = "22.11";
         };
       };
