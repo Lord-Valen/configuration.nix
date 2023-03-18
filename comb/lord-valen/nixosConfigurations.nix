@@ -30,6 +30,7 @@ in {
       users.lord-valen = {
         imports = with homeSuites;
           lord-valen
+          ++ xmonad
           ++ music;
         home.stateVersion = "22.11";
       };
@@ -111,6 +112,7 @@ in {
       users.lord-valen = {
         imports = with homeSuites;
           lord-valen
+          ++ xmonad
           ++ music;
         home.stateVersion = "22.05";
       };
@@ -197,7 +199,7 @@ in {
       useUserPackages = true;
       useGlobalPkgs = true;
       users.lord-valen = {
-        imports = with homeSuites; lord-valen;
+        imports = with homeSuites; lord-valen ++ xmonad;
         home.stateVersion = "22.05";
       };
     };
@@ -264,7 +266,7 @@ in {
       useGlobalPkgs = true;
       users = {
         lord-valen = {
-          imports = with homeSuites; lord-valen;
+          imports = with homeSuites; lord-valen ++ xmonad;
           home.stateVersion = "22.11";
         };
         nixos = {
