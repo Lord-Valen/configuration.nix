@@ -20,14 +20,9 @@
     gnupg.agent.pinentryFlavor = "gtk2";
   };
 
-  services = {
-    xserver = {
-      displayManager.lightdm.enable = true;
-      windowManager.xmonad = {
-        enable = true;
-        enableContribAndExtras = true;
-        config = ./xmonad.d/xmonad.hs;
-      };
-    };
+  services.xserver.windowManager.xmonad = {
+    enable = true;
+    enableContribAndExtras = true;
+    config = ./xmonad.d/xmonad.hs;
   };
 }

@@ -248,8 +248,25 @@ in {
         arion.pihole
         arion.servarr
         syncthing
+        x11.gnome
+        x11.xmonad
       ]
       ++ server;
+
+    home-manager = {
+      useUserPackages = true;
+      useGlobalPkgs = true;
+      users = {
+        lord-valen = {
+          imports = [inputs.nix-doom-emacs.hmModule cell.homeConfigurations.lord-valen];
+          home.stateVersion = "22.11";
+        };
+        nixos = {
+          imports = [cell.homeConfigurations.nixos];
+          home.stateVersion = "22.11";
+        };
+      };
+    };
 
     services.syncthing = {
       folders = {

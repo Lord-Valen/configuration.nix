@@ -11,6 +11,7 @@
   services = {
     xserver = {
       enable = true;
+      displayManager.lightdm.enable = true;
       libinput = {
         enable = true;
         touchpad.naturalScrolling = true;

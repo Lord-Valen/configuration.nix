@@ -15,4 +15,10 @@ in rec {
     ]
     ++ base;
   lord-valen-music.imports = with homeProfiles; lord-valen.imports ++ [vcv];
+  nixos.imports = with homeSuites;
+    with homeProfiles;
+    [
+      wallpaper
+    ]
+    ++ base;
 }
