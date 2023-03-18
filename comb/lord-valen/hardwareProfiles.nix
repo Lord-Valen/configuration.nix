@@ -1,43 +1,40 @@
 {
   inputs,
   cell,
-}: {
+}: let
+  defaults = {
+    hardware.opengl.driSupport32Bit = true;
+    hardware.enableRedistributableFirmware = true;
+  };
+in {
   autolycus = {
     imports = with inputs.nixos-hardware.nixosModules; [
+      defaults
       lenovo-thinkpad-t420
     ];
 
-    boot.initrd.availableKernelModules = []; #TODO
+    boot.initrd.availableKernelModules = []; # TODO
   };
 
   heracles = {
     imports = with inputs.nixos-hardware.nixosModules; [
+      defaults
       common-pc
       common-cpu-amd-pstate
       common-gpu-amd
     ];
 
-    services.xserver.xrandrHeads = [
-      "HDMI-A-0"
-      "DisplayPort-0"
-    ];
+    services.xserver.xrandrHeads = ["HDMI-A-0" "DisplayPort-0"];
 
     boot = {
       kernelModules = ["kvm_amd"];
-      initrd.availableKernelModules = [
-        "xhci_pci"
-        "ahci"
-        "usbhid"
-        "usb_storage"
-        "sd_mod"
-      ];
+      initrd.availableKernelModules = ["xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
     };
-
-    hardware.opengl.driSupport32Bit = true;
   };
 
   satellite = {
     imports = with inputs.nixos-hardware.nixosModules; [
+      defaults
       common-pc-laptop-hdd
       common-cpu-amd
     ];
@@ -55,6 +52,7 @@
 
   theseus = {
     imports = with inputs.nixos-hardware.nixosModules; [
+      defaults
       common-pc
       common-cpu-intel-sandy-bridge
       common-gpu-amd-southern-islands
