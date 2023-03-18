@@ -4,10 +4,7 @@
   nixConfig = {
     extra-experimental-features = "nix-command flakes";
 
-    extra-substituters = [
-      "https://nix-community.cachix.org"
-      "https://nrdxp.cachix.org"
-    ];
+    extra-substituters = ["https://nix-community.cachix.org" "https://nrdxp.cachix.org"];
 
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
@@ -23,14 +20,19 @@
 
     std = {
       url = "github:divnix/std";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.arion.follows = "arion";
+      inputs = {
+        blank.follows = "blank";
+        nixpkgs.follows = "nixpkgs";
+        arion.follows = "arion";
+      };
     };
 
     std-data-collection = {
       url = "github:divnix/std-data-collection";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.std.follows = "std";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        std.follows = "std";
+      };
     };
 
     hive = {
@@ -70,6 +72,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # TODO: Wait for random wallpaper support
+    # stylix = {
+    #   url = "github:danth/stylix";
+    #   inputs = {
+    #     nixpkgs.follows = "nixpkgs";
+    #     home-manager.follows = "home-manager";
+
+    #     flake-compat.follows = "blank";
+    #   };
+    # };
+
+    # TODO
     # aagl-gtk-on-nix = {
     #   url = "github:ezKEa/aagl-gtk-on-nix/271df5673a4bda398d2bc3ef5d5bb2f6868e2988";
     #   flake = false;
@@ -131,14 +145,11 @@
           "steam-original"
           "VCV-Rack"
         ];
-    }
-    {
+    } {
       lib = std.pick self ["_queen" "lib"];
       devShells = std.harvest self ["_queen" "devshells"];
-    }
-    {
+    } {
       nixosConfigurations = collect self "nixosConfigurations";
-      homeConfigurations = collect self "homeConfigurations";
       colmenaConfigurations = collect self "colmenaConfigurations";
     };
 }
