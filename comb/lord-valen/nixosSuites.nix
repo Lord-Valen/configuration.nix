@@ -12,11 +12,12 @@ in
     pc =
       base
       ++ [audio.common networking yubikey browser];
-    pc' = pc
-          ++ chat
-          ++ develop
-          ++ office
-          ++ [users.lord-valen x11.xmonad];
+    pc' =
+      pc
+      ++ chat
+      ++ develop
+      ++ office
+      ++ [users.lord-valen x11.xmonad];
 
     server = base ++ [networking];
     desktop = pc' ++ [ipfs];

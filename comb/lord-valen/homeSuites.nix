@@ -10,19 +10,21 @@ in rec {
     xdg
   ];
 
-  lord-valen = with homeProfiles; [
-    inputs.nix-doom-emacs.hmModule
-    doom
-    wallpaper
-    git.valen
-    shell.nushell
-  ]
-  ++ base;
+  lord-valen = with homeProfiles;
+    [
+      inputs.nix-doom-emacs.hmModule
+      doom
+      wallpaper
+      git.valen
+      shell.nushell
+    ]
+    ++ base;
 
-  nixos = with homeProfiles; [
-    wallpaper
-  ]
-  ++ base;
+  nixos = with homeProfiles;
+    [
+      wallpaper
+    ]
+    ++ base;
 
   music = with homeProfiles; [
     vcv
