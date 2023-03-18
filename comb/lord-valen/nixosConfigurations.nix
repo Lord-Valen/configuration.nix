@@ -254,9 +254,10 @@ in {
         syncthing
         x11.gnome
         x11.xmonad
+        users.lord-valen
         users.nixos
       ]
-      ++ server;
+      ++ pc;
 
     home-manager = {
       useUserPackages = true;

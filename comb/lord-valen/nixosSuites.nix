@@ -11,12 +11,14 @@ in
     develop = [dev.npm];
     pc =
       base
-      ++ chat
-      ++ office
-      ++ develop
-      ++ [users.lord-valen audio.common networking yubikey x11.xmonad browser];
+      ++ [audio.common networking yubikey browser];
+    pc' = pc
+          ++ chat
+          ++ develop
+          ++ office
+          ++ [users.lord-valen x11.xmonad];
 
     server = base ++ [networking];
-    desktop = pc ++ [ipfs];
-    laptop = pc ++ [x11.colemak];
+    desktop = pc' ++ [ipfs];
+    laptop = pc' ++ [x11.colemak];
   }
