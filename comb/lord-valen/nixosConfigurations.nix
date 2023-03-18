@@ -254,6 +254,7 @@ in {
         syncthing
         x11.gnome
         x11.xmonad
+        users.nixos
       ]
       ++ server;
 
