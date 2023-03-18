@@ -106,6 +106,7 @@ in {
       ]
       ++ desktop;
 
+
     home-manager = {
       useUserPackages = true;
       useGlobalPkgs = true;
@@ -275,6 +276,9 @@ in {
         };
       };
     };
+
+    services.flatpak.enable = true;
+    hardware.steam-hardware.enable = true;
 
     services.syncthing = {
       folders = {
