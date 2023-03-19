@@ -259,6 +259,7 @@ in {
         x11.xmonad
         users.lord-valen
         users.nixos
+        games.steam
       ]
       ++ pc;
 
@@ -278,7 +279,6 @@ in {
     };
 
     services.flatpak.enable = true;
-    hardware.steam-hardware.enable = true;
 
     services.syncthing = {
       folders = {
