@@ -10,21 +10,34 @@ Config { font         = "Fira Code semi-bold 10"
        , iconRoot     = "./xpm/"
        , commands = [ Run XMonadLog
                         -- Cpu usage in percent
-                    , Run Cpu ["-t", "<fn=1>\xf108</fn> cpu: <total>%","-H","50","--high","red"] 20
+                    , Run Cpu ["-t", "<fn=1>\xf108</fn> <total>%","-H","50","--high","red"] 20
                         -- Ram used number and percent
-                    , Run Memory ["-t", "<fn=1>\xf233</fn> mem: <used>M (<usedratio>%)"] 20
+                    , Run Memory ["-t", "<fn=1>\xf233</fn> <used>G (<usedratio>%)", "--", "--scale", "1024"] 20
                         -- Disk space free
-                    , Run DiskU [("/", "<fn=1>\xf0c7</fn> hdd: <free>")] [] 36000
+                    , Run DiskU [("/", "<fn=1>\xf0c7</fn> <free>")] [] 36000
                         -- Uptime
-                    , Run Uptime ["-t", "<fn=1>\xf0aa</fn> uptime: <days>d <hours>h"] 36000
+                    , Run Uptime ["-t", "<fn=1>\xf0aa</fn> <days>d <hours>h"] 36000
                         -- Battery
-                    , Run BatteryP ["BAT0"] ["-t", "<fn=1>\xf242</fn> <acstatus><watts>W (<left>%)"] 1200
+                    , Run Battery ["-t", "<fn=1>\xf242</fn> <acstatus><watts>W (<left>%)"] 1200
                         -- Time and date
-                    , Run Date "<fn=1>\xf017</fn> %b %d %Y - (%H:%M) " "date" 150
+                    , Run Date "<fn=1>\xf017</fn> %b %d %Y - %H:%M" "date" 150
                         -- Dynamically adjust xmobar padding
                     , Run Com ".config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 20
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%XMonadLog% }{ <box type=Bottom width=2 mb=2 color=#ffd400><fc=#ffd400>%cpu%</fc></box>  <box type=Bottom width=2 mb=2 color=#e61f44><fc=#e61f44>%memory%</fc></box>  <box type=Bottom width=2 mb=2 color=#df85ff><fc=#df85ff>%disku%</fc></box>  <box type=Bottom width=2 mb=2 color=#a7da1e><fc=#a7da1e>%uptime%</fc></box>  <box type=Bottom width=2 mb=2 color=#cf433e><fc=#cf433e>%battery%</fc></box>%trayerpad%"
+       , template = "}%XMonadLog%{
+ <box type=Bottom width=2 mb=2 color=#ffd400>
+<fc=#ffd400>%cpu%</fc>
+</box>  <box type=Bottom width=2 mb=2 color=#e61f44>
+<fc=#e61f44>%memory%</fc>
+</box>  <box type=Bottom width=2 mb=2 color=#df85ff>
+<fc=#df85ff>%disku%</fc>
+</box>  <box type=Bottom width=2 mb=2 color=#a7da1e>
+<fc=#a7da1e>%date%</fc>
+</box>  <box type=Bottom width=2 mb=2 color=#a7da1e>
+<fc=#a7da1e>%uptime%</fc>
+</box>  <box type=Bottom width=2 mb=2 color=#cf433e>
+<fc=#cf433e>%battery%</fc>
+</box>%trayerpad%"
        }
