@@ -176,7 +176,6 @@ in {
       ]
       ++ desktop;
 
-
     home-manager = {
       useUserPackages = true;
       useGlobalPkgs = true;
