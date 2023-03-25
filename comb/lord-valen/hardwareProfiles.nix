@@ -7,6 +7,27 @@
     hardware.enableRedistributableFirmware = true;
   };
 in {
+  aspire = {
+    imports = with inputs.nixos-hardware.nixosModules; [
+      defaults
+      common-pc-laptop-hdd
+      common-cpu-amd
+      common-gpu-amd
+    ];
+
+    boot = {
+      kernelModules = ["kvm-amd"];
+      initrd.availableKernelModules = [
+        "xhci_pci"
+        "ahci"
+        "ehci_pci"
+        "usb_storage"
+        "sd_mod"
+        "rtsx_pci_sdmmc"
+      ];
+    };
+  };
+
   autolycus = {
     imports = with inputs.nixos-hardware.nixosModules; [
       defaults

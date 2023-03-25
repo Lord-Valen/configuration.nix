@@ -11,6 +11,76 @@
   };
   time.timeZone = "Canada/Eastern";
 in {
+  aspire = {...}: {
+    networking.hostName = "aspire";
+
+    inherit bee time;
+
+    imports = with nixosSuites;
+    with nixosProfiles;
+    with hardwareProfiles;
+      [
+        aspire
+
+        audio.music
+      ]
+      ++ laptop;
+
+    home-manager = {
+      useUserPackages = true;
+      useGlobalPkgs = true;
+      users.lord-valen = {
+        imports = with homeSuites;
+          lord-valen
+          ++ xmonad
+          ++ music;
+        home.stateVersion = "22.05";
+      };
+    };
+
+    boot.loader = {
+      grub = {
+        enable = true;
+        efiSupport = true;
+        device = "nodev";
+        useOSProber = true;
+      };
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
+    };
+
+    fileSystems = {
+      "/boot/efi" = {
+        label = "BOOT";
+        fsType = "vfat";
+      };
+
+      "/" = {
+        label = "MAIN";
+        fsType = "btrfs";
+        options = ["subvol=/@"];
+      };
+
+      "/home" = {
+        label = "MAIN";
+        fsType = "btrfs";
+        options = ["subvol=/@home"];
+      };
+
+      "/swap" = {
+        label = "MAIN";
+        fsType = "btrfs";
+        options = ["subvol=/@swap"];
+      };
+    };
+
+    swapDevices = [{device = "/swap/swapfile";}];
+
+    system.stateVersion = "22.11";
+  };
+
   autolycus = {...}: {
     inherit bee time;
 
