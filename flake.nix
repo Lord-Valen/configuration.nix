@@ -75,6 +75,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    aagl-gtk-on-nix = {
+      url = "github:ezKEa/aagl-gtk-on-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # TODO: Wait for random wallpaper support
     # stylix = {
     #   url = "github:danth/stylix";
@@ -84,12 +89,6 @@
 
     #     flake-compat.follows = "blank";
     #   };
-    # };
-
-    # TODO
-    # aagl-gtk-on-nix = {
-    #   url = "github:ezKEa/aagl-gtk-on-nix/271df5673a4bda398d2bc3ef5d5bb2f6868e2988";
-    #   flake = false;
     # };
   };
 

@@ -164,12 +164,14 @@ in {
     with nixosProfiles;
     with hardwareProfiles;
       [
+        inputs.aagl-gtk-on-nix.nixosModules.default
         heracles
 
         audio.music
         games.heroic
         games.lutris
         games.steam
+        games.aagl
         vm
         syncthing
         monero.common
