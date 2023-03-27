@@ -164,17 +164,21 @@ in {
     with nixosProfiles;
     with hardwareProfiles;
       [
-        inputs.aagl-gtk-on-nix.nixosModules.default
         heracles
 
         audio.music
         games.heroic
         games.lutris
         games.steam
-        games.aagl
         vm
         syncthing
         monero.common
+
+        inputs.aagl-gtk-on-nix.nixosModules.default
+        games.aagl
+
+        cell.nixosModules.p2pool
+        monero.mine
       ]
       ++ desktop;
 
@@ -189,6 +193,8 @@ in {
         home.stateVersion = "22.05";
       };
     };
+
+    services.p2pool.mini = true;
 
     services.syncthing.folders = {
       "Pythia Photos" = {
