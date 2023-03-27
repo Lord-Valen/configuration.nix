@@ -40,8 +40,8 @@
 
     ## :lang
     ### cc
-    gcc
-    ccls
+    clang
+    clang-tools
 
     ### common-lisp
     sbcl
