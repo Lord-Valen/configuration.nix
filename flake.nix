@@ -153,5 +153,8 @@
     } {
       nixosConfigurations = collect self "nixosConfigurations";
       colmenaConfigurations = collect self "colmenaConfigurations";
+      # TODO: implement
+      # nixosModules = collect self "nixosModules";
+      # hmModules = collect self "homeModules";
     };
 }
