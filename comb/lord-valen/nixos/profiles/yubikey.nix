@@ -1,15 +1,7 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   environment.systemPackages = [
     pkgs.yubikey-manager
   ];
 
-  services = {
-    yubikey-agent.enable = true;
-    pcscd.enable = true;
-  };
+  services.pcscd.enable = true;
 }
