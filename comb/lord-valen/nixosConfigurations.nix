@@ -22,6 +22,9 @@ in {
       [
         aspire
 
+        inputs.aagl-gtk-on-nix.nixosModules.default
+        games.aagl
+
         audio.music
       ]
       ++ laptop;
