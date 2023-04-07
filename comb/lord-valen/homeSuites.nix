@@ -12,11 +12,13 @@ in rec {
 
   lord-valen = with homeProfiles;
     [
-      inputs.nix-doom-emacs.hmModule
-      doom
+      gpg
       wallpaper
       git.valen
       shell.nushell
+
+      inputs.nix-doom-emacs.hmModule
+      doom
     ]
     ++ base;
 
