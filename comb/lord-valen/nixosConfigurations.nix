@@ -11,7 +11,7 @@
   };
   time.timeZone = "Canada/Eastern";
 in
-  inputs.cells.repo.lib.mkNixosConfigurations cell {
+  cell.lib.mkNixosConfigurations cell {
     aspire = {
       inherit bee time;
 

@@ -2,4 +2,4 @@
   inputs,
   cell,
 }:
-inputs.cells.repo.lib.rakeLeaves ./nixos/modules
+cell.lib.rakeLeaves ./nixos/modules
