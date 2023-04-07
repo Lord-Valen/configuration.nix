@@ -57,4 +57,16 @@ in rec {
     files = lib.filterAttrs seive (lib.readDir dirPath);
   in
     lib.filterAttrs (name: value: value != {}) (lib.mapAttrs' collect files);
+
+  mkNixosConfigurations = cell: configurations:
+    lib.mapAttrs (
+      name: value:
+        lib.recursiveUpdate
+        value
+        {
+          imports = [cell.hardwareProfiles.${name}] ++ value.imports;
+          networking.hostName = "${name}";
+        }
+    )
+    configurations;
 }
