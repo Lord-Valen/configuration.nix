@@ -2,4 +2,4 @@
   inputs,
   cell,
 }:
-inputs.cells._repo.lib.rakeLeaves ./home/profiles
+inputs.cells.repo.lib.rakeLeaves ./home/profiles
