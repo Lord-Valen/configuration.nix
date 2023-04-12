@@ -85,6 +85,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland = {
+      url = "github:hyprwm/hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # TODO: Wait for random wallpaper support
     # stylix = {
     #   url = "github:danth/stylix";

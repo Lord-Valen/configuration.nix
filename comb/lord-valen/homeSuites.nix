@@ -32,6 +32,11 @@ in rec {
     vcv
   ];
 
+  hyprland = with homeProfiles; [
+    inputs.hyprland.homeManagerModules.default
+    wayland.hyprland
+  ];
+
   xmonad = with homeProfiles; [
     xmobar
   ];
