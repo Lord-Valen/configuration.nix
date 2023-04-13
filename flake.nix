@@ -5,13 +5,18 @@
     extra-experimental-features = "nix-command flakes";
 
     extra-substituters = [
+      # nix-community
       "https://nix-community.cachix.org"
-      "https://nrdxp.cachix.org"
+      # aagl
+      "https://ezkea.cachix.org"
+      # hyprland
+      "https://hyprland.cachix.org"
     ];
 
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "nrdxp.cachix.org-1:Fc5PSqY2Jm1TrWfm88l6cvGWwz3s93c6IOifQWnhNW4="
+      "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
     ];
   };
 
@@ -74,21 +79,13 @@
       url = "github:hercules-ci/arion";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+  };
 
-    nix-doom-emacs = {
-      url = "github:nix-community/nix-doom-emacs";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    aagl-gtk-on-nix = {
-      url = "github:ezKEa/aagl-gtk-on-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprland = {
-      url = "github:hyprwm/hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+  # Desktop
+  inputs = {
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+    aagl-gtk-on-nix.url = "github:ezKEa/aagl-gtk-on-nix";
+    hyprland.url = "github:hyprwm/hyprland";
 
     # TODO: Wait for random wallpaper support
     # stylix = {
@@ -96,7 +93,6 @@
     #   inputs = {
     #     nixpkgs.follows = "nixpkgs";
     #     home-manager.follows = "home-manager";
-
     #     flake-compat.follows = "blank";
     #   };
     # };

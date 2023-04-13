@@ -1,12 +1,8 @@
 {
-  config,
   lib,
   pkgs,
   ...
 }: {
-  # Sets binary caches which speeds up some builds
-  imports = [../cachix];
-
   environment.systemPackages = with pkgs; [
     binutils
     coreutils

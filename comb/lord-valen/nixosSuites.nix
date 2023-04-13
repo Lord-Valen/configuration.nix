@@ -5,7 +5,7 @@
   inherit (cell) nixosProfiles;
 in
   with nixosProfiles; rec {
-    base = [core fonts gpg users.root];
+    base = [core cachix fonts gpg users.root];
     chat = [discord telegram matrix];
     office = [zotero latex onlyoffice printing];
     develop = [dev.npm];
