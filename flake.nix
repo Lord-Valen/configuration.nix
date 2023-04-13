@@ -85,7 +85,7 @@
   inputs = {
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     aagl-gtk-on-nix.url = "github:ezKEa/aagl-gtk-on-nix";
-    hyprland.url = "github:hyprwm/hyprland";
+    hyprland.url = "github:hyprwm/hyprland/v0.24.1";
 
     # TODO: Wait for random wallpaper support
     # stylix = {
