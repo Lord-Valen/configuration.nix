@@ -9,8 +9,6 @@
       "https://nix-community.cachix.org"
       # aagl
       "https://ezkea.cachix.org"
-      # hyprland
-      "https://hyprland.cachix.org"
       # colmena
       "https://colmena.cachix.org"
     ];
@@ -87,7 +85,6 @@
   inputs = {
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     aagl-gtk-on-nix.url = "github:ezKEa/aagl-gtk-on-nix";
-    hyprland.url = "github:hyprwm/hyprland/v0.24.1";
 
     # TODO: Wait for random wallpaper support
     # stylix = {

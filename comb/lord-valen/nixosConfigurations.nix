@@ -18,10 +18,11 @@ in
       imports = with nixosSuites;
       with nixosProfiles;
         [
+          audio.music
+          wayland.hyprland
+
           inputs.aagl-gtk-on-nix.nixosModules.default
           games.aagl
-
-          audio.music
         ]
         ++ laptop;
 
@@ -165,6 +166,7 @@ in
           vm
           syncthing
           monero.common
+          wayland.hyprland
 
           inputs.aagl-gtk-on-nix.nixosModules.default
           games.aagl

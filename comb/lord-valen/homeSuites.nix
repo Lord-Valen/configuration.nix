@@ -33,7 +33,6 @@ in rec {
   ];
 
   hyprland = with homeProfiles; [
-    inputs.hyprland.homeManagerModules.default
     wayland.hyprland
   ];
 

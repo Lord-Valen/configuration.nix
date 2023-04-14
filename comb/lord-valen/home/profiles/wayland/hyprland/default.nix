@@ -1,10 +1,10 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     wofi
+    waylock
+    swww
+    eww-wayland
   ];
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-    extraConfig = builtins.readFile ./hyprland.conf;
-  };
+  xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
 }
