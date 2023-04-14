@@ -31,6 +31,7 @@ in
         users.lord-valen = {
           imports = with homeSuites;
             lord-valen
+            ++ hyprland
             ++ xmonad
             ++ music;
           home.stateVersion = "22.05";
@@ -179,6 +180,7 @@ in
         users.lord-valen = {
           imports = with homeSuites;
             lord-valen
+            ++ hyprland
             ++ xmonad
             ++ music;
           home.stateVersion = "22.05";
