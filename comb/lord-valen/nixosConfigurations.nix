@@ -169,8 +169,8 @@ in
           inputs.aagl-gtk-on-nix.nixosModules.default
           games.aagl
 
-          cell.nixosModules.p2pool
-          monero.mine
+          # cell.nixosModules.p2pool
+          # monero.mine
         ]
         ++ desktop;
 
