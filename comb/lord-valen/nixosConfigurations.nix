@@ -171,6 +171,9 @@ in
 
           # cell.nixosModules.p2pool
           # monero.mine
+          # {
+          #   services.p2pool.mini = true;
+          # }
         ]
         ++ desktop;
 
@@ -186,8 +189,6 @@ in
           home.stateVersion = "22.05";
         };
       };
-
-      services.p2pool.mini = true;
 
       services.syncthing.folders = {
         "Pythia Photos" = {
