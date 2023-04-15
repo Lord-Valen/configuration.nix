@@ -1,5 +1,3 @@
-# Nushell Config File
-
 module completions {
   # Custom completions for external commands (those outside of Nushell)
   # Each completions has two parts: the form of the external command, including its flags and parameters
@@ -182,65 +180,6 @@ let dark_theme = {
   shape_matching_brackets: { attr: u }
 }
 
-let light_theme = {
-  # color for nushell primitives
-  separator: dark_gray
-  leading_trailing_space_bg: { attr: n } # no fg, no bg, attr none effectively turns this off
-  header: green_bold
-  empty: blue
-  bool: dark_gray
-  int: dark_gray
-  filesize: dark_gray
-  duration: dark_gray
-  date: dark_gray
-  range: dark_gray
-  float: dark_gray
-  string: dark_gray
-  nothing: dark_gray
-  binary: dark_gray
-  cellpath: dark_gray
-  row_index: green_bold
-  record: white
-  list: white
-  block: white
-  hints: dark_gray
-
-  # shapes are used to change the cli syntax highlighting
-  shape_garbage: { fg: "#FFFFFF" bg: "#FF0000" attr: b}
-  shape_binary: purple_bold
-  shape_bool: light_cyan
-  shape_int: purple_bold
-  shape_float: purple_bold
-  shape_range: yellow_bold
-  shape_internalcall: cyan_bold
-  shape_external: cyan
-  shape_externalarg: green_bold
-  shape_literal: blue
-  shape_operator: yellow
-  shape_signature: green_bold
-  shape_string: green
-  shape_string_interpolation: cyan_bold
-  shape_datetime: cyan_bold
-  shape_list: cyan_bold
-  shape_table: blue_bold
-  shape_record: cyan_bold
-  shape_block: blue_bold
-  shape_filepath: cyan
-  shape_directory: cyan
-  shape_globpattern: cyan_bold
-  shape_variable: purple
-  shape_flag: blue_bold
-  shape_custom: green
-  shape_nothing: light_cyan
-  shape_matching_brackets: { attr: u }
-}
-
-# External completer example
-# let carapace_completer = {|spans|
-#     carapace $spans.0 nushell $spans | from json
-# }
-
-
 # The default config record. This is where much of your global configuration is setup.
 let-env config = {
   external_completer: null # check 'carapace_completer' above to as example
@@ -276,19 +215,6 @@ let-env config = {
   show_clickable_links_in_ls: true
   render_right_prompt_on_last_line: false
 
-  hooks: {
-    pre_prompt: [{
-      $nothing
-    }]
-    pre_execution: [{
-      $nothing
-    }]
-    env_change: {
-      PWD: [{|before, after|
-        $nothing
-      }]
-    }
-  }
   menus: [
     # Configuration for default nushell menus
     # Note the lack of source parameter
