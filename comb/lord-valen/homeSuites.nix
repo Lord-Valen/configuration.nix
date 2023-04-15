@@ -10,6 +10,10 @@ in rec {
     xdg
   ];
 
+  laptop = with homeProfiles; [
+    colemak
+  ];
+
   lord-valen = with homeProfiles;
     [
       gpg

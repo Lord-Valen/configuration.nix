@@ -32,6 +32,7 @@ in
         users.lord-valen = {
           imports = with homeSuites;
             lord-valen
+            ++ laptop
             ++ hyprland
             ++ xmonad
             ++ music;
@@ -98,6 +99,7 @@ in
         users.lord-valen = {
           imports = with homeSuites;
             lord-valen
+            ++ laptop
             ++ xmonad
             ++ music;
           home.stateVersion = "22.11";
@@ -273,7 +275,10 @@ in
         useUserPackages = true;
         useGlobalPkgs = true;
         users.lord-valen = {
-          imports = with homeSuites; lord-valen ++ xmonad;
+          imports = with homeSuites;
+            lord-valen
+            ++ laptop
+            ++ xmonad;
           home.stateVersion = "22.05";
         };
       };
