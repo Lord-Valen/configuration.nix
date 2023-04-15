@@ -182,38 +182,62 @@ let dark_theme = {
 
 # The default config record. This is where much of your global configuration is setup.
 let-env config = {
-  external_completer: null # check 'carapace_completer' above to as example
-  filesize_metric: false
-  table_mode: rounded # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
-  use_ls_colors: true
-  rm_always_trash: false
+  show_banner: false
+
   color_config: $dark_theme
+  use_ansi_coloring: true
   use_grid_icons: true
   footer_mode: "25"
-  quick_completions: true
-  partial_completions: true
-  completion_algorithm: "prefix"  # prefix, fuzzy
   float_precision: 2
-  use_ansi_coloring: true
-  filesize_format: "auto"
   edit_mode: emacs
-  max_history_size: 10000
-  sync_history_on_enter: true
-  history_file_format: "plaintext"
   shell_integration: true
-  table_index_mode: always
-  cd_with_abbreviations: false
-  case_sensitive_completions: false
-  enable_external_completion: true
-  max_external_completion_results: 100
-  table_trim: {
-    methodology: wrapping, # truncating
-    wrapping_try_keep_words: true,
-    truncating_suffix: "..."
-  }
-  show_banner: true
-  show_clickable_links_in_ls: true
   render_right_prompt_on_last_line: false
+
+  ls: {
+    use_ls_colors: true
+    clickable_links: true
+  }
+
+  rm: {
+    always_trash: false
+  }
+
+  cd: {
+    abbreviations: false
+  }
+
+  table: {
+    mode: rounded # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
+    index_mode: always
+    trim: {
+      methodology: wrapping
+      wrapping_try_keep_words: true
+      truncating_suffix: "..."
+    }
+  }
+
+  history: {
+    file_format: "plaintext"
+    sync_on_enter: true
+    max_size: 10000
+  }
+
+  completions: {
+    quick: true
+    case_sensitive: false
+    algorithm: "prefix"
+    partial: true
+    external: {
+      enable: true
+      max_results: 100
+      completer: null
+    }
+  }
+
+  filesize: {
+    metric: false
+    format: "auto"
+  }
 
   menus: [
     # Configuration for default nushell menus
