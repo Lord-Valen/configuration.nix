@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs = {
     steam = {
       enable = true;
@@ -16,5 +11,5 @@
     steam-hardware.enable = true;
   };
 
-  environment.systemPackages = [pkgs.protonup-ng];
+  environment.systemPackages = with pkgs; [protonup-ng protontricks];
 }
