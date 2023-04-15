@@ -187,7 +187,16 @@ in
             lord-valen
             ++ hyprland
             ++ xmonad
-            ++ music;
+            ++ music
+            ++ [
+              {
+                xdg.configFile."hypr/monitor.conf".text = cell.lib.mkForce ''
+                  monitor = HDMI-A-1, preferred, 0x0, 1
+                  monitor = DP-1, preferred, 1920x0, 1
+                  monitor = , preferred, auto, 1
+                '';
+              }
+            ];
           home.stateVersion = "22.05";
         };
       };
