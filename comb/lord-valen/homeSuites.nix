@@ -17,7 +17,6 @@ in rec {
   lord-valen = with homeProfiles;
     [
       gpg
-      wallpaper
       git.valen
       shell.nushell
 
@@ -26,11 +25,7 @@ in rec {
     ]
     ++ base;
 
-  nixos = with homeProfiles;
-    [
-      wallpaper
-    ]
-    ++ base;
+  nixos = base;
 
   music = with homeProfiles; [
     vcv

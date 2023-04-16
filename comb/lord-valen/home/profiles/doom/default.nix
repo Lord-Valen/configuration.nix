@@ -1,8 +1,10 @@
 {pkgs, ...}: {
   fonts.fontconfig.enable = true;
-  fonts.fonts = [pkgs.fira-code];
 
   home.packages = with pkgs; [
+    # Fonts
+    fira-code
+
     # Doom Dependencies
     git
     (ripgrep.override {withPCRE2 = true;})
