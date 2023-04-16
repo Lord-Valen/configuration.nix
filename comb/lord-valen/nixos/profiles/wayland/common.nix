@@ -3,10 +3,20 @@
   lib,
   ...
 }: {
+  programs = {
+    regreet = {
+      enable = true;
+      settings.background = {
+        path = ../../../home/profiles/wallpaper/wallpaper.d/ouroboros_by_chunlo_dcltl6k.jpg;
+        fit = "Fill";
+      };
+    };
+    gnupg.agent.pinentryFlavor = "gtk2";
+  };
+
   services.greetd = {
     enable = true;
-    package = pkgs.greetd.regreet;
+    settings.default_session.command = lib.mkForce "${pkgs.cage}/bin/cage -s -m last -- ${pkgs.greetd.regreet}/bin/regreet";
   };
-  programs.gnupg.agent.pinentryFlavor = "gtk2";
   services.xserver.displayManager.lightdm.enable = lib.mkForce false;
 }
