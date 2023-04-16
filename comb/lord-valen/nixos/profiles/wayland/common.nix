@@ -7,5 +7,5 @@
     enable = true;
     package = pkgs.greetd.regreet;
   };
-  services.displayManager.lightdm.enable = lib.mkForce false;
+  services.xserver.displayManager.lightdm.enable = lib.mkForce false;
 }
