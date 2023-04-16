@@ -38,10 +38,12 @@ in rec {
 
   hyprland = with homeProfiles; [
     wayland.hyprland
+    wallpaper.wayland
     eww
   ];
 
   xmonad = with homeProfiles; [
     xmobar
+    wallpaper.x11
   ];
 }

@@ -17,7 +17,7 @@ in
       ++ chat
       ++ develop
       ++ office
-      ++ [users.lord-valen x11.xmonad];
+      ++ [users.lord-valen];
 
     server = base ++ [networking];
     desktop = pc' ++ [ipfs];

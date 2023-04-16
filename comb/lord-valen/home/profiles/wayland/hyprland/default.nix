@@ -8,7 +8,7 @@
     kitty
     wofi
     waylock
-    swww
+    wpaperd
     hyprpicker
     wl-clipboard
     libnotify

@@ -34,7 +34,6 @@ in
             lord-valen
             ++ laptop
             ++ hyprland
-            ++ xmonad
             ++ music;
           home.stateVersion = "22.05";
         };
@@ -90,6 +89,7 @@ in
       with nixosProfiles;
         [
           audio.music
+          x11.xmonad
         ]
         ++ laptop;
 
@@ -188,7 +188,6 @@ in
           imports = with homeSuites;
             lord-valen
             ++ hyprland
-            ++ xmonad
             ++ music
             ++ [
               {
@@ -269,7 +268,10 @@ in
     satellite = {
       inherit bee time;
 
-      imports = nixosSuites.laptop;
+      imports = with nixosProfiles;
+      with nixosSuites;
+        [x11.xmonad]
+        ++ laptop;
 
       home-manager = {
         useUserPackages = true;
@@ -330,6 +332,7 @@ in
           syncthing
           x11.gnome
           x11.xmonad
+          wallpaper.x11
           users.lord-valen
           users.nixos
           games.steam
