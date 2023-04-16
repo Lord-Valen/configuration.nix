@@ -38,6 +38,7 @@ in rec {
 
   hyprland = with homeProfiles; [
     wayland.hyprland
+    eww
   ];
 
   xmonad = with homeProfiles; [
