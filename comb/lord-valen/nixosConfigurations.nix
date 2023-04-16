@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (cell) nixosSuites nixosProfiles homeSuites;
+  inherit (cell) nixosSuites nixosProfiles homeSuites homeProfiles;
 
   bee = {
     system = "x86_64-linux";
@@ -332,7 +332,6 @@ in
           syncthing
           x11.gnome
           x11.xmonad
-          wallpaper.x11
           users.lord-valen
           users.nixos
           games.steam
@@ -344,7 +343,13 @@ in
         useGlobalPkgs = true;
         users = {
           lord-valen = {
-            imports = with homeSuites; lord-valen ++ xmonad;
+            imports = with homeProfiles;
+            with homeSuites;
+              [
+                wallpaper.x11
+              ]
+              ++ lord-valen
+              ++ xmonad;
             home.stateVersion = "22.11";
           };
           nixos = {
