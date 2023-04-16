@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   fonts.fontconfig.enable = true;
+  fonts.fonts = [pkgs.fira-code];
 
   home.packages = with pkgs; [
     # Doom Dependencies
