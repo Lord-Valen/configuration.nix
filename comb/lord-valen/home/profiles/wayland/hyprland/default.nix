@@ -8,6 +8,7 @@
     kitty
     wofi
     waylock
+    flameshot
     wpaperd
     hyprpicker
     wl-clipboard
