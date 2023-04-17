@@ -13,10 +13,8 @@
     };
     gnupg.agent.pinentryFlavor = "gtk2";
   };
-
-  services.greetd = {
-    enable = true;
-    settings.default_session.command = lib.mkForce "${pkgs.cage}/bin/cage -s -m last -- ${pkgs.greetd.regreet}/bin/regreet";
+  services = {
+    greetd.enable = true;
+    xserver.displayManager.lightdm.enable = lib.mkForce false;
   };
-  services.xserver.displayManager.lightdm.enable = lib.mkForce false;
 }
