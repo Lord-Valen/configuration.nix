@@ -1,39 +1,47 @@
 ;; Variables
-
+(deflisten workspaces :initial "[]" "nu ~/.config/eww/scripts/get-workspaces.nu")
+(deflisten currentWorkspaces :initial "[]" "nu ~/.config/eww/scripts/get-active-workspaces.nu")
 
 ;; Widgets
 (defwidget barLeft []
   (box :orientation "h"
        :halign "start"
-       :space-evenly false
-       "bar"
-       "left"
-       ))
+       :space-evenly true
+       (for workspace in workspaces
+            (eventbox
+             :onclick "hyprctl dispatch workspace ${workspace.name}"
+             (label
+              ;; This can use ?. operator in the next release
+              :class { currentWorkspaces[0] != "null"
+                       ? currentWorkspaces[1] != "null"
+                         ? "workspace${workspace.name == currentWorkspaces[0].name || workspace.name == currentWorkspaces[1].name ? "-current" : ""}${workspace.windows > 0 ? "-occupied" : ""}"
+                           : "workspace${workspace.name == currentWorkspaces[0].name ? "-current" : ""}${workspace.windows>0 ? "-occupied" : ""}"
+                             : "workspace${workspace.windows > 0 ? "-occupied" : ""}"}
+              :text "${workspace.name}")))))
 
 (defwidget barCenter []
   (box :orientation "h"
        :halign "center"
        :space-evenly false
        "bar"
-       "center"
-       ))
+       "center"))
 
 (defwidget barRight []
   (box :orientation "h"
        :halign "end"
        :space-evenly false
        "bar"
-       "right"
-       ))
+       "right"))
 
 ;; Windows
 (defwindow bar
   :monitor 1
-  :geometry (geometry :x "0"
-                      :y "5px"
-                      :height "30px"
-                      :width "99%"
-                      :anchor "top center")
+  :geometry (geometry
+             :x "0"
+             :y "5px"
+             :height "30px"
+             :width "99%"
+             :anchor "top center")
   ;; X11
   :stacking "fg"
   :wm-ignore false
@@ -43,7 +51,7 @@
   :exclusive true
   ;; Content
   (box :class "bar"
-       :orentation "h"
+       :orientation "h"
        (barLeft)
        (barCenter)
        (barRight)))

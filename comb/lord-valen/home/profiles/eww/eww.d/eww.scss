@@ -1,8 +1,29 @@
 $bg: #0c0a20;
 $fg: #f2f3f7;
+$gray: #3d4c6b;
+$magenta: #ff2afc;
+$purple: #df85ff;
 
 .bar {
   color: $fg;
   background-color: $bg;
   border-radius: 12px;
+}
+
+$empty: $gray;
+$occupied: $fg;
+$current: $purple;
+.workspace {
+  color: $empty;
+
+  &-current {
+    background-color: $current;
+    &-occupied {
+      color: $occupied;
+    }
+  }
+
+  &-occupied {
+    color: $occupied;
+  }
 }
