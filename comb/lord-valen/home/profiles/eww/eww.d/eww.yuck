@@ -12,16 +12,14 @@
        :space-evenly true
        (for workspace in workspaces
             (eventbox
+             ;; This can use ?. operator in the next release
+             :class { currentWorkspaces[0] != "null"
+                      ? currentWorkspaces[1] != "null"
+                        ? "workspace${workspace.name == currentWorkspaces[0].name || workspace.name == currentWorkspaces[1].name ? "-current" : ""}${workspace.windows > 0 ? "-occupied" : ""}"
+                          : "workspace${workspace.name == currentWorkspaces[0].name ? "-current" : ""}${workspace.windows>0 ? "-occupied" : ""}"
+                            : "workspace${workspace.windows > 0 ? "-occupied" : ""}"}
              :onclick "hyprctl dispatch workspace ${workspace.name}"
-             (label
-              ;; This can use ?. operator in the next release
-              :class { currentWorkspaces[0] != "null"
-                       ? currentWorkspaces[1] != "null"
-                         ? "workspace${workspace.name == currentWorkspaces[0].name || workspace.name == currentWorkspaces[1].name ? "-current" : ""}${workspace.windows > 0 ? "-occupied" : ""}"
-                           : "workspace${workspace.name == currentWorkspaces[0].name ? "-current" : ""}${workspace.windows>0 ? "-occupied" : ""}"
-                             : "workspace${workspace.windows > 0 ? "-occupied" : ""}"}
-              :text "${workspace.name}")))
-       ))
+             (label :text "${workspace.name}")))))
 
 (defwidget barCenter []
   (box :class "module"
