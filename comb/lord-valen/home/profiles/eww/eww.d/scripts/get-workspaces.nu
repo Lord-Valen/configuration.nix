@@ -16,8 +16,7 @@ def main [] {
     )}
   )
 
-  let finalWorkspaces = ($workspaces | to json -r)
-  print $finalWorkspaces
+  $workspaces | to json -r | print
 }
 
 main

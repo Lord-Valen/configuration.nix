@@ -1,11 +1,14 @@
 ;; Variables
-(deflisten workspaces :initial "[]" "nu ~/.config/eww/scripts/get-workspaces.nu")
-(deflisten currentWorkspaces :initial "[]" "nu ~/.config/eww/scripts/get-active-workspaces.nu")
+(deflisten workspaces :initial "[]" "~/.config/eww/scripts/get-workspaces.nu")
+(deflisten currentWorkspaces :initial "[]" "~/.config/eww/scripts/get-active-workspaces.nu")
+(defpoll time :interval "5m" "~/.config/eww/scripts/time.nu")
 
 ;; Widgets
 (defwidget barLeft []
-  (box :orientation "h"
+  (box :class "module"
+       :orientation "h"
        :halign "start"
+       :spacing "3"
        :space-evenly true
        (for workspace in workspaces
             (eventbox
@@ -17,17 +20,22 @@
                          ? "workspace${workspace.name == currentWorkspaces[0].name || workspace.name == currentWorkspaces[1].name ? "-current" : ""}${workspace.windows > 0 ? "-occupied" : ""}"
                            : "workspace${workspace.name == currentWorkspaces[0].name ? "-current" : ""}${workspace.windows>0 ? "-occupied" : ""}"
                              : "workspace${workspace.windows > 0 ? "-occupied" : ""}"}
-              :text "${workspace.name}")))))
+              :text "${workspace.name}")))
+       ))
 
 (defwidget barCenter []
-  (box :orientation "h"
+  (box :class "module"
+       :orientation "h"
        :halign "center"
+       :spacing "3"
        :space-evenly false
-       "bar"
-       "center"))
+       (label :text "${time["hour"]}")
+       (label :text ":")
+       (label :text "${time["minute"]}")))
 
 (defwidget barRight []
-  (box :orientation "h"
+  (box :class "module"
+       :orientation "h"
        :halign "end"
        :space-evenly false
        "bar"

@@ -1,8 +1,10 @@
 $bg: #0c0a20;
+$bg-dark: #090819;
+$bg-light: #1f1147;
 $fg: #f2f3f7;
-$gray: #3d4c6b;
+$gray: #546a90;
 $magenta: #ff2afc;
-$purple: #df85ff;
+$violet: #df85ff;
 
 .bar {
   color: $fg;
@@ -10,9 +12,16 @@ $purple: #df85ff;
   border-radius: 12px;
 }
 
+.module {
+  background-color: $bg-light;
+  border-radius: 14px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 $empty: $gray;
 $occupied: $fg;
-$current: $purple;
+$current: $violet;
 .workspace {
   color: $empty;
 
