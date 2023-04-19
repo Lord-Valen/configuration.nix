@@ -27,9 +27,9 @@
        :halign "center"
        :spacing "3"
        :space-evenly false
-       (label :text "${time["hour"]}")
+       (label :text "${time.hour}")
        (label :text ":")
-       (label :text "${time["minute"]}")))
+       (label :text "${time.minute}")))
 
 (defwidget barRight []
   (box :class "module"
