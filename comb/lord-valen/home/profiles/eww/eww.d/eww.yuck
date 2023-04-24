@@ -41,7 +41,8 @@
 
 ;; Windows
 (defwindow bar
-  :monitor 1
+  ;; TODO: Complain about multihead
+  :monitor 0
   :geometry (geometry
              :x "0"
              :y "5px"
