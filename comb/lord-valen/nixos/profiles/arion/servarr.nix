@@ -1,5 +1,25 @@
 {
   imports = [./common.nix];
+
+  networking.firewall = {
+    allowedTCPPorts = [
+      9696
+      8686
+      8989
+      7878
+      8787
+      8112
+      6881
+      8096
+      8920
+    ];
+    allowedUDPPorts = [
+      6881
+      7359
+      1900
+    ];
+  };
+
   virtualisation.arion.projects.servarr.settings = let
     appdir = "/docker/appdata/";
     datadir = "/data";

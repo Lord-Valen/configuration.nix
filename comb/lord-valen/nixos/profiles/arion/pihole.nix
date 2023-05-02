@@ -1,5 +1,8 @@
 {
   imports = [./common.nix];
+
+  networking.firewall.allowedTCPPorts = [53 80];
+
   virtualisation.arion.projects.pihole.settings = let
     appdir = "/docker/appdata/";
     env = {
