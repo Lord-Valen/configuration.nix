@@ -3,7 +3,7 @@
 source ./base.nu
 
 def main [] {
-  hyprctl monitors -j | from json | select activeWorkspace.name | rename name | to json -r | print
+  hyprctl monitors -j | from json | select activeWorkspace.id | rename id | to json -r | print
 }
 
 main

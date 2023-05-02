@@ -15,10 +15,10 @@
              ;; This can use ?. operator in the next release
              :class { currentWorkspaces[0] != "null"
                       ? currentWorkspaces[1] != "null"
-                        ? "workspace${workspace.name == currentWorkspaces[0].name || workspace.name == currentWorkspaces[1].name ? "-current" : ""}${workspace.windows > 0 ? "-occupied" : ""}"
-                          : "workspace${workspace.name == currentWorkspaces[0].name ? "-current" : ""}${workspace.windows>0 ? "-occupied" : ""}"
+                        ? "workspace${workspace.id == currentWorkspaces[0].id || workspace.id == currentWorkspaces[1].id ? "-current" : ""}${workspace.windows > 0 ? "-occupied" : ""}"
+                          : "workspace${workspace.id == currentWorkspaces[0].id ? "-current" : ""}${workspace.windows>0 ? "-occupied" : ""}"
                             : "workspace${workspace.windows > 0 ? "-occupied" : ""}"}
-             :onclick "hyprctl dispatch workspace ${workspace.name}"
+             :onclick "hyprctl dispatch workspace ${workspace.id}"
              (label :text "${workspace.name}")))))
 
 (defwidget barCenter []
