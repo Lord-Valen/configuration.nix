@@ -1,0 +1,29 @@
+{
+  inputs,
+  cell,
+}: {
+  systemPackages = with inputs.nixpkgs; [
+    binutils
+    coreutils
+    dnsutils
+    nmap
+    curl
+    git
+    direnv
+    bottom
+    jq
+    nix-index
+    ripgrep
+    fd
+    whois
+    dosfstools
+    gptfdisk
+    iputils
+    usbutils
+    utillinux
+    file
+    pciutils
+    nethogs
+    pfetch
+  ];
+}

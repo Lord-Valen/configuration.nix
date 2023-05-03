@@ -53,5 +53,10 @@ in
           }
       )
       configurations;
+
+    load = inputs: cell: src:
+      inputs.hive.load {
+        inherit inputs cell src;
+      };
   }
   // lib

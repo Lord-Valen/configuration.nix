@@ -18,7 +18,8 @@ in
       imports = with nixosSuites;
       with nixosProfiles;
         [
-          audio.music
+          pipewire
+          music
           wayland.hyprland
 
           inputs.aagl-gtk-on-nix.nixosModules.default
@@ -88,7 +89,8 @@ in
       imports = with nixosSuites;
       with nixosProfiles;
         [
-          audio.music
+          pipewire
+          music
           x11.xmonad
         ]
         ++ laptop;
@@ -161,7 +163,8 @@ in
       imports = with nixosSuites;
       with nixosProfiles;
         [
-          audio.music
+          pipewire
+          music
           games.heroic
           games.lutris
           games.steam
