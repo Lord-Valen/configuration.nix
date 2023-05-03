@@ -1,13 +1,9 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   programs = {
     regreet = {
       enable = true;
       settings.background = {
-        path = ../../../home/profiles/wallpaper/wallpaper.d/ouroboros_by_chunlo_dcltl6k.jpg;
+        path = ./wallpaper.jpg;
         fit = "Fill";
       };
     };
