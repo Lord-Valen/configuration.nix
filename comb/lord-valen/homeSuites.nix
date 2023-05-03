@@ -19,8 +19,6 @@ in rec {
       gpg
       git.valen
       shell.nushell
-
-      inputs.nix-doom-emacs.hmModule
       doom
     ]
     ++ base;
