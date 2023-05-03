@@ -1,0 +1,3 @@
+{
+  steam-hardware.enable = true;
+}

@@ -21,9 +21,7 @@ in
           pipewire
           music
           wayland.hyprland
-
-          inputs.aagl-gtk-on-nix.nixosModules.default
-          games.aagl
+          games
         ]
         ++ laptop;
 
@@ -165,16 +163,11 @@ in
         [
           pipewire
           music
-          games.heroic
-          games.lutris
-          games.steam
+          games
           vm
           syncthing
           monero.common
           wayland.hyprland
-
-          inputs.aagl-gtk-on-nix.nixosModules.default
-          games.aagl
 
           # cell.nixosModules.p2pool
           # monero.mine
@@ -337,7 +330,7 @@ in
           x11.xmonad
           users.lord-valen
           users.nixos
-          games.steam
+          games
         ]
         ++ pc;
 

@@ -9,6 +9,6 @@ in
     core = load ./core;
     pipewire = load ./pipewire;
     music = load ./music;
-    # games = load ./games;
+    games = load ./games;
     # monero = load ./monero;
   }
