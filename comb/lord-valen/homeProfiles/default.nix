@@ -6,6 +6,6 @@
 in
   cell.lib.rakeLeaves ../home.old/profiles
   // {
-    core = load ./core;
     doom = load ./doom;
+    eww = load ./eww;
   }
