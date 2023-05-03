@@ -20,7 +20,8 @@ in
         [
           pipewire
           music
-          wayland.hyprland
+          regreet
+          hyprland
           games
         ]
         ++ laptop;
@@ -167,7 +168,8 @@ in
           vm
           syncthing
           monero.common
-          wayland.hyprland
+          regreet
+          hyprland
 
           # cell.nixosModules.p2pool
           # monero.mine

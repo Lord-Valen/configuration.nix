@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [./common.nix];
 
   environment.systemPackages = [
@@ -15,10 +10,6 @@
   ];
 
   fonts.fonts = [pkgs.fira-code pkgs.font-awesome];
-
-  programs = {
-    gnupg.agent.pinentryFlavor = "gtk2";
-  };
 
   services.xserver.windowManager.xmonad = {
     enable = true;

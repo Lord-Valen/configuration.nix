@@ -10,5 +10,6 @@ in
     pipewire = load ./pipewire;
     music = load ./music;
     games = load ./games;
-    # monero = load ./monero;
+    hyprland = load ./hyprland;
+    regreet = load ./regreet;
   }
