@@ -11,7 +11,7 @@ in
     develop = [dev.npm];
     pc =
       base
-      ++ [audio.common networking yubikey browser];
+      ++ [pipewire networking yubikey browser];
     pc' =
       pc
       ++ chat
