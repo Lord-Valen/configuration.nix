@@ -22,6 +22,10 @@
     iputils
     usbutils
     utillinux
+    file
+    pciutils
+    nethogs
+    pfetch
   ];
 
   nix = {
