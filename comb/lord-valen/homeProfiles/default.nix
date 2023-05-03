@@ -8,4 +8,5 @@ in
   // {
     doom = load ./doom;
     eww = load ./eww;
+    hyprland = load ./hyprland;
   }

@@ -30,9 +30,9 @@ in rec {
   ];
 
   hyprland = with homeProfiles; [
-    wayland.hyprland
-    wallpaper.wayland
     eww
+    hyprland
+    wallpaper.wayland
   ];
 
   xmonad = with homeProfiles; [
