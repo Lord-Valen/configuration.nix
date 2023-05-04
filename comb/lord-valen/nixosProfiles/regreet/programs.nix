@@ -1,6 +1,5 @@
 {
-  services.greetd.enable = true;
-  programs.regreet = {
+  regreet = {
     enable = true;
     settings.background = {
       path = ./_wallpaper.jpg;

@@ -1,0 +1,3 @@
+{
+  greetd.enable = true;
+}
