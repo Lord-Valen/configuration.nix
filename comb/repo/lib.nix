@@ -49,8 +49,9 @@ in
     mkColmenaConfigurations = cell: defaults: configurations:
       lib.mapAttrs (
         name: value:
+          lib.recursiveUpdate
           defaults
-          // value
+          value
           // {
             imports = [cell.nixosConfigurations.${name}] ++ getImports value ++ getImports defaults;
           }
