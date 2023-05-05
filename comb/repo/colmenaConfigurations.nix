@@ -1,12 +1,9 @@
 {
   inputs,
   cell,
-}: let
-  inherit (cell) nixosSuites;
-in {
+}:
+cell.lib.mkColmenaConfigurations cell {} {
   larva = {
-    bee.system = "x86_64-linux";
-    bee.pkgs = inputs.nixpkgs.legacyPackages;
     deployment = {
       targetHost = "fe80::47";
       targetPort = 22;
@@ -14,6 +11,5 @@ in {
       allowLocalDeployment = false;
       buildOnTarget = false;
     };
-    imports = [nixosSuites.larva];
   };
 }

@@ -4,6 +4,10 @@
 }: let
   inherit (inputs) std hive;
   lib = inputs.nixpkgs.lib // builtins;
+  getImports = attrs:
+    if attrs ? imports
+    then attrs.imports
+    else [];
 in
   rec {
     inherit std hive;
@@ -36,20 +40,19 @@ in
           lib.recursiveUpdate
           value
           {
-            imports = [cell.hardwareProfiles.${name}] ++ value.imports;
+            imports = [cell.hardwareProfiles.${name}] ++ getImports value;
             networking.hostName = "${name}";
           }
       )
       configurations;
 
-    mkColmenaConfigurations = cell: configurations:
+    mkColmenaConfigurations = cell: defaults: configurations:
       lib.mapAttrs (
         name: value:
-          lib.recursiveUpdate
-          value
-          {
-            imports = [cell.nixosConfigurations.${name}] ++ value.imports;
-            meta.nixpkgs = inputs.nixpkgs;
+          defaults
+          // value
+          // {
+            imports = [cell.nixosConfigurations.${name}] ++ getImports value ++ getImports defaults;
           }
       )
       configurations;
