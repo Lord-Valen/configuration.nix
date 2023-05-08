@@ -6,10 +6,13 @@
     kitty
     wofi
     waylock
-    flameshot
     wpaperd
     hyprpicker
     wl-clipboard
     libnotify
+
+    # eww
+    nushell
+    socat
   ];
 }

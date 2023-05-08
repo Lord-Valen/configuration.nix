@@ -30,7 +30,6 @@ in rec {
   ];
 
   hyprland = with homeProfiles; [
-    eww
     homeProfiles.hyprland
     wallpaper.wayland
   ];
