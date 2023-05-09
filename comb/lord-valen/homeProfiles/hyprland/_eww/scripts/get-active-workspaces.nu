@@ -7,5 +7,4 @@ def main [] {
 }
 
 main
-socat -u $socket - | lines | each {|line| $line | split column ">>" | into record
-  | each {|record| if $record.column1 == workspace {main}}}
+socket ["workspace" "createworkspace" "destroyworkspace"] | each {|| main}

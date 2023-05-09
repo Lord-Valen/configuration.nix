@@ -20,5 +20,4 @@ def main [] {
 }
 
 main
-# TODO: Check for event's that would change the count
-socat -u $socket - | lines | each {|| main}
+socket ["openwindow" "closewindow" "movewindow"] | each {|| main}
