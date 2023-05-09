@@ -23,6 +23,7 @@ in
           regreet
           hyprland
           games
+          geoclue
         ]
         ++ laptop;
 
@@ -170,6 +171,7 @@ in
           monero.common
           regreet
           hyprland
+          geoclue
 
           # cell.nixosModules.p2pool
           # monero.mine

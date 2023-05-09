@@ -12,4 +12,5 @@ in
     games = load ./games;
     hyprland = load ./hyprland;
     regreet = load ./regreet;
+    geoclue = {services.geoclue2.enable = true;};
   }
