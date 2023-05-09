@@ -1,7 +1,7 @@
 #!/usr/bin/env nu
 
 source ./base.nu
-let workspaces = ($names | zip 0..10 | each {|workspace| {name: $workspace.0, id: $workspace.1, windows: 0}})
+let workspaces = ($names | zip 1.. | each {|workspace| {name: $workspace.0, id: $workspace.1, windows: 0}})
 
 def main [] {
   let hyprWorkspaces = (hyprctl workspaces -j | from json | select id windows)
