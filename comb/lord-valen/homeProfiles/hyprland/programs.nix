@@ -7,4 +7,8 @@
     enable = true;
     configDir = ./_eww;
   };
+  wlogout = {
+    enable = true;
+    style = ./_wlogout/style.css;
+  };
 }
