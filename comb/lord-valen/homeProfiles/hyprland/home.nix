@@ -5,11 +5,11 @@
   packages = with inputs.nixpkgs; [
     kitty
     wofi
-    waylock
     wpaperd
     hyprpicker
     wl-clipboard
     libnotify
+    swaylock-effects
 
     # eww
     nushell
