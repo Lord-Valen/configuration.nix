@@ -10,6 +10,7 @@
     wl-clipboard
     libnotify
     swaylock-effects
+    inputs.watershot.packages.default
 
     # eww
     nushell
