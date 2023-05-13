@@ -6,11 +6,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1683503090,
-        "narHash": "sha256-B+xDz0m1+8Bfn2PcyFxR7QpLfxynlHmApn1k5zFkFkk=",
+        "lastModified": 1683754654,
+        "narHash": "sha256-e4V3EVdLZ2vTkb3mLmbYFhxzZGoErnG/70KcgRK6a60=",
         "owner": "ezKEa",
         "repo": "aagl-gtk-on-nix",
-        "rev": "284dadfc17580448ba8b47133ae999177f83dd36",
+        "rev": "64eeb9b2a0b62c2a78f852d1da6252e060daf091",
         "type": "github"
       },
       "original": {
