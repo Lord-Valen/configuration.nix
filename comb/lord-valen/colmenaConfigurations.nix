@@ -9,6 +9,7 @@ cell
   bee.pkgs = inputs.nixpkgs;
   deployment = {
     allowLocalDeployment = true;
+    tags = ["all"];
   };
 }
 {
