@@ -79,7 +79,7 @@
   inputs = {
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     aagl-gtk-on-nix.url = "github:ezKEa/aagl-gtk-on-nix";
-    watershot.url = "github:Kirottu/watershot";
+    watershot.url = "github:Kirottu/watershot/v0.1.1";
     watershot.inputs.nixpkgs.follows = "nixpkgs";
 
     # TODO: Wait for random wallpaper support

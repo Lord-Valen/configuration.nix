@@ -1788,6 +1788,7 @@
       },
       "original": {
         "owner": "Kirottu",
+        "ref": "v0.1.1",
         "repo": "watershot",
         "type": "github"
       }
