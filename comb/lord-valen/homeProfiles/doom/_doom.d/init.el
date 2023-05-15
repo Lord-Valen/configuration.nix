@@ -43,14 +43,14 @@
   (latex +fold +lsp)
   (markdown +grip)
   (nix +lsp)
-  (org +dragndrop +pandoc +present)
+  (org +dragndrop +pandoc +present +pretty)
   (rust +lsp)
   (sh +lsp)
   (web +lsp)
   (yaml +lsp)
 
   :term
-  eshell
+  vterm
 
   :tools
   biblio

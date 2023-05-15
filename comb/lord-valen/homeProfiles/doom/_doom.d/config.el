@@ -3,7 +3,7 @@
 (setq user-full-name "Lord Valen"
       user-mail-address "lord_valen@pm.me")
 
-(setq shell-file-name "bash")
+(setq shell-file-name "nu")
 
 (setq frame-title-format "DOOM")
 
@@ -43,12 +43,17 @@
   :config
   (setq projectile-project-search-path '(("~/dev" . 1))))
 
+(use-package! org-modern
+  :config
+  (global-org-modern-mode))
+
 (use-package! ox-latex
   :after org
   :init
   :config
   (setq org-export-headline-levels 5
-        org-export-with-section-numbers nil)
+        org-export-with-section-numbers nil
+        org-latex-hyperref-template nil)
   (require 'ox-extra)
   (ox-extras-activate '(ignore-headlines))
   (--map (add-to-list 'org-latex-classes it)
@@ -135,5 +140,3 @@
 \\renewcommand{\\ratingmarker}{\\faCircle}
 "
             ("\\cvsection{%s}" . "\\cvsection{%s}")))))
-(setq org-latex-hyperref-template nil
-      org-latex-logfiles-extensions (quote ("lof" "lot" "tex~" "aux" "idx" "log" "out" "toc" "nav" "snm" "vrb" "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl" "xmpi" "run.xml" "bcf" "acn" "acr" "alg" "glg" "gls" "ist")))

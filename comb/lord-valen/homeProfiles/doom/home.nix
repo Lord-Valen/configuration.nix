@@ -2,6 +2,8 @@
   inputs,
   cell,
 }: {
+  # magit +forge
+  file.".authinfo.gpg".source = ./_authinfo.gpg;
   packages = with inputs.nixpkgs; [
     # Fonts
     fira-code
@@ -40,7 +42,6 @@
     python3Full
     nodejs
     nodePackages.npm
-    nodePackages.prettier
 
     ## :lang
     ### cc
@@ -57,8 +58,11 @@
     haskellPackages.haskell-language-server
     haskellPackages.hoogle
 
+    ### javascript
+    nodePackages.prettier
+
     ### latex
-    texlive.combined.scheme-full
+    texlive.combined.scheme-medium
 
     ### markdown
     mdl
@@ -80,10 +84,7 @@
     ### sh
     shfmt
     shellcheck
-
-    ## :term
-    ### eshell
-    bash
+    nodePackages.bash-language-server
 
     ## :tools
     ### direnv
