@@ -42,6 +42,7 @@
     python3Full
     nodejs
     nodePackages.npm
+    nodePackages.vscode-langservers-extracted
 
     ## :lang
     ### cc
@@ -55,17 +56,18 @@
     ghc
     cabal-install
     ormolu
-    haskellPackages.haskell-language-server
+    haskell-language-server
     haskellPackages.hoogle
 
     ### javascript
     nodePackages.prettier
+    nodePackages.typescript-language-server
 
     ### latex
     texlive.combined.scheme-medium
 
     ### markdown
-    mdl
+    marksman
     pandoc
 
     ### nix
@@ -80,6 +82,12 @@
     cargo
     rustfmt
     rust-analyzer
+
+    ### toml
+    taplo
+
+    ### yaml
+    nodePackages.yaml-language-server
 
     ### sh
     shfmt
