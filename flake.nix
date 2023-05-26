@@ -23,7 +23,7 @@
   inputs = {
     blank.url = "github:divnix/blank";
 
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -79,7 +79,7 @@
   inputs = {
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     aagl-gtk-on-nix.url = "github:ezKEa/aagl-gtk-on-nix";
-    watershot.url = "github:Kirottu/watershot/v0.1.1";
+    watershot.url = "github:Kirottu/watershot/v0.1.2";
     watershot.inputs.nixpkgs.follows = "nixpkgs";
 
     # TODO: Wait for random wallpaper support
