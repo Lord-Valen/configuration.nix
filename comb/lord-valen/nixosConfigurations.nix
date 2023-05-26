@@ -168,7 +168,7 @@ in
           games
           vm
           syncthing
-          monero.common
+          # monero.common
           regreet
           hyprland
           geoclue
