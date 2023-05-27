@@ -1,18 +1,12 @@
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
-  hardware.sane = {
-    enable = true;
-    extraBackends = with pkgs; [
-      hplipWithPlugin
-    ];
-  };
-
+  inputs,
+  cell,
+}: let
+  inherit (inputs) nixpkgs;
+in {
+  hardware.sane.enable = true;
   programs.system-config-printer.enable = true;
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with nixpkgs; [
     simple-scan
   ];
 
@@ -24,12 +18,11 @@
 
     printing = {
       enable = true;
-      drivers = with pkgs; [
+      drivers = with nixpkgs; [
         gutenprint
         gutenprintBin
         foomatic-filters
         brlaser
-        hplip
       ];
     };
 

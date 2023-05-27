@@ -142,7 +142,6 @@
       nixpkgsConfig.allowUnfreePredicate = pkg:
         lib.elem (lib.getName pkg) [
           "discord"
-          "hplip"
           "steam"
           "steam-run"
           "steam-original"
