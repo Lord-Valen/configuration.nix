@@ -1,7 +1,7 @@
 {
   openssh = {
     enable = true;
-    passwordAuthentication = false;
+    settings.PasswordAuthentication = false;
   };
 
   earlyoom.enable = true;
