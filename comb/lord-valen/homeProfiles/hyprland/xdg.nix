@@ -11,9 +11,4 @@ in {
       kb_layout = us
     }
   '';
-
-  portal = {
-    enable = true;
-    extraPortals = with nixpkgs; [xdg-desktop-portal-hyprland];
-  };
 }

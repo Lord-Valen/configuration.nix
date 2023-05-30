@@ -1,3 +1,0 @@
-{
-  hyprland.enable = true;
-}
