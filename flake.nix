@@ -59,7 +59,7 @@
     };
 
     colmena = {
-      url = "github:zhaofengli/colmena";
+      url = "github:zhaofengli/colmena/v0.4.0";
       inputs.flake-compat.follows = "blank";
     };
 
