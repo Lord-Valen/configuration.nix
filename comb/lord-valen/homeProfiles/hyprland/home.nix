@@ -13,6 +13,7 @@
     inputs.watershot.packages.default
 
     # eww
+    killall
     nushell
     socat
   ];
