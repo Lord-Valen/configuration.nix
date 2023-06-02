@@ -40,7 +40,12 @@ in
         host,
         config,
       }: {
-        imports = [cell.hardwareProfiles.${host} {networking.hostName = lib.mkDefault "${host}";}] ++ getImports config;
+        imports =
+          [
+            cell.hardwareProfiles.${host}
+            {networking.hostName = lib.mkDefault "${host}";}
+          ]
+          ++ getImports config;
       },
     }:
       lib.mapAttrs (
@@ -57,7 +62,11 @@ in
         host,
         config,
       }: {
-        imports = [cell.nixosConfigurations.${host}] ++ getImports config;
+        imports =
+          [
+            cell.nixosConfigurations.${host}
+          ]
+          ++ getImports config;
       },
     }:
       lib.mapAttrs (
@@ -74,8 +83,12 @@ in
           lib.recursiveUpdate
           value
           {
-            imports = [cell.hardwareProfiles.${name}] ++ getImports value;
-            networking.hostName = lib.mkDefault "${name}";
+            imports =
+              [
+                cell.hardwareProfiles.${name}
+                {networking.hostName = lib.mkDefault "${name}";}
+              ]
+              ++ getImports value;
           }
       )
       configurations;
@@ -87,7 +100,12 @@ in
           defaults
           value
           // {
-            imports = [cell.nixosConfigurations.${name}] ++ getImports value ++ getImports defaults;
+            imports =
+              [
+                cell.nixosConfigurations.${name}
+              ]
+              ++ getImports value
+              ++ getImports defaults;
           }
       )
       configurations;
