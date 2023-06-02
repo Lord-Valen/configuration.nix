@@ -34,6 +34,40 @@ in
     in
       lib.filterAttrs (name: value: value != {}) (lib.mapAttrs' collect files);
 
+    mkNixosConfigurations' = cell: {
+      configurations,
+      common ? {
+        host,
+        config,
+      }: {
+        imports = [cell.hardwareProfiles.${host} {networking.hostName = lib.mkDefault "${host}";}] ++ getImports config;
+      },
+    }:
+      lib.mapAttrs (
+        host: config:
+          lib.recursiveUpdate
+          config
+          (common {inherit host config;})
+      )
+      configurations;
+
+    mkColmenaConfigurations' = cell: {
+      configurations,
+      common ? {
+        host,
+        config,
+      }: {
+        imports = [cell.nixosConfigurations.${host}] ++ getImports config;
+      },
+    }:
+      lib.mapAttrs (
+        host: config:
+          lib.recursiveUpdate
+          config
+          (common {inherit host config;})
+      )
+      configurations;
+
     mkNixosConfigurations = cell: configurations:
       lib.mapAttrs (
         name: value:
@@ -41,7 +75,7 @@ in
           value
           {
             imports = [cell.hardwareProfiles.${name}] ++ getImports value;
-            networking.hostName = "${name}";
+            networking.hostName = lib.mkDefault "${name}";
           }
       )
       configurations;
