@@ -64,7 +64,7 @@
     };
 
     nixos-generators = {
-      url = "github:nix-community/nixos-generators";
+      url = "github:nix-community/nixos-generators/1.7.0";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixlib.follows = "nixpkgs";
     };
@@ -129,6 +129,7 @@
         # configurations
         nixosConfigurations
         colmenaConfigurations
+        (installables "generators")
 
         # pkgs
         (pkgs "pkgs")
@@ -150,6 +151,7 @@
     } {
       lib = std.pick self ["repo" "lib"];
       devShells = std.harvest self ["repo" "devshells"];
+      packages = std.harvest self ["repo" "generators"];
     } {
       nixosConfigurations = collect self "nixosConfigurations";
       colmenaHive = collect self "colmenaConfigurations";
