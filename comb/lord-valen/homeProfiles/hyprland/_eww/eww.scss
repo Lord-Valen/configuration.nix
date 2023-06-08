@@ -9,14 +9,14 @@ $violet: #df85ff;
 .bar {
   color: $fg;
   background-color: $bg;
-  border-radius: 12px;
+  border-radius: 14px;
 }
 
 .module {
   background-color: $bg-light;
   border-radius: 14px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 14px;
+  padding-right: 14px;
 }
 
 $empty: $gray;

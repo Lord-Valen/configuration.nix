@@ -57,7 +57,7 @@
   :windowtype "dock"
   :exclusive true
   ;; Content
-  (box :class "bar"
+  (centerbox :class "bar"
        :orientation "h"
        (barLeft)
        (barCenter)
