@@ -36,3 +36,11 @@ $current: $violet;
     color: $occupied;
   }
 }
+
+.battery {
+  color: $violet; // make it blue
+
+  &-icon {
+    margin: 10px;
+  }
+}
