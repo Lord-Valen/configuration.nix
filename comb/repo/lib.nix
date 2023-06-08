@@ -15,7 +15,8 @@ in
     rakeLeaves = dirPath: let
       seive = file: type:
       # Only rake `.nix` files or directories
-        (type == "regular" && lib.hasSuffix ".nix" file) || (type == "directory");
+        (type == "regular" && lib.hasSuffix ".nix" file)
+        || (type == "directory");
 
       collect = file: type: {
         name = lib.removeSuffix ".nix" file;
@@ -32,11 +33,16 @@ in
 
       files = lib.filterAttrs seive (lib.readDir dirPath);
     in
-      lib.filterAttrs (name: value: value != {}) (lib.mapAttrs' collect files);
+      lib.filterAttrs (name: value: value != {})
+      (lib.mapAttrs' collect files);
 
-    mkNixosConfigurations' = cell: {
-      configurations,
-      common ? {
+    mkNixosConfigurations' = cell: common: configurations:
+      lib.mapAttrs
+      (host: config: lib.recursiveUpdate config (common {inherit host config;}))
+      configurations;
+
+    mkNixosConfigurations = cell: configurations:
+      mkNixosConfigurations' cell ({
         host,
         config,
       }: {
@@ -46,73 +52,25 @@ in
             {networking.hostName = lib.mkDefault "${host}";}
           ]
           ++ getImports config;
-      },
-    }:
-      lib.mapAttrs (
-        host: config:
-          lib.recursiveUpdate
-          config
-          (common {inherit host config;})
-      )
+      })
       configurations;
 
-    mkColmenaConfigurations' = cell: {
-      configurations,
-      common ? {
+    mkColmenaConfigurations' = cell: common: configurations:
+      lib.mapAttrs
+      (host: config: lib.recursiveUpdate config (common {inherit host config;}))
+      configurations;
+
+    mkColmenaConfigurations = cell: defaults: configurations:
+      mkColmenaConfigurations' cell ({
         host,
         config,
       }: {
         imports =
-          [
-            cell.nixosConfigurations.${host}
-          ]
-          ++ getImports config;
-      },
-    }:
-      lib.mapAttrs (
-        host: config:
-          lib.recursiveUpdate
-          config
-          (common {inherit host config;})
-      )
-      configurations;
+          [cell.nixosConfigurations.${host}]
+          ++ getImports config
+          ++ getImports defaults;
+      }) (lib.mapAttrs (_: value: lib.recursiveUpdate defaults value) configurations);
 
-    mkNixosConfigurations = cell: configurations:
-      lib.mapAttrs (
-        name: value:
-          lib.recursiveUpdate
-          value
-          {
-            imports =
-              [
-                cell.hardwareProfiles.${name}
-                {networking.hostName = lib.mkDefault "${name}";}
-              ]
-              ++ getImports value;
-          }
-      )
-      configurations;
-
-    mkColmenaConfigurations = cell: defaults: configurations:
-      lib.mapAttrs (
-        name: value:
-          lib.recursiveUpdate
-          defaults
-          value
-          // {
-            imports =
-              [
-                cell.nixosConfigurations.${name}
-              ]
-              ++ getImports value
-              ++ getImports defaults;
-          }
-      )
-      configurations;
-
-    load = inputs: cell: src:
-      inputs.hive.load {
-        inherit inputs cell src;
-      };
+    load = inputs: cell: src: inputs.hive.load {inherit inputs cell src;};
   }
   // lib
