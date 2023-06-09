@@ -28,6 +28,7 @@ $current: $violet;
   &-current {
     background-color: $current;
     &-occupied {
+      background-color: $current;
       color: $occupied;
     }
   }

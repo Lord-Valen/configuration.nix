@@ -1,6 +1,5 @@
 ;; Variables
-(deflisten workspaces :initial "[]" "~/.config/eww/scripts/get-workspaces.nu")
-(deflisten currentWorkspaces :initial "[]" "~/.config/eww/scripts/get-active-workspaces.nu")
+(deflisten workspaces :initial "[{\"name\": \"sys\", \"id\": 0, \"windows\": 0, \"current\": true}]" "~/.config/eww/scripts/get-workspaces.nu")
 (defpoll time :interval "5m" "~/.config/eww/scripts/time.nu")
 
 ;; Widgets
@@ -33,13 +32,14 @@
        :spacing "3"
        :space-evenly true
        (for workspace in workspaces
-            (eventbox
-             ;; This can use ?. and || when <=0.5.0
-             :class { currentWorkspaces[0] != "null"
-                      ? currentWorkspaces[1] != "null"
-                        ? "workspace${workspace.id == currentWorkspaces[0].id || workspace.id == currentWorkspaces[1].id ? "-current" : ""}${workspace.windows > 0 ? "-occupied" : ""}"
-                        : "workspace${workspace.id == currentWorkspaces[0].id ? "-current" : ""}${workspace.windows > 0 ? "-occupied" : ""}"
-                      : "workspace${workspace.windows > 0 ? "-occupied" : ""}"}
+            (eventbox :class
+                      {workspace.current
+                                 ? workspace.windows > 0
+                                   ? "workspace-current-occupied"
+                                   : "workspace-current"
+                                 : workspace.windows > 0
+                                   ? "workspace-occupied"
+                                   : "workspace"}
              :onclick "hyprctl dispatch workspace ${workspace.id}"
              (label :text "${workspace.name}")))))
 
