@@ -21,7 +21,7 @@ $violet: #df85ff;
 
 $empty: $gray;
 $occupied: $fg;
-$current: $violet;
+$current: $violet; // FIXME: not enough contrast with color
 .workspace {
   color: $empty;
 
@@ -38,10 +38,25 @@ $current: $violet;
   }
 }
 
-.battery {
-  color: $violet; // make it blue
+.cpu {
+  color: $violet; // TODO: make it yellow
 
   &-icon {
-    margin: 8px;
+    font-size: 10;
+    margin-left: 6px;
+    margin-right: 10px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+}
+
+.battery {
+  color: $violet; // TODO: make it blue
+
+  &-icon {
+    margin-left: 8px;
+    margin-right: 7px;
+    margin-top: 9px;
+    margin-bottom: 8px;
   }
 }

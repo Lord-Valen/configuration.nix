@@ -3,6 +3,13 @@
 (defpoll time :interval "1m" "~/.config/eww/scripts/time.nu")
 
 ;; Widgets
+(defwidget cpu []
+  (circular-progress :class "cpu"
+                     :value {EWW_CPU.avg}
+                     :thickness 2
+                     (label :class "cpu-icon"
+                            :text "")))
+
 (defwidget battery []
   (circular-progress :class "battery"
                      :value {EWW_BATTERY.total_avg}
@@ -57,8 +64,9 @@
   (box :class "module"
        :orientation "h"
        :halign "end"
-       :spacing "3"
+       :spacing "6"
        :space-evenly false
+       (cpu)
        (battery)))
 
 ;; Windows
