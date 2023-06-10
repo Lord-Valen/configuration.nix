@@ -47,6 +47,10 @@
   :config
   (global-org-modern-mode))
 
+(use-package! org-roam
+  :config
+  (setq org-roam-directory (file-truename "~/dev/knowledge-base")))
+
 (use-package! ox-latex
   :after org
   :init
