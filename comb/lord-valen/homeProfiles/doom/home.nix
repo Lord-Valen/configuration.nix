@@ -71,7 +71,6 @@
     pandoc
 
     ### nix
-    nixfmt
     nil
 
     ### org
