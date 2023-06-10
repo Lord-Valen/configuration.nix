@@ -40,6 +40,7 @@
   (haskell +lsp)
   (javascript +lsp)
   (json +lsp)
+  (kotlin +lsp)
   (latex +fold +lsp)
   (markdown +grip)
   (nix +lsp)

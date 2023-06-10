@@ -76,6 +76,13 @@
         nodePackages.vscode-langservers-extracted
       ]
       [
+        # :lang kotlin
+        kotlin
+        ktlint
+        ## lsp
+        kotlin-language-server
+      ]
+      [
         # :lang latex
         texlive.combined.scheme-medium
       ]
