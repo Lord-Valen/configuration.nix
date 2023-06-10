@@ -198,7 +198,7 @@ in
                 '';
               }
             ];
-          home.stateVersion = "22.05";
+          home.stateVersion = "23.05";
         };
       };
 
@@ -262,7 +262,7 @@ in
 
       swapDevices = [{device = "/swap/swapfile";}];
 
-      system.stateVersion = "22.05";
+      system.stateVersion = "23.05";
     };
 
     satellite = {
