@@ -8,8 +8,9 @@
   packages = with inputs.nixpkgs;
     cell.lib.concatLists [
       [
-        # Fonts
+        # Other stuff
         fira-code
+        nushell
       ]
       [
         # Doom Dependencies

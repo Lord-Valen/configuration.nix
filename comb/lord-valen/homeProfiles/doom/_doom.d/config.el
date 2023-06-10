@@ -48,8 +48,33 @@
   (global-org-modern-mode))
 
 (use-package! org-roam
+  :custom
+  (org-roam-directory (file-truename "~/dev/knowledge-base"))
+  (org-roam-capture-templates
+   '(("d" "default" plain
+      "%?"
+      :if-new (file+head
+               "%<%Y%m%d%H%M%S>-${slug}.org"
+               "#+title: ${title}\n")
+      :unnarrowed t)
+     ("p" "project" plain
+      "* Goals\n\n%?\n\n* Tasks\n\n* Dates"
+      :if-new (file+head
+               "%<%Y%m%d%H%M%S>-${slug}.org"
+               "#+title: ${title}\n#+category: ${title}\n#+filetags: project")
+      :unnarrowed t)))
   :config
-  (setq org-roam-directory (file-truename "~/dev/knowledge-base")))
+  (map! :leader
+    "n r I" #'my/org-roam-node-insert-immediate))
+
+(defun my/org-roam-node-insert-immediate (arg &rest args)
+  (interactive "P")
+  (let
+      ((args (cons arg args))
+       (org-roam-capture-templates (list (append
+                                          (car org-roam-capture-templates)
+                                          '(:immediate-finish t)))))
+    (apply #'org-roam-node-insert args)))
 
 (use-package! ox-latex
   :after org
