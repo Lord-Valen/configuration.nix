@@ -43,7 +43,7 @@
   (latex +fold +lsp)
   (markdown +grip)
   (nix +lsp)
-  (org +dragndrop +pandoc +present +pretty)
+  (org +dragndrop +pandoc +present +pretty +roam2)
   (rust +lsp)
   (sh +lsp)
   (web +lsp)
