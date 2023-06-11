@@ -199,17 +199,23 @@
       }
     },
     "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1625557891,
-        "narHash": "sha256-O8/MWsPBGhhyPoPLHZAuoZiiHo9q6FLlEeIDEXuj6T4=",
-        "owner": "divnix",
-        "repo": "blank",
-        "rev": "5a5d2684073d9f563072ed07c871d577a6c614a8",
+        "lastModified": 1686222354,
+        "narHash": "sha256-dtqnAwzucKZv54dTrLetIXhOavUrCsdqOe+JtFH9riE=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "5d9f362aecd7a4c2e8a3bf2afddb49051988cab9",
         "type": "github"
       },
       "original": {
-        "owner": "divnix",
-        "repo": "blank",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "5d9f362aecd7a4c2e8a3bf2afddb49051988cab9",
         "type": "github"
       }
     },
@@ -750,7 +756,9 @@
         "colmena": [
           "colmena"
         ],
-        "disko": "disko",
+        "disko": [
+          "disko"
+        ],
         "haumea": "haumea",
         "home-manager": [
           "home-manager"
@@ -1610,6 +1618,7 @@
         "arion": "arion",
         "blank": "blank",
         "colmena": "colmena",
+        "disko": "disko",
         "hive": "hive",
         "home-manager": "home-manager",
         "nix-doom-emacs": "nix-doom-emacs",

@@ -330,7 +330,7 @@ in
           arion.pihole
           arion.servarr
           syncthing
-          x11.gnome
+          gnome
           x11.xmonad
           users.lord-valen
           users.nixos

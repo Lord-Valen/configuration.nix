@@ -53,6 +53,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
+        disko.follows = "disko";
         colmena.follows = "colmena";
         nixos-generators.follows = "nixos-generators";
       };
@@ -71,6 +72,11 @@
 
     arion = {
       url = "github:hercules-ci/arion";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    disko = {
+      url = "github:nix-community/disko/5d9f362aecd7a4c2e8a3bf2afddb49051988cab9";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -128,6 +134,7 @@
 
         # configurations
         nixosConfigurations
+        diskoConfigurations
         colmenaConfigurations
         (installables "generators")
 

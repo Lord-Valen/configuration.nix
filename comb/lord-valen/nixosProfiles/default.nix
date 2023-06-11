@@ -7,11 +7,13 @@ in
   cell.lib.rakeLeaves ../nixos.old/profiles
   // {
     core = load ./core;
-    pipewire = load ./pipewire;
-    music = load ./music;
     games = load ./games;
-    hyprland = load ./hyprland;
-    regreet = load ./regreet;
-    printing = load ./printing;
     geoclue = {services.geoclue2.enable = true;};
+    gnome = load ./gnome;
+    hyprland = load ./hyprland;
+    lightdm = load ./displayManager/lightdm;
+    music = load ./music;
+    pipewire = load ./pipewire;
+    printing = load ./printing;
+    regreet = load ./displayManager/regreet;
   }
