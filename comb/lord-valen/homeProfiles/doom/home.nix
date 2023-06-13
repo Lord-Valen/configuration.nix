@@ -85,7 +85,7 @@
       ]
       [
         # :lang latex
-        texlive.combined.scheme-medium
+        texlive.combined.scheme-full
       ]
       [
         # :lang markdown
@@ -101,7 +101,7 @@
         # :lang org
         graphviz
         ## latex
-        texlive.combined.scheme-medium
+        texlive.combined.scheme-full
         ## roam
         sqlite
       ]
