@@ -62,19 +62,19 @@ in
         "/" = {
           label = "MAIN";
           fsType = "btrfs";
-          options = ["subvol=/@"];
+          options = ["subvol=/@" "noatime" "compress=zstd"];
         };
 
         "/home" = {
           label = "MAIN";
           fsType = "btrfs";
-          options = ["subvol=/@home"];
+          options = ["subvol=/@home" "noatime" "compress=zstd"];
         };
 
         "/swap" = {
           label = "MAIN";
           fsType = "btrfs";
-          options = ["subvol=/@swap"];
+          options = ["subvol=/@swap" "noatime" "compress=zstd"];
         };
       };
 
@@ -134,21 +134,21 @@ in
           encrypted.label = "MAIN";
           device = "/dev/mapper/MAIN";
           fsType = "btrfs";
-          options = ["subvol=/@"];
+          options = ["subvol=/@" "noatime" "compress=zstd"];
         };
 
         "/home" = {
           encrypted.label = "MAIN";
           device = "/dev/mapper/MAIN";
           fsType = "btrfs";
-          options = ["subdol=/@home"];
+          options = ["subdol=/@home" "noatime" "compress=zstd"];
         };
 
         "/swap" = {
           encrypted.label = "MAIN";
           device = "/dev/mapper/MAIN";
           fsType = "btrfs";
-          options = ["subvol=/@swap"];
+          options = ["subvol=/@swap" "noatime" "compress=zstd"];
         };
       };
 
@@ -232,31 +232,31 @@ in
         "/" = {
           label = "MAIN";
           fsType = "btrfs";
-          options = ["subvol=/@"];
+          options = ["subvol=/@" "noatime" "compress=zstd"];
         };
 
         "/home" = {
           label = "MAIN";
           fsType = "btrfs";
-          options = ["subvol=/@home"];
+          options = ["subvol=/@home" "noatime" "compress=zstd"];
         };
 
         "/docker" = {
           label = "MAIN";
           fsType = "btrfs";
-          options = ["subvol=/@docker"];
+          options = ["subvol=/@docker" "noatime" "compress=zstd"];
         };
 
         "/swap" = {
           label = "MAIN";
           fsType = "btrfs";
-          options = ["subvol=/@swap"];
+          options = ["subvol=/@swap" "noatime" "compress=zstd"];
         };
 
         "/home/lord-valen/games" = {
           label = "GAME";
           fsType = "btrfs";
-          options = ["subvol=/@"];
+          options = ["subvol=/@" "noatime" "compress=zstd"];
         };
       };
 
@@ -416,25 +416,25 @@ in
         "/" = {
           label = "MAIN";
           fsType = "btrfs";
-          options = ["subvol=/@"];
+          options = ["subvol=/@" "noatime" "compress=zstd"];
         };
 
         "/docker" = {
           label = "MAIN";
           fsType = "btrfs";
-          options = ["subvol=/@docker"];
+          options = ["subvol=/@docker" "noatime" "compress=zstd"];
         };
 
         "/swap" = {
           label = "MAIN";
           fsType = "btrfs";
-          options = ["subvol=/@swap"];
+          options = ["subvol=/@swap" "noatime" "compress=zstd"];
         };
 
         "/data" = {
           label = "MAIN";
           fsType = "btrfs";
-          options = ["subvol=/@data"];
+          options = ["subvol=/@data" "noatime" "compress=zstd"];
         };
       };
 
