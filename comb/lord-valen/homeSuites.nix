@@ -20,6 +20,7 @@ in rec {
       git.valen
       shell.nushell
       doom
+      face
     ]
     ++ base;
 

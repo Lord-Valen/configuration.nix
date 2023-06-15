@@ -7,6 +7,7 @@ in
   cell.lib.rakeLeaves ../home.old/profiles
   // {
     doom = load ./doom;
+    face = load ./face;
     helix = load ./helix;
     hyprland = load ./hyprland;
   }
