@@ -25,6 +25,16 @@ in {
       to /home/nixos/.ssh/authorized_keys be able to login.
     '';
 
+    # Pre-authorized keys
+    users.users = let
+      keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH6sqfUwKC9nKlRbH9laeIBJjn9fDqIH57JsLFbMDAKh"
+      ];
+    in {
+      root.openssh.authorizedKeys = {inherit keys;};
+      nixos.openssh.authorizedKeys = {inherit keys;};
+    };
+
     networking = {
       domain = "local";
 
