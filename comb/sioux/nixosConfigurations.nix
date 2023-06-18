@@ -30,7 +30,7 @@ in
             };
           }
         ]
-        ++ laptop;
+        ++ pc;
 
       home-manager = {
         useUserPackages = true;
