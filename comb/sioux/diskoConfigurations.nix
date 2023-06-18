@@ -7,7 +7,7 @@
     type = "disk";
     content = {
       type = "table";
-      format = "MBR";
+      format = "msdos";
       partitions = [
         {
           name = "MAIN";
