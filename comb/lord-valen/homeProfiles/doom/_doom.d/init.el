@@ -60,7 +60,7 @@
   (eval +overlay)
   gist
   (lookup +dictionary +docsets +offline)
-  (lsp +peek)
+  (lsp +eglot +peek)
   (magit +forge)
   pdf
   rgb
