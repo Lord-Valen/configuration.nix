@@ -33,6 +33,11 @@
   :config
   (global-evil-colemak-basics-mode))
 
+(use-package! eglot
+  :config
+  (--map (add-to-list 'eglot-server-programs it)
+    `((nix-mode . ,(eglot-alternatives '("rnix-lsp" "nil" "nixd"))))))
+
 (use-package! elcord
   :config
   (add-to-list 'elcord-mode-icon-alist '(emacs-lisp-mode . "emacs_icon"))
