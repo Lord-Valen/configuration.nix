@@ -114,8 +114,8 @@
         ("\\paragraph{%s}" . "\\paragraph*{%s}")
         ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
         ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
-       ("turabian"
-         "\\documentclass{turabian-researchpaper}
+      ("turabian"
+        "\\documentclass{turabian-researchpaper}
 [PACKAGES]
 \\usepackage{newtxtext}
 \\usepackage{url}
@@ -123,26 +123,26 @@
 \\usepackage[notes]{biblatex-chicago}
 \\usepackage{turabian-formatting}
 "
-         ("\\section{%s}" . "\\section{%s}")
-         ("\\subsection{%s}" . "\\subsection{%s}")
-         ("\\subsubsection{%s}" . "\\subsubsection{%s}")
-         ("\\paragraph{%s}" . "\\paragraph{%s}")
-         ("\\subparagraph{%s}" . "\\subparagraph{%s}")
-         ("\\subsubparagraph{%s}" . "\\subsubparagraph{%s}"))
-       ("apa"
-         "\\documentclass[stu,biblatex,12pt]{apa7}
+        ("\\section{%s}" . "\\section{%s}")
+        ("\\subsection{%s}" . "\\subsection{%s}")
+        ("\\subsubsection{%s}" . "\\subsubsection{%s}")
+        ("\\paragraph{%s}" . "\\paragraph{%s}")
+        ("\\subparagraph{%s}" . "\\subparagraph{%s}")
+        ("\\subsubparagraph{%s}" . "\\subsubparagraph{%s}"))
+      ("apa"
+        "\\documentclass[stu,biblatex,12pt]{apa7}
 [PACKAGES]
 \\usepackage{newtxtext}
 \\usepackage{url}
 \\usepackage{doi}"
-         ("\\section{%s}" . "\\section*{%s}")
-         ("\\subsection{%s}" . "\\subsection*{%s}")
-         ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-         ("\\paragraph{%s}" . "\\paragraph*{%s}")
-         ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
-         ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
-       ("altacv"
-         "\\documentclass[10pt,letterpaper,ragged2e,withhyper]{altacv}
+        ("\\section{%s}" . "\\section*{%s}")
+        ("\\subsection{%s}" . "\\subsection*{%s}")
+        ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+        ("\\paragraph{%s}" . "\\paragraph*{%s}")
+        ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
+        ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
+      ("altacv"
+        "\\documentclass[10pt,letterpaper,ragged2e,withhyper]{altacv}
 [PACKAGES]
 \\usepackage{paracol}
 \\usepackage[rm]{roboto}
@@ -181,4 +181,4 @@
 \\renewcommand{\\itemmarker}{{\\small\\textbullet}}
 \\renewcommand{\\ratingmarker}{\\faCircle}
 "
-         ("\\cvsection{%s}" . "\\cvsection{%s}")))))
+        ("\\cvsection{%s}" . "\\cvsection{%s}")))))
