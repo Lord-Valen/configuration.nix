@@ -21,6 +21,8 @@
       global-prettify-symbols-mode t
       doom-theme 'doom-outrun-electric)
 
+(setq ispell-dictionary "en_CA")
+
 (plist-put! +ligatures-extra-symbols
             ;; Types
             :true       "⊤"
