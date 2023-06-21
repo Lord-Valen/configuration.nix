@@ -47,6 +47,11 @@
   (setq elcord-use-major-mode-as-main-icon t)
   (elcord-mode))
 
+(use-package! langtool
+  :custom
+  (langtool-bin "languagetool-commandline")
+  (langtool-default-language "en-CA"))
+
 (use-package! projectile
   :config
   (setq projectile-project-search-path '(("~/dev" . 1))))
