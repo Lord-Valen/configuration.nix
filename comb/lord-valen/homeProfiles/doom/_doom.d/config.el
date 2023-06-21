@@ -34,6 +34,7 @@
   (global-evil-colemak-basics-mode))
 
 (use-package! eglot
+  :after dash
   :config
   (--map (add-to-list 'eglot-server-programs it)
     `((nix-mode . ,(eglot-alternatives '("rnix-lsp" "nil" "nixd")))
@@ -84,17 +85,17 @@
     (apply #'org-roam-node-insert args)))
 
 (use-package! ox-latex
-  :after org
+  :after org dash
   :init
   :config
   (setq org-export-headline-levels 5
-        org-export-with-section-numbers nil
-        org-latex-hyperref-template nil)
+    org-export-with-section-numbers nil
+    org-latex-hyperref-template nil)
   (require 'ox-extra)
   (ox-extras-activate '(ignore-headlines))
   (--map (add-to-list 'org-latex-classes it)
-         '(("chicago"
-            "\\documentclass[letterpaper,12pt]{article}
+    '(("chicago"
+        "\\documentclass[letterpaper,12pt]{article}
 [PACKAGES]
 \\usepackage{newtxtext}
 \\usepackage{url}
@@ -102,14 +103,14 @@
 \\usepackage[notes,backend=biber]{biblatex-chicago}
 \\usepackage[margin=1in]{geometry}
 "
-            ("\\section{%s}" . "\\section*{%s}")
-            ("\\subsection{%s}" . "\\subsection*{%s}")
-            ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-            ("\\paragraph{%s}" . "\\paragraph*{%s}")
-            ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
-            ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
-           ("turabian"
-            "\\documentclass{turabian-researchpaper}
+        ("\\section{%s}" . "\\section*{%s}")
+        ("\\subsection{%s}" . "\\subsection*{%s}")
+        ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+        ("\\paragraph{%s}" . "\\paragraph*{%s}")
+        ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
+        ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
+       ("turabian"
+         "\\documentclass{turabian-researchpaper}
 [PACKAGES]
 \\usepackage{newtxtext}
 \\usepackage{url}
@@ -117,26 +118,26 @@
 \\usepackage[notes]{biblatex-chicago}
 \\usepackage{turabian-formatting}
 "
-            ("\\section{%s}" . "\\section{%s}")
-            ("\\subsection{%s}" . "\\subsection{%s}")
-            ("\\subsubsection{%s}" . "\\subsubsection{%s}")
-            ("\\paragraph{%s}" . "\\paragraph{%s}")
-            ("\\subparagraph{%s}" . "\\subparagraph{%s}")
-            ("\\subsubparagraph{%s}" . "\\subsubparagraph{%s}"))
-           ("apa"
-            "\\documentclass[stu,biblatex,12pt]{apa7}
+         ("\\section{%s}" . "\\section{%s}")
+         ("\\subsection{%s}" . "\\subsection{%s}")
+         ("\\subsubsection{%s}" . "\\subsubsection{%s}")
+         ("\\paragraph{%s}" . "\\paragraph{%s}")
+         ("\\subparagraph{%s}" . "\\subparagraph{%s}")
+         ("\\subsubparagraph{%s}" . "\\subsubparagraph{%s}"))
+       ("apa"
+         "\\documentclass[stu,biblatex,12pt]{apa7}
 [PACKAGES]
 \\usepackage{newtxtext}
 \\usepackage{url}
 \\usepackage{doi}"
-            ("\\section{%s}" . "\\section*{%s}")
-            ("\\subsection{%s}" . "\\subsection*{%s}")
-            ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-            ("\\paragraph{%s}" . "\\paragraph*{%s}")
-            ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
-            ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
-           ("altacv"
-            "\\documentclass[10pt,letterpaper,ragged2e,withhyper]{altacv}
+         ("\\section{%s}" . "\\section*{%s}")
+         ("\\subsection{%s}" . "\\subsection*{%s}")
+         ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+         ("\\paragraph{%s}" . "\\paragraph*{%s}")
+         ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
+         ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
+       ("altacv"
+         "\\documentclass[10pt,letterpaper,ragged2e,withhyper]{altacv}
 [PACKAGES]
 \\usepackage{paracol}
 \\usepackage[rm]{roboto}
@@ -175,4 +176,4 @@
 \\renewcommand{\\itemmarker}{{\\small\\textbullet}}
 \\renewcommand{\\ratingmarker}{\\faCircle}
 "
-            ("\\cvsection{%s}" . "\\cvsection{%s}")))))
+         ("\\cvsection{%s}" . "\\cvsection{%s}")))))
