@@ -1,11 +1,13 @@
 {
   inputs,
   cell,
-}: {
+}: let
+  inherit (inputs) nixpkgs;
+in {
   # :tools magit
   ## forge
   file.".authinfo.gpg".source = ./_authinfo.gpg;
-  packages = with inputs.nixpkgs;
+  packages = with nixpkgs;
     cell.lib.concatLists [
       [
         # Other stuff
@@ -95,6 +97,7 @@
       ]
       [
         # :lang nix
+        ## lsp
         nil
       ]
       [
