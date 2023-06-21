@@ -33,22 +33,22 @@
   vc
 
   :lang
-  (cc +lsp)
+  (cc +lsp +tree-sitter)
   common-lisp
   data
   emacs-lisp
-  (haskell +lsp)
-  (javascript +lsp)
-  (json +lsp)
+  (haskell +lsp +tree-sitter)
+  (javascript +lsp +tree-sitter)
+  (json +lsp +tree-sitter)
   (kotlin +lsp)
   (latex +fold +lsp)
   (markdown +grip)
-  (nix +lsp)
+  (nix +lsp +tree-sitter)
   (org +dragndrop +pandoc +present +pretty +roam2)
-  (rust +lsp)
-  (sh +lsp)
-  (web +lsp)
-  (yaml +lsp)
+  (rust +lsp +tree-sitter)
+  (sh +lsp +tree-sitter)
+  (web +lsp +tree-sitter)
+  (yaml +lsp +tree-sitter)
 
   :term
   vterm
@@ -65,6 +65,7 @@
   pdf
   rgb
   taskrunner
+  tree-sitter
 
   :ui
   doom
