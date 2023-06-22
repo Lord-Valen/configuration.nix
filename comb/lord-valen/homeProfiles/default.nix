@@ -10,4 +10,5 @@ in
     face = load ./face;
     helix = load ./helix;
     hyprland = load ./hyprland;
+    shell = load ./shell;
   }

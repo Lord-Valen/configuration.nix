@@ -18,7 +18,7 @@ in rec {
     [
       gpg
       git.valen
-      shell.nushell
+      shell
       doom
       face
     ]

@@ -1,13 +1,12 @@
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
-  fonts.fontconfig.enable = true;
-  home.packages = with pkgs; [powerline-fonts];
+  bash.enable = true;
+  nushell = {
+    enable = true;
+    configFile.source = ./_config.nu;
+    envFile.source = ./_env.nu;
+  };
 
-  programs.starship = {
+  starship = {
     enable = true;
     settings = {
       character = {
