@@ -32,11 +32,15 @@
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
     std = {
-      url = "github:divnix/std";
+      url = "github:divnix/std/80e5792eae98353a97ab1e85f3fba2784e4a3690";
       inputs = {
         blank.follows = "blank";
         nixpkgs.follows = "nixpkgs";
         arion.follows = "arion";
+        devshell.url = "github:numtide/devshell";
+        devshell.inputs.nixpkgs.follows = "nixpkgs";
+        nixago.url = "github:nix-community/nixago";
+        nixago.inputs.nixpkgs.follows = "nixpkgs";
       };
     };
 
