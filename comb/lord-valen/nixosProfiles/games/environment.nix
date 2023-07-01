@@ -7,5 +7,6 @@
     protontricks
     heroic
     lutris
+    osu-lazer-bin
   ];
 }

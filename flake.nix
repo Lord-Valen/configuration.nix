@@ -158,6 +158,7 @@
           "steam-run"
           "steam-original"
           "VCV-Rack"
+          "osu-lazer-bin"
         ];
     } {
       lib = std.pick self ["repo" "lib"];
