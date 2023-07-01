@@ -54,9 +54,13 @@
   (langtool-bin "languagetool-commandline")
   (langtool-default-language "en-CA"))
 
+(use-package! parinfer-rust
+  :custom
+  (parinfer-rust-preferred-mode "paren"))
+
 (use-package! projectile
-  :config
-  (setq projectile-project-search-path '(("~/dev" . 1))))
+ :config
+ (setq projectile-project-search-path '(("~/dev" . 1))))
 
 (use-package! org-modern
   :config
