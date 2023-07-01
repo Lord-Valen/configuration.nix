@@ -35,6 +35,7 @@
   :lang
   (cc +lsp +tree-sitter)
   common-lisp
+  (csharp +lsp +tree-sitter)
   data
   emacs-lisp
   (haskell +lsp +tree-sitter)

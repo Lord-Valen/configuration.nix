@@ -40,7 +40,8 @@
   :config
   (--map (add-to-list 'eglot-server-programs it)
     `((nix-mode . ,(eglot-alternatives '("rnix-lsp" "nil" "nixd")))
-      (conf-toml-mode . ("taplo" "lsp" "stdio"))))
+      (conf-toml-mode . ("taplo" "lsp" "stdio"))
+      (csharp-mode . ("OmniSharp" "-lsp"))))
   (add-hook! (conf-toml-mode) #'lsp!))
 
 (use-package! elcord

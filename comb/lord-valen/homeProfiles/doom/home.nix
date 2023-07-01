@@ -54,6 +54,12 @@ in {
         sbcl
       ]
       [
+        # :lang csharp
+        mono
+        ## lsp
+        omnisharp-roslyn
+      ]
+      [
         # :lang haskell
         ghc
         cabal-install
