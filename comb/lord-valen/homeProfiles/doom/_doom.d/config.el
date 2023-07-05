@@ -55,7 +55,7 @@
   (langtool-bin "languagetool-commandline")
   (langtool-default-language "en-CA"))
 
-(use-package! parinfer-rust
+(use-package! parinfer-rust-mode
   :custom
   (parinfer-rust-preferred-mode "paren"))
 
