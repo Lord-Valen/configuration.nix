@@ -15,14 +15,17 @@ cell
 {
   aspire = {
   };
-  autolycus = {
-  };
+  # autolycus = {
+  # };
   heracles = {
     deployment.buildOnTarget = true;
+    # TODO: Do not dumb here
+    deployment.tags = ["all" "cluster1"];
   };
   satellite = {
   };
   theseus = {
     deployment.allowLocalDeployment = false;
+    deployment.tags = ["all" "cluster1"];
   };
 }

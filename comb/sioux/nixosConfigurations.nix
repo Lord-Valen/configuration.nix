@@ -22,6 +22,7 @@ in
           lightdm
           gnome
           {
+            programs.kdeconnect.enable = true;
             users.users.sioux = {
               initialHashedPassword = "$y$j9T$1ttrJXMNjeH62Or9EOGfG/$pdm3JxpOroaC5BaqDN/79xKEvlUXW5fjBMGKPTFqeyA";
               isNormalUser = true;
