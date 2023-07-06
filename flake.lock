@@ -2,7 +2,7 @@
   "nodes": {
     "aagl-gtk-on-nix": {
       "inputs": {
-        "flake-compat": "flake-compat",
+        "flake-compat": [],
         "nixpkgs": "nixpkgs"
       },
       "locked": {
@@ -73,9 +73,7 @@
     },
     "colmena": {
       "inputs": {
-        "flake-compat": [
-          "blank"
-        ],
+        "flake-compat": [],
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs_2",
         "stable": "stable"
@@ -97,7 +95,7 @@
     },
     "crane": {
       "inputs": {
-        "flake-compat": "flake-compat_3",
+        "flake-compat": "flake-compat",
         "flake-utils": "flake-utils_4",
         "nixpkgs": [
           "std",
@@ -122,7 +120,7 @@
     },
     "crane_2": {
       "inputs": {
-        "flake-compat": "flake-compat_4",
+        "flake-compat": "flake-compat_2",
         "flake-utils": "flake-utils_6",
         "nixpkgs": [
           "watershot",
@@ -506,38 +504,6 @@
         "type": "github"
       }
     },
-    "flake-compat_3": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1673956053,
-        "narHash": "sha256-4gtG9iQuiKITOjNQQeQIpoIB6b16fm+504Ch3sNKLd8=",
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "rev": "35bb57c0c8d8b62bbfd284272c928ceb64ddbde9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "type": "github"
-      }
-    },
-    "flake-compat_4": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1673956053,
-        "narHash": "sha256-4gtG9iQuiKITOjNQQeQIpoIB6b16fm+504Ch3sNKLd8=",
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "rev": "35bb57c0c8d8b62bbfd284272c928ceb64ddbde9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "edolstra",
-        "repo": "flake-compat",
-        "type": "github"
-      }
-    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -889,7 +855,7 @@
         "evil-org-mode": "evil-org-mode",
         "evil-quick-diff": "evil-quick-diff",
         "explain-pause-mode": "explain-pause-mode",
-        "flake-compat": "flake-compat_2",
+        "flake-compat": [],
         "flake-utils": "flake-utils_2",
         "format-all": "format-all",
         "nix-straight": "nix-straight",
@@ -1554,7 +1520,6 @@
       "inputs": {
         "aagl-gtk-on-nix": "aagl-gtk-on-nix",
         "arion": "arion",
-        "blank": "blank",
         "colmena": "colmena",
         "disko": "disko",
         "hive": "hive",
@@ -1564,6 +1529,9 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": [
           "nixpkgs-stable"
+        ],
+        "nixpkgs'": [
+          "nixpkgs"
         ],
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-unstable": "nixpkgs-unstable",
@@ -1719,9 +1687,7 @@
         "arion": [
           "arion"
         ],
-        "blank": [
-          "blank"
-        ],
+        "blank": "blank",
         "devshell": "devshell",
         "dmerge": "dmerge",
         "flake-utils": "flake-utils_3",

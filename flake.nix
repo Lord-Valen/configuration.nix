@@ -21,8 +21,6 @@
   };
 
   inputs = {
-    blank.url = "github:divnix/blank";
-
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs.follows = "nixpkgs-stable";
@@ -37,7 +35,6 @@
     std = {
       url = "github:divnix/std/80e5792eae98353a97ab1e85f3fba2784e4a3690";
       inputs = {
-        blank.follows = "blank";
         nixpkgs.follows = "nixpkgs";
         arion.follows = "arion";
         devshell.url = "github:numtide/devshell";
@@ -68,7 +65,7 @@
 
     colmena = {
       url = "github:zhaofengli/colmena/v0.4.0";
-      inputs.flake-compat.follows = "blank";
+      inputs.flake-compat.follows = "";
     };
 
     nixos-generators = {
@@ -91,7 +88,9 @@
   # Desktop
   inputs = {
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+    nix-doom-emacs.inputs.flake-compat.follows = "";
     aagl-gtk-on-nix.url = "github:ezKEa/aagl-gtk-on-nix";
+    aagl-gtk-on-nix.inputs.flake-compat.follows = "";
     watershot.url = "github:Kirottu/watershot/v0.1.2";
     watershot.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -101,7 +100,7 @@
     #   inputs = {
     #     nixpkgs.follows = "nixpkgs";
     #     home-manager.follows = "home-manager";
-    #     flake-compat.follows = "blank";
+    #     flake-compat.follows = "";
     #   };
     # };
   };
