@@ -24,6 +24,7 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs.follows = "nixpkgs-stable";
+    nixpkgs'.follows = "nixpkgs";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-23.05";

@@ -32,6 +32,7 @@
       type = "github";
     };
   in rec {
+    nixpkgs.flake = inputs.nixpkgs';
     stable.flake = inputs.nixpkgs-stable;
     unstable.flake = inputs.nixpkgs-unstable;
     configuration.to = me "configuration.nix";
