@@ -20,7 +20,7 @@ in
         [
           pipewire
           music
-          regreet
+          displayManager.regreet
           hyprland
           games
           geoclue
@@ -168,8 +168,7 @@ in
           games
           vm
           syncthing
-          # monero.common
-          regreet
+          displayManager.regreet
           hyprland
           geoclue
 

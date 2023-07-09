@@ -19,7 +19,7 @@ in
       imports = with nixosSuites;
       with nixosProfiles;
         [
-          lightdm
+          displayManager.lightdm
           gnome
           {
             programs.kdeconnect.enable = true;
