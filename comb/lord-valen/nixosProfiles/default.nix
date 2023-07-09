@@ -2,10 +2,11 @@
   inputs,
   cell,
 }: let
-  load = cell.lib.load inputs cell;
+  inherit (cell) lib;
+  load = lib.load inputs cell;
 in
-  cell.lib.rakeLeaves ../nixos.old/profiles
-  // load ./src
+  lib.rakeLeaves ../nixos.old/profiles
+  // lib.loadAll load ./src
   // {
     geoclue = {services.geoclue2.enable = true;};
   }

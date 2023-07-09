@@ -3,6 +3,7 @@
   cell,
 }: let
   inherit (inputs) std hive;
+  inherit (hive.inputs) haumea;
   lib = inputs.nixpkgs.lib // builtins;
   getImports = attrs:
     if attrs ? imports
@@ -10,7 +11,7 @@
     else [];
 in
   rec {
-    inherit std hive;
+    inherit std hive haumea;
 
     rakeLeaves = dirPath: let
       seive = file: type:
@@ -72,5 +73,6 @@ in
       }) (lib.mapAttrs (_: value: lib.recursiveUpdate defaults value) configurations);
 
     load = inputs: cell: src: inputs.hive.load {inherit inputs cell src;};
+    loadAll = load: path: lib.mapAttrs (name: _: load "${path}/${name}") (lib.readDir path);
   }
   // lib
