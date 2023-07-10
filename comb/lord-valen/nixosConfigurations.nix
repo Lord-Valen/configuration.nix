@@ -172,11 +172,8 @@ in
           hyprland
           geoclue
 
-          # cell.nixosModules.p2pool
           # monero.mine
-          # {
-          #   services.p2pool.mini = true;
-          # }
+          # {services.p2pool.mini = true;}
         ]
         ++ desktop;
 
