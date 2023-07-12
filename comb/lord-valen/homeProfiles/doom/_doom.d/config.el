@@ -5,8 +5,6 @@
 
 (setq shell-file-name "nu")
 
-(setq frame-title-format "DOOM")
-
 (setq doom-font (font-spec :family "Fira Code" :size 13)
       doom-variable-pitch-font (font-spec :family "Fira Code")
       doom-big-font (font-spec :family "Fira Code" :size 18)
@@ -30,8 +28,8 @@
 
 (use-package! evil-colemak-basics
   :after evil
-  :init
-  (setq evil-colemak-basics-layout-mod `mod-dh)
+  :custom
+  (evil-colemak-basics-layout-mod `mod-dh)
   :config
   (global-evil-colemak-basics-mode))
 
@@ -45,9 +43,10 @@
   (add-hook! (conf-toml-mode) #'lsp!))
 
 (use-package! elcord
+  :custom
+  (elcord-use-major-mode-as-main-icon t)
   :config
   (add-to-list 'elcord-mode-icon-alist '(emacs-lisp-mode . "emacs_icon"))
-  (setq elcord-use-major-mode-as-main-icon t)
   (elcord-mode))
 
 (use-package! langtool
@@ -60,8 +59,8 @@
   (parinfer-rust-preferred-mode "paren"))
 
 (use-package! projectile
- :config
- (setq projectile-project-search-path '(("~/dev" . 1))))
+  :custom
+  (projectile-project-search-path `((,(file-truename "~/dev") . 1))))
 
 (use-package! org-modern
   :config
@@ -98,11 +97,11 @@
 
 (use-package! ox-latex
   :after org dash
-  :init
+  :custom
+  (org-export-headline-levels 5)
+  (org-export-with-section-numbers nil)
+  (org-latex-hyperref-template nil)
   :config
-  (setq org-export-headline-levels 5
-    org-export-with-section-numbers nil
-    org-latex-hyperref-template nil)
   (require 'ox-extra)
   (ox-extras-activate '(ignore-headlines))
   (--map (add-to-list 'org-latex-classes it)
