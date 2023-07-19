@@ -24,6 +24,7 @@ in
           hyprland
           games
           geoclue
+          syncthing
         ]
         ++ laptop;
 
@@ -37,6 +38,27 @@ in
             ++ hyprland
             ++ music;
           home.stateVersion = "22.05";
+        };
+      };
+
+      services.syncthing.folders = {
+        "Books" = {
+          id = "fheng-o2wyn";
+          path = "~/books";
+          devices = [
+            "Heracles"
+            "Theseus"
+            "Pythia"
+          ];
+        };
+        "Music" = {
+          id = "zfumc-pfy38";
+          path = "~/music";
+          devices = [
+            "Heracles"
+            "Theseus"
+            "Pythia"
+          ];
         };
       };
 
@@ -199,10 +221,39 @@ in
       };
 
       services.syncthing.folders = {
+        "Pythia Bup" = {
+          id = "jtafu-4mn0y";
+          path = "~/pythia-bup";
+          devices = [
+            "Theseus"
+            "Pythia"
+          ];
+        };
         "Pythia Photos" = {
           id = "pixel_7_n835-photos";
-          path = "/home/lord-valen/Photos";
-          devices = ["Pythia"];
+          path = "~/pythia-photos";
+          devices = [
+            "Theseus"
+            "Pythia"
+          ];
+        };
+        "Books" = {
+          id = "fhend-o2wyn";
+          path = "~/books";
+          devices = [
+            # "Aspire"
+            "Theseus"
+            "Pythia"
+          ];
+        };
+        "Music" = {
+          id = "zfumc-pfy38";
+          path = "~/music";
+          devices = [
+            # "Aspire"
+            "Theseus"
+            "Pythia"
+          ];
         };
       };
 
@@ -359,31 +410,39 @@ in
 
       services.syncthing = {
         folders = {
-          "Oracle Photos" = {
-            id = "sm-g950_7ywz-photos";
-            path = "/data/oracle-photos";
-            devices = ["Oracle"];
+          "Pythia Bup" = {
+            id = "jtafu-4mn0y";
+            path = "/data/pythia-bup";
+            devices = [
+              "Heracles"
+              "Pythia"
+            ];
           };
           "Pythia Photos" = {
             id = "pixel_7_n835-photos";
             path = "/data/pythia-photos";
-            devices = ["Pythia"];
+            devices = [
+              "Heracles"
+              "Pythia"
+            ];
           };
-          "books" = {
+          "Books" = {
             id = "fheng-o2wyn";
             path = "/data/media/books";
             type = "sendonly";
             devices = [
-              "Oracle"
+              "Heracles"
+              # "Aspire"
               "Pythia"
             ];
           };
-          "music" = {
+          "Music" = {
             id = "zfumc-pfy38";
             path = "/data/media/music";
             type = "sendonly";
             devices = [
-              "Oracle"
+              "Heracles"
+              # "Aspire"
               "Pythia"
             ];
           };
