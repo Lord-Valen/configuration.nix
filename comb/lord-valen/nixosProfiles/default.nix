@@ -9,4 +9,5 @@ in
   // lib.loadAll load ./src
   // {
     geoclue = {services.geoclue2.enable = true;};
+    users = lib.loadAll load ./users;
   }
