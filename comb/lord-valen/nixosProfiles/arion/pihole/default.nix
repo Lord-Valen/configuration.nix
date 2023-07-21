@@ -1,5 +1,10 @@
 {
-  imports = [./common.nix];
+  inputs,
+  cell,
+}: let
+  inherit (cell.nixosProfiles.arion) common;
+in {
+  imports = [common];
 
   networking.firewall.allowedTCPPorts = [53 80];
 

@@ -9,7 +9,6 @@ in {
 
   imports = let
     profiles = with nixosProfiles; [
-      inputs.arion.nixosModules.arion
       # FIXME: Why do I need to use nixosProfiles for arion?!
       nixosProfiles.arion.pihole
       nixosProfiles.arion.servarr

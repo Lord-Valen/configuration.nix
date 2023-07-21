@@ -1,4 +1,13 @@
 {
+  inputs,
+  cell,
+}: let
+  inherit (inputs) arion;
+in {
+  imports = [
+    arion.nixosModules.arion
+  ];
+
   virtualisation = {
     podman = {
       enable = true;
