@@ -1,3 +1,4 @@
+# TODO: use haumea
 {
   inputs,
   cell,
@@ -18,7 +19,7 @@ in
       imports = with nixosSuites;
       with nixosProfiles;
         [
-          pipewire
+          adb
           music
           displayManager.regreet
           hyprland
@@ -113,7 +114,7 @@ in
         [
           pipewire
           music
-          x11.xmonad
+          hyprland
         ]
         ++ laptop;
 
@@ -185,7 +186,7 @@ in
       imports = with nixosSuites;
       with nixosProfiles;
         [
-          pipewire
+          adb
           music
           games
           vm
