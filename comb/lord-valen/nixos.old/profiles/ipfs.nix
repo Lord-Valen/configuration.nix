@@ -1,12 +1,10 @@
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
   services.kubo = {
     enable = true;
     enableGC = true;
-    settings.Gateway.PublicGateways = null;
+    settings = {
+      Addresses.API = ["ip4/127.0.0.1/tcp/5001"];
+      Gateway.PublicGateways = null;
+    };
   };
 }
