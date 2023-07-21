@@ -20,6 +20,6 @@ in
       ++ [users.lord-valen];
 
     server = base ++ [networking];
-    desktop = pc' ++ [ipfs];
+    desktop = pc' ++ [kubo];
     laptop = pc' ++ [x11.colemak];
   }
