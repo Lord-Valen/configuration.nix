@@ -47,12 +47,13 @@ in
         host,
         config,
       }: {
-        imports =
+        imports = lib.concatLists [
           [
             cell.hardwareProfiles.${host}
             {networking.hostName = lib.mkDefault "${host}";}
           ]
-          ++ getImports config;
+          (getImports config)
+        ];
       })
       configurations;
 
@@ -66,10 +67,11 @@ in
         host,
         config,
       }: {
-        imports =
+        imports = lib.concatLists [
           [cell.nixosConfigurations.${host}]
-          ++ getImports config
-          ++ getImports defaults;
+          (getImports config)
+          (getImports defaults)
+        ];
       }) (lib.mapAttrs (_: value: lib.recursiveUpdate defaults value) configurations);
 
     load = inputs: cell: src: inputs.hive.load {inherit inputs cell src;};
