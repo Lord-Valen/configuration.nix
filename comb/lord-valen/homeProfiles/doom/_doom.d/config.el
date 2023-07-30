@@ -39,8 +39,9 @@
   (--map (add-to-list 'eglot-server-programs it)
     `((nix-mode . ,(eglot-alternatives '("rnix-lsp" "nil" "nixd")))
       (conf-toml-mode . ("taplo" "lsp" "stdio"))
-      (csharp-mode . ("OmniSharp" "-lsp"))))
-  (add-hook! (conf-toml-mode) #'lsp!))
+      (csharp-mode . ("OmniSharp" "-lsp"))
+      ((rjsx-mode typescript-tsx-mode) . ("typescript-language-server" "--stdio"))))
+  (add-hook! (conf-toml-mode rjsx-mode typescript-tsx-mode) #'lsp!))
 
 (use-package! elcord
   :custom
