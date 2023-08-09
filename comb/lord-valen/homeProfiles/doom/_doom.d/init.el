@@ -45,6 +45,7 @@
   (latex +fold +lsp)
   (markdown +grip)
   (nix +lsp +tree-sitter)
+  (ocaml +lsp +tree-sitter)
   (org +dragndrop +pandoc +present +pretty +roam2)
   (rust +lsp +tree-sitter)
   (sh +lsp +tree-sitter)

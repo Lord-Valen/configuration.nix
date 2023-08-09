@@ -106,6 +106,21 @@ in {
         ## lsp
         nil
       ]
+      (lib.flatten [
+        # :lang ocaml
+        ocaml
+        opam
+        dune_3
+        (with ocamlPackages; [
+          utop
+          ocp-indent
+          #merlin # -lsp
+        ])
+        ## format
+        ocamlformat
+        ## lsp
+        ocamlPackages.ocaml-lsp
+      ])
       [
         # :lang org
         graphviz
