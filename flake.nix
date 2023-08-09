@@ -166,7 +166,9 @@
     } {
       lib = std.pick self ["repo" "lib"];
       devShells = std.harvest self ["repo" "devshells"];
-      packages = std.harvest self ["repo" "generators"];
+      packages = let
+        generators = std.harvest self ["repo" "generators"];
+      in {inherit (generators) x86_64-linux aarch64-linux;};
     } {
       nixosConfigurations = collect self "nixosConfigurations";
       colmenaHive = collect self "colmenaConfigurations";
