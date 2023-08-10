@@ -5,9 +5,9 @@
 
 (setq shell-file-name "nu")
 
-(setq doom-font (font-spec :family "Fira Code" :size 16)
-      doom-variable-pitch-font (font-spec :family "Fira Code" :size 16)
-      doom-big-font (font-spec :family "Fira Code" :size 24)
+(setq doom-font (font-spec :family "Fira Code Nerd Font" :size 16)
+      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 16)
+      doom-big-font (font-spec :family "Fira Code Nerd Font" :size 24)
       doom-unicode-font doom-font)
 
 (custom-set-faces!

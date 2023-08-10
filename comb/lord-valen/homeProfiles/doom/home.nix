@@ -10,8 +10,9 @@ in {
   packages = with nixpkgs;
     cell.lib.concatLists [
       [
-        # Other stuff
-        fira-code
+        # My Dependencies
+        (nerdfonts.override {fonts = ["FiraCode"];})
+        fira
         nushell
       ]
       [
