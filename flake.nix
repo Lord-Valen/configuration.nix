@@ -89,6 +89,7 @@
   # Desktop
   inputs = {
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+    nix-doom-emacs.inputs.emacs-overlay.url = "github:nix-community/emacs-overlay";
     nix-doom-emacs.inputs.flake-compat.follows = "";
     aagl-gtk-on-nix.url = "github:ezKEa/aagl-gtk-on-nix";
     aagl-gtk-on-nix.inputs.flake-compat.follows = "";
