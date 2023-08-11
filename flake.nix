@@ -33,15 +33,17 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
+    devshell.url = "github:numtide/devshell";
+    nixago.url = "github:nix-community/nixago";
+    nixago.inputs.nixpkgs.follows = "nixpkgs";
     std = {
       url = "github:divnix/std/80e5792eae98353a97ab1e85f3fba2784e4a3690";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         arion.follows = "arion";
-        devshell.url = "github:numtide/devshell";
+        devshell.follows = "devshell";
         devshell.inputs.nixpkgs.follows = "nixpkgs";
-        nixago.url = "github:nix-community/nixago";
-        nixago.inputs.nixpkgs.follows = "nixpkgs";
+        nixago.follows = "nixago";
       };
     };
 
@@ -88,12 +90,15 @@
 
   # Desktop
   inputs = {
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
-    nix-doom-emacs.inputs.emacs-overlay.url = "github:nix-community/emacs-overlay";
+    nix-doom-emacs.inputs.emacs-overlay.follows = "emacs-overlay";
     nix-doom-emacs.inputs.flake-compat.follows = "";
+
     aagl-gtk-on-nix.url = "github:ezKEa/aagl-gtk-on-nix";
     aagl-gtk-on-nix.inputs.flake-compat.follows = "";
-    watershot.url = "github:Kirottu/watershot/v0.1.2";
+
+    watershot.url = "github:Kirottu/watershot/v0.2.0";
     watershot.inputs.nixpkgs.follows = "nixpkgs";
 
     # TODO: Wait for random wallpaper support
