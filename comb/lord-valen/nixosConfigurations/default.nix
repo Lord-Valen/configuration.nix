@@ -2,23 +2,17 @@
   inputs,
   cell,
 }: let
-  inherit (cell) lib;
-
-  bee = {
-    system = "x86_64-linux";
-    pkgs = inputs.nixpkgs;
-    home = inputs.home-manager;
-  };
-  time.timeZone = "Canada/Eastern";
-
-  common = {inherit bee time;};
-
-  load = src:
-    lib.hive.load {
-      inherit src cell;
-      inputs = inputs // {inherit common;};
+  common = {
+    bee = {
+      system = "x86_64-linux";
+      pkgs = inputs.nixpkgs;
+      home = inputs.home-manager;
     };
-
-  hosts = lib.loadAll load ./src;
+    time.timeZone = "Canada/Eastern";
+  };
 in
-  cell.lib.mkNixosConfigurations cell hosts
+  inputs.hive.findLoad {
+    inherit cell;
+    inputs = inputs // {inherit common;};
+    block = ./.;
+  }

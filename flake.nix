@@ -37,7 +37,7 @@
     nixago.url = "github:nix-community/nixago";
     nixago.inputs.nixpkgs.follows = "nixpkgs";
     std = {
-      url = "github:divnix/std/80e5792eae98353a97ab1e85f3fba2784e4a3690";
+      url = "github:divnix/std";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         arion.follows = "arion";
@@ -47,16 +47,9 @@
       };
     };
 
-    std-data-collection = {
-      url = "github:divnix/std-data-collection";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        std.follows = "std";
-      };
-    };
-
     hive = {
-      url = "github:divnix/hive";
+      # url = "github:divnix/hive";
+      url = "github:Lord-Valen/hive/load";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
@@ -129,9 +122,6 @@
       cellsFrom = ./comb;
       cellBlocks = with std.blockTypes;
       with hive.blockTypes; [
-        # library
-        (functions "lib")
-
         # modules
         (functions "nixosModules")
         (functions "homeModules")
@@ -139,6 +129,8 @@
         # profiles
         (functions "hardwareProfiles")
         (functions "nixosProfiles")
+        (functions "userProfiles")
+        (functions "arionProfiles")
         (functions "homeProfiles")
 
         # suites
@@ -155,6 +147,7 @@
         (pkgs "pkgs")
 
         # devshells
+        (nixago "configs")
         (devshells "devshells")
       ];
 
@@ -170,7 +163,6 @@
           "osu-lazer-bin"
         ];
     } {
-      lib = std.pick self ["repo" "lib"];
       devShells = std.harvest self ["repo" "devshells"];
       packages = let
         generators = std.harvest self ["repo" "generators"];

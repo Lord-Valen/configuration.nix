@@ -3,12 +3,13 @@
   cell,
 }: let
   inherit (inputs) nixpkgs;
+  inherit (nixpkgs) lib;
 in {
   # :tools magit
   ## forge
   file.".authinfo.gpg".source = ./_authinfo.gpg;
   packages = with nixpkgs;
-    cell.lib.concatLists [
+    lib.concatLists [
       [
         # My Dependencies
         (nerdfonts.override {fonts = ["FiraCode"];})

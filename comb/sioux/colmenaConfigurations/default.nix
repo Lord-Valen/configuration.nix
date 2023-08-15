@@ -2,8 +2,6 @@
   inputs,
   cell,
 }: let
-  inherit (cell) lib;
-
   common = {
     bee.system = "x86_64-linux";
     bee.pkgs = inputs.nixpkgs;
@@ -12,9 +10,9 @@
       tags = ["all" "cluster2"];
     };
   };
-
-  load = lib.load inputs cell;
-
-  hosts = lib.loadAll load ./src;
 in
-  cell.lib.mkColmenaConfigurations cell common hosts
+  inputs.hive.findLoad {
+    inherit cell;
+    inputs = inputs // {inherit common;};
+    block = ./.;
+  }

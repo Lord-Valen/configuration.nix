@@ -2,19 +2,21 @@
   inputs,
   cell,
 }: let
-  inherit (cell) lib;
+  inherit (inputs) nixpkgs std colmena;
+  inherit (nixpkgs) lib;
+  inherit (std.lib) dev cfg;
 in
-  lib.mapAttrs (_: lib.std.lib.dev.mkShell) {
-    default = {...}: {
+  lib.mapAttrs (_: dev.mkShell) {
+    default = {
       name = "Hive";
-      nixago = with inputs.std-data-collection.data.configs; [
-        treefmt
-        lefthook
-        editorconfig
-        (conform {data = {inherit (inputs) cells;};})
+      nixago = with cell.configs; [
+        (dev.mkNixago cfg.treefmt treefmt)
+        (dev.mkNixago cfg.lefthook lefthook)
+        (dev.mkNixago cfg.editorconfig editorconfig)
+        (dev.mkNixago cfg.conform conform)
+        (dev.mkNixago cfg.lefthook lefthook)
       ];
       commands = let
-        inherit (inputs) nixpkgs colmena;
         hexagon = attrset: attrset // {category = "hexagon";};
       in [
         (hexagon {package = colmena.packages.colmena;})

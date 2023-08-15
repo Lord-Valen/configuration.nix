@@ -3,7 +3,7 @@
   cell,
 }: let
   inherit (inputs) nixpkgs;
-  inherit (cell) lib;
+  inherit (nixpkgs) lib;
 in {
   bootstrap = {modulesPath, ...}: {
     imports = [

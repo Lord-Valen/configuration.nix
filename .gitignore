@@ -8,6 +8,7 @@ pkgs/_sources/.shake*
 .std
 
 # nixago: ignore-linked-files
+/.editorconfig
 /.conform.yaml
 /lefthook.yml
 /treefmt.toml

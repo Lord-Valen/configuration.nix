@@ -1,3 +1,4 @@
+;; 
 ;; Variables
 (deflisten workspaces :initial "[{\"name\": \"sys\", \"id\": 0, \"windows\": 0, \"current\": true}]" "~/.config/eww/scripts/get-workspaces.nu")
 (defpoll time :interval "1m" "~/.config/eww/scripts/time.nu")

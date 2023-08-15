@@ -5,9 +5,7 @@
   inherit (cell) homeProfiles;
 in rec {
   base = with homeProfiles; [
-    git.common
-    direnv
-    xdg
+    core
   ];
 
   laptop = with homeProfiles; [
@@ -17,10 +15,11 @@ in rec {
   lord-valen = with homeProfiles;
     [
       gpg
-      git.valen
+      git
       shell
       doom
       face
+      wallpaper
     ]
     ++ base;
 
@@ -32,11 +31,9 @@ in rec {
 
   hyprland = with homeProfiles; [
     homeProfiles.hyprland
-    wallpaper.wayland
   ];
 
   xmonad = with homeProfiles; [
     xmobar
-    wallpaper.x11
   ];
 }
