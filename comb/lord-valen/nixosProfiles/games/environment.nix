@@ -8,5 +8,7 @@
     heroic
     lutris
     osu-lazer-bin
+    sunshine
+    moonlight-qt
   ];
 }
