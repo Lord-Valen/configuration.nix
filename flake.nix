@@ -48,8 +48,7 @@
     };
 
     hive = {
-      # url = "github:divnix/hive";
-      url = "github:Lord-Valen/hive/load";
+      url = "github:divnix/hive";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
