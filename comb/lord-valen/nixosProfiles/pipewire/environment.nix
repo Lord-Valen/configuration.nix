@@ -1,10 +1,13 @@
 {
   inputs,
   cell,
-}: {
-  systemPackages = with inputs.nixpkgs; [
+}: let
+  inherit (inputs) nixpkgs;
+in {
+  systemPackages = with nixpkgs; [
     pavucontrol
-    carla
+    #pwvucontrol
     helvum
+    easyeffects
   ];
 }
