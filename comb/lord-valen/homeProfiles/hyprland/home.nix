@@ -2,8 +2,8 @@
   inputs,
   cell,
 }: {
+  _imports = [cell.homeProfiles.terminal];
   packages = with inputs.nixpkgs; [
-    kitty
     wofi
     wpaperd
     hyprpicker
