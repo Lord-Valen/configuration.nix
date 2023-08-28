@@ -13,6 +13,8 @@ in {
     alacritty = {
       enable = true;
       settings = {
+        cursor.shape = "block";
+
         font = {
           normal = {
             family = "FiraCode Nerd Font Mono";
@@ -27,6 +29,58 @@ in {
           bold_italic = {
             family = "Fira Sans";
             style = "Bold Italic";
+          };
+        };
+
+        colors = {
+          transparent_background_colors = true;
+
+          primary = {
+            foreground = "#F2F3F7";
+            background = "#0C0A20";
+          };
+
+          normal = {
+            black = "#0C0A20";
+            red = "#E61F44";
+            green = "#A7DA1E";
+            yellow = "#FFD400";
+            blue = "#1EA8FC";
+            magenta = "#DF86FF";
+            cyan = "#42C6FF";
+            white = "#F2F3F7";
+          };
+
+          cursor = {
+            text = "#090819";
+            cursor = "#1EA8FC";
+          };
+
+          vi_mode_cursor = {
+            text = "#090819";
+            cursor = "#FFD400";
+          };
+
+          line_indicator = {
+            foreground = "#F2F3F7";
+            background = "#090819";
+          };
+
+          search = {
+            matches = {
+              foreground = "CellForeground";
+              background = "CellBackground";
+            };
+
+            focused_match = {
+              foreground = "CellForeground";
+              background = "#1EA8FC";
+            };
+          };
+
+          selection = {
+            text = "CellForeground";
+            background = "#1F1147";
           };
         };
       };
