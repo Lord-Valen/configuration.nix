@@ -10,6 +10,15 @@ in {
   inherit (common) bee time;
   networking = {inherit hostName;};
 
+  specialisation = {
+    mine.configuration = {
+      imports = with nixosProfiles; [
+        monero-mine
+        {services.p2pool.mini = true;}
+      ];
+    };
+  };
+
   imports = let
     profiles = with nixosProfiles; [
       hardwareProfiles."${hostName}"
@@ -21,9 +30,6 @@ in {
       regreet
       hyprland
       geoclue
-
-      # monero.mine
-      # {services.p2pool.mini = true;}
     ];
     suites = with nixosSuites; desktop;
   in

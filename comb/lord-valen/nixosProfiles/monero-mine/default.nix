@@ -3,11 +3,14 @@
   cell,
 }: let
   inherit (inputs) nixpkgs;
-  inherit (inputs.cells.repo) lib;
+  inherit (nixpkgs) lib;
+
+  inherit (cell.nixosModules) p2pool;
+
   inPeers = 32;
   outPeers = 64;
 in {
-  imports = [cell.nixosModules.services.p2pool];
+  imports = [p2pool];
 
   environment.systemPackages = with nixpkgs; [monero-gui];
 
