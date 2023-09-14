@@ -76,6 +76,7 @@ in {
         nodejs
         nodePackages.npm
         nodePackages.prettier
+        bun
 
         ## lsp
         nodePackages.typescript-language-server
