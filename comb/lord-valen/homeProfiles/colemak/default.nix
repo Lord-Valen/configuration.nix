@@ -5,7 +5,7 @@
   inherit (inputs) nixpkgs;
   inherit (nixpkgs) lib;
 in {
-  xdg.configFile."hypr/keyboard.conf".text = lib.mkForce ''
+  wayland.windowManager.hyprland.extraConfig = ''
     input {
       kb_layout = us
       kb_variant = colemak_dh

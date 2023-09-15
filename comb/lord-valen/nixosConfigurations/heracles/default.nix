@@ -42,11 +42,11 @@ in {
       imports = let
         profiles = with homeProfiles; [
           {
-            xdg.configFile."hypr/monitor.conf".text = lib.mkForce ''
-              monitor = HDMI-A-1, preferred, 0x0, 1
-              monitor = DP-1, preferred, 1920x0, 1
-              monitor = , preferred, auto, 1
-            '';
+            wayland.windowManager.hyprland.settings.monitor = lib.mkForce [
+              "HDMI-A-1, preferred, 0x0, 1"
+              "DP-1, preferred, 1920x0, 1"
+              ", preferred, auto, 1"
+            ];
           }
         ];
         suites = with homeSuites;
