@@ -54,44 +54,42 @@ in {
 
   services.flatpak.enable = true;
 
-  services.syncthing = {
-    folders = {
-      "Pythia Bup" = {
-        id = "jtafu-4mn0y";
-        path = "/data/pythia-bup";
-        devices = [
-          "Heracles"
-          "Pythia"
-        ];
-      };
-      "Pythia Photos" = {
-        id = "pixel_7_n835-photos";
-        path = "/data/pythia-photos";
-        devices = [
-          "Heracles"
-          "Pythia"
-        ];
-      };
-      "Books" = {
-        id = "fheng-o2wyn";
-        path = "/data/media/books";
-        type = "sendonly";
-        devices = [
-          "Heracles"
-          # "Aspire"
-          "Pythia"
-        ];
-      };
-      "Music" = {
-        id = "zfumc-pfy38";
-        path = "/data/media/music";
-        type = "sendonly";
-        devices = [
-          "Heracles"
-          # "Aspire"
-          "Pythia"
-        ];
-      };
+  services.syncthing.settings.folders = {
+    "Pythia Bup" = {
+      id = "jtafu-4mn0y";
+      path = "/data/pythia-bup";
+      devices = [
+        "Heracles"
+        "Pythia"
+      ];
+    };
+    "Pythia Photos" = {
+      id = "pixel_7_n835-photos";
+      path = "/data/pythia-photos";
+      devices = [
+        "Heracles"
+        "Pythia"
+      ];
+    };
+    "Books" = {
+      id = "fheng-o2wyn";
+      path = "/data/media/books";
+      type = "sendonly";
+      devices = [
+        "Heracles"
+        # "Aspire"
+        "Pythia"
+      ];
+    };
+    "Music" = {
+      id = "zfumc-pfy38";
+      path = "/data/media/music";
+      type = "sendonly";
+      devices = [
+        "Heracles"
+        # "Aspire"
+        "Pythia"
+      ];
     };
   };
 

@@ -6,7 +6,7 @@
 in {
   fonts = {
     fontDir.enable = true;
-    fonts = with nixpkgs; [
+    packages = with nixpkgs; [
       fira
       liberation_ttf
     ];

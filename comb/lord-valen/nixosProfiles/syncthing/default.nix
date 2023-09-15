@@ -10,7 +10,7 @@ in {
     syncthing = {
       enable = true;
       group = "users";
-      devices = {
+      settings.devices = {
         "Pythia" = {
           id = "U4T26LJ-76QPOOX-N7ITRSK-YUXDEFB-5ICOBOM-TC6V5Z5-5VDFFK5-BUEWFQH";
           introducer = true;

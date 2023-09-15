@@ -61,7 +61,7 @@ in {
     };
   };
 
-  services.syncthing.folders = {
+  services.syncthing.settings.folders = {
     "Pythia Bup" = {
       id = "jtafu-4mn0y";
       path = "~/pythia-bup";

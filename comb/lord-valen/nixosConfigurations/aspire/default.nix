@@ -45,7 +45,7 @@ in {
     };
   };
 
-  services.syncthing.folders = {
+  services.syncthing.settings.folders = {
     "Books" = {
       id = "fheng-o2wyn";
       path = "~/books";

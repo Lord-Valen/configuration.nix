@@ -13,5 +13,5 @@ in {
     flameshot
   ];
 
-  fonts.fonts = with nixpkgs; [fira-code font-awesome];
+  fonts.packages = with nixpkgs; [fira-code font-awesome];
 }

@@ -6,9 +6,9 @@
 in {
   fonts = {
     fontDir.enable = true;
-    enableDefaultFonts = true;
     enableGhostscriptFonts = true;
-    fonts = with nixpkgs; [
+    enableDefaultPackages = true;
+    packages = with nixpkgs; [
       liberation_ttf
       fira
       fira-mono
