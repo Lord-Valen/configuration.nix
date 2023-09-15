@@ -74,5 +74,5 @@ in {
 
   swapDevices = [{device = "/dev/disk/by-uuid/5b455084-e717-4ded-88c2-9714031ccad0";}];
 
-  system.stateVersion = "22.05";
+  system.stateVersion = "23.05";
 }
