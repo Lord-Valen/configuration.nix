@@ -84,7 +84,8 @@ in {
   config = lib.mkIf cfg.enable {
     systemd.services.p2pool = {
       description = "p2pool daemon";
-      after = ["network.target"] ++ lib.optional moneroCfg.enable "monero.service";
+      after = ["network-online.target"] ++ lib.optional moneroCfg.enable "monero.service";
+      wants = ["network-online.target"] ++ lib.optional moneroCfg.enable "monero.service";
       wantedBy = [
         "multi-user.target"
       ];
@@ -119,7 +120,7 @@ in {
             then "--start-mining ${cfg.mining.threads}"
             else "";
         in ''
-          ${lib.getExe cfg.package}\
+          ${lib.getExe' cfg.package "p2pool"}\
             ${miniString}\
             ${lightString}\
             ${hostString}\
