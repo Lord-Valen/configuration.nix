@@ -48,20 +48,16 @@
       };
     };
 
-    hive = {
-      url = "github:divnix/hive";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-        disko.follows = "disko";
-        colmena.follows = "colmena";
-        nixos-generators.follows = "nixos-generators";
-      };
-    };
-
     colmena = {
       url = "https://flakehub.com/f/zhaofengli/colmena/0.4.0.tar.gz";
       inputs.flake-compat.follows = "";
+    };
+    hive = {
+      url = "github:divnix/hive/v0.5.0";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        colmena.follows = "colmena";
+      };
     };
 
     nixos-generators = {
