@@ -60,12 +60,6 @@
       };
     };
 
-    nixos-generators = {
-      url = "github:nix-community/nixos-generators/1.7.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixlib.follows = "nixpkgs";
-    };
-
     arion = {
       url = "github:hercules-ci/arion";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -137,7 +131,6 @@
         nixosConfigurations
         diskoConfigurations
         colmenaConfigurations
-        (installables "generators")
 
         # pkgs
         (pkgs "pkgs")
@@ -160,9 +153,6 @@
         ];
     } {
       devShells = std.harvest self ["repo" "devshells"];
-      packages = let
-        generators = std.harvest self ["repo" "generators"];
-      in {inherit (generators) x86_64-linux aarch64-linux;};
     } {
       nixosConfigurations = collect self "nixosConfigurations";
       colmenaHive = collect self "colmenaConfigurations";
