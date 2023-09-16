@@ -31,7 +31,7 @@ in {
       ];
 
       input = {
-        follow_mouse = 1;
+        follow_mouse = true;
         touchpad.natural_scroll = true;
         sensitivity = 0;
       };
@@ -40,27 +40,28 @@ in {
         gaps_in = 5;
         gaps_out = 7.5;
         border_size = 2;
-        col.active_border = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        col.inactive_border = "rgba(595959aa)";
+        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+        "col.inactive_border" = "rgba(595959aa)";
 
         layout = "master";
       };
 
       decoration = {
         rounding = 10;
-        blur = "yes";
-        blur_size = 3;
-        blur_passes = 1;
-        blur_new_optimizations = "on";
-
-        drop_shadow = "yes";
+        drop_shadow = true;
         shadow_range = 4;
         shadow_render_power = 3;
-        col.shadow = "rgba(1a1a1aee)";
+        "col.shadow" = "rgba(1a1a1aee)";
+
+        blur = {
+          enabled = true;
+          size = 3;
+          passes = 1;
+        };
       };
 
       animations = {
-        enabled = "yes";
+        enabled = true;
 
         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
 
