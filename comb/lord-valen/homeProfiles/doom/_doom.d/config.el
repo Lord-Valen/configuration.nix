@@ -37,11 +37,15 @@
   :after dash
   :config
   (--map (add-to-list 'eglot-server-programs it)
-    `((nix-mode . ,(eglot-alternatives '("rnix-lsp" "nil" "nixd")))
+    `((nix-mode . ,(eglot-alternatives '("nil" "nixd")))
       (conf-toml-mode . ("taplo" "lsp" "stdio"))
       (csharp-mode . ("OmniSharp" "-lsp"))
       ((rjsx-mode typescript-tsx-mode) . ("typescript-language-server" "--stdio"))))
   (add-hook! (conf-toml-mode rjsx-mode typescript-tsx-mode) #'lsp!))
+
+(use-package! format-all
+  :config
+  (set-formatter! 'alejandra "alejandra --quiet" :modes '(nix-mode)))
 
 (use-package! elcord
   :custom

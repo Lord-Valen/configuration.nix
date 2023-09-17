@@ -20,6 +20,10 @@ in
         (dev.mkNixago cfg.lefthook lefthook)
       ];
 
+      packages = with nixpkgs; [
+        alejandra
+      ];
+
       commands = let
         mkCategory = category: attrset: attrset // {inherit category;};
         hexagon = mkCategory "hexagon";

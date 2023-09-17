@@ -107,7 +107,8 @@ in {
       [
         # :lang nix
         ## lsp
-        nil
+        nixd
+        alejandra
       ]
       (lib.flatten [
         # :lang ocaml
