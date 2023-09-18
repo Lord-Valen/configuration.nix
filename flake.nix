@@ -101,7 +101,7 @@
   } @ inputs: let
     # I don't need to worry about name collisions.
     # If you think you might, don't do this.
-    collect = hive.collect // {renamer = cell: target: "${target}";};
+    myCollect = hive.collect // {renamer = cell: target: "${target}";};
     lib = inputs.nixpkgs.lib // builtins;
   in
     hive.growOn {
@@ -136,6 +136,9 @@
         # devshells
         (nixago "configs")
         (devshells "devshells")
+
+        # packages
+        (installables "packages")
       ];
 
       # I want to keep proprietary software to a minimum.
@@ -151,9 +154,10 @@
         ];
     } {
       devShells = std.harvest self ["repo" "devshells"];
+      packages = std.harvest self ["lord-valen" "packages"];
     } {
-      nixosConfigurations = collect self "nixosConfigurations";
-      colmenaHive = collect self "colmenaConfigurations";
+      nixosConfigurations = myCollect self "nixosConfigurations";
+      colmenaHive = myCollect self "colmenaConfigurations";
       # TODO: implement
       # nixosModules = collect self "nixosModules";
       # hmModules = collect self "homeModules";

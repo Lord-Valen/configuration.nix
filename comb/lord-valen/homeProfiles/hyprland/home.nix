@@ -1,9 +1,13 @@
 {
   inputs,
   cell,
-}: {
-  _imports = [cell.homeProfiles.terminal];
-  packages = with inputs.nixpkgs; [
+}: let
+  inherit (inputs) nixpkgs;
+
+  inherit (cell) homeProfiles packages;
+in {
+  _imports = [homeProfiles.terminal];
+  packages = with nixpkgs; [
     wofi
     wpaperd
     hyprpicker
@@ -11,6 +15,7 @@
     libnotify
     swaylock-effects
     inputs.watershot.packages.default
+    packages.hypr-empty
 
     # eww
     killall

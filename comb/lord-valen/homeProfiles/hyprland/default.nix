@@ -4,11 +4,14 @@
 }: let
   inherit (inputs) nixpkgs;
   inherit (nixpkgs) lib;
+
+  inherit (cell) packages;
 in {
   wayland.windowManager.hyprland = {
     enable = true;
 
     plugins = with nixpkgs; [
+      packages.hyprfocus
     ];
 
     settings = {
@@ -28,10 +31,12 @@ in {
       exec-once = [
         "killall eww; eww open bar"
         "killall wpaperd; wpaperd"
+        "killall hypr-empty; hypr-empty"
       ];
 
       input = {
-        follow_mouse = true;
+        follow_mouse = 1;
+        mouse_refocus = false;
         touchpad.natural_scroll = true;
         sensitivity = 0;
       };
@@ -39,7 +44,7 @@ in {
       general = {
         gaps_in = 5;
         gaps_out = 7.5;
-        border_size = 2;
+        border_size = 0;
         "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = "rgba(595959aa)";
 
@@ -85,6 +90,28 @@ in {
       gestures.workspace_swipe = true;
 
       misc.disable_hyprland_logo = true;
+
+      "plugin:hyprfocus" = {
+        enabled = true;
+
+        keyboard_focus_animation = "flash";
+        mouse_focus_animation = "flash";
+
+        bezier = [
+          "bezIn, 0.5,0.0,1.0,0.5"
+          "bezOut, 0.0,0.5,0.5,1.0"
+        ];
+
+        flash = {
+          flash_opacity = 0.7;
+
+          in_bezier = "bezIn";
+          in_speed = 0.5;
+
+          out_bezier = "bezOut";
+          out_speed = 2;
+        };
+      };
 
       # Keybinds
       "$mainMod" = "SUPER";
