@@ -4,14 +4,15 @@
   config,
 }: let
   inherit (inputs) nixpkgs;
-  inherit (nixpkgs) lib;
+  inherit (nixpkgs) formats;
+  toml = formats.toml {};
 in {
-  xdg.configFile."wallpaper".source = ./_wallpaper.d;
-  xdg.configFile."wpaperd/wallpaper.toml".text = ''
-    [default]
-    path = "~/.config/wallpaper/"
-    duration = "30m"
-  '';
+  xdg.configFile."wpaperd/wallpaper.toml".source = toml.generate "wpaperd-settings" {
+    default = {
+      path = ./_wallpaper.d;
+      duration = "30m";
+    };
+  };
   services.random-background = {
     interval = "30m";
     enableXinerama = true;
