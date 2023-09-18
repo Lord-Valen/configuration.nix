@@ -10,6 +10,13 @@ in {
   inherit (common) bee time;
   networking = {inherit hostName;};
 
+  services.udev.extraRules = ''
+    KERNEL=="uinput", SUBSYSTEM=="misc", TAG+="uaccess", OPTIONS+="static_node=uinput"
+    # THQ uDraw Game Tablet for PS3
+    SUBSYSTEM=="hidraw", ATTRS{idVendor}=="20d6", ATTRS{idProduct}=="cb17", MODE="0666"
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="20d6", ATTRS{idProduct}=="cb17", MODE="0666"
+  '';
+
   imports = let
     profiles = with nixosProfiles; [
       hardwareProfiles."${hostName}"
