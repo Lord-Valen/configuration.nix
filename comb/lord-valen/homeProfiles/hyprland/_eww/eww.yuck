@@ -1,7 +1,7 @@
 ;; 
 ;; Variables
-(deflisten workspaces :initial "[{\"name\": \"sys\", \"id\": 0, \"windows\": 0, \"current\": true}]" "~/.config/eww/scripts/get-workspaces.nu")
-(defpoll time :interval "1m" "~/.config/eww/scripts/time.nu")
+(deflisten workspaces :initial '[{"name": "sys", "id": 0, "windows": 0, "current": true}]' "~/.config/eww/scripts/get-workspaces.nu")
+(defpoll time :initial '{"year": "1970", "month": "01", "day": "01", "hour": "00", "minute": "00", "timezone": "00:00"}' :interval "1m" "~/.config/eww/scripts/time.nu")
 
 ;; Widgets
 (defwidget cpu []
@@ -12,25 +12,28 @@
                             :text "")))
 
 (defwidget battery []
-  (circular-progress :class "battery"
-                     :value {EWW_BATTERY.total_avg}
-                     :thickness 2
-                     :tooltip "Battery at ${EWW_BATTERY.total_avg}%"
-                     (label :class "battery-icon"
-                            ;; This can use ?. and || when <=0.5.0
-                            :text { EWW_BATTERY.BAT0 != "null"
-                                    ? EWW_BATTERY.BAT0.status == "Charging"
-                                      ? "󱟦"
-                                      : EWW_BATTERY.BAT0.status == "Discharging"
-                                        ? "󱟤"
-                                        : "󱟢"
-                                    : EWW_BATTERY.BAT1 != "null"
-                                      ? EWW_BATTERY.BAT1.status == "Charging"
-                                        ? "󱟦"
-                                        : EWW_BATTERY.BAT1.status == "Discharging"
-                                          ? "󱟤"
-                                          : "󱟢"
-                                      : "󱟨"})))
+  (literal
+   :content { EWW_BATTERY != ""
+              ? '(circular-progress :class "battery"
+                                    :value {EWW_BATTERY.total_avg}
+                                    :thickness 2
+                                    :tooltip "Battery at ${EWW_BATTERY.total_avg}%"
+                                    (label :class "battery-icon"
+                                           ;; This can use ?. and || when <=0.5.0
+                                           :text { EWW_BATTERY.BAT0 != ""
+                                                   ? EWW_BATTERY.BAT0.status == "Charging"
+                                                     ? "󱟦"
+                                                     : EWW_BATTERY.BAT0.status == "Discharging"
+                                                       ? "󱟤"
+                                                       : "󱟢"
+                                                   : EWW_BATTERY.BAT1 != ""
+                                                     ? EWW_BATTERY.BAT1.status == "Charging"
+                                                       ? "󱟦"
+                                                       : EWW_BATTERY.BAT1.status == "Discharging"
+                                                         ? "󱟤"
+                                                         : "󱟢"
+                                                     : "󱟨"}))'
+              : ""}))
 
 ;; Modules
 (defwidget barLeft []
