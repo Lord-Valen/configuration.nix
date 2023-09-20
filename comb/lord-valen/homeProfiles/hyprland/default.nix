@@ -30,8 +30,6 @@ in {
 
       exec-once = [
         "killall eww; eww open bar"
-        "killall wpaperd; wpaperd"
-        "killall hypr-empty; hypr-empty"
       ];
 
       input = {
