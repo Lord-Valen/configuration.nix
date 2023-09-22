@@ -30,6 +30,7 @@ in {
       regreet
       hyprland
       geoclue
+      zsa
     ];
     suites = with nixosSuites; desktop;
   in
