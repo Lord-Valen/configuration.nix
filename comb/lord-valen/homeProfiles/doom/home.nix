@@ -56,6 +56,10 @@ in {
         sbcl
       ]
       [
+        # :lang coq
+        coq
+      ]
+      [
         # :lang csharp
         mono
         ## lsp
