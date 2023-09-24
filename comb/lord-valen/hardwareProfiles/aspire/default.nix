@@ -3,6 +3,7 @@
   cell,
 }: let
   inherit (inputs) common nixos-hardware;
+  inherit (common) hardware;
 in {
   imports = with nixos-hardware.nixosModules; [
     common-pc-laptop-hdd
@@ -10,7 +11,15 @@ in {
     common-gpu-amd
   ];
 
-  inherit (common) hardware;
+  services.blueman.enable = true;
+  hardware =
+    hardware
+    // {
+      bluetooth = {
+        enable = true;
+        powerOnBoot = false;
+      };
+    };
 
   boot = {
     kernelModules = ["kvm-amd"];
