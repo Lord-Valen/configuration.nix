@@ -24,9 +24,7 @@
         "flake-parts": "flake-parts",
         "haskell-flake": "haskell-flake",
         "hercules-ci-effects": "hercules-ci-effects",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": ["nixpkgs"]
       },
       "locked": {
         "lastModified": 1692787336,
@@ -183,10 +181,7 @@
     },
     "devshell_2": {
       "inputs": {
-        "nixpkgs": [
-          "hive",
-          "nixpkgs"
-        ],
+        "nixpkgs": ["hive", "nixpkgs"],
         "systems": "systems_3"
       },
       "locked": {
@@ -205,16 +200,8 @@
     },
     "devshell_3": {
       "inputs": {
-        "flake-utils": [
-          "watershot",
-          "std",
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "watershot",
-          "std",
-          "nixpkgs"
-        ]
+        "flake-utils": ["watershot", "std", "flake-utils"],
+        "nixpkgs": ["watershot", "std", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1682700442,
@@ -232,9 +219,7 @@
     },
     "disko": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": ["nixpkgs"]
       },
       "locked": {
         "lastModified": 1686222354,
@@ -253,21 +238,9 @@
     },
     "dmerge": {
       "inputs": {
-        "haumea": [
-          "hive",
-          "std",
-          "haumea"
-        ],
-        "nixlib": [
-          "hive",
-          "std",
-          "lib"
-        ],
-        "yants": [
-          "hive",
-          "std",
-          "yants"
-        ]
+        "haumea": ["hive", "std", "haumea"],
+        "nixlib": ["hive", "std", "lib"],
+        "yants": ["hive", "std", "yants"]
       },
       "locked": {
         "lastModified": 1686862774,
@@ -286,18 +259,9 @@
     },
     "dmerge_2": {
       "inputs": {
-        "haumea": [
-          "std",
-          "haumea"
-        ],
-        "nixlib": [
-          "std",
-          "lib"
-        ],
-        "yants": [
-          "std",
-          "yants"
-        ]
+        "haumea": ["std", "haumea"],
+        "nixlib": ["std", "lib"],
+        "yants": ["std", "yants"]
       },
       "locked": {
         "lastModified": 1686862774,
@@ -316,16 +280,8 @@
     },
     "dmerge_3": {
       "inputs": {
-        "nixlib": [
-          "watershot",
-          "std",
-          "nixpkgs"
-        ],
-        "yants": [
-          "watershot",
-          "std",
-          "yants"
-        ]
+        "nixlib": ["watershot", "std", "nixpkgs"],
+        "yants": ["watershot", "std", "yants"]
       },
       "locked": {
         "lastModified": 1659548052,
@@ -527,10 +483,7 @@
     },
     "flake-parts": {
       "inputs": {
-        "nixpkgs-lib": [
-          "arion",
-          "nixpkgs"
-        ]
+        "nixpkgs-lib": ["arion", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1675933616,
@@ -808,11 +761,7 @@
     },
     "haumea": {
       "inputs": {
-        "nixpkgs": [
-          "hive",
-          "std",
-          "lib"
-        ]
+        "nixpkgs": ["hive", "std", "lib"]
       },
       "locked": {
         "lastModified": 1685133229,
@@ -831,10 +780,7 @@
     },
     "haumea_2": {
       "inputs": {
-        "nixpkgs": [
-          "std",
-          "lib"
-        ]
+        "nixpkgs": ["std", "lib"]
       },
       "locked": {
         "lastModified": 1685133229,
@@ -874,10 +820,7 @@
       "inputs": {
         "flake-parts": "flake-parts_2",
         "hercules-ci-agent": "hercules-ci-agent",
-        "nixpkgs": [
-          "arion",
-          "nixpkgs"
-        ]
+        "nixpkgs": ["arion", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1689397210,
@@ -895,19 +838,11 @@
     },
     "hive": {
       "inputs": {
-        "colmena": [
-          "colmena"
-        ],
+        "colmena": ["colmena"],
         "devshell": "devshell_2",
         "nixago": "nixago",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "paisano": [
-          "hive",
-          "std",
-          "paisano"
-        ],
+        "nixpkgs": ["nixpkgs"],
+        "paisano": ["hive", "std", "paisano"],
         "std": "std"
       },
       "locked": {
@@ -927,9 +862,7 @@
     },
     "home-manager": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": ["nixpkgs"]
       },
       "locked": {
         "lastModified": 1696063111,
@@ -947,11 +880,7 @@
     },
     "incl": {
       "inputs": {
-        "nixlib": [
-          "hive",
-          "std",
-          "lib"
-        ]
+        "nixlib": ["hive", "std", "lib"]
       },
       "locked": {
         "lastModified": 1669263024,
@@ -969,10 +898,7 @@
     },
     "incl_2": {
       "inputs": {
-        "nixlib": [
-          "std",
-          "lib"
-        ]
+        "nixlib": ["std", "lib"]
       },
       "locked": {
         "lastModified": 1669263024,
@@ -990,11 +916,7 @@
     },
     "incl_3": {
       "inputs": {
-        "nixlib": [
-          "watershot",
-          "std",
-          "nixpkgs"
-        ]
+        "nixlib": ["watershot", "std", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1669263024,
@@ -1042,16 +964,8 @@
     },
     "n2c": {
       "inputs": {
-        "flake-utils": [
-          "watershot",
-          "std",
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "watershot",
-          "std",
-          "nixpkgs"
-        ]
+        "flake-utils": ["watershot", "std", "flake-utils"],
+        "nixpkgs": ["watershot", "std", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1677330646,
@@ -1071,9 +985,7 @@
       "inputs": {
         "doom-emacs": "doom-emacs",
         "doom-snippets": "doom-snippets",
-        "emacs-overlay": [
-          "emacs-overlay"
-        ],
+        "emacs-overlay": ["emacs-overlay"],
         "emacs-so-long": "emacs-so-long",
         "evil-escape": "evil-escape",
         "evil-markdown": "evil-markdown",
@@ -1130,13 +1042,8 @@
     "nixago": {
       "inputs": {
         "flake-utils": "flake-utils_3",
-        "nixago-exts": [
-          "hive"
-        ],
-        "nixpkgs": [
-          "hive",
-          "nixpkgs"
-        ]
+        "nixago-exts": ["hive"],
+        "nixpkgs": ["hive", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1687381756,
@@ -1156,10 +1063,7 @@
       "inputs": {
         "flake-utils": "flake-utils_6",
         "nixago": "nixago_3",
-        "nixpkgs": [
-          "nixago",
-          "nixpkgs"
-        ]
+        "nixpkgs": ["nixago", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1676070308,
@@ -1179,12 +1083,7 @@
       "inputs": {
         "flake-utils": "flake-utils_8",
         "nixago": "nixago_4",
-        "nixpkgs": [
-          "nixago",
-          "nixago-exts",
-          "nixago",
-          "nixpkgs"
-        ]
+        "nixpkgs": ["nixago", "nixago-exts", "nixago", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1655508669,
@@ -1204,9 +1103,7 @@
       "inputs": {
         "flake-utils": "flake-utils_5",
         "nixago-exts": "nixago-exts",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": ["nixpkgs"]
       },
       "locked": {
         "lastModified": 1687381756,
@@ -1226,11 +1123,7 @@
       "inputs": {
         "flake-utils": "flake-utils_7",
         "nixago-exts": "nixago-exts_2",
-        "nixpkgs": [
-          "nixago",
-          "nixago-exts",
-          "nixpkgs"
-        ]
+        "nixpkgs": ["nixago", "nixago-exts", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1676070010,
@@ -1250,13 +1143,7 @@
     "nixago_4": {
       "inputs": {
         "flake-utils": "flake-utils_9",
-        "nixpkgs": [
-          "nixago",
-          "nixago-exts",
-          "nixago",
-          "nixago-exts",
-          "nixpkgs"
-        ]
+        "nixpkgs": ["nixago", "nixago-exts", "nixago", "nixago-exts", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1655405483,
@@ -1274,21 +1161,9 @@
     },
     "nixago_5": {
       "inputs": {
-        "flake-utils": [
-          "watershot",
-          "std",
-          "flake-utils"
-        ],
-        "nixago-exts": [
-          "watershot",
-          "std",
-          "blank"
-        ],
-        "nixpkgs": [
-          "watershot",
-          "std",
-          "nixpkgs"
-        ]
+        "flake-utils": ["watershot", "std", "flake-utils"],
+        "nixago-exts": ["watershot", "std", "blank"],
+        "nixpkgs": ["watershot", "std", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1683210100,
@@ -1618,17 +1493,9 @@
     "paisano": {
       "inputs": {
         "call-flake": "call-flake",
-        "nixpkgs": [
-          "hive",
-          "std",
-          "nixpkgs"
-        ],
+        "nixpkgs": ["hive", "std", "nixpkgs"],
         "nosys": "nosys",
-        "yants": [
-          "hive",
-          "std",
-          "yants"
-        ]
+        "yants": ["hive", "std", "yants"]
       },
       "locked": {
         "lastModified": 1693982790,
@@ -1671,16 +1538,9 @@
       "inputs": {
         "crane": "crane",
         "fenix": "fenix",
-        "nixpkgs": [
-          "watershot",
-          "std",
-          "nixpkgs"
-        ],
+        "nixpkgs": ["watershot", "std", "nixpkgs"],
         "paisano-actions": "paisano-actions",
-        "std": [
-          "watershot",
-          "std"
-        ]
+        "std": ["watershot", "std"]
       },
       "locked": {
         "lastModified": 1680654400,
@@ -1732,15 +1592,8 @@
     },
     "paisano-tui_3": {
       "inputs": {
-        "nixpkgs": [
-          "watershot",
-          "std",
-          "blank"
-        ],
-        "std": [
-          "watershot",
-          "std"
-        ]
+        "nixpkgs": ["watershot", "std", "blank"],
+        "std": ["watershot", "std"]
       },
       "locked": {
         "lastModified": 1681847764,
@@ -1760,15 +1613,9 @@
     "paisano_2": {
       "inputs": {
         "call-flake": "call-flake_2",
-        "nixpkgs": [
-          "std",
-          "nixpkgs"
-        ],
+        "nixpkgs": ["std", "nixpkgs"],
         "nosys": "nosys_2",
-        "yants": [
-          "std",
-          "yants"
-        ]
+        "yants": ["std", "yants"]
       },
       "locked": {
         "lastModified": 1693982790,
@@ -1786,17 +1633,9 @@
     },
     "paisano_3": {
       "inputs": {
-        "nixpkgs": [
-          "watershot",
-          "std",
-          "nixpkgs"
-        ],
+        "nixpkgs": ["watershot", "std", "nixpkgs"],
         "nosys": "nosys_3",
-        "yants": [
-          "watershot",
-          "std",
-          "yants"
-        ]
+        "yants": ["watershot", "std", "yants"]
       },
       "locked": {
         "lastModified": 1678949904,
@@ -1857,12 +1696,8 @@
         "nix-doom-emacs": "nix-doom-emacs",
         "nixago": "nixago_2",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": [
-          "nixpkgs-unstable"
-        ],
-        "nixpkgs'": [
-          "nixpkgs"
-        ],
+        "nixpkgs": ["nixpkgs-unstable"],
+        "nixpkgs'": ["nixpkgs"],
         "nixpkgs-stable": "nixpkgs-stable_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "std": "std_2",
@@ -1967,50 +1802,21 @@
     },
     "std": {
       "inputs": {
-        "arion": [
-          "hive",
-          "std",
-          "blank"
-        ],
+        "arion": ["hive", "std", "blank"],
         "blank": "blank",
-        "devshell": [
-          "hive",
-          "devshell"
-        ],
+        "devshell": ["hive", "devshell"],
         "dmerge": "dmerge",
         "haumea": "haumea",
         "incl": "incl",
         "lib": "lib",
-        "makes": [
-          "hive",
-          "std",
-          "blank"
-        ],
-        "microvm": [
-          "hive",
-          "std",
-          "blank"
-        ],
-        "n2c": [
-          "hive",
-          "std",
-          "blank"
-        ],
-        "nixago": [
-          "hive",
-          "nixago"
-        ],
-        "nixpkgs": [
-          "hive",
-          "nixpkgs"
-        ],
+        "makes": ["hive", "std", "blank"],
+        "microvm": ["hive", "std", "blank"],
+        "n2c": ["hive", "std", "blank"],
+        "nixago": ["hive", "nixago"],
+        "nixpkgs": ["hive", "nixpkgs"],
         "paisano": "paisano",
         "paisano-tui": "paisano-tui",
-        "terranix": [
-          "hive",
-          "std",
-          "blank"
-        ],
+        "terranix": ["hive", "std", "blank"],
         "yants": "yants"
       },
       "locked": {
@@ -2029,41 +1835,21 @@
     },
     "std_2": {
       "inputs": {
-        "arion": [
-          "arion"
-        ],
+        "arion": ["arion"],
         "blank": "blank_2",
-        "devshell": [
-          "devshell"
-        ],
+        "devshell": ["devshell"],
         "dmerge": "dmerge_2",
         "haumea": "haumea_2",
         "incl": "incl_2",
         "lib": "lib_2",
-        "makes": [
-          "std",
-          "blank"
-        ],
-        "microvm": [
-          "std",
-          "blank"
-        ],
-        "n2c": [
-          "std",
-          "blank"
-        ],
-        "nixago": [
-          "nixago"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "makes": ["std", "blank"],
+        "microvm": ["std", "blank"],
+        "n2c": ["std", "blank"],
+        "nixago": ["nixago"],
+        "nixpkgs": ["nixpkgs"],
         "paisano": "paisano_2",
         "paisano-tui": "paisano-tui_2",
-        "terranix": [
-          "std",
-          "blank"
-        ],
+        "terranix": ["std", "blank"],
         "yants": "yants_2"
       },
       "locked": {
@@ -2082,32 +1868,17 @@
     },
     "std_3": {
       "inputs": {
-        "arion": [
-          "watershot",
-          "std",
-          "blank"
-        ],
+        "arion": ["watershot", "std", "blank"],
         "blank": "blank_3",
         "devshell": "devshell_3",
         "dmerge": "dmerge_3",
         "flake-utils": "flake-utils_10",
         "incl": "incl_3",
-        "makes": [
-          "watershot",
-          "std",
-          "blank"
-        ],
-        "microvm": [
-          "watershot",
-          "std",
-          "blank"
-        ],
+        "makes": ["watershot", "std", "blank"],
+        "microvm": ["watershot", "std", "blank"],
         "n2c": "n2c",
         "nixago": "nixago_5",
-        "nixpkgs": [
-          "watershot",
-          "nixpkgs"
-        ],
+        "nixpkgs": ["watershot", "nixpkgs"],
         "paisano": "paisano_3",
         "paisano-mdbook-preprocessor": "paisano-mdbook-preprocessor",
         "paisano-tui": "paisano-tui_3",
@@ -2205,9 +1976,7 @@
     },
     "watershot": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "nixpkgs": ["nixpkgs"],
         "std": "std_3"
       },
       "locked": {
@@ -2243,11 +2012,7 @@
     },
     "yants": {
       "inputs": {
-        "nixpkgs": [
-          "hive",
-          "std",
-          "lib"
-        ]
+        "nixpkgs": ["hive", "std", "lib"]
       },
       "locked": {
         "lastModified": 1686863218,
@@ -2265,10 +2030,7 @@
     },
     "yants_2": {
       "inputs": {
-        "nixpkgs": [
-          "std",
-          "lib"
-        ]
+        "nixpkgs": ["std", "lib"]
       },
       "locked": {
         "lastModified": 1686863218,
@@ -2286,11 +2048,7 @@
     },
     "yants_3": {
       "inputs": {
-        "nixpkgs": [
-          "watershot",
-          "std",
-          "nixpkgs"
-        ]
+        "nixpkgs": ["watershot", "std", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1667096281,
