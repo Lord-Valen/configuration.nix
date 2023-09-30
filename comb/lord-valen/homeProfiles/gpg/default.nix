@@ -13,6 +13,9 @@
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    sshKeys = ["BB26077842824E5F7FA4693635CCA30C3972D21A"];
+    sshKeys = [
+      "354FAC6D58C11AF32494"
+      "38AA565BD540BD2CA31F"
+    ];
   };
 }
