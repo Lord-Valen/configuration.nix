@@ -1,5 +1,5 @@
 {
-  stdenv,
+  gcc13Stdenv,
   fetchFromGitHub,
   pkg-config,
   hyprland,
@@ -8,7 +8,7 @@
   wlroots,
   lib,
 }:
-stdenv.mkDerivation {
+gcc13Stdenv.mkDerivation {
   pname = "hyprfocus";
   version = "unstable-2023-06-12";
 
