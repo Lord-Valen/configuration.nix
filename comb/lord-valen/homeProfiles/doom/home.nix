@@ -50,6 +50,8 @@ in {
         # :lang cc
         clang
         clang-tools
+        ## extra
+        gf
       ]
       [
         # :lang common-lisp
@@ -141,9 +143,16 @@ in {
         # :lang rust
         rustc
         cargo
+        ## format
         rustfmt
         ## lsp
         rust-analyzer
+        ## extra
+        gf
+        cargo-nextest
+        cargo-edit
+        cargo-watch
+        cargo-audit
       ]
       [
         # :lang toml
