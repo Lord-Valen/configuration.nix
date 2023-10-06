@@ -22,7 +22,8 @@
 
   inputs = {
     nixpkgs-stable.url = "https://flakehub.com/f/NixOS/nixpkgs/*.tar.gz";
-    nixpkgs-unstable.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.0.tar.gz";
+    #nixpkgs-unstable.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.0.tar.gz";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/479a41341f338d3b4e3352541a6bfd6d4f476240";
     nixpkgs.follows = "nixpkgs-unstable";
     nixpkgs'.follows = "nixpkgs";
 
