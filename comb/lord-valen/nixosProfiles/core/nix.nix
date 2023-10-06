@@ -1,7 +1,9 @@
 {
   inputs,
   cell,
-}: {
+}: let
+  inherit (inputs) nixpkgs' nixpkgs-stable nixpkgs-unstable;
+in {
   gc = {
     automatic = true;
     dates = "weekly";
@@ -32,9 +34,9 @@
       type = "github";
     };
   in rec {
-    nixpkgs.flake = inputs.nixpkgs';
-    stable.flake = inputs.nixpkgs-stable;
-    unstable.flake = inputs.nixpkgs-unstable;
+    nixpkgs.flake = nixpkgs';
+    stable.flake = nixpkgs-stable;
+    unstable.flake = nixpkgs-unstable;
     configuration.to = me "configuration.nix";
     templates.to = me "nix-templates";
     devshells.to = templates.to;
