@@ -18,7 +18,7 @@ in rec {
         }
         attrset;
     in
-      lib.mapAttrs (name: value: hyprlandChild value) {
+      lib.mapAttrs (_: value: hyprlandChild value) {
         wpaperd = let
           package = nixpkgs.wpaperd;
         in {
@@ -27,13 +27,13 @@ in rec {
           Service.ExecStart = ''${lib.getExe' package "wpaperd"} --no-daemon'';
         };
 
-        hypr-empty = let
-          package = packages.hypr-empty;
-        in {
-          Unit.Description = package.meta.description;
+        # hypr-empty = let
+        #   package = packages.hypr-empty;
+        # in {
+        #   Unit.Description = package.meta.description;
 
-          Service.ExecStart = ''${lib.getExe package}'';
-        };
+        #   Service.ExecStart = ''${lib.getExe package}'';
+        # };
 
         # deflisten won't find the script for mysterious reasons
         # eww = let
