@@ -5,10 +5,10 @@
 
 (setq shell-file-name "nu")
 
-(setq doom-font (font-spec :family "Fira Code Nerd Font" :size 16)
-      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 16)
-      doom-big-font (font-spec :family "Fira Code Nerd Font" :size 24)
-      doom-unicode-font doom-font)
+(setq doom-font (font-spec :family "Iosevka Nerd Font Mono" :size 16)
+      doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font Propo")
+      doom-unicode-font (font-spec :family "Noto Color Emoji")
+      doom-big-font-increment 8)
 
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
@@ -37,10 +37,10 @@
   :after dash
   :config
   (--map (add-to-list 'eglot-server-programs it)
-    `((nix-mode . ,(eglot-alternatives '("nil" "nixd")))
-      (conf-toml-mode . ("taplo" "lsp" "stdio"))
-      (csharp-mode . ("OmniSharp" "-lsp"))
-      ((rjsx-mode typescript-tsx-mode) . ("typescript-language-server" "--stdio"))))
+         `((nix-mode . ,(eglot-alternatives '("nil" "nixd")))
+           (conf-toml-mode . ("taplo" "lsp" "stdio"))
+           (csharp-mode . ("OmniSharp" "-lsp"))
+           ((rjsx-mode typescript-tsx-mode) . ("typescript-language-server" "--stdio"))))
   (add-hook! (conf-toml-mode rjsx-mode typescript-tsx-mode) #'lsp!))
 
 (use-package! format-all
@@ -89,7 +89,7 @@
       :unnarrowed t)))
   :config
   (map! :leader
-    "n r I" #'my/org-roam-node-insert-immediate))
+        "n r I" #'my/org-roam-node-insert-immediate))
 
 (defun my/org-roam-node-insert-immediate (arg &rest args)
   (interactive "P")
@@ -110,8 +110,8 @@
   (require 'ox-extra)
   (ox-extras-activate '(ignore-headlines))
   (--map (add-to-list 'org-latex-classes it)
-    '(("chicago"
-        "\\documentclass[letterpaper,12pt]{article}
+         '(("chicago"
+            "\\documentclass[letterpaper,12pt]{article}
 [PACKAGES]
 \\usepackage{newtxtext}
 \\usepackage{url}
@@ -119,14 +119,14 @@
 \\usepackage[notes,backend=biber]{biblatex-chicago}
 \\usepackage[margin=1in]{geometry}
 "
-        ("\\section{%s}" . "\\section*{%s}")
-        ("\\subsection{%s}" . "\\subsection*{%s}")
-        ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-        ("\\paragraph{%s}" . "\\paragraph*{%s}")
-        ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
-        ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
-      ("turabian"
-        "\\documentclass{turabian-researchpaper}
+            ("\\section{%s}" . "\\section*{%s}")
+            ("\\subsection{%s}" . "\\subsection*{%s}")
+            ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+            ("\\paragraph{%s}" . "\\paragraph*{%s}")
+            ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
+            ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
+           ("turabian"
+            "\\documentclass{turabian-researchpaper}
 [PACKAGES]
 \\usepackage{newtxtext}
 \\usepackage{url}
@@ -134,26 +134,26 @@
 \\usepackage[notes]{biblatex-chicago}
 \\usepackage{turabian-formatting}
 "
-        ("\\section{%s}" . "\\section{%s}")
-        ("\\subsection{%s}" . "\\subsection{%s}")
-        ("\\subsubsection{%s}" . "\\subsubsection{%s}")
-        ("\\paragraph{%s}" . "\\paragraph{%s}")
-        ("\\subparagraph{%s}" . "\\subparagraph{%s}")
-        ("\\subsubparagraph{%s}" . "\\subsubparagraph{%s}"))
-      ("apa"
-        "\\documentclass[stu,biblatex,12pt]{apa7}
+            ("\\section{%s}" . "\\section{%s}")
+            ("\\subsection{%s}" . "\\subsection{%s}")
+            ("\\subsubsection{%s}" . "\\subsubsection{%s}")
+            ("\\paragraph{%s}" . "\\paragraph{%s}")
+            ("\\subparagraph{%s}" . "\\subparagraph{%s}")
+            ("\\subsubparagraph{%s}" . "\\subsubparagraph{%s}"))
+           ("apa"
+            "\\documentclass[stu,biblatex,12pt]{apa7}
 [PACKAGES]
 \\usepackage{newtxtext}
 \\usepackage{url}
 \\usepackage{doi}"
-        ("\\section{%s}" . "\\section*{%s}")
-        ("\\subsection{%s}" . "\\subsection*{%s}")
-        ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-        ("\\paragraph{%s}" . "\\paragraph*{%s}")
-        ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
-        ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
-      ("altacv"
-        "\\documentclass[10pt,letterpaper,ragged2e,withhyper]{altacv}
+            ("\\section{%s}" . "\\section*{%s}")
+            ("\\subsection{%s}" . "\\subsection*{%s}")
+            ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+            ("\\paragraph{%s}" . "\\paragraph*{%s}")
+            ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
+            ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
+           ("altacv"
+            "\\documentclass[10pt,letterpaper,ragged2e,withhyper]{altacv}
 [PACKAGES]
 \\usepackage{paracol}
 \\usepackage[rm]{roboto}
@@ -192,4 +192,4 @@
 \\renewcommand{\\itemmarker}{{\\small\\textbullet}}
 \\renewcommand{\\ratingmarker}{\\faCircle}
 "
-        ("\\cvsection{%s}" . "\\cvsection{%s}")))))
+            ("\\cvsection{%s}" . "\\cvsection{%s}")))))

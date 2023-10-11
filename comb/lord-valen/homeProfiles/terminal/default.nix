@@ -5,8 +5,7 @@
   inherit (inputs) nixpkgs;
 in {
   home.packages = with nixpkgs; [
-    (nerdfonts.override {fonts = ["FiraCode"];})
-    fira
+    (iosevka-bin.override {variant = "sgr-iosevka-term-ss05";})
   ];
 
   programs = {
@@ -17,18 +16,8 @@ in {
 
         font = {
           normal = {
-            family = "FiraCode Nerd Font Mono";
+            family = "Iosevka Term SS05";
             style = "Regular";
-          };
-
-          italic = {
-            family = "Fira Sans";
-            style = "Italic";
-          };
-
-          bold_italic = {
-            family = "Fira Sans";
-            style = "Bold Italic";
           };
         };
 

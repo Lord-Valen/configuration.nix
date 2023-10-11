@@ -12,8 +12,9 @@ in {
     lib.concatLists [
       [
         # My Dependencies
-        (nerdfonts.override {fonts = ["FiraCode"];})
-        fira
+        (nerdfonts.override {fonts = ["Iosevka"];})
+        (iosevka-bin.override {variant = "aile";})
+        noto-fonts-emoji
         nushell
       ]
       [

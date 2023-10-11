@@ -9,16 +9,16 @@ in {
     enableGhostscriptFonts = true;
     enableDefaultPackages = true;
     packages = with nixpkgs; [
-      liberation_ttf
-      fira
-      fira-mono
+      (iosevka-bin.override {variant = "etoile";})
+      (iosevka-bin.override {variant = "aile";})
+      (iosevka-bin.override {variant = "ss05";})
       noto-fonts-emoji
     ];
     fontconfig = {
       defaultFonts = {
-        serif = ["Liberation Serif"];
-        sansSerif = ["Fira Sans"];
-        monospace = ["Fira Mono"];
+        serif = ["Iosevka Etoile"];
+        sansSerif = ["Iosevka Aile"];
+        monospace = ["Iosevka SS05"];
         emoji = ["Noto Color Emoji"];
       };
     };
