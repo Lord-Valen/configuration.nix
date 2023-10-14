@@ -31,7 +31,8 @@ in {
       hyprland
       geoclue
       zsa
-      monero
+      # Get an SSD
+      # monero
     ];
     suites = with nixosSuites; desktop;
   in
