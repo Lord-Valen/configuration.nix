@@ -31,6 +31,7 @@ in {
       hyprland
       geoclue
       zsa
+      monero
     ];
     suites = with nixosSuites; desktop;
   in
