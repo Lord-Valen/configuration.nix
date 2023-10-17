@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) hive self nixpkgs;
+  inherit (inputs) hive self nixpkgs nixpkgs';
   inherit (hive.bootstrap.profiles) bootstrap;
   inherit (nixpkgs) lib;
 in rec {
@@ -20,6 +20,7 @@ in rec {
         owner = "Lord-Valen";
         repo = "configuration.nix";
       };
+      nixpkgs.flake = nixpkgs';
     };
 
     # Pre-authorized keys
