@@ -2,7 +2,8 @@
   device = "/dev/sda";
   type = "disk";
   content = {
-    type = "gpt";
+    type = "table";
+    format = "gpt";
     partitions = [
       {
         name = "EFI";
