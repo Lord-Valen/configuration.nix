@@ -30,12 +30,6 @@ in {
           SUBSYSTEM=="usb", ATTRS{idVendor}=="20d6", ATTRS{idProduct}=="cb17", MODE="0666"
         '';
       }
-      {
-        environment.systemPackages = with nixpkgs; [
-          bluez
-        ];
-        services.blueman.enable = true;
-      }
     ];
     suites = with nixosSuites; laptop;
   in
