@@ -15,10 +15,8 @@ in {
       hardwareProfiles."${hostName}"
 
       adb
-      music
       regreet
       hyprland
-      games
       geoclue
       syncthing
 
