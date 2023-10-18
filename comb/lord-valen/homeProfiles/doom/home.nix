@@ -201,5 +201,9 @@ in {
         # :ui doom-dashboard
         emacs-all-the-icons-fonts
       ]
+      [
+        # :ui emoji
+        emojione
+      ]
     ];
 }
