@@ -21,15 +21,5 @@ in {
       };
     };
 
-  boot = {
-    kernelModules = ["kvm-amd"];
-    initrd.availableKernelModules = [
-      "xhci_pci"
-      "ahci"
-      "ehci_pci"
-      "usb_storage"
-      "sd_mod"
-      "rtsx_pci_sdmmc"
-    ];
-  };
+  swapDevices = [{device = "/swap/swapfile";}];
 }

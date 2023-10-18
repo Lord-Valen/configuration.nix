@@ -81,45 +81,5 @@ in {
     };
   };
 
-  boot.loader = {
-    grub = {
-      enable = true;
-      efiSupport = true;
-      device = "nodev";
-      useOSProber = true;
-    };
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
-    };
-  };
-
-  fileSystems = {
-    "/boot/efi" = {
-      label = "BOOT";
-      fsType = "vfat";
-    };
-
-    "/" = {
-      label = "MAIN";
-      fsType = "btrfs";
-      options = ["subvol=/@" "noatime" "compress=zstd"];
-    };
-
-    "/home" = {
-      label = "MAIN";
-      fsType = "btrfs";
-      options = ["subvol=/@home" "noatime" "compress=zstd"];
-    };
-
-    "/swap" = {
-      label = "MAIN";
-      fsType = "btrfs";
-      options = ["subvol=/@swap" "noatime" "compress=zstd"];
-    };
-  };
-
-  swapDevices = [{device = "/swap/swapfile";}];
-
   system.stateVersion = "23.05";
 }
