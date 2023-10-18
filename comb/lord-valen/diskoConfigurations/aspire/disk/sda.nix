@@ -7,7 +7,7 @@
     partitions = [
       {
         name = "EFI";
-        start = "0MiB";
+        start = "1MiB";
         end = "1GiB";
         bootable = true;
         content = {
