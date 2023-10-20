@@ -22,8 +22,7 @@
 
   inputs = {
     nixpkgs-stable.url = "https://flakehub.com/f/NixOS/nixpkgs/*.tar.gz";
-    #nixpkgs-unstable.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.0.tar.gz";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/479a41341f338d3b4e3352541a6bfd6d4f476240";
+    nixpkgs-unstable.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.0.tar.gz";
     nixpkgs.follows = "nixpkgs-unstable";
     nixpkgs'.follows = "nixpkgs";
 
@@ -52,7 +51,7 @@
     colmena.url = "https://flakehub.com/f/zhaofengli/colmena/0.4.0.tar.gz";
     colmena.inputs.flake-compat.follows = "";
     hive = {
-      url = "github:divnix/hive/v0.5.0";
+      url = "github:divnix/hive/05facc4307d7aca173e46825f572bca72ea0c775";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         colmena.follows = "colmena";
@@ -131,9 +130,6 @@
         diskoConfigurations
         colmenaConfigurations
 
-        # pkgs
-        (pkgs "pkgs")
-
         # devshells
         (nixago "configs")
         (devshells "devshells")
@@ -146,12 +142,11 @@
       # allowUnfreePredicate forces me to keep track of what proprietary software I allow.
       nixpkgsConfig.allowUnfreePredicate = pkg:
         lib.elem (lib.getName pkg) [
-          "discord"
           "steam"
           "steam-run"
           "steam-original"
           "VCV-Rack"
-          "osu-lazer-bin"
+          "osu-lazer-bin-2023.1008.1"
         ];
     } {
       devShells = std.harvest self ["repo" "devshells"];
