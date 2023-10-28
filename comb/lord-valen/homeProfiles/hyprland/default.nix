@@ -37,6 +37,7 @@ in {
         mouse_refocus = false;
         touchpad.natural_scroll = true;
         sensitivity = 0;
+        kb_options = "compose:caps";
       };
 
       general = {
