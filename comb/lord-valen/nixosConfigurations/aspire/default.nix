@@ -19,6 +19,7 @@ in {
       hyprland
       geoclue
       syncthing
+      kubo
 
       {
         services.udev.extraRules = ''
