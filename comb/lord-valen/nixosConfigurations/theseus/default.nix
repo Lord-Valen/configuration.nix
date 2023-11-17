@@ -18,8 +18,8 @@ in {
       userProfiles.nixos
 
       arionProfiles.pihole
-      arionProfiles.servarr
 
+      servarr
       syncthing
       gnome
       games
