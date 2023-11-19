@@ -20,6 +20,7 @@ in {
       geoclue
       syncthing
       kubo
+      zsa
 
       {
         services.udev.extraRules = ''
