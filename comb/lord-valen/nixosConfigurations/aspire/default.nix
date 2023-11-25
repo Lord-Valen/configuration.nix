@@ -40,7 +40,9 @@ in {
     useGlobalPkgs = true;
     users.lord-valen = {
       imports = let
-        profiles = with homeProfiles; [];
+        profiles = with homeProfiles; [
+          syncthing
+        ];
         suites = with homeSuites;
           lib.concatLists [
             lord-valen

@@ -44,6 +44,7 @@ in {
     users.lord-valen = {
       imports = let
         profiles = with homeProfiles; [
+          syncthing
           {
             wayland.windowManager.hyprland.settings.monitor = lib.mkForce [
               "HDMI-A-1, preferred, 0x0, 1"
