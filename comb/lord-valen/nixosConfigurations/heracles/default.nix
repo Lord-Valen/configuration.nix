@@ -33,6 +33,10 @@ in {
       zsa
       # Get an SSD
       # monero
+
+      {
+        services.ratbagd.enable = true;
+      }
     ];
     suites = with nixosSuites; desktop;
   in
