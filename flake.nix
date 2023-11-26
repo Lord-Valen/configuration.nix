@@ -23,12 +23,13 @@
   inputs = {
     nixpkgs-stable.url = "https://flakehub.com/f/NixOS/nixpkgs/*.tar.gz";
     nixpkgs-unstable.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.0.tar.gz";
-    nixpkgs.follows = "nixpkgs-unstable";
+    nixpkgs.follows = "nixpkgs-stable";
+    #nixpkgs.follows = "nixpkgs-unstable";
     nixpkgs'.follows = "nixpkgs";
 
     home-manager = {
-      # TODO: get this on flakehub with similar semantics to nixpkgs
-      url = "github:nix-community/home-manager";
+      url = "https://flakehub.com/f/nix-community/home-manager/*.tar.gz";
+      #url = "https://flakehub.com/f/nix-community/home-manager/0.1.*.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -146,7 +147,7 @@
           "steam-run"
           "steam-original"
           "VCV-Rack"
-          "osu-lazer-bin-2023.1008.1"
+          "osu-lazer-bin-2023.1114.1"
         ];
     } {
       devShells = std.harvest self ["repo" "devshells"];
