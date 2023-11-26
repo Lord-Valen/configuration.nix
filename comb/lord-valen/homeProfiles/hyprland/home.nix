@@ -15,9 +15,7 @@ in {
     swaylock-effects
     inputs.watershot.packages.default
 
-    # eww
-    killall
-    nushell
-    socat
+    # waybar
+    playerctl
   ];
 }

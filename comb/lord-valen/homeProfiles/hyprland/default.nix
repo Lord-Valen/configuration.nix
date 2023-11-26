@@ -28,10 +28,6 @@ in {
         "XCURSOR_SIZE, 18"
       ];
 
-      exec-once = [
-        "killall eww; eww open bar"
-      ];
-
       input = {
         follow_mouse = 1;
         mouse_refocus = false;
