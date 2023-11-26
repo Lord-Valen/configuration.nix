@@ -23,6 +23,9 @@ in {
       zsa
 
       {
+        programs.nm-applet.enable = true;
+      }
+      {
         services.udev.extraRules = ''
           KERNEL=="uinput", SUBSYSTEM=="misc", TAG+="uaccess", OPTIONS+="static_node=uinput"
           # THQ uDraw Game Tablet for PS3
