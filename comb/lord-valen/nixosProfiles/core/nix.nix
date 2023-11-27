@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs' nixpkgs-stable nixpkgs-unstable;
+  inherit (inputs) self nixpkgs' nixpkgs-stable nixpkgs-unstable;
 in {
   gc = {
     automatic = true;
@@ -26,6 +26,11 @@ in {
     keep-derivations = true
     fallback = true
   '';
+
+  nixPath = [
+    "nixpkgs=${nixpkgs'.outPath}"
+    "nixos-config=${self}"
+  ];
 
   registry = let
     me = repo: {
