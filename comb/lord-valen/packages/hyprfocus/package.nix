@@ -10,22 +10,22 @@
 }:
 gcc13Stdenv.mkDerivation {
   pname = "hyprfocus";
-  version = "unstable-2023-06-12";
+  version = "unstable-2023-11-01";
 
   src = fetchFromGitHub {
     owner = "VortexCoyote";
     repo = "hyprfocus";
-    rev = "69f3f23e90f1b9a6525a860c19ad2b17762f45f3";
-    hash = "sha256-Ay6bWvDPkbgoOzlfs9WS2gZZGfhvBay+0k+niXUuHb8=";
+    rev = "ec3b45482f651c2b1f0e4df90a41d24a1afa5a74";
+    hash = "sha256-JuUNQXUetKIUGGwzEA5dQmKtpFvYSZzG/IV373aKd6U=";
   };
 
-  nativeBuildInputs =
-    (lib.foldr lib.remove hyprland.buildInputs [meson ninja])
-    ++ [
-      pkg-config
-      hyprland
-      wlroots
-    ];
+  nativeBuildInputs = [
+    pkg-config
+    hyprland
+    wlroots
+  ];
+
+  buildInputs = lib.foldr lib.remove hyprland.buildInputs [meson ninja];
 
   buildFlags = ["all"];
 
