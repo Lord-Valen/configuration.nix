@@ -153,6 +153,8 @@
 \\usepackage{newtxtext}
 \\usepackage{url}
 \\usepackage{doi}
+\\usepackage{ellipsis}
+\\usepackage{csquotes}
 \\usepackage[notes,backend=biber]{biblatex-chicago}
 \\usepackage[margin=1in]{geometry}
 "
@@ -163,32 +165,37 @@
             ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
             ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
            ("turabian"
-            "\\documentclass{turabian-researchpaper}
+             "\\documentclass{turabian-researchpaper}
 [PACKAGES]
 \\usepackage{newtxtext}
 \\usepackage{url}
 \\usepackage{doi}
-\\usepackage[notes]{biblatex-chicago}
+\\usepackage{ellipsis}
+\\usepackage{csquotes}
+\\usepackage[notes,backend=biber]{biblatex-chicago}
 \\usepackage{turabian-formatting}
 "
-            ("\\section{%s}" . "\\section{%s}")
-            ("\\subsection{%s}" . "\\subsection{%s}")
-            ("\\subsubsection{%s}" . "\\subsubsection{%s}")
-            ("\\paragraph{%s}" . "\\paragraph{%s}")
-            ("\\subparagraph{%s}" . "\\subparagraph{%s}")
-            ("\\subsubparagraph{%s}" . "\\subsubparagraph{%s}"))
+             ("\\section{%s}" . "\\section{%s}")
+             ("\\subsection{%s}" . "\\subsection{%s}")
+             ("\\subsubsection{%s}" . "\\subsubsection{%s}")
+             ("\\paragraph{%s}" . "\\paragraph{%s}")
+             ("\\subparagraph{%s}" . "\\subparagraph{%s}")
+             ("\\subsubparagraph{%s}" . "\\subsubparagraph{%s}"))
            ("apa"
-            "\\documentclass[stu,biblatex,12pt]{apa7}
+             "\\documentclass[stu,biblatex,12pt]{apa7}
 [PACKAGES]
 \\usepackage{newtxtext}
 \\usepackage{url}
-\\usepackage{doi}"
-            ("\\section{%s}" . "\\section*{%s}")
-            ("\\subsection{%s}" . "\\subsection*{%s}")
-            ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-            ("\\paragraph{%s}" . "\\paragraph*{%s}")
-            ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
-            ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
+\\usepackage{doi}
+\\usepackage{ellipsis}
+\\usepackage{csquotes}
+"
+             ("\\section{%s}" . "\\section*{%s}")
+             ("\\subsection{%s}" . "\\subsection*{%s}")
+             ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+             ("\\paragraph{%s}" . "\\paragraph*{%s}")
+             ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
+             ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
            ("altacv"
             "\\documentclass[10pt,letterpaper,ragged2e,withhyper]{altacv}
 [PACKAGES]
