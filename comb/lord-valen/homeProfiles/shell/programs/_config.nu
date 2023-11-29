@@ -202,10 +202,6 @@ $env.config = {
     always_trash: false
   }
 
-  cd: {
-    abbreviations: false
-  }
-
   table: {
     mode: rounded # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
     index_mode: always
