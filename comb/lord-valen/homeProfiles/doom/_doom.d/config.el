@@ -85,44 +85,37 @@
        "%?"
        :if-new (file+head
                  "${slug}.org"
-                 "${title}\n"
-                 "#+filetags: 🌱\n")
+                 "${title}\n#+filetags: 🌱\n")
        :unnarrowed t)
      ("e" "evergreen" plain
       "%?"
       :if-new (file+head
                 "${slug}.org"
-                "${title}\n"
-                "#+filetags: 🌲\n")
+                "${title}\n#+filetags: 🌲\n")
       :unnarrowed t)
      ("p" "person" plain
       "%?"
       :if-new (file+head
                 "people/${slug}.org"
-                "${title}\n"
-                "#+filetags: 👨\n")
+                "${title}\n#+filetags: 👨\n")
       :unnarrowed t)
      ("g" "group" plain
       "%?"
       :if-new (file+head
                 "groups/${slug}.org"
-                "${title}\n"
-                "#+filetags: 🏢\n")
+                "${title}\n#+filetags: 🏢\n")
       :unnarrowed t)
      ("w" "work" plain
       "%?"
       :if-new (file+head
                 "works/${slug}.org"
-                "${title}\n"
-                "#+filetags: 📜\n")
+                "${title}\n#+filetags: 📜\n")
       :unnarrowed t)
      ("t" "project" plain
       "* Goals\n\n%?\n\n* Tasks\n\n* Dates"
       :if-new (file+head
                 "projects/${slug}.org"
-                "${title}\n"
-                "#+category: ${title}\n"
-                "#+filetags: 🛠\n")
+                "${title}\n#+category: ${title}\n#+filetags: 🛠\n")
       :unnarrowed t)))
   :config
   (map! :leader
