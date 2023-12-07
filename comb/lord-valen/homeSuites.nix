@@ -21,6 +21,7 @@ in rec {
       face
       wallpaper
       zathura
+      less
     ]
     ++ base;
 
