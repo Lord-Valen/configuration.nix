@@ -20,6 +20,7 @@ in rec {
       doom
       face
       wallpaper
+      zathura
     ]
     ++ base;
 
