@@ -25,5 +25,6 @@
     pciutils
     nethogs
     pfetch
+    light
   ];
 }
