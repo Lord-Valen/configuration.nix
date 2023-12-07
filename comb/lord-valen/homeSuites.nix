@@ -22,6 +22,7 @@ in rec {
       wallpaper
       zathura
       less
+      mpv
     ]
     ++ base;
 
