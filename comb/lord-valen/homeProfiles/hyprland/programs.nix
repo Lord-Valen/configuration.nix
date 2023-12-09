@@ -32,9 +32,6 @@
         ];
         "hyprland/workspaces" = {
           all-outputs = false;
-          persistent-workspaces = {
-            "*" = 10;
-          };
         };
       };
     };
