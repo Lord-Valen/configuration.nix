@@ -8,8 +8,6 @@ in {
 
   home.packages = with nixpkgs; [
     ripgrep
-    git
-    sudo
     bottom
     powerline-fonts
   ];
