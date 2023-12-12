@@ -32,6 +32,14 @@ in {
     useUserPackages = true;
     useGlobalPkgs = true;
     users = {
+      root = {
+        imports = [homeProfiles.shell];
+        home.stateVersion = "23.11";
+      };
+      nixos = {
+        imports = with homeSuites; nixos;
+        home.stateVersion = "23.05";
+      };
       lord-valen = {
         imports = let
           profiles = with homeProfiles; [
@@ -43,10 +51,6 @@ in {
             ];
         in
           lib.concatLists [profiles suites];
-        home.stateVersion = "23.05";
-      };
-      nixos = {
-        imports = with homeSuites; nixos;
         home.stateVersion = "23.05";
       };
     };

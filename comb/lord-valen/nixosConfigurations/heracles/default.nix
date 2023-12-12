@@ -45,27 +45,33 @@ in {
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    users.lord-valen = {
-      imports = let
-        profiles = with homeProfiles; [
-          syncthing
-          {
-            wayland.windowManager.hyprland.settings.monitor = lib.mkForce [
-              "HDMI-A-1, preferred, 0x0, 1"
-              "DP-1, preferred, 1920x0, 1"
-              ", preferred, auto, 1"
-            ];
-          }
-        ];
-        suites = with homeSuites;
-          lib.concatLists [
-            lord-valen
-            hyprland
-            music
+    users = {
+      root = {
+        imports = [homeProfiles.shell];
+        home.stateVersion = "23.11";
+      };
+      lord-valen = {
+        imports = let
+          profiles = with homeProfiles; [
+            syncthing
+            {
+              wayland.windowManager.hyprland.settings.monitor = lib.mkForce [
+                "HDMI-A-1, preferred, 0x0, 1"
+                "DP-1, preferred, 1920x0, 1"
+                ", preferred, auto, 1"
+              ];
+            }
           ];
-      in
-        lib.concatLists [profiles suites];
-      home.stateVersion = "23.05";
+          suites = with homeSuites;
+            lib.concatLists [
+              lord-valen
+              hyprland
+              music
+            ];
+        in
+          lib.concatLists [profiles suites];
+        home.stateVersion = "23.05";
+      };
     };
   };
 

@@ -12,11 +12,15 @@ in {
   networking = {inherit hostName;};
 
   programs.kdeconnect.enable = true;
-  users.users.sioux = {
-    initialHashedPassword = "$y$j9T$1ttrJXMNjeH62Or9EOGfG/$pdm3JxpOroaC5BaqDN/79xKEvlUXW5fjBMGKPTFqeyA";
-    isNormalUser = true;
-    createHome = true;
-    extraGroups = ["networkmanager" "wheel"];
+
+  users.users = {
+    root.shell = lib.mkForce nixpkgs.shadow;
+    sioux = {
+      initialHashedPassword = "$y$j9T$1ttrJXMNjeH62Or9EOGfG/$pdm3JxpOroaC5BaqDN/79xKEvlUXW5fjBMGKPTFqeyA";
+      isNormalUser = true;
+      createHome = true;
+      extraGroups = ["networkmanager" "wheel"];
+    };
   };
 
   imports = let

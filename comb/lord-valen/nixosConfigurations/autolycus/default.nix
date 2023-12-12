@@ -25,23 +25,29 @@ in {
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    users.lord-valen = {
-      imports = let
-        profiles = with homeProfiles; [
-          {
-            services.random-background.enable = true;
-          }
-        ];
-        suites = with homeSuites;
-          lib.concatLists [
-            lord-valen
-            laptop
-            xmonad
-            music
+    users = {
+      root = {
+        imports = [homeProfiles.shell];
+        home.stateVersion = "23.11";
+      };
+      lord-valen = {
+        imports = let
+          profiles = with homeProfiles; [
+            {
+              services.random-background.enable = true;
+            }
           ];
-      in
-        lib.concatLists [profiles suites];
-      home.stateVersion = "23.05";
+          suites = with homeSuites;
+            lib.concatLists [
+              lord-valen
+              laptop
+              xmonad
+              music
+            ];
+        in
+          lib.concatLists [profiles suites];
+        home.stateVersion = "23.05";
+      };
     };
   };
 

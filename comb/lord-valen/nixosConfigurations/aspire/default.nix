@@ -41,21 +41,27 @@ in {
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    users.lord-valen = {
-      imports = let
-        profiles = with homeProfiles; [
-          syncthing
-        ];
-        suites = with homeSuites;
-          lib.concatLists [
-            lord-valen
-            laptop
-            hyprland
-            music
+    users = {
+      root = {
+        imports = [homeProfiles.shell];
+        home.stateVersion = "23.11";
+      };
+      lord-valen = {
+        imports = let
+          profiles = with homeProfiles; [
+            syncthing
           ];
-      in
-        lib.concatLists [profiles suites];
-      home.stateVersion = "23.05";
+          suites = with homeSuites;
+            lib.concatLists [
+              lord-valen
+              laptop
+              hyprland
+              music
+            ];
+        in
+          lib.concatLists [profiles suites];
+        home.stateVersion = "23.05";
+      };
     };
   };
 
