@@ -7,5 +7,10 @@ in {
   portal = {
     enable = true;
     extraPortals = with nixpkgs; [xdg-desktop-portal-kde];
+    config = {
+      xmonad.default = [
+        "kde"
+      ];
+    };
   };
 }
