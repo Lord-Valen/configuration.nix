@@ -17,5 +17,8 @@ in {
 
     # waybar
     playerctl
+
+    # user
+    light
   ];
 }

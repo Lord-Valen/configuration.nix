@@ -6,25 +6,19 @@
     binutils
     coreutils
     dnsutils
-    nmap
-    curl
-    git
-    direnv
-    bottom
-    jq
-    nix-index
-    ripgrep
-    fd
-    whois
-    dosfstools
-    gptfdisk
+    inetutils
     iputils
     usbutils
     utillinux
-    file
     pciutils
-    nethogs
-    pfetch
-    light
+
+    dosfstools
+    btrfs-progs
+
+    ripgrep
+    fd
+    file
+    whois
+    bottom
   ];
 }
