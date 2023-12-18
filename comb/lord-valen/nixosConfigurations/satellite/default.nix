@@ -14,7 +14,9 @@ in {
     profiles = with nixosProfiles; [
       hardwareProfiles."${hostName}"
 
+      lightdm
       xmonad
+      hyprland
     ];
     suites = with nixosSuites;
       lib.concatLists [laptop];
@@ -41,6 +43,7 @@ in {
               lord-valen
               laptop
               xmonad
+              hyprland
             ];
         in
           lib.concatLists [profiles suites];
