@@ -14,8 +14,7 @@ in {
     profiles = with nixosProfiles; [
       hardwareProfiles."${hostName}"
 
-      lightdm
-      xmonad
+      regreet
       hyprland
     ];
     suites = with nixosSuites;
