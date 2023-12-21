@@ -17,7 +17,7 @@ in {
           autoAcceptFolders = true;
         };
         "Aspire" = lib.mkIf (hostName != "aspire") {
-          id = "Q6BQBZP-W3GCDFN-LW7FQOV-EUIMTYH-AEEODXN-R6WDRK3-UHDAR2O-JWVKKAW";
+          id = "W6RD47K-57IC3EK-5RDOGTU-UU4LH3W-LNF24R7-P6I2A4B-TLZJZM3-FM47IQS";
         };
         "Heracles" = lib.mkIf (hostName != "heracles") {
           id = "P24GAXD-4KBICX2-ZT4UP66-TF4EIOK-M7MQLQK-QW4QNWC-ALONBBQ-QGVICQB";
