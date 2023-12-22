@@ -93,7 +93,7 @@ in {
       ];
     };
     "Books" = {
-      id = "fhend-o2wyn";
+      id = "fheng-o2wyn";
       path = "~/books";
       devices = [
         # "Aspire"
