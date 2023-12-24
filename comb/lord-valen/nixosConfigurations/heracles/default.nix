@@ -79,6 +79,7 @@ in {
     "Pythia Bup" = {
       id = "jtafu-4mn0y";
       path = "~/pythia-bup";
+      type = "receiveonly";
       devices = [
         "Theseus"
         "Pythia"
@@ -87,6 +88,7 @@ in {
     "Pythia Photos" = {
       id = "pixel_7_n835-photos";
       path = "~/pythia-photos";
+      type = "receiveonly";
       devices = [
         "Theseus"
         "Pythia"
@@ -95,6 +97,7 @@ in {
     "Books" = {
       id = "fheng-o2wyn";
       path = "~/books";
+      type = "receiveonly";
       devices = [
         "lvAspire"
         "Theseus"
@@ -104,6 +107,7 @@ in {
     "Music" = {
       id = "zfumc-pfy38";
       path = "~/music";
+      type = "receiveonly";
       devices = [
         "lvAspire"
         "Theseus"

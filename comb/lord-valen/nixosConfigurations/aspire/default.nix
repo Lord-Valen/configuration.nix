@@ -65,5 +65,27 @@ in {
     };
   };
 
+  services.syncthing.settings.folders = {
+    "Pythia Bup" = {
+      id = "jtafu-4mn0y";
+      path = "~/pythia-bup";
+      type = "receiveonly";
+      devices = [
+        "Heracles"
+        "Theseus"
+        "Pythia"
+      ];
+    };
+    "Pythia Photos" = {
+      id = "pixel_7_n835-photos";
+      path = "~/pythia-photos";
+      type = "receiveonly";
+      devices = [
+        "Theseus"
+        "Pythia"
+      ];
+    };
+  };
+
   system.stateVersion = "23.05";
 }

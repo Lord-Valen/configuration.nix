@@ -62,6 +62,7 @@ in {
     "Pythia Bup" = {
       id = "jtafu-4mn0y";
       path = "/data/pythia-bup";
+      type = "receiveonly";
       devices = [
         "Heracles"
         "Pythia"
@@ -70,6 +71,7 @@ in {
     "Pythia Photos" = {
       id = "pixel_7_n835-photos";
       path = "/data/pythia-photos";
+      type = "receiveonly";
       devices = [
         "Heracles"
         "Pythia"
