@@ -80,8 +80,8 @@ in {
       path = "/data/media/books";
       type = "sendonly";
       devices = [
+        "lvAspire"
         "Heracles"
-        # "Aspire"
         "Pythia"
       ];
     };
@@ -90,8 +90,8 @@ in {
       path = "/data/media/music";
       type = "sendonly";
       devices = [
+        "lvAspire"
         "Heracles"
-        # "Aspire"
         "Pythia"
       ];
     };

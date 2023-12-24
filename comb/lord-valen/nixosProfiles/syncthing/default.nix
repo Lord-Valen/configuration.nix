@@ -19,6 +19,9 @@ in {
         "Aspire" = lib.mkIf (hostName != "aspire") {
           id = "W6RD47K-57IC3EK-5RDOGTU-UU4LH3W-LNF24R7-P6I2A4B-TLZJZM3-FM47IQS";
         };
+        "lvAspire" = lib.mkIf (hostName != "aspire") {
+          id = "UTZZ4BA-T64UUD5-GM4LMLC-BPZQUMD-T6M3UUK-DYPOKDF-3WYKHBN-6B67TQF";
+        };
         "Heracles" = lib.mkIf (hostName != "heracles") {
           id = "P24GAXD-4KBICX2-ZT4UP66-TF4EIOK-M7MQLQK-QW4QNWC-ALONBBQ-QGVICQB";
         };

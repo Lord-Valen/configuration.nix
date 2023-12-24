@@ -65,26 +65,5 @@ in {
     };
   };
 
-  services.syncthing.settings.folders = {
-    "Books" = {
-      id = "fheng-o2wyn";
-      path = "~/books";
-      devices = [
-        "Heracles"
-        "Theseus"
-        "Pythia"
-      ];
-    };
-    "Music" = {
-      id = "zfumc-pfy38";
-      path = "~/music";
-      devices = [
-        "Heracles"
-        "Theseus"
-        "Pythia"
-      ];
-    };
-  };
-
   system.stateVersion = "23.05";
 }

@@ -96,7 +96,7 @@ in {
       id = "fheng-o2wyn";
       path = "~/books";
       devices = [
-        # "Aspire"
+        "lvAspire"
         "Theseus"
         "Pythia"
       ];
@@ -105,7 +105,7 @@ in {
       id = "zfumc-pfy38";
       path = "~/music";
       devices = [
-        # "Aspire"
+        "lvAspire"
         "Theseus"
         "Pythia"
       ];
