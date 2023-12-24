@@ -31,6 +31,7 @@ in rec {
 
   music = with homeProfiles; [
     vcv
+    mpd
   ];
 
   hyprland = with homeProfiles; [
