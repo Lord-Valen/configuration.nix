@@ -80,7 +80,7 @@ in {
     "Books" = {
       id = "fheng-o2wyn";
       path = "/data/media/books";
-      type = "sendonly";
+      type = "sendreceive";
       devices = [
         "lvAspire"
         "Heracles"
