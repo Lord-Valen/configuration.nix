@@ -11,8 +11,6 @@ in {
   inherit (common) bee time;
   networking = {inherit hostName;};
 
-  programs.kdeconnect.enable = true;
-
   users.users = {
     root.shell = lib.mkForce nixpkgs.shadow;
     sioux = {
@@ -43,7 +41,18 @@ in {
             home.packages = with nixpkgs; [
               bottles
               ungoogled-chromium
+              localsend
+              transmission
             ];
+          }
+          {
+            services.syncthing.enable = true;
+          }
+          {
+            xdg = {
+              enable = true;
+              userDirs.enable = true;
+            };
           }
         ];
         suites = with homeSuites; lib.concatLists [];
