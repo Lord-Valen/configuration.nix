@@ -23,7 +23,6 @@ in rec {
       zathura
       less
       mpv
-      localsend
     ]
     ++ base;
 

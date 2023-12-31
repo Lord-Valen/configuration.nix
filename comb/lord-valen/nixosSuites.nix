@@ -10,7 +10,7 @@ in
     develop = [javascript];
     pc =
       base
-      ++ [pipewire networking yubikey browser upower];
+      ++ [pipewire networking yubikey browser upower localsend];
     pc' =
       pc
       ++ develop
