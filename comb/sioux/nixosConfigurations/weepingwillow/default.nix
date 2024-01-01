@@ -42,7 +42,8 @@ in {
               bottles
               ungoogled-chromium
               localsend
-              transmission
+              transmission-gtk
+              strawberry
             ];
           }
           {
