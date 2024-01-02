@@ -7,7 +7,7 @@
 
   inherit (cell) packages homeProfiles;
 in {
-  imports = [homeProfiles.anyrun];
+  imports = [homeProfiles.anyrun homeProfiles.waybar];
   wayland.windowManager.hyprland = {
     enable = true;
 
