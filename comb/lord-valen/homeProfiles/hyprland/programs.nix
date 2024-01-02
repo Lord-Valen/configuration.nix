@@ -1,11 +1,8 @@
 {
   inputs,
   cell,
+  config,
 }: {
-  wlogout = {
-    enable = true;
-    style = ./_wlogout/style.css;
-  };
   swaylock = {
     package = inputs.nixpkgs.swaylock-effects;
     enable = true;
