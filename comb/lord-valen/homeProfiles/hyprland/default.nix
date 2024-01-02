@@ -112,6 +112,7 @@ in {
       # Keybinds
       "$mainMod" = "SUPER";
       "$manipMod" = "$mainMod SHIFT";
+      "$metaMod" = "$mainMod SHIFT CTRL";
 
       "$terminal" = "alacritty";
       "$appLauncher" = "anyrun";
@@ -132,8 +133,8 @@ in {
       "$0" = 10;
 
       bind = [
-        "$mainMod CTRL SHIFT, X, exec, wlogout"
-        "$mainMod CTRL SHIFT, L, exec, $locker"
+        "$metaMod, X, exec, wlogout"
+        "$metaMod, L, exec, $locker"
         "$mainMod, Return, exec, $terminal"
         "$mainMod SHIFT, Return, exec, $appLauncher"
         "$mainMod, B, exec, $browser"
