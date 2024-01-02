@@ -5,8 +5,9 @@
   inherit (inputs) nixpkgs;
   inherit (nixpkgs) lib;
 
-  inherit (cell) packages;
+  inherit (cell) packages homeProfiles;
 in {
+  imports = [homeProfiles.anyrun];
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -113,7 +114,7 @@ in {
       "$manipMod" = "$mainMod SHIFT";
 
       "$terminal" = "alacritty";
-      "$appLauncher" = "wofi --show drun";
+      "$appLauncher" = "anyrun";
       "$browser" = "brave";
       "$emacs" = "emacsclient -c -a emacs";
       "$locker" = "swaylock";

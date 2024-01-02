@@ -8,7 +8,6 @@
 in {
   _imports = [homeProfiles.terminal];
   packages = with nixpkgs; [
-    wofi
     hyprpicker
     wl-clipboard
     libnotify

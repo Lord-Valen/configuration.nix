@@ -68,6 +68,10 @@
       url = "github:nix-community/disko/5d9f362aecd7a4c2e8a3bf2afddb49051988cab9";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    anyrun = {
+      url = "github:Kirottu/anyrun";
+    };
   };
 
   # Desktop
