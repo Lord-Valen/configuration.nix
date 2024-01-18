@@ -65,7 +65,7 @@
 
 (use-package! projectile
   :custom
-  (projectile-project-search-path `((,(file-truename "~/dev") . 1))))
+  (projectile-project-search-path `((,(file-truename "~/dev") . 2))))
 
 (use-package! org-modern
   :config
