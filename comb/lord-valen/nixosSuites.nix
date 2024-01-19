@@ -5,7 +5,7 @@
   inherit (cell) nixosProfiles userProfiles;
 in
   with nixosProfiles; rec {
-    base = [core cachix fonts gpg userProfiles.root];
+    base = [linux core cachix fonts gpg userProfiles.root];
     office = [writing printing];
     develop = [javascript];
     pc =
