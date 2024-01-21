@@ -8,17 +8,19 @@
     extraConfig = {
       github.user = "Lord-Valen";
       gitlab.user = "Lord-Valen";
+      init.defaultBranch = "main";
+      merge.confictStyle = "zdiff3";
+      pull.rebase = true;
+      push = {
+        autoSetupRemote = true;
+        default = "current";
+      };
+      remote.pushDefault = "Lord-Valen";
     };
 
     signing = {
       key = null;
       signByDefault = true;
-    };
-
-    extraConfig = {
-      merge.confictStyle = "zdiff3";
-      init.defaultBranch = "main";
-      pull.rebase = true;
     };
 
     aliases = {
