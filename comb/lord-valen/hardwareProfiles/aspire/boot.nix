@@ -9,11 +9,9 @@
     "rtsx_pci_sdmmc"
   ];
   loader = {
-    grub = {
+    systemd-boot = {
       enable = true;
-      efiSupport = true;
-      device = "nodev";
-      useOSProber = true;
+      memtest86.enable = true;
     };
     efi = {
       canTouchEfiVariables = true;
