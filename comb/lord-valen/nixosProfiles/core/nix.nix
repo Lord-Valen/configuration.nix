@@ -21,7 +21,7 @@ in {
 
   extraOptions = ''
     experimental-features = nix-command flakes
-    min-free = 536870912
+    min-free = 1073741824 # preserve 1 GiB
     keep-outputs = true
     keep-derivations = true
     fallback = true
