@@ -5,5 +5,5 @@
   inherit (inputs) nixpkgs;
 in {
   kernelPackages = nixpkgs.linuxKernel.packageAliases.linux_latest;
-  kernel.sysctl.kernel.sysrq = 244;
+  kernel.sysctl."kernel.sysrq" = 244;
 }
