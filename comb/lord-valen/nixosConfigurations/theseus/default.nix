@@ -19,10 +19,10 @@ in {
 
       arionProfiles.pihole
 
-      servarr
-      syncthing
       gnome
       games
+      servarr
+      syncthing
     ];
     suites = with nixosSuites; pc;
   in
@@ -47,7 +47,6 @@ in {
           suites = with homeSuites;
             lib.concatLists [
               lord-valen
-              xmonad
             ];
         in
           lib.concatLists [profiles suites];
