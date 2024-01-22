@@ -87,7 +87,7 @@ in {
       type = "sendreceive";
       devices = [
         "lvAspire"
-        "Heracles"
+        "lvHeracles"
         "Pythia"
       ];
     };
@@ -97,7 +97,7 @@ in {
       type = "sendonly";
       devices = [
         "lvAspire"
-        "Heracles"
+        "lvHeracles"
         "Pythia"
       ];
     };

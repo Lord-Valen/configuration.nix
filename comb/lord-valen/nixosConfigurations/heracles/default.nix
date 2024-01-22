@@ -94,26 +94,6 @@ in {
         "Pythia"
       ];
     };
-    "Books" = {
-      id = "fheng-o2wyn";
-      path = "~/books";
-      type = "receiveonly";
-      devices = [
-        "lvAspire"
-        "Theseus"
-        "Pythia"
-      ];
-    };
-    "Music" = {
-      id = "zfumc-pfy38";
-      path = "~/music";
-      type = "receiveonly";
-      devices = [
-        "lvAspire"
-        "Theseus"
-        "Pythia"
-      ];
-    };
   };
 
   boot.loader = {
