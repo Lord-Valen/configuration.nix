@@ -103,19 +103,7 @@ in {
     };
   };
 
-  boot.loader = {
-    grub = {
-      enable = true;
-      efiSupport = true;
-      device = "nodev";
-      useOSProber = true;
-    };
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
-    };
-  };
-
+  # TODO: Move to disko
   fileSystems = {
     "/boot/efi" = {
       label = "BOOT";

@@ -11,17 +11,4 @@ in {
   ];
 
   inherit (common) hardware;
-
-  boot = {
-    kernelModules = ["kvm-intel"];
-    initrd.availableKernelModules = [
-      "ehci_pci"
-      "ahci"
-      "xhci_pci"
-      "usb_storage"
-      "usbhid"
-      "sd_mod"
-      "sr_mod"
-    ];
-  };
 }
