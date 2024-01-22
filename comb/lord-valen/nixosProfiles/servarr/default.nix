@@ -12,10 +12,15 @@ in {
   services = {
     calibre-server = {
       enable = true;
+      user = "servarr";
+      group = "servarr";
+      libraries = [
+        "/data/media/books"
+      ];
       auth = {
         enable = true;
         mode = "basic";
-        userDb = "/var/lib/calibre-server/users.sqlite";
+        userDb = "/data/calibre-users.sqlite";
       };
     };
 

@@ -58,6 +58,10 @@ in {
 
   services.flatpak.enable = true;
 
+  services.syncthing = {
+    user = lib.mkForce "servarr";
+    group = lib.mkForce "servarr";
+  };
   services.syncthing.settings.folders = {
     "Pythia Bup" = {
       id = "jtafu-4mn0y";
