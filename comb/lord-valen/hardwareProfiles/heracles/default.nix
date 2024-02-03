@@ -13,9 +13,4 @@ in {
   inherit (common) hardware;
 
   services.xserver.xrandrHeads = ["HDMI-1" "DP-1"];
-
-  boot = {
-    kernelModules = ["kvm_amd"];
-    initrd.availableKernelModules = ["xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
-  };
 }
