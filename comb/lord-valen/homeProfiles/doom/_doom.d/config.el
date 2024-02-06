@@ -73,7 +73,7 @@
 
 (use-package! org-roam
   :custom
-  (org-roam-directory (file-truename "~/dev/knowledge-base"))
+  (org-roam-directory (file-truename "~/dev/Lord-Valen/knowledge-base"))
   (org-roam-capture-templates
    '(("d" "default" plain
       "%?"
