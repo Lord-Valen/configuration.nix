@@ -99,69 +99,88 @@
     # };
   };
 
-  outputs = {
-    self,
-    hive,
-    std,
-    ...
-  } @ inputs: let
-    # I don't need to worry about name collisions.
-    # If you think you might, don't do this.
-    myCollect = hive.collect // {renamer = cell: target: "${target}";};
-    lib = inputs.nixpkgs.lib // builtins;
-  in
-    hive.growOn {
-      inherit inputs;
+  outputs =
+    {
+      self,
+      hive,
+      std,
+      ...
+    }@inputs:
+    let
+      # I don't need to worry about name collisions.
+      # If you think you might, don't do this.
+      myCollect = hive.collect // {
+        renamer = cell: target: "${target}";
+      };
+      lib = inputs.nixpkgs.lib // builtins;
+    in
+    hive.growOn
+      {
+        inherit inputs;
 
-      cellsFrom = ./comb;
-      cellBlocks = with std.blockTypes;
-      with hive.blockTypes; [
-        # modules
-        (functions "nixosModules")
-        (functions "homeModules")
+        cellsFrom = ./comb;
+        cellBlocks =
+          with std.blockTypes;
+          with hive.blockTypes;
+          [
+            # modules
+            (functions "nixosModules")
+            (functions "homeModules")
 
-        # profiles
-        (functions "hardwareProfiles")
-        (functions "nixosProfiles")
-        (functions "userProfiles")
-        (functions "arionProfiles")
-        (functions "homeProfiles")
+            # profiles
+            (functions "hardwareProfiles")
+            (functions "nixosProfiles")
+            (functions "userProfiles")
+            (functions "arionProfiles")
+            (functions "homeProfiles")
 
-        # suites
-        (functions "nixosSuites")
-        (functions "homeSuites")
+            # suites
+            (functions "nixosSuites")
+            (functions "homeSuites")
 
-        # configurations
-        nixosConfigurations
-        diskoConfigurations
-        colmenaConfigurations
+            # configurations
+            nixosConfigurations
+            diskoConfigurations
+            colmenaConfigurations
 
-        # devshells
-        (nixago "configs")
-        (devshells "devshells")
+            # devshells
+            (nixago "configs")
+            (devshells "devshells")
 
-        # packages
-        (installables "packages")
-      ];
+            # packages
+            (installables "packages")
 
-      # I want to keep proprietary software to a minimum.
-      # allowUnfreePredicate forces me to keep track of what proprietary software I allow.
-      nixpkgsConfig.allowUnfreePredicate = pkg:
-        lib.elem (lib.getName pkg) [
-          "steam"
-          "steam-run"
-          "steam-original"
-          "VCV-Rack"
-          "osu-lazer-bin-2023.1114.1"
+            # nixpkgs
+            (pkgs "pkgs")
+          ];
+
+        # I want to keep proprietary software to a minimum.
+        # allowUnfreePredicate forces me to keep track of what proprietary software I allow.
+        nixpkgsConfig.allowUnfreePredicate =
+          pkg:
+          lib.elem (lib.getName pkg) [
+            "steam"
+            "steam-run"
+            "steam-original"
+            "VCV-Rack"
+            "osu-lazer-bin-2023.1114.1"
+          ];
+      }
+      {
+        devShells = std.harvest self [
+          "repo"
+          "devshells"
         ];
-    } {
-      devShells = std.harvest self ["repo" "devshells"];
-      packages = std.harvest self ["lord-valen" "packages"];
-    } {
-      nixosConfigurations = myCollect self "nixosConfigurations";
-      colmenaHive = myCollect self "colmenaConfigurations";
-      # TODO: implement
-      # nixosModules = collect self "nixosModules";
-      # hmModules = collect self "homeModules";
-    };
+        packages = std.harvest self [
+          "lord-valen"
+          "packages"
+        ];
+      }
+      {
+        nixosConfigurations = myCollect self "nixosConfigurations";
+        colmenaHive = myCollect self "colmenaConfigurations";
+        # TODO: implement
+        # nixosModules = collect self "nixosModules";
+        # hmModules = collect self "homeModules";
+      };
 }

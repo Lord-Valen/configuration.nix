@@ -1,9 +1,9 @@
+{ inputs, cell }:
+let
+  nixpkgs = cell.pkgs;
+  inherit (nixpkgs) lib;
+in
 {
-  inputs,
-  cell,
-}: let
-  inherit (inputs) nixpkgs;
-in {
   editorconfig = {
     hook.mode = "copy";
     data = {
@@ -45,7 +45,7 @@ in {
     data = {
       inherit (inputs) cells;
       commit = {
-        header = {length = 89;};
+        header.length = 89;
         conventional = {
           types = [
             "build"
@@ -59,7 +59,7 @@ in {
             "style"
             "test"
           ];
-          scopes = [];
+          scopes = [ ];
         };
       };
     };
@@ -67,19 +67,20 @@ in {
 
   treefmt = {
     packages = with nixpkgs; [
-      alejandra
+      nixfmt-rfc-style
       nodePackages.prettier
       shfmt
     ];
     data = {
       formatter = {
         nix = {
-          command = "alejandra";
-          includes = ["*.nix"];
+          command = "nixfmt";
+          options = lib.cli.toGNUCommandLine { } { verify = true; };
+          includes = [ "*.nix" ];
         };
         prettier = {
           command = "prettier";
-          options = ["--write"];
+          options = lib.cli.toGNUCommandLine { } { write = true; };
           includes = [
             "*.css"
             "*.html"
@@ -91,13 +92,16 @@ in {
             "*.scss"
             "*.ts"
             "*.yaml"
-            "*.toml"
           ];
         };
         shell = {
           command = "shfmt";
-          options = ["-i" "2" "-s" "-w"];
-          includes = ["*.sh"];
+          options = lib.cli.toGNUCommandLine { } {
+            indent = 2;
+            simplify = true;
+            write = true;
+          };
+          includes = [ "*.sh" ];
         };
       };
     };
@@ -112,7 +116,10 @@ in {
             run = ''
               [[ "$(head -n 1 {1})" =~ ^WIP(:.*)?$|^wip(:.*)?$|fixup\!.*|squash\!.* ]] ||
               conform enforce --commit-msg-file {1}'';
-            skip = ["merge" "rebase"];
+            skip = [
+              "merge"
+              "rebase"
+            ];
           };
         };
       };
@@ -120,7 +127,10 @@ in {
         commands = {
           treefmt = {
             run = "treefmt --fail-on-change {staged_files}";
-            skip = ["merge" "rebase"];
+            skip = [
+              "merge"
+              "rebase"
+            ];
           };
         };
       };

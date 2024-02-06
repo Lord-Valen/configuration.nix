@@ -1,5 +1,5 @@
 {
   "formatting": {
-    "command": "alejandra --quiet"
+    "command": "nixfmt --verify --quiet"
   }
 }
