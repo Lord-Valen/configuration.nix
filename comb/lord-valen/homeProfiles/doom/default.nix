@@ -1,27 +1,24 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
-in {
-  imports = [inputs.nix-doom-emacs.hmModule];
-
+in
+{
   fonts.fontconfig.enable = true;
 
-  programs.doom-emacs = {
+  programs.emacs = {
     enable = true;
-    doomPrivateDir = ./_doom.d;
-    extraPackages = with nixpkgs; [
-      # :term vterm
-      emacsPackages.vterm
-    ];
-    emacsPackagesOverlay = self: super: {
-    };
+    package = nixpkgs.emacs29;
+    # extraPackages =
+    #   epkgs: with epkgs; [
+    #     # :term vterm
+    #     vterm
+    #   ];
   };
 
   services.emacs = {
     enable = true;
     defaultEditor = true;
     socketActivation.enable = true;
+    client.enable = true;
   };
 }

@@ -3,12 +3,15 @@
 (setq user-full-name "Lord Valen"
       user-mail-address "lord_valen@pm.me")
 
-(setq shell-file-name "nu")
+;; Doom reload doesn't work with nushell
+(setq shell-file-name "bash")
 
-(setq doom-font (font-spec :family "Iosevka Nerd Font Mono" :size 16)
-      doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font Propo")
-      doom-unicode-font (font-spec :family "Noto Color Emoji")
-      doom-big-font-increment 8)
+(setq
+ nerd-icons-font-names '("SymbolsNerdFontMono-Regular.ttf")
+ doom-font (font-spec :family "Iosevka Nerd Font Mono" :size 16)
+ doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font Propo")
+ doom-unicode-font (font-spec :family "Noto Color Emoji")
+ doom-big-font-increment 8)
 
 (custom-set-faces!
   '(font-lock-comment-face :slant italic)
@@ -43,9 +46,9 @@
            ((rjsx-mode typescript-tsx-mode) . ("typescript-language-server" "--stdio"))))
   (add-hook! (conf-toml-mode rjsx-mode typescript-tsx-mode) #'lsp!))
 
-(use-package! format-all
-  :config
-  (set-formatter! 'alejandra "alejandra --quiet" :modes '(nix-mode)))
+                                        ;(use-package! format-all
+                                        ;  :config
+                                        ;  (set-formatter! 'alejandra "alejandra --quiet" :modes '(nix-mode)))
 
 (use-package! elcord
   :custom
@@ -82,40 +85,40 @@
                "${title}\n")
       :unnarrowed t)
      ("s" "seedling" plain
-       "%?"
-       :if-new (file+head
-                 "${slug}.org"
-                 "${title}\n#+filetags: 🌱\n")
-       :unnarrowed t)
+      "%?"
+      :if-new (file+head
+               "${slug}.org"
+               "${title}\n#+filetags: 🌱\n")
+      :unnarrowed t)
      ("e" "evergreen" plain
       "%?"
       :if-new (file+head
-                "${slug}.org"
-                "${title}\n#+filetags: 🌲\n")
+               "${slug}.org"
+               "${title}\n#+filetags: 🌲\n")
       :unnarrowed t)
      ("p" "person" plain
       "%?"
       :if-new (file+head
-                "people/${slug}.org"
-                "${title}\n#+filetags: 👨\n")
+               "people/${slug}.org"
+               "${title}\n#+filetags: 👨\n")
       :unnarrowed t)
      ("g" "group" plain
       "%?"
       :if-new (file+head
-                "groups/${slug}.org"
-                "${title}\n#+filetags: 🏢\n")
+               "groups/${slug}.org"
+               "${title}\n#+filetags: 🏢\n")
       :unnarrowed t)
      ("w" "work" plain
       "%?"
       :if-new (file+head
-                "works/${slug}.org"
-                "${title}\n#+filetags: 📜\n")
+               "works/${slug}.org"
+               "${title}\n#+filetags: 📜\n")
       :unnarrowed t)
      ("t" "project" plain
       "* Goals\n\n%?\n\n* Tasks\n\n* Dates"
       :if-new (file+head
-                "projects/${slug}.org"
-                "${title}\n#+category: ${title}\n#+filetags: 🛠\n")
+               "projects/${slug}.org"
+               "${title}\n#+category: ${title}\n#+filetags: 🛠\n")
       :unnarrowed t)))
   :config
   (map! :leader
@@ -158,7 +161,7 @@
             ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
             ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
            ("turabian"
-             "\\documentclass{turabian-researchpaper}
+            "\\documentclass{turabian-researchpaper}
 [PACKAGES]
 \\usepackage{newtxtext}
 \\usepackage{url}
@@ -168,14 +171,14 @@
 \\usepackage[notes,backend=biber]{biblatex-chicago}
 \\usepackage{turabian-formatting}
 "
-             ("\\section{%s}" . "\\section{%s}")
-             ("\\subsection{%s}" . "\\subsection{%s}")
-             ("\\subsubsection{%s}" . "\\subsubsection{%s}")
-             ("\\paragraph{%s}" . "\\paragraph{%s}")
-             ("\\subparagraph{%s}" . "\\subparagraph{%s}")
-             ("\\subsubparagraph{%s}" . "\\subsubparagraph{%s}"))
+            ("\\section{%s}" . "\\section{%s}")
+            ("\\subsection{%s}" . "\\subsection{%s}")
+            ("\\subsubsection{%s}" . "\\subsubsection{%s}")
+            ("\\paragraph{%s}" . "\\paragraph{%s}")
+            ("\\subparagraph{%s}" . "\\subparagraph{%s}")
+            ("\\subsubparagraph{%s}" . "\\subsubparagraph{%s}"))
            ("apa"
-             "\\documentclass[stu,biblatex,12pt]{apa7}
+            "\\documentclass[stu,biblatex,12pt]{apa7}
 [PACKAGES]
 \\usepackage{newtxtext}
 \\usepackage{url}
@@ -183,12 +186,12 @@
 \\usepackage{ellipsis}
 \\usepackage{csquotes}
 "
-             ("\\section{%s}" . "\\section*{%s}")
-             ("\\subsection{%s}" . "\\subsection*{%s}")
-             ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-             ("\\paragraph{%s}" . "\\paragraph*{%s}")
-             ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
-             ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
+            ("\\section{%s}" . "\\section*{%s}")
+            ("\\subsection{%s}" . "\\subsection*{%s}")
+            ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+            ("\\paragraph{%s}" . "\\paragraph*{%s}")
+            ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
+            ("\\subsubparagraph{%s}" . "\\subsubparagraph*{%s}"))
            ("altacv"
             "\\documentclass[10pt,letterpaper,ragged2e,withhyper]{altacv}
 [PACKAGES]

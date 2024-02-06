@@ -61,9 +61,8 @@
   direnv
   editorconfig
   (eval +overlay)
-  gist
   (lookup +dictionary +docsets +offline)
-  (lsp +eglot +peek)
+  (lsp +eglot)
   (magit +forge)
   pdf
   rgb

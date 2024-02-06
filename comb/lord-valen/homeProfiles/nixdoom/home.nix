@@ -1,21 +1,9 @@
 { inputs, cell }:
 let
-  inherit (inputs) nixpkgs home-manager;
+  inherit (inputs) nixpkgs;
   inherit (nixpkgs) lib;
-  inherit (home-manager.lib) hm;
 in
 {
-  # Doom
-  activation.installDoomEmacs = hm.dag.entryAfter [ "writeBoundary" ] ''
-    if [ ! -d "$XDG_CONFIG_HOME/emacs" ]; then
-       ${lib.getExe nixpkgs.git} clone $VERBOSE_ARG --depth=1 --single-branch \
-           "https://github.com/doomemacs/doomemacs.git" \
-           "$XDG_CONFIG_HOME/emacs"
-    fi
-  '';
-
-  sessionPath = [ "$XDG_CONFIG_HOME/emacs/bin" ];
-
   # :tools magit
   ## forge
   file.".authinfo.gpg".source = ./_authinfo.gpg;
@@ -24,12 +12,7 @@ in
     lib.concatLists [
       [
         # My Dependencies
-        (nerdfonts.override {
-          fonts = [
-            "Iosevka"
-            "NerdFontsSymbolsOnly"
-          ];
-        })
+        (nerdfonts.override { fonts = [ "Iosevka" ]; })
         (iosevka-bin.override { variant = "aile"; })
         noto-fonts-emoji
         nushell
@@ -68,7 +51,6 @@ in
         # :lang cc
         clang
         clang-tools
-        glslang
         ## extra
         gf
       ]
@@ -83,15 +65,8 @@ in
       [
         # :lang csharp
         mono
-        ## format
-        csharpier
         ## lsp
         omnisharp-roslyn
-      ]
-      [
-        # :lang data
-        ## format
-        libxml2
       ]
       [
         # :lang haskell
@@ -135,13 +110,12 @@ in
         marksman
         pandoc
         nodePackages.prettier
-        python311Packages.grip
       ]
       [
         # :lang nix
         ## lsp
         nixd
-        nixfmt
+        alejandra
       ]
       (lib.flatten [
         # :lang ocaml
@@ -151,7 +125,7 @@ in
         (with ocamlPackages; [
           utop
           ocp-indent
-          merlin
+          #merlin # -lsp
         ])
         ## format
         ocamlformat
@@ -193,12 +167,6 @@ in
         nodePackages.bash-language-server
       ]
       [
-        # :lang web
-        html-tidy
-        stylelint
-        nodePackages.js-beautify
-      ]
-      [
         # :lang yaml
         ## lsp
         nodePackages.yaml-language-server
@@ -206,8 +174,6 @@ in
       [
         # :term vterm
         libvterm
-        cmake
-        gnumake
       ]
       [
         # :tools direnv
