@@ -76,10 +76,7 @@
 
   # Desktop
   inputs = {
-    # FIXME: org-re-reveal has a hash mismatch
-    emacs-overlay.url = "github:nix-community/emacs-overlay/61c8cf26da93bf7574c64c7eebd241d4b160e091";
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
-    nix-doom-emacs.inputs.emacs-overlay.follows = "emacs-overlay";
     nix-doom-emacs.inputs.flake-compat.follows = "";
 
     aagl-gtk-on-nix.url = "github:ezKEa/aagl-gtk-on-nix";
