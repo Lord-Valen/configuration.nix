@@ -1,3 +1,8 @@
+{ inputs, cell }:
+let
+  inherit (inputs) nixpkgs;
+  inherit (nixpkgs) lib;
+in
 {
   bash.enable = true;
   nushell = {
@@ -16,11 +21,11 @@
       directory.style = "cyan";
       docker_context.symbol = " ";
       git_branch = {
-        format = ''[$symbol$branch]($style) '';
+        format = "[$symbol$branch]($style) ";
         style = "bold dimmed white";
       };
       git_status = {
-        format = ''([「$all_status$ahead_behind」]($style) )'';
+        format = "([「$all_status$ahead_behind」]($style) )";
         conflicted = "⚠";
         ahead = "⟫$count";
         behind = "⟪$count";
@@ -39,7 +44,7 @@
         disabled = false;
       };
       nix_shell = {
-        format = ''[$symbol$state]($style) '';
+        format = "[$symbol$state]($style) ";
         pure_msg = "λ";
         impure_msg = "⎔";
       };
@@ -49,5 +54,10 @@
       rust.symbol = " ";
       status.disabled = false;
     };
+  };
+
+  zoxide = {
+    enable = true;
+    options = lib.cli.toGNUCommandLine { } { cmd = "cd"; };
   };
 }
