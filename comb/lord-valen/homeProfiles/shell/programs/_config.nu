@@ -1,9 +1,6 @@
-# for more information on themes see
-# https://www.nushell.sh/book/coloring_and_theming.html
 let dark_theme = {
-  # color for nushell primitives
   separator: white
-  leading_trailing_space_bg: { attr: n } # no fg, no bg, attr none effectively turns this off
+  leading_trailing_space_bg: { attr: n }
   header: green_bold
   empty: blue
   bool: white
@@ -23,7 +20,6 @@ let dark_theme = {
   block: white
   hints: dark_gray
 
-  # shapes are used to change the cli syntax highlighting
   shape_garbage: { fg: "#FFFFFF" bg: "#FF0000" attr: b}
   shape_binary: purple_bold
   shape_bool: light_cyan
@@ -61,7 +57,14 @@ let carapace_completer = {|spans|
   carapace $spans.0 nushell ...$spans | from json
 }
 
-# The default config record. This is where much of your global configuration is setup.
+let multiple_completer = {|spans|
+  match $spans.0 {
+    __zoxide_z => $zoxide_completer
+    __zoxide_zi => $zoxide_completer
+    _ => $carapace_completer
+  } | do $in $spans
+}
+
 $env.config = {
   show_banner: false
   color_config: $dark_theme
@@ -74,28 +77,31 @@ $env.config = {
   render_right_prompt_on_last_line: false
 
   hooks: {
-    command_not_found: { |cmd|
+    command_not_found: {|cmd|
       let attrs = (
         nix-locate --minimal --no-group --type x --type s --top-level --whole-name --at-root $"/bin/($cmd)"
         | lines | par-each { split row . | $in.0})
       ;
-      $attrs | length
+      $attrs
+      | length
       | match $in {
-          0 => {
-            $"($cmd): command not found"
-          },
-          1 => {
-            $"The program '($cmd)' is currently not installed. You can install it by typing:\n\tnix profile install nixpkgs#($attrs.0)\n\nOr run it once with:\n\tnix shell nixpkgs#($attrs.0) -c ($cmd)"},
-          _ => {
-            [
-              $"The program '($cmd)' is currently not installed. It is provided by several packages. You can install it by typing one of the following:",
-              ($attrs | par-each {|e| $"\n\tnix profile install nixpkgs#($e)"}),
-              "\n\nOr run it once with:",
-              ($attrs | par-each {|e| $"\n\tnix shell nixpkgs#($e) -c ($cmd)"})
-            ]
-            | flatten | str join
-          }
+        0 => {
+          $"($cmd): command not found"
         }
+        1 => {
+          $"The program '($cmd)' is currently not installed. You can install it by typing:\n\tnix profile install nixpkgs#($attrs.0)\n\nOr run it once with:\n\tnix shell nixpkgs#($attrs.0) -c ($cmd)"
+        }
+        _ => {
+          [
+            $"The program '($cmd)' is currently not installed. It is provided by several packages. You can install it by typing one of the following:",
+            ($attrs | par-each {|e| $"\n\tnix profile install nixpkgs#($e)"}),
+            "\n\nOr run it once with:",
+            ($attrs | par-each {|e| $"\n\tnix shell nixpkgs#($e) -c ($cmd)"})
+          ]
+          | flatten
+          | str join
+        }
+      }
     }
   }
 
@@ -109,7 +115,7 @@ $env.config = {
   }
 
   table: {
-    mode: rounded # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
+    mode: rounded
     index_mode: always
     trim: {
       methodology: wrapping
@@ -132,13 +138,7 @@ $env.config = {
     external: {
       enable: true
       max_results: 100
-      completer: {|spans|
-        match $spans.0 {
-          __zoxide_z => $zoxide_completer
-          __zoxide_zi => $zoxide_completer
-          _ => $carapace_completer
-        } | do $in $spans
-      }
+      completer: $multiple_completer
     }
   }
 
@@ -148,8 +148,6 @@ $env.config = {
   }
 
   menus: [
-    # Configuration for default nushell menus
-    # Note the lack of source parameter
     {
       name: completion_menu
       only_buffer_difference: false
@@ -157,7 +155,7 @@ $env.config = {
       type: {
         layout: columnar
         columns: 4
-        col_width: 20   # Optional value. If missing all the screen width is used to calculate column width
+        col_width: 20
         col_padding: 2
       }
       style: {
@@ -187,7 +185,7 @@ $env.config = {
       type: {
         layout: description
         columns: 4
-        col_width: 20   # Optional value. If missing all the screen width is used to calculate column width
+        col_width: 20
         col_padding: 2
         selection_rows: 4
         description_rows: 10
@@ -198,9 +196,6 @@ $env.config = {
         description_text: yellow
       }
     }
-    # Example of extra menus created using a nushell source
-    # Use the source field to create a list of records that populates
-    # the menu
     {
       name: commands_menu
       only_buffer_difference: false
@@ -271,7 +266,7 @@ $env.config = {
       name: completion_menu
       modifier: none
       keycode: tab
-      mode: emacs # emacs vi_normal vi_insert
+      mode: emacs
       event: {
         until: [
           { send: menu name: completion_menu }
@@ -345,7 +340,6 @@ $env.config = {
         ]
       }
     }
-    # Keybindings used to trigger the user defined menus
     {
       name: commands_menu
       modifier: control
