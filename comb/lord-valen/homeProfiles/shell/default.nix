@@ -1,15 +1,15 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
-in {
+in
+{
   fonts.fontconfig.enable = true;
 
   home.packages = with nixpkgs; [
     ripgrep
     bottom
     powerline-fonts
+    carapace
   ];
 
   home.shellAliases = {

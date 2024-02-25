@@ -152,6 +152,7 @@
 
             # nixpkgs
             (pkgs "pkgs")
+            (pkgs "pkgs-unstable")
           ];
 
         # I want to keep proprietary software to a minimum.

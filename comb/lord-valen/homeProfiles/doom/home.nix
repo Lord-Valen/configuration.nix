@@ -1,4 +1,8 @@
-{ inputs, cell }:
+{
+  inputs,
+  cell,
+  config,
+}:
 let
   inherit (inputs) nixpkgs home-manager;
   inherit (nixpkgs) lib;
@@ -32,7 +36,7 @@ in
         })
         (iosevka-bin.override { variant = "aile"; })
         noto-fonts-emoji
-        nushell
+        config.programs.nushell.package
       ]
       [
         # Doom Dependencies

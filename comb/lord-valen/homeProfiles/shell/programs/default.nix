@@ -2,6 +2,8 @@
 let
   inherit (inputs) nixpkgs nix-index-database;
   inherit (nixpkgs) lib;
+
+  inherit (cell) pkgs-unstable;
 in
 {
   _imports = [ nix-index-database.hmModules.nix-index ];
@@ -9,6 +11,7 @@ in
   bash.enable = true;
   nushell = {
     enable = true;
+    package = pkgs-unstable.nushell;
     configFile.source = ./_config.nu;
     envFile.source = ./_env.nu;
   };

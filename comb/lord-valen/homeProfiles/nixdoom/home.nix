@@ -1,4 +1,8 @@
-{ inputs, cell }:
+{
+  inputs,
+  cell,
+  config,
+}:
 let
   inherit (inputs) nixpkgs;
   inherit (nixpkgs) lib;
@@ -15,7 +19,7 @@ in
         (nerdfonts.override { fonts = [ "Iosevka" ]; })
         (iosevka-bin.override { variant = "aile"; })
         noto-fonts-emoji
-        nushell
+        config.programs.nushell.package
       ]
       [
         # Doom Dependencies
