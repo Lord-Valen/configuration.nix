@@ -193,6 +193,32 @@ $env.config = {
   shell_integration: true
   render_right_prompt_on_last_line: false
 
+  hooks: {
+    command_not_found: { |cmd|
+      let attrs = (
+        nix-locate --minimal --no-group --type x --type s --top-level --whole-name --at-root $"/bin/($cmd)"
+        | lines | par-each { split row . | $in.0})
+      ;
+      $attrs | length
+      | match $in {
+          0 => {
+            $"($cmd): command not found"
+          },
+          1 => {
+            $"The program '($cmd)' is currently not installed. You can install it by typing:\n\tnix profile install nixpkgs#($attrs.0)\n\nOr run it once with:\n\tnix shell nixpkgs#($attrs.0) -c ($cmd)"},
+          _ => {
+            [
+              $"The program '($cmd)' is currently not installed. It is provided by several packages. You can install it by typing one of the following:",
+              ($attrs | par-each {|e| $"\n\tnix profile install nixpkgs#($e)"}),
+              "\n\nOr run it once with:",
+              ($attrs | par-each {|e| $"\n\tnix shell nixpkgs#($e) -c ($cmd)"})
+            ]
+            | flatten | str join
+          }
+        }
+    }
+  }
+
   ls: {
     use_ls_colors: true
     clickable_links: true

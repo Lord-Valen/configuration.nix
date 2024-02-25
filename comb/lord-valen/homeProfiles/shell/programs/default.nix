@@ -1,9 +1,11 @@
 { inputs, cell }:
 let
-  inherit (inputs) nixpkgs;
+  inherit (inputs) nixpkgs nix-index-database;
   inherit (nixpkgs) lib;
 in
 {
+  _imports = [ nix-index-database.hmModules.nix-index ];
+
   bash.enable = true;
   nushell = {
     enable = true;
@@ -54,6 +56,10 @@ in
       rust.symbol = " ";
       status.disabled = false;
     };
+  };
+
+  nix-index-database = {
+    comma.enable = true;
   };
 
   zoxide = {
