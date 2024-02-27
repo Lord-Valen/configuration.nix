@@ -10,7 +10,7 @@
  nerd-icons-font-names '("SymbolsNerdFontMono-Regular.ttf")
  doom-font (font-spec :family "Iosevka Nerd Font Mono" :size 16)
  doom-variable-pitch-font (font-spec :family "Iosevka Nerd Font Propo")
- doom-unicode-font (font-spec :family "Noto Color Emoji")
+ doom-symbol-font (font-spec :family "Noto Color Emoji")
  doom-big-font-increment 8)
 
 (custom-set-faces!
