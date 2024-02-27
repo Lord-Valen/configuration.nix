@@ -37,18 +37,16 @@
   (global-evil-colemak-basics-mode))
 
 (use-package! eglot
-  :after dash
+  :after dash typst-ts-mode
   :config
   (--map (add-to-list 'eglot-server-programs it)
          `((nix-mode . ,(eglot-alternatives '("nil" "nixd")))
            (conf-toml-mode . ("taplo" "lsp" "stdio"))
            (csharp-mode . ("OmniSharp" "-lsp"))
-           ((rjsx-mode typescript-tsx-mode) . ("typescript-language-server" "--stdio"))))
-  (add-hook! (conf-toml-mode rjsx-mode typescript-tsx-mode) #'lsp!))
+           ((rjsx-mode typescript-tsx-mode) . ("typescript-language-server" "--stdio"))
+           (typst-ts-mode . ("typst-lsp"))))
 
-                                        ;(use-package! format-all
-                                        ;  :config
-                                        ;  (set-formatter! 'alejandra "alejandra --quiet" :modes '(nix-mode)))
+  (add-hook! (conf-toml-mode rjsx-mode typescript-tsx-mode typst-ts-mode) #'lsp!))
 
 (use-package! elcord
   :custom
@@ -69,6 +67,14 @@
 (use-package! projectile
   :custom
   (projectile-project-search-path `((,(file-truename "~/dev") . 2))))
+
+(use-package! typst-ts-mode
+  :after apheleia
+  :config
+  (set-formatter! 'typstfmt '("typstfmt") :modes '(typst-ts-mode))
+
+  :custom
+  (typst-ts-mode-watch-options "--open"))
 
 (use-package! org-modern
   :config

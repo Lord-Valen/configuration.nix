@@ -7,6 +7,8 @@ let
   inherit (inputs) nixpkgs home-manager;
   inherit (nixpkgs) lib;
   inherit (home-manager.lib) hm;
+
+  inherit (cell) pkgs-unstable;
 in
 {
   # Doom
@@ -49,6 +51,13 @@ in
         fd
         imagemagick
         zstd
+      ]
+      [
+        # typst-ts-mode
+        pkgs-unstable.typst
+        pkgs-unstable.typstfmt
+        ## lsp
+        pkgs-unstable.typst-lsp
       ]
       [
         # :app everywhere
