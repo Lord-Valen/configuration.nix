@@ -1,19 +1,20 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
   inherit (nixpkgs) lib;
 
   inherit (cell) packages homeProfiles;
-in {
-  imports = [homeProfiles.anyrun homeProfiles.waybar homeProfiles.wlogout];
+in
+{
+  imports = [
+    homeProfiles.anyrun
+    homeProfiles.waybar
+    homeProfiles.wlogout
+  ];
   wayland.windowManager.hyprland = {
     enable = true;
 
-    plugins = with nixpkgs; [
-      packages.hyprfocus
-    ];
+    plugins = with nixpkgs; [ packages.hyprfocus ];
 
     settings = {
       env = [
@@ -212,6 +213,7 @@ in {
 
       bindm = [
         "$manipMod, mouse:272, movewindow"
+        "$manipMod ALT, mouse:272, resizewindow"
         "$manipMod, mouse:273, resizewindow"
       ];
 
