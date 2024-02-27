@@ -108,6 +108,13 @@ in
         haskell-language-server
       ]
       [
+        # :lang java
+        google-java-format
+
+        ## lsp
+        jdt-language-server
+      ]
+      [
         # :lang javascript
         nodejs
         nodePackages.npm
@@ -121,7 +128,7 @@ in
         # :lang json
         nodePackages.prettier
         ## lsp
-        nodePackages.vscode-langservers-extracted
+        vscode-langservers-extracted
       ]
       [
         # :lang kotlin
@@ -234,6 +241,10 @@ in
         ripgrep
         sqlite
         wordnet
+      ]
+      [
+        #:tools make
+        gnumake
       ]
       [
         # :ui doom-dashboard

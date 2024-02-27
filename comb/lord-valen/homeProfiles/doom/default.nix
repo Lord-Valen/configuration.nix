@@ -8,11 +8,11 @@ in
   programs.emacs = {
     enable = true;
     package = nixpkgs.emacs29;
-    # extraPackages =
-    #   epkgs: with epkgs; [
-    #     # :term vterm
-    #     vterm
-    #   ];
+    extraPackages =
+      epkgs: with epkgs; [
+        # :term vterm
+        vterm
+      ];
   };
 
   services.emacs = {
