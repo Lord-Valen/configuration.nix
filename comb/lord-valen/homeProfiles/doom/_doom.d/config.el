@@ -48,13 +48,6 @@
 
   (add-hook! (conf-toml-mode rjsx-mode typescript-tsx-mode typst-ts-mode) #'lsp!))
 
-(use-package! elcord
-  :custom
-  (elcord-use-major-mode-as-main-icon t)
-  :config
-  (add-to-list 'elcord-mode-icon-alist '(emacs-lisp-mode . "emacs_icon"))
-  (elcord-mode))
-
 (use-package! langtool
   :custom
   (langtool-bin "languagetool-commandline")
