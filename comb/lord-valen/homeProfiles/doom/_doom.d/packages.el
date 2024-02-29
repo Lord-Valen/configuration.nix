@@ -3,7 +3,6 @@
 
 (package! exec-path-from-shell)
 (package! evil-colemak-basics)  ; Colemak remaps
-(package! org-modern)           ; Fancy org-mode
 (package! nushell-mode)
 (package! dash)
 (package! typst-ts-mode

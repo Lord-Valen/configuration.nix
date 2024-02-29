@@ -69,10 +69,6 @@
   :custom
   (typst-ts-mode-watch-options "--open"))
 
-(use-package! org-modern
-  :config
-  (global-org-modern-mode))
-
 (use-package! org-roam
   :custom
   (org-roam-directory (file-truename "~/dev/Lord-Valen/knowledge-base"))
