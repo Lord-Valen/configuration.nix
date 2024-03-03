@@ -52,9 +52,27 @@ in
             command = ''sudo nixos-rebuild boot --flake $PRJ_ROOT "$@"'';
           }
           {
+            name = "build";
+            help = "Build configuration";
+            command = ''nixos-rebuild build --flake $PRJ_ROOT "$@"'';
+          }
+          {
             name = "check";
             help = "Check flake";
             command = ''nix flake check $PRJ_ROOT "$@"'';
+          }
+          {
+            name = "diff-closures";
+            help = "Diff configuration with current-system";
+            command = ''
+              build "$@"
+              nix store diff-closures /run/current-system ./result
+            '';
+          }
+          {
+            name = "dry";
+            help = "Dry activate configuration";
+            command = ''nixos-rebuild dry-activate --flake $PRJ_ROOT "$@"'';
           }
           {
             name = "switch";
