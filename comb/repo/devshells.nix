@@ -49,27 +49,27 @@ in
           {
             name = "boot";
             help = "Switch boot configuration";
-            command = "sudo nixos-rebuild boot --flake $PRJ_ROOT $@";
+            command = ''sudo nixos-rebuild boot --flake $PRJ_ROOT "$@"'';
           }
           {
             name = "check";
             help = "Check flake";
-            command = "nix flake check $PRJ_ROOT $@";
+            command = ''nix flake check $PRJ_ROOT "$@"'';
           }
           {
             name = "switch";
             help = "Switch configurations";
-            command = "sudo nixos-rebuild switch --flake $PRJ_ROOT $@";
+            command = ''sudo nixos-rebuild switch --flake $PRJ_ROOT "$@"'';
           }
           {
             name = "test";
             help = "Test configuration";
-            command = "sudo nixos-rebuild test --flake $PRJ_ROOT $@";
+            command = ''sudo nixos-rebuild test --flake $PRJ_ROOT "$@"'';
           }
           {
             name = "update";
             help = "Update inputs";
-            command = "nix flake update $PRJ_ROOT $@";
+            command = ''nix flake update $PRJ_ROOT "$@"'';
           }
         ])
       ];
