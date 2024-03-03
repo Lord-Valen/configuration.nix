@@ -47,14 +47,19 @@ in
         ])
         (builtins.map nix [
           {
-            name = "switch";
-            help = "Switch configurations";
-            command = "sudo nixos-rebuild switch --flake $PRJ_ROOT $@";
-          }
-          {
             name = "boot";
             help = "Switch boot configuration";
             command = "sudo nixos-rebuild boot --flake $PRJ_ROOT $@";
+          }
+          {
+            name = "check";
+            help = "Check flake";
+            command = "nix flake check $PRJ_ROOT $@";
+          }
+          {
+            name = "switch";
+            help = "Switch configurations";
+            command = "sudo nixos-rebuild switch --flake $PRJ_ROOT $@";
           }
           {
             name = "test";
@@ -65,11 +70,6 @@ in
             name = "update";
             help = "Update inputs";
             command = "nix flake update $PRJ_ROOT $@";
-          }
-          {
-            name = "check";
-            help = "Check flake";
-            command = "nix flake check $PRJ_ROOT $@";
           }
         ])
       ];
