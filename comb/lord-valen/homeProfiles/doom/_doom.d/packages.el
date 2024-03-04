@@ -3,7 +3,7 @@
 
 (package! exec-path-from-shell)
 (package! evil-colemak-basics)  ; Colemak remaps
-(package! nushell-mode)
+(package! nushell-ts-mode)
 (package! dash)
 (package! typst-ts-mode
   :recipe (:host sourcehut :repo "meow_king/typst-ts-mode"))
