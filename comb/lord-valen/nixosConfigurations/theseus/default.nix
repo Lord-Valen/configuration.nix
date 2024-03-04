@@ -1,39 +1,52 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) common nixpkgs;
-  inherit (cell) hardwareProfiles nixosProfiles nixosSuites userProfiles arionProfiles homeProfiles homeSuites;
+  inherit (cell)
+    hardwareProfiles
+    nixosProfiles
+    nixosSuites
+    userProfiles
+    arionProfiles
+    homeProfiles
+    homeSuites
+    ;
   inherit (nixpkgs) lib;
   hostName = "theseus";
-in {
+in
+{
   inherit (common) bee time;
-  networking = {inherit hostName;};
+  networking = {
+    inherit hostName;
+  };
 
-  imports = let
-    profiles = with nixosProfiles; [
-      hardwareProfiles."${hostName}"
+  imports =
+    let
+      profiles = with nixosProfiles; [
+        hardwareProfiles."${hostName}"
 
-      userProfiles.lord-valen
-      userProfiles.nixos
+        userProfiles.lord-valen
+        userProfiles.nixos
 
-      arionProfiles.pihole
+        arionProfiles.pihole
 
-      gnome
-      games
-      servarr
-      syncthing
+        gnome
+        games
+        servarr
+        syncthing
+      ];
+      suites = with nixosSuites; pc;
+    in
+    lib.concatLists [
+      profiles
+      suites
     ];
-    suites = with nixosSuites; pc;
-  in
-    lib.concatLists [profiles suites];
 
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
     users = {
       root = {
-        imports = [homeProfiles.shell];
+        imports = [ homeProfiles.shell ];
         home.stateVersion = "23.11";
       };
       nixos = {
@@ -41,15 +54,15 @@ in {
         home.stateVersion = "23.05";
       };
       lord-valen = {
-        imports = let
-          profiles = with homeProfiles; [
+        imports =
+          let
+            profiles = with homeProfiles; [ ];
+            suites = with homeSuites; lib.concatLists [ lord-valen ];
+          in
+          lib.concatLists [
+            profiles
+            suites
           ];
-          suites = with homeSuites;
-            lib.concatLists [
-              lord-valen
-            ];
-        in
-          lib.concatLists [profiles suites];
         home.stateVersion = "23.05";
       };
     };
@@ -102,39 +115,7 @@ in {
     };
   };
 
-  # TODO: Move to disko
-  fileSystems = {
-    "/boot/efi" = {
-      label = "BOOT";
-      fsType = "vfat";
-    };
-
-    "/" = {
-      label = "MAIN";
-      fsType = "btrfs";
-      options = ["subvol=/@" "noatime" "compress=zstd"];
-    };
-
-    "/docker" = {
-      label = "MAIN";
-      fsType = "btrfs";
-      options = ["subvol=/@docker" "noatime" "compress=zstd"];
-    };
-
-    "/swap" = {
-      label = "MAIN";
-      fsType = "btrfs";
-      options = ["subvol=/@swap" "noatime" "compress=zstd"];
-    };
-
-    "/data" = {
-      label = "MAIN";
-      fsType = "btrfs";
-      options = ["subvol=/@data" "noatime" "compress=zstd"];
-    };
-  };
-
-  swapDevices = [{device = "/swap/swapfile";}];
+  swapDevices = [ { device = "/swap/swapfile"; } ];
 
   system.stateVersion = "23.05";
 }
