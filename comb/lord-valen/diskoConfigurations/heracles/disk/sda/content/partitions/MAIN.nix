@@ -1,5 +1,6 @@
-{
+rec {
   name = "MAIN";
+  label = name;
   size = "100%";
   content = {
     type = "btrfs";
