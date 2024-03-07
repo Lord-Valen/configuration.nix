@@ -10,6 +10,7 @@ in
     bottom
     powerline-fonts
     carapace
+    bat
   ];
 
   home.shellAliases = {
