@@ -1,7 +1,6 @@
 rec {
   name = "MAIN";
   label = name;
-  device = "/dev/disk/by-label/${label}";
   size = "100%";
   content = {
     type = "btrfs";
