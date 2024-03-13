@@ -94,9 +94,6 @@
     #     flake-compat.follows = "";
     #   };
     # };
-
-    watershot.url = "github:Kirottu/watershot/v0.2.0";
-    watershot.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
