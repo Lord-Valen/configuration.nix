@@ -48,13 +48,12 @@ in
         header.length = 89;
         conventional = {
           types = [
-            "build"
             "chore"
+            "dev"
             "ci"
             "docs"
             "feat"
             "fix"
-            "perf"
             "refactor"
             "style"
             "test"
