@@ -16,3 +16,4 @@ pkgs/_sources/.shake*
 lefthook.yml
 treefmt.toml
 /.data/
+/.cache/

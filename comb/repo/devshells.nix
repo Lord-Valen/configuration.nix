@@ -24,11 +24,13 @@ in
     commands =
       let
         mkCategory = category: attrset: attrset // { inherit category; };
-        hexagon = mkCategory "hexagon";
+        paisano = mkCategory "paisano";
+        bootstrap = mkCategory "bootstrap";
         nix = mkCategory "nix";
       in
       lib.concatLists [
-        (builtins.map hexagon [
+        (builtins.map paisano [ { package = std.std.cli.default; } ])
+        (builtins.map bootstrap [
           { package = colmena.packages.colmena; }
           {
             name = "larva";
@@ -46,6 +48,7 @@ in
           }
         ])
         (builtins.map nix [
+          # TODO: Upstream similar actions to blockTypes
           {
             name = "boot";
             help = "Switch boot configuration";
