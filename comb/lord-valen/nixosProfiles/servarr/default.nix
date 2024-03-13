@@ -2,9 +2,9 @@
   inputs,
   cell,
   config,
+  lib,
 }:
 let
-  inherit (inputs.nixpkgs) lib;
   inherit (cell) pkgs-unstable;
 in
 {

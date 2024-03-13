@@ -2,10 +2,10 @@
   inputs,
   cell,
   config,
+  lib,
 }:
 let
   inherit (inputs) nixpkgs home-manager;
-  inherit (nixpkgs) lib;
   inherit (home-manager.lib) hm;
 
   inherit (cell) pkgs-unstable;

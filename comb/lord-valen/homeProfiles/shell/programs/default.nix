@@ -1,7 +1,10 @@
-{ inputs, cell }:
+{
+  inputs,
+  cell,
+  lib,
+}:
 let
-  inherit (inputs) nixpkgs nix-index-database;
-  inherit (nixpkgs) lib;
+  inherit (inputs) nix-index-database;
 
   inherit (cell) pkgs-unstable;
 in

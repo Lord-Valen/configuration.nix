@@ -3,11 +3,11 @@
   cell,
   config,
   options,
+  pkgs,
+  lib,
 }:
 let
   inherit (inputs) nixpkgs home-manager;
-  pkgs = nixpkgs;
-  lib = home-manager.lib;
 
   cfg = config.services.sunshine;
 

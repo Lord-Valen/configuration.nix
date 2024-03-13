@@ -1,9 +1,14 @@
-{ inputs, cell }:
+{
+  inputs,
+  cell,
+  pkgs,
+  lib,
+}:
 let
-  inherit (inputs) nixpkgs;
-  inherit (nixpkgs) formats lib;
-  toml = formats.toml { };
-  runner = nixpkgs.wofi;
+  # FIXME: attribute 'pkgs' missing
+  pkgs = inputs.nixpkgs;
+  toml = pkgs.formats.toml { };
+  runner = pkgs.wofi;
 in
 {
   userDirs.enable = true;

@@ -1,8 +1,10 @@
-{ inputs, cell }:
+{
+  inputs,
+  cell,
+  pkgs,
+  lib,
+}:
 let
-  inherit (inputs) nixpkgs;
-  inherit (nixpkgs) lib;
-
   inherit (cell) packages homeProfiles;
 in
 {
@@ -14,7 +16,7 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
 
-    plugins = with nixpkgs; [ packages.hyprfocus ];
+    plugins = with pkgs; [ packages.hyprfocus ];
 
     settings = {
       env = [

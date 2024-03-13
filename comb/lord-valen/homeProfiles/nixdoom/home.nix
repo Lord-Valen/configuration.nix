@@ -2,17 +2,15 @@
   inputs,
   cell,
   config,
+  pkgs,
+  lib,
 }:
-let
-  inherit (inputs) nixpkgs;
-  inherit (nixpkgs) lib;
-in
 {
   # :tools magit
   ## forge
   file.".authinfo.gpg".source = ./_authinfo.gpg;
   packages =
-    with nixpkgs;
+    with pkgs;
     lib.concatLists [
       [
         # My Dependencies

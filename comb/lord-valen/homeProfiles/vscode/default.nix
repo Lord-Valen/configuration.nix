@@ -1,16 +1,20 @@
-{ inputs, cell }:
+{
+  inputs,
+  cell,
+  pkgs,
+  lib,
+}:
 let
-  inherit (inputs) nixpkgs;
-  inherit (nixpkgs) lib vscode-utils;
+  inherit (pkgs) vscode-utils;
 in
 {
   programs.vscode = {
     enable = true;
-    package = nixpkgs.vscodium;
+    package = pkgs.vscodium;
     enableExtensionUpdateCheck = false;
     mutableExtensionsDir = false;
     extensions = lib.concatLists [
-      (with nixpkgs.vscode-extensions; [
+      (with pkgs.vscode-extensions; [
         jnoortheen.nix-ide
         kamadorueda.alejandra
         xaver.clang-format

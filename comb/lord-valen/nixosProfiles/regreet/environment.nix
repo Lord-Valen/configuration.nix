@@ -2,16 +2,17 @@
   inputs,
   cell,
   config,
+  pkgs,
+  lib,
 }:
 let
-  inherit (inputs) nixpkgs;
-  inherit (inputs.nixpkgs) lib;
+  # FIXME: attribute 'pkgs' missing
+  pkgs = inputs.nixpkgs;
 in
 {
-
   etc."greetd/hyprland.conf".text = lib.concatLines [
     ''
-      exec-once = ${lib.getExe' nixpkgs.dbus "dbus-update-activation-environment"} --systemd DISPLAY HYPRLAND_INSTANCE_SIGNATURE WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+      exec-once = ${lib.getExe' pkgs.dbus "dbus-update-activation-environment"} --systemd DISPLAY HYPRLAND_INSTANCE_SIGNATURE WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once = ${lib.getExe config.programs.regreet.package}; ${lib.getExe' config.programs.hyprland.package "hyprctl"} dispatch exit
     ''
     (

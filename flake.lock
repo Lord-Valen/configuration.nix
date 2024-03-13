@@ -734,17 +734,17 @@
         "std": "std"
       },
       "locked": {
-        "lastModified": 1697493780,
-        "narHash": "sha256-vVGbhwlGjPI1RgtUK6Z+MqdL6sKWt5QLL5UdhpFXjkI=",
+        "lastModified": 1710361021,
+        "narHash": "sha256-TQZhHNk4QR/Ovh35Kr/pyWrT9ZQufRb5qfoaWczKYNM=",
         "owner": "divnix",
         "repo": "hive",
-        "rev": "05facc4307d7aca173e46825f572bca72ea0c775",
+        "rev": "d4646e75f7ed73c98d9bf63d93e121ec3315fdbc",
         "type": "github"
       },
       "original": {
         "owner": "divnix",
         "repo": "hive",
-        "rev": "05facc4307d7aca173e46825f572bca72ea0c775",
+        "rev": "d4646e75f7ed73c98d9bf63d93e121ec3315fdbc",
         "type": "github"
       }
     },

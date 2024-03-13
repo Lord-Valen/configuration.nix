@@ -1,8 +1,10 @@
-{ inputs, cell }:
+{
+  inputs,
+  cell,
+  pkgs,
+  lib,
+}:
 let
-  inherit (inputs) nixpkgs;
-  inherit (nixpkgs) lib;
-
   inherit (cell.nixosModules) p2pool;
 
   inPeers = 32;
@@ -11,7 +13,7 @@ in
 {
   imports = [ p2pool ];
 
-  environment.systemPackages = with nixpkgs; [ monero-gui ];
+  environment.systemPackages = with pkgs; [ monero-gui ];
 
   services = {
     monero = {

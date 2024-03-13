@@ -1,14 +1,15 @@
 { inputs, cell }:
 let
   inherit (inputs)
-    hive
     self
+    hive
     nixpkgs
     nixpkgs'
     ;
   inherit (hive.bootstrap.profiles) bootstrap;
   inherit (nixpkgs) lib;
 in
+# TODO: Use haumea
 rec {
   larva = {
     bee = {

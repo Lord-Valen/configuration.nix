@@ -1,6 +1,13 @@
-{ inputs, cell }:
+{
+  inputs,
+  cell,
+  pkgs,
+  lib,
+}:
 let
-  inherit (inputs) common nixpkgs;
+  # FIXME: attribute 'pkgs' missing
+  pkgs = inputs.nixpkgs;
+  inherit (inputs) common;
   inherit (inputs.cells.lord-valen)
     nixosProfiles
     nixosSuites
@@ -8,7 +15,6 @@ let
     homeProfiles
     ;
   inherit (cell) hardwareProfiles;
-  inherit (nixpkgs) lib;
   hostName = "weepingwillow";
 in
 {
@@ -18,7 +24,7 @@ in
   };
 
   users.users = {
-    root.shell = lib.mkForce nixpkgs.shadow;
+    root.shell = lib.mkForce pkgs.shadow;
     sioux = {
       initialHashedPassword = "$y$j9T$1ttrJXMNjeH62Or9EOGfG/$pdm3JxpOroaC5BaqDN/79xKEvlUXW5fjBMGKPTFqeyA";
       isNormalUser = true;
@@ -52,7 +58,7 @@ in
         let
           profiles = with homeProfiles; [
             {
-              home.packages = with nixpkgs; [
+              home.packages = with pkgs; [
                 bottles
                 ungoogled-chromium
                 localsend

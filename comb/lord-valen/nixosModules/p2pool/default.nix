@@ -2,11 +2,11 @@
   inputs,
   cell,
   config,
+  pkgs,
+  lib,
 }:
 let
   inherit (inputs) nixpkgs;
-  pkgs = nixpkgs;
-  lib = nixpkgs.lib;
 
   cfg = config.services.p2pool;
   moneroCfg = config.services.monero;

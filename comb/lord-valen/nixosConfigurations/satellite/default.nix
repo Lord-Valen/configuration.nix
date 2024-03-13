@@ -1,6 +1,10 @@
-{ inputs, cell }:
+{
+  inputs,
+  cell,
+  lib,
+}:
 let
-  inherit (inputs) common nixpkgs;
+  inherit (inputs) common;
   inherit (cell)
     hardwareProfiles
     nixosProfiles
@@ -8,7 +12,6 @@ let
     homeProfiles
     homeSuites
     ;
-  inherit (nixpkgs) lib;
   hostName = "satellite";
 in
 {

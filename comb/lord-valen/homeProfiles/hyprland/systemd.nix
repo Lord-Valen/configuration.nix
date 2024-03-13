@@ -1,8 +1,12 @@
-{ inputs, cell }:
+{
+  inputs,
+  cell,
+  pkgs,
+  lib,
+}:
 let
-  inherit (inputs) nixpkgs;
-  inherit (nixpkgs) lib;
-
+  # FIXME: attribute 'pkgs' missing
+  pkgs = inputs.nixpkgs;
   inherit (cell) packages;
 in
 rec {
@@ -21,7 +25,7 @@ rec {
       lib.mapAttrs (_: value: hyprlandChild value) {
         wpaperd =
           let
-            package = nixpkgs.wpaperd;
+            package = pkgs.wpaperd;
           in
           {
             Unit.Description = package.meta.description;
@@ -39,8 +43,8 @@ rec {
 
         # deflisten won't find the script for mysterious reasons
         # eww = let
-        #   package = nixpkgs.eww-wayland;
-        #   inherit (nixpkgs) nushell hyprland socat;
+        #   package = pkgs.eww-wayland;
+        #   inherit (pkgs) nushell hyprland socat;
         # in {
         #   Unit.Description = package.meta.description;
         #   Unit.User = "lord-valen";

@@ -12,6 +12,7 @@ in
 inputs.hive.findLoad {
   inherit cell;
   inputs = inputs // {
+    # TODO: Use a cell block
     inherit common;
   };
   block = ./.;

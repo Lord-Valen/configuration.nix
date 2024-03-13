@@ -1,7 +1,8 @@
-{ inputs, cell }:
-let
-  inherit (inputs.nixpkgs) lib;
-in
+{
+  inputs,
+  cell,
+  lib,
+}:
 {
   sda = {
     device = "/dev/sda";
