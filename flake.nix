@@ -107,12 +107,13 @@
       ...
     }@inputs:
     let
+      inherit (inputs.nixpkgs-unstable) lib;
+
       # I don't need to worry about name collisions.
       # If you think you might, don't do this.
       myCollect = hive.collect // {
         renamer = cell: target: "${target}";
       };
-      lib = inputs.nixpkgs.lib // builtins;
     in
     hive.growOn
       {
@@ -120,9 +121,10 @@
 
         cellsFrom = ./comb;
         cellBlocks =
-          with std.blockTypes;
-          with hive.blockTypes;
-          [
+          with (lib.mergeAttrsList [
+            std.blockTypes
+            hive.blockTypes
+          ]); [
             # modules
             (functions "nixosModules")
             (functions "homeModules")
@@ -179,6 +181,8 @@
       }
       {
         nixosConfigurations = myCollect self "nixosConfigurations";
+        homeConfigurations = myCollect self "homeConfigurations";
+        diskoConfigurations = myCollect self "diskoConfigurations";
         colmenaHive = myCollect self "colmenaConfigurations";
         # TODO: implement
         # nixosModules = collect self "nixosModules";
