@@ -1,9 +1,8 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
-in {
-  environment.systemPackages = with nixpkgs; [monero-gui];
+in
+{
+  environment.systemPackages = with nixpkgs; [ monero-gui ];
   services.monero.enable = true;
 }

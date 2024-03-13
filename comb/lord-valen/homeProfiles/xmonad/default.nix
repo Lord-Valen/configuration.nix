@@ -1,10 +1,9 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (cell.homeProfiles) picom;
-in {
-  _imports = [picom];
+in
+{
+  _imports = [ picom ];
   xsession = {
     enable = true;
     windowManager.xmonad = {

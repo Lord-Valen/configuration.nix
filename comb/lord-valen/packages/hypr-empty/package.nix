@@ -26,7 +26,7 @@ rustPlatform.buildRustPackage rec {
     description = "Spawn a runner when switching to an empty workspace on Hyprland";
     homepage = "https://github.com/nate-sys/hypr-empty";
     mainProgram = "hypr-empty";
-    license = with licenses; [bsd3];
-    maintainers = with maintainers; [lord-valen];
+    license = with licenses; [ bsd3 ];
+    maintainers = with maintainers; [ lord-valen ];
   };
 }

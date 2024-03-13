@@ -1,3 +1,1 @@
-{
-  xdg.configFile."xmobar".source = ./_xmobar.d;
-}
+{ xdg.configFile."xmobar".source = ./_xmobar.d; }

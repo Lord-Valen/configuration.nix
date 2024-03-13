@@ -1,9 +1,8 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) common nixos-hardware;
-in {
+in
+{
   imports = with nixos-hardware.nixosModules; [
     common
     common-pc-laptop-hdd

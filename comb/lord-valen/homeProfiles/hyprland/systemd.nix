@@ -1,31 +1,33 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
   inherit (nixpkgs) lib;
 
   inherit (cell) packages;
-in rec {
+in
+rec {
   user = {
-    services = let
-      hyprlandChild = attrset:
-        lib.recursiveUpdate {
-          Unit = {
-            BindsTo = ["hyprland-session.target"];
-            After = ["hyprland-session.target"];
-          };
-        }
-        attrset;
-    in
+    services =
+      let
+        hyprlandChild =
+          attrset:
+          lib.recursiveUpdate {
+            Unit = {
+              BindsTo = [ "hyprland-session.target" ];
+              After = [ "hyprland-session.target" ];
+            };
+          } attrset;
+      in
       lib.mapAttrs (_: value: hyprlandChild value) {
-        wpaperd = let
-          package = nixpkgs.wpaperd;
-        in {
-          Unit.Description = package.meta.description;
+        wpaperd =
+          let
+            package = nixpkgs.wpaperd;
+          in
+          {
+            Unit.Description = package.meta.description;
 
-          Service.ExecStart = ''${lib.getExe' package "wpaperd"} --no-daemon'';
-        };
+            Service.ExecStart = ''${lib.getExe' package "wpaperd"} --no-daemon'';
+          };
 
         # hypr-empty = let
         #   package = packages.hypr-empty;

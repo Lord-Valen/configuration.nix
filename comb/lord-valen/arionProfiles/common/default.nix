@@ -1,12 +1,9 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) arion;
-in {
-  imports = [
-    arion.nixosModules.arion
-  ];
+in
+{
+  imports = [ arion.nixosModules.arion ];
 
   virtualisation = {
     podman = {
@@ -14,6 +11,8 @@ in {
       dockerSocket.enable = true;
       defaultNetwork.settings.dns_enabled = true;
     };
-    arion = {backend = "podman-socket";};
+    arion = {
+      backend = "podman-socket";
+    };
   };
 }

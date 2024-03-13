@@ -2,10 +2,12 @@
   inputs,
   cell,
   config,
-}: let
+}:
+let
   inherit (inputs.nixpkgs) lib;
   inherit (config.networking) hostName;
-in {
+in
+{
   services = {
     syncthing = {
       enable = true;

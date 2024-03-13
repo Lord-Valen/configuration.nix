@@ -2,21 +2,23 @@
   inputs,
   cell,
   config,
-}: let
+}:
+let
   inherit (inputs) nixpkgs;
   pkgs = nixpkgs;
   lib = nixpkgs.lib;
 
   cfg = config.services.p2pool;
   moneroCfg = config.services.monero;
-in {
+in
+{
   # TODO: stratum options, socks5 option
-  meta.maintainers = with lib.maintainers; [lord-valen];
+  meta.maintainers = with lib.maintainers; [ lord-valen ];
 
   options.services.p2pool = with lib; {
     enable = mkEnableOption "the P2Pool service";
 
-    package = mkPackageOption pkgs "p2pool" {};
+    package = mkPackageOption pkgs "p2pool" { };
 
     mining = {
       enable = mkEnableOption "P2Pool builtin miner";
@@ -47,10 +49,7 @@ in {
 
     rpcPort = mkOption {
       type = with types; nullOr port;
-      default =
-        if moneroCfg.enable
-        then moneroCfg.rpc.port
-        else 18081;
+      default = if moneroCfg.enable then moneroCfg.rpc.port else 18081;
     };
 
     zmqPort = mkOption {
@@ -84,53 +83,35 @@ in {
   config = lib.mkIf cfg.enable {
     systemd.services.p2pool = {
       description = "p2pool daemon";
-      after = ["network-online.target"] ++ lib.optional moneroCfg.enable "monero.service";
-      wants = ["network-online.target"] ++ lib.optional moneroCfg.enable "monero.service";
-      wantedBy = [
-        "multi-user.target"
-      ];
+      after = [ "network-online.target" ] ++ lib.optional moneroCfg.enable "monero.service";
+      wants = [ "network-online.target" ] ++ lib.optional moneroCfg.enable "monero.service";
+      wantedBy = [ "multi-user.target" ];
 
       serviceConfig = {
-        ExecStart = let
-          miniString =
-            if cfg.mini
-            then "--mini"
-            else "";
-          lightString =
-            if cfg.light
-            then "--light-mode"
-            else "";
-          hostString =
-            if (builtins.isString cfg.host)
-            then "--host ${cfg.host}"
-            else "";
-          rpcString =
-            if (builtins.isInt cfg.rpcPort)
-            then "--rpc-port ${toString cfg.rpcPort}"
-            else "";
-          zmqString =
-            if (builtins.isInt cfg.zmqPort)
-            then "--zmq-port ${toString cfg.zmqPort}"
-            else "";
-          inPeersString = "--in-peers ${toString cfg.inPeers}";
-          outPeersString = "--out-peers ${toString cfg.outPeers}";
-          addressString = "--wallet ${cfg.address}";
-          miningString =
-            if cfg.mining.enable
-            then "--start-mining ${cfg.mining.threads}"
-            else "";
-        in ''
-          ${lib.getExe' cfg.package "p2pool"}\
-            ${miniString}\
-            ${lightString}\
-            ${hostString}\
-            ${rpcString}\
-            ${zmqString}\
-            ${inPeersString}\
-            ${outPeersString}\
-            ${addressString}\
-            ${miningString}
-        '';
+        ExecStart =
+          let
+            miniString = if cfg.mini then "--mini" else "";
+            lightString = if cfg.light then "--light-mode" else "";
+            hostString = if (builtins.isString cfg.host) then "--host ${cfg.host}" else "";
+            rpcString = if (builtins.isInt cfg.rpcPort) then "--rpc-port ${toString cfg.rpcPort}" else "";
+            zmqString = if (builtins.isInt cfg.zmqPort) then "--zmq-port ${toString cfg.zmqPort}" else "";
+            inPeersString = "--in-peers ${toString cfg.inPeers}";
+            outPeersString = "--out-peers ${toString cfg.outPeers}";
+            addressString = "--wallet ${cfg.address}";
+            miningString = if cfg.mining.enable then "--start-mining ${cfg.mining.threads}" else "";
+          in
+          ''
+            ${lib.getExe' cfg.package "p2pool"}\
+              ${miniString}\
+              ${lightString}\
+              ${hostString}\
+              ${rpcString}\
+              ${zmqString}\
+              ${inPeersString}\
+              ${outPeersString}\
+              ${addressString}\
+              ${miningString}
+          '';
         Restart = "always";
       };
     };

@@ -1,10 +1,9 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) anyrun;
-in {
-  imports = [anyrun.homeManagerModules.anyrun];
+in
+{
+  imports = [ anyrun.homeManagerModules.anyrun ];
   programs.anyrun = {
     enable = true;
     config = {

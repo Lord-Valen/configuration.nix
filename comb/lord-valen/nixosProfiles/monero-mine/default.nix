@@ -1,7 +1,5 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
   inherit (nixpkgs) lib;
 
@@ -9,10 +7,11 @@
 
   inPeers = 32;
   outPeers = 64;
-in {
-  imports = [p2pool];
+in
+{
+  imports = [ p2pool ];
 
-  environment.systemPackages = with nixpkgs; [monero-gui];
+  environment.systemPackages = with nixpkgs; [ monero-gui ];
 
   services = {
     monero = {
@@ -42,9 +41,7 @@ in {
 
     xmrig = {
       enable = true;
-      settings.pools = lib.singleton {
-        url = "127.0.0.1:3333";
-      };
+      settings.pools = lib.singleton { url = "127.0.0.1:3333"; };
     };
   };
 }

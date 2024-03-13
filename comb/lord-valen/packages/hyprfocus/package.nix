@@ -25,9 +25,12 @@ gcc13Stdenv.mkDerivation {
     wlroots
   ];
 
-  buildInputs = lib.foldr lib.remove hyprland.buildInputs [meson ninja];
+  buildInputs = lib.foldr lib.remove hyprland.buildInputs [
+    meson
+    ninja
+  ];
 
-  buildFlags = ["all"];
+  buildFlags = [ "all" ];
 
   installPhase = ''
     runHook preInstall
@@ -41,7 +44,7 @@ gcc13Stdenv.mkDerivation {
   meta = with lib; {
     description = "A focus animation plugin for Hyprland inspired by Flashfocus";
     homepage = "https://github.com/VortexCoyote/hyprfocus";
-    licence = with licences; [bsd3];
-    maintainers = with maintainers; [lord-valen];
+    licence = with licences; [ bsd3 ];
+    maintainers = with maintainers; [ lord-valen ];
   };
 }

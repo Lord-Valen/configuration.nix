@@ -1,9 +1,8 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) common nixos-hardware;
-in {
+in
+{
   imports = with nixos-hardware.nixosModules; [
     common-pc
     common-cpu-amd-pstate
@@ -12,5 +11,8 @@ in {
 
   inherit (common) hardware;
 
-  services.xserver.xrandrHeads = ["HDMI-1" "DP-1"];
+  services.xserver.xrandrHeads = [
+    "HDMI-1"
+    "DP-1"
+  ];
 }

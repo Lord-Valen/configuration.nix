@@ -1,6 +1,4 @@
+{ inputs, cell }:
 {
-  inputs,
-  cell,
-}: {
   services.syncthing.enable = true;
 }

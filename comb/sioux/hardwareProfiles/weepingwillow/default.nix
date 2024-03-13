@@ -1,9 +1,8 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixos-hardware disko;
-in {
+in
+{
   hardware = {
     opengl.driSupport32Bit = true;
     enableRedistributableFirmware = true;
@@ -13,7 +12,7 @@ in {
     common-pc-laptop-hdd
     common-cpu-amd
     disko.nixosModules.disko
-    {disko.devices = cell.diskoConfigurations.weepingwillow;}
+    { disko.devices = cell.diskoConfigurations.weepingwillow; }
   ];
 
   boot.initrd.availableKernelModules = [
@@ -30,19 +29,19 @@ in {
     "/" = {
       label = "MAIN";
       fsType = "btrfs";
-      options = ["subvol=/@"];
+      options = [ "subvol=/@" ];
     };
 
     "/home" = {
       label = "MAIN";
       fsType = "btrfs";
-      options = ["subvol=/@home"];
+      options = [ "subvol=/@home" ];
     };
 
     "/swap" = {
       label = "MAIN";
       fsType = "btrfs";
-      options = ["subvol=/@swap"];
+      options = [ "subvol=/@swap" ];
     };
   };
 }

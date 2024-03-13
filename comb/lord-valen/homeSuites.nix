@@ -1,18 +1,14 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (cell) homeProfiles;
-in rec {
-  base = with homeProfiles; [
-    core
-  ];
+in
+rec {
+  base = with homeProfiles; [ core ];
 
-  laptop = with homeProfiles; [
-    colemak
-  ];
+  laptop = with homeProfiles; [ colemak ];
 
-  lord-valen = with homeProfiles;
+  lord-valen =
+    with homeProfiles;
     [
       gpg
       git
@@ -33,11 +29,7 @@ in rec {
     mpd
   ];
 
-  hyprland = with homeProfiles; [
-    homeProfiles.hyprland
-  ];
+  hyprland = with homeProfiles; [ homeProfiles.hyprland ];
 
-  xmonad = with homeProfiles; [
-    xmobar
-  ];
+  xmonad = with homeProfiles; [ xmobar ];
 }

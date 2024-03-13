@@ -1,9 +1,8 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
-in {
+in
+{
   programs.npm.enable = true;
   environment.systemPackages = with nixpkgs; [
     nodejs

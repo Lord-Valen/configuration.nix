@@ -1,14 +1,11 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
-in {
+in
+{
   hardware.sane.enable = true;
   programs.system-config-printer.enable = true;
-  environment.systemPackages = with nixpkgs; [
-    simple-scan
-  ];
+  environment.systemPackages = with nixpkgs; [ simple-scan ];
 
   services = {
     avahi = {

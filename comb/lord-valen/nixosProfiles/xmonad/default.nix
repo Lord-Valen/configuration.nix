@@ -1,9 +1,8 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
-in {
+in
+{
   environment.systemPackages = with nixpkgs; [
     xorg.xkill
     xmobar
@@ -13,5 +12,8 @@ in {
     flameshot
   ];
 
-  fonts.packages = with nixpkgs; [fira-code font-awesome];
+  fonts.packages = with nixpkgs; [
+    fira-code
+    font-awesome
+  ];
 }

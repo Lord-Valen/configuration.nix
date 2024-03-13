@@ -1,10 +1,7 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
-in {
-  packages = with nixpkgs; [
-    mpc-cli
-  ];
+in
+{
+  packages = with nixpkgs; [ mpc-cli ];
 }

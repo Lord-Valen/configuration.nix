@@ -1,5 +1,5 @@
 {
-  kernelModules = ["kvm-amd"];
+  kernelModules = [ "kvm-amd" ];
   initrd.availableKernelModules = [
     "xhci_pci"
     "ahci"

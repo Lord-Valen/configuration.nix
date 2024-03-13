@@ -8,7 +8,7 @@
     "sd_mod"
     "sr_mod"
   ];
-  kernelModules = ["kvm-intel"];
+  kernelModules = [ "kvm-intel" ];
   loader = {
     systemd-boot = {
       enable = true;

@@ -1,13 +1,12 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
-in {
+in
+{
   portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = with nixpkgs; [xdg-desktop-portal-hyprland];
+    extraPortals = with nixpkgs; [ xdg-desktop-portal-hyprland ];
     config = {
       hyprland.default = [
         "hyprland"

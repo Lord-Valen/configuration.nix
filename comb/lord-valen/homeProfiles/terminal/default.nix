@@ -1,12 +1,9 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
-in {
-  home.packages = with nixpkgs; [
-    (iosevka-bin.override {variant = "sgr-iosevka-term-ss05";})
-  ];
+in
+{
+  home.packages = with nixpkgs; [ (iosevka-bin.override { variant = "sgr-iosevka-term-ss05"; }) ];
 
   programs = {
     alacritty = {

@@ -1,7 +1,5 @@
+{ inputs, cell }:
 {
-  inputs,
-  cell,
-}: {
   services.xserver.desktopManager.gnome.enable = true;
 
   xdg.portal.enable = true;

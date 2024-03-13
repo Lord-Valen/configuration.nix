@@ -1,7 +1,5 @@
+{ inputs, cell }:
 {
-  inputs,
-  cell,
-}: {
   programs = with inputs.nixpkgs; [
     nil
     nodePackages.typescript-language-server

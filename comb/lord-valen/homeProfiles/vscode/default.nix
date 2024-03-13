@@ -1,10 +1,9 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
   inherit (nixpkgs) lib vscode-utils;
-in {
+in
+{
   programs.vscode = {
     enable = true;
     package = nixpkgs.vscodium;

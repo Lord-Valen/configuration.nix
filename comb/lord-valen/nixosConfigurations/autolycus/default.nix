@@ -1,51 +1,63 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) common nixpkgs;
-  inherit (cell) hardwareProfiles nixosProfiles nixosSuites homeProfiles homeSuites;
+  inherit (cell)
+    hardwareProfiles
+    nixosProfiles
+    nixosSuites
+    homeProfiles
+    homeSuites
+    ;
   inherit (nixpkgs) lib;
   hostName = "autolycus";
-in {
+in
+{
   inherit (common) bee time;
-  networking = {inherit hostName;};
+  networking = {
+    inherit hostName;
+  };
 
-  imports = let
-    profiles = with nixosProfiles; [
-      hardwareProfiles."${hostName}"
+  imports =
+    let
+      profiles = with nixosProfiles; [
+        hardwareProfiles."${hostName}"
 
-      pipewire
-      music
-      hyprland
+        pipewire
+        music
+        hyprland
+      ];
+      suites = with nixosSuites; laptop;
+    in
+    lib.concatLists [
+      profiles
+      suites
     ];
-    suites = with nixosSuites; laptop;
-  in
-    lib.concatLists [profiles suites];
 
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
     users = {
       root = {
-        imports = [homeProfiles.shell];
+        imports = [ homeProfiles.shell ];
         home.stateVersion = "23.11";
       };
       lord-valen = {
-        imports = let
-          profiles = with homeProfiles; [
-            {
-              services.random-background.enable = true;
-            }
+        imports =
+          let
+            profiles = with homeProfiles; [ { services.random-background.enable = true; } ];
+            suites =
+              with homeSuites;
+              lib.concatLists [
+                lord-valen
+                laptop
+                xmonad
+                music
+              ];
+          in
+          lib.concatLists [
+            profiles
+            suites
           ];
-          suites = with homeSuites;
-            lib.concatLists [
-              lord-valen
-              laptop
-              xmonad
-              music
-            ];
-        in
-          lib.concatLists [profiles suites];
         home.stateVersion = "23.05";
       };
     };
@@ -77,25 +89,37 @@ in {
       encrypted.label = "MAIN";
       device = "/dev/mapper/MAIN";
       fsType = "btrfs";
-      options = ["subvol=/@" "noatime" "compress=zstd"];
+      options = [
+        "subvol=/@"
+        "noatime"
+        "compress=zstd"
+      ];
     };
 
     "/home" = {
       encrypted.label = "MAIN";
       device = "/dev/mapper/MAIN";
       fsType = "btrfs";
-      options = ["subdol=/@home" "noatime" "compress=zstd"];
+      options = [
+        "subdol=/@home"
+        "noatime"
+        "compress=zstd"
+      ];
     };
 
     "/swap" = {
       encrypted.label = "MAIN";
       device = "/dev/mapper/MAIN";
       fsType = "btrfs";
-      options = ["subvol=/@swap" "noatime" "compress=zstd"];
+      options = [
+        "subvol=/@swap"
+        "noatime"
+        "compress=zstd"
+      ];
     };
   };
 
-  swapDevices = [{device = "/swap/swapfile";}];
+  swapDevices = [ { device = "/swap/swapfile"; } ];
 
   system.stateVersion = "23.05";
 }

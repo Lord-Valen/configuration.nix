@@ -2,11 +2,13 @@
   inputs,
   cell,
   config,
-}: let
+}:
+let
   inherit (inputs) nixpkgs;
   inherit (nixpkgs) formats;
-  toml = formats.toml {};
-in {
+  toml = formats.toml { };
+in
+{
   xdg.configFile."wpaperd/wallpaper.toml".source = toml.generate "wpaperd-settings" {
     default = {
       path = ./_wallpaper.d;

@@ -1,20 +1,26 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs.nixpkgs) lib;
-in {
+in
+{
   ncmpcpp = {
     enable = true;
     bindings = lib.concatLists [
-      (lib.mapAttrsToList (key: command: {inherit key command;})
+      (lib.mapAttrsToList (key: command: { inherit key command; })
         # Bind key once
         {
           n = "scroll_down";
           e = "scroll_up";
-          N = ["select_item" "scroll_down"];
-          E = ["select_item" "scroll_up"];
-        })
+          N = [
+            "select_item"
+            "scroll_down"
+          ];
+          E = [
+            "select_item"
+            "scroll_up"
+          ];
+        }
+      )
       [
         # Bind key many times
         {

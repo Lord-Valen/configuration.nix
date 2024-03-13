@@ -1,11 +1,8 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
-in {
+in
+{
   hardware.keyboard.zsa.enable = true;
-  environment.systemPackages = with nixpkgs; [
-    wally-cli
-  ];
+  environment.systemPackages = with nixpkgs; [ wally-cli ];
 }

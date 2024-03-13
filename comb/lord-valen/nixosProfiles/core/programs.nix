@@ -1,3 +1,1 @@
-{
-  git.enable = true;
-}
+{ git.enable = true; }

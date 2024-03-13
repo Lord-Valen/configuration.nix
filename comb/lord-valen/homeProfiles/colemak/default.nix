@@ -1,10 +1,9 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
   inherit (nixpkgs) lib;
-in {
+in
+{
   wayland.windowManager.hyprland.settings = {
     input = {
       kb_layout = "us";

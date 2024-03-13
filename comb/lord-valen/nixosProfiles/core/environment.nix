@@ -1,7 +1,5 @@
+{ inputs, cell }:
 {
-  inputs,
-  cell,
-}: {
   systemPackages = with inputs.nixpkgs; [
     binutils
     coreutils

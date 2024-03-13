@@ -1,14 +1,13 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
-in {
+in
+{
   fonts = {
     fontDir.enable = true;
     packages = with nixpkgs; [
-      (iosevka-bin.override {variant = "aile";})
-      (iosevka-bin.override {variant = "etoile";})
+      (iosevka-bin.override { variant = "aile"; })
+      (iosevka-bin.override { variant = "etoile"; })
       liberation_ttf
     ];
   };

@@ -1,6 +1,6 @@
 {
   nix.settings = {
-    substituters = ["https://cache.nixos.org/"];
+    substituters = [ "https://cache.nixos.org/" ];
 
     trusted-substituters = [
       # nix-community

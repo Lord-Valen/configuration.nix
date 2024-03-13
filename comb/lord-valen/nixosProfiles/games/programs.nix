@@ -1,16 +1,15 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) nixpkgs;
-in {
-  _imports = [inputs.aagl-gtk-on-nix.nixosModules.default];
+in
+{
+  _imports = [ inputs.aagl-gtk-on-nix.nixosModules.default ];
   anime-game-launcher.enable = true;
   steam = {
     enable = true;
     package = nixpkgs.steam.override {
-      extraPkgs = pkgs:
-        with pkgs; [
+      extraPkgs =
+        pkgs: with pkgs; [
           keyutils
           libkrb5
         ];

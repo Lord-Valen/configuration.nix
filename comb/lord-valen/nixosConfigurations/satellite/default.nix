@@ -1,51 +1,62 @@
-{
-  inputs,
-  cell,
-}: let
+{ inputs, cell }:
+let
   inherit (inputs) common nixpkgs;
-  inherit (cell) hardwareProfiles nixosProfiles nixosSuites homeProfiles homeSuites;
+  inherit (cell)
+    hardwareProfiles
+    nixosProfiles
+    nixosSuites
+    homeProfiles
+    homeSuites
+    ;
   inherit (nixpkgs) lib;
   hostName = "satellite";
-in {
+in
+{
   inherit (common) bee time;
-  networking = {inherit hostName;};
+  networking = {
+    inherit hostName;
+  };
 
-  imports = let
-    profiles = with nixosProfiles; [
-      hardwareProfiles."${hostName}"
+  imports =
+    let
+      profiles = with nixosProfiles; [
+        hardwareProfiles."${hostName}"
 
-      regreet
-      hyprland
+        regreet
+        hyprland
+      ];
+      suites = with nixosSuites; lib.concatLists [ laptop ];
+    in
+    lib.concatLists [
+      profiles
+      suites
     ];
-    suites = with nixosSuites;
-      lib.concatLists [laptop];
-  in
-    lib.concatLists [profiles suites];
 
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
     users = {
       root = {
-        imports = [homeProfiles.shell];
+        imports = [ homeProfiles.shell ];
         home.stateVersion = "23.11";
       };
       lord-valen = {
-        imports = let
-          profiles = with homeProfiles; [
-            {
-              services.random-background.enable = true;
-            }
+        imports =
+          let
+            profiles = with homeProfiles; [ { services.random-background.enable = true; } ];
+            suites =
+              with homeSuites;
+              lib.concatLists [
+                lord-valen
+                laptop
+                xmonad
+                hyprland
+              ];
+          in
+          lib.concatLists [
+            profiles
+            suites
           ];
-          suites = with homeSuites;
-            lib.concatLists [
-              lord-valen
-              laptop
-              xmonad
-              hyprland
-            ];
-        in
-          lib.concatLists [profiles suites];
         home.stateVersion = "23.05";
       };
     };
@@ -80,7 +91,7 @@ in {
     fsType = "ext4";
   };
 
-  swapDevices = [{device = "/dev/disk/by-uuid/5b455084-e717-4ded-88c2-9714031ccad0";}];
+  swapDevices = [ { device = "/dev/disk/by-uuid/5b455084-e717-4ded-88c2-9714031ccad0"; } ];
 
   system.stateVersion = "23.05";
 }

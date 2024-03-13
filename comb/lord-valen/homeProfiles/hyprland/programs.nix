@@ -2,7 +2,8 @@
   inputs,
   cell,
   config,
-}: {
+}:
+{
   swaylock = {
     package = inputs.nixpkgs.swaylock-effects;
     enable = true;
