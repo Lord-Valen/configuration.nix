@@ -160,7 +160,8 @@ in
       [
         # :lang nix
         ## lsp
-        nixd
+        # nixd FIXME: broken until 1.2.3
+        inputs.nixd.packages.default
         nixfmt
       ]
       (lib.flatten [
