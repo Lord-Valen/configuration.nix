@@ -69,6 +69,7 @@ in
   };
 
   zoxide = {
+    package = pkgs-unstable.zoxide;
     enable = true;
     options = lib.cli.toGNUCommandLine { } { cmd = "cd"; };
   };
