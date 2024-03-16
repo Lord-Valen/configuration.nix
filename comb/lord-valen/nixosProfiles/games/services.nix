@@ -6,4 +6,5 @@
       userServices = true;
     };
   };
+  xserver.desktopManager.retroarch.enable = true;
 }
