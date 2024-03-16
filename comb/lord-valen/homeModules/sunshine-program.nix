@@ -3,11 +3,11 @@
   cell,
   config,
   options,
-  pkgs,
+  pkgs ? { }, # FIXME: attribute 'pkgs' missing
   lib,
 }:
 let
-  inherit (inputs) nixpkgs home-manager;
+  inherit (inputs) home-manager;
 
   cfg = config.services.sunshine;
 

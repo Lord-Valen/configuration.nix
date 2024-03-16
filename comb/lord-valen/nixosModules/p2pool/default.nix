@@ -2,11 +2,11 @@
   inputs,
   cell,
   config,
-  pkgs,
+  pkgs, # FIXME: attribute 'pkgs' missing
   lib,
 }:
 let
-  inherit (inputs) nixpkgs;
+  pkgs = inputs.nixpkgs; # workaround
 
   cfg = config.services.p2pool;
   moneroCfg = config.services.monero;
