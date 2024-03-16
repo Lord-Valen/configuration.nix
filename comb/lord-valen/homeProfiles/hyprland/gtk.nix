@@ -1,4 +1,9 @@
 {
+  inputs,
+  cell,
+  lib,
+}:
+{
   enable = true;
-  theme.name = "adwaita-dark";
+  theme.name = lib.mkDefault "adwaita-dark";
 }

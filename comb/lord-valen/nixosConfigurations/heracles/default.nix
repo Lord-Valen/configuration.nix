@@ -74,6 +74,7 @@ in
                   ", preferred, auto, 1"
                 ];
               }
+              stylix
             ];
             suites =
               with homeSuites;

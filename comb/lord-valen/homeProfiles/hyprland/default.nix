@@ -44,8 +44,8 @@ in
         gaps_in = 5;
         gaps_out = 7.5;
         border_size = 0;
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
+        "col.active_border" = lib.mkDefault "rgba(33ccffee) rgba(00ff99ee) 45deg";
+        "col.inactive_border" = lib.mkDefault "rgba(595959aa)";
 
         layout = "master";
       };
@@ -55,7 +55,7 @@ in
         drop_shadow = true;
         shadow_range = 4;
         shadow_render_power = 3;
-        "col.shadow" = "rgba(1a1a1aee)";
+        "col.shadow" = lib.mkDefault "rgba(1a1a1aee)";
 
         blur = {
           enabled = true;

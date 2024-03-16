@@ -1,9 +1,14 @@
-{ inputs, cell }:
+{
+  inputs,
+  cell,
+  lib,
+  pkgs, # FIXME: attribute 'pkgs' missing
+}:
 let
-  inherit (inputs) nixpkgs;
+  pkgs = inputs.nixpkgs; # workaround FIXME
 in
 {
-  home.packages = with nixpkgs; [ (iosevka-bin.override { variant = "sgr-iosevka-term-ss05"; }) ];
+  home.packages = with pkgs; [ (iosevka-bin.override { variant = "sgr-iosevka-term-ss05"; }) ];
 
   programs = {
     alacritty = {
@@ -11,14 +16,14 @@ in
       settings = {
         cursor.shape = "block";
 
-        font = {
+        font = lib.mkDefault {
           normal = {
             family = "Iosevka Term SS05";
             style = "Regular";
           };
         };
 
-        colors = {
+        colors = lib.mkDefault {
           transparent_background_colors = true;
 
           primary = {

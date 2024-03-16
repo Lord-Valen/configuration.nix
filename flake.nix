@@ -90,15 +90,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # TODO: Wait for random wallpaper support
-    # stylix = {
-    #   url = "github:danth/stylix";
-    #   inputs = {
-    #     nixpkgs.follows = "nixpkgs";
-    #     home-manager.follows = "home-manager";
-    #     flake-compat.follows = "";
-    #   };
-    # };
+    stylix = {
+      url = "github:danth/stylix/release-23.11";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+        flake-compat.follows = "";
+      };
+    };
   };
 
   outputs =
