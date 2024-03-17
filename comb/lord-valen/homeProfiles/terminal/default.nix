@@ -2,11 +2,8 @@
   inputs,
   cell,
   lib,
-  pkgs, # FIXME: attribute 'pkgs' missing
+  pkgs,
 }:
-let
-  pkgs = inputs.nixpkgs; # workaround FIXME
-in
 {
   home.packages = with pkgs; [ (iosevka-bin.override { variant = "sgr-iosevka-term-ss05"; }) ];
 

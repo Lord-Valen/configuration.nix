@@ -5,10 +5,6 @@
   pkgs,
   lib,
 }:
-let
-  # FIXME: attribute 'pkgs' missing
-  pkgs = inputs.nixpkgs;
-in
 {
   etc."greetd/hyprland.conf".text = lib.concatLines [
     ''

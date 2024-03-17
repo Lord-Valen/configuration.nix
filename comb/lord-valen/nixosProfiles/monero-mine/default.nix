@@ -1,12 +1,10 @@
 {
   inputs,
   cell,
-  pkgs, # FIXME: attribute 'pkgs' missing
+  pkgs,
   lib,
 }:
 let
-  pkgs = inputs.nixpkgs; # workaround FIXME
-
   inherit (cell.nixosModules) p2pool;
 
   inPeers = 32;

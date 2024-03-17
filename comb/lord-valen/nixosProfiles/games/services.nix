@@ -1,11 +1,8 @@
 {
   inputs,
   cell,
-  pkgs, # FIXME: attribute 'pkgs' missing
+  pkgs,
 }:
-let
-  pkgs = inputs.nixpkgs;
-in
 {
   avahi = {
     enable = true;

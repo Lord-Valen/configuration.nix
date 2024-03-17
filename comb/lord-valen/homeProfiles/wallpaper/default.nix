@@ -5,8 +5,6 @@
   pkgs,
 }:
 let
-  # FIXME: attribute 'pkgs' missing
-  pkgs = inputs.nixpkgs;
   toml = pkgs.formats.toml { };
 in
 {

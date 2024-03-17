@@ -3,7 +3,7 @@
   cell,
   config,
   options,
-  pkgs ? { }, # FIXME: attribute 'pkgs' missing
+  pkgs,
   lib,
 }:
 let

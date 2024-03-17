@@ -1,14 +1,10 @@
 {
   inputs,
   cell,
-  pkgs, # FIXME: attribute 'pkgs' missing
+  pkgs,
 }:
-let
-  pkgs = inputs.nixpkgs; # workaround FIXME
-  inherit (inputs.stylix.homeManagerModules) stylix;
-in
 {
-  imports = [ stylix ];
+  imports = [ inputs.stylix.homeManagerModules.stylix ];
   stylix = {
     /*
       I'm not even using this, upstream should add an enable option or make it

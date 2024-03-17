@@ -1,10 +1,9 @@
 {
   inputs,
   cell,
-  pkgs, # FIXME: attribute 'pkgs' missing
+  pkgs,
 }:
 let
-  pkgs = inputs.nixpkgs; # workaround FIXME
   inherit (pkgs.callPackage inputs.stylix.inputs.base16.lib { }) mkSchemeAttrs;
 in
 mkSchemeAttrs {

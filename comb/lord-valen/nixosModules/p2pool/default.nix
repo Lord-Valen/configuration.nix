@@ -2,12 +2,10 @@
   inputs,
   cell,
   config,
-  pkgs, # FIXME: attribute 'pkgs' missing
+  pkgs,
   lib,
 }:
 let
-  pkgs = inputs.nixpkgs; # workaround
-
   cfg = config.services.p2pool;
   moneroCfg = config.services.monero;
 in

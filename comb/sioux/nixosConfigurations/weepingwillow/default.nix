@@ -5,8 +5,6 @@
   lib,
 }:
 let
-  # FIXME: attribute 'pkgs' missing
-  pkgs = inputs.nixpkgs;
   inherit (inputs) common;
   inherit (inputs.cells.lord-valen)
     nixosProfiles

@@ -5,8 +5,6 @@
   lib,
 }:
 let
-  # FIXME: attribute 'pkgs' missing
-  pkgs = inputs.nixpkgs;
   inherit (cell) packages;
 in
 rec {
