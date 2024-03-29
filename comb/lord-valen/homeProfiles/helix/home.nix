@@ -1,6 +1,10 @@
-{ inputs, cell }:
 {
-  programs = with inputs.nixpkgs; [
+  inputs,
+  cell,
+  pkgs,
+}:
+{
+  programs = with pkgs; [
     nil
     nodePackages.typescript-language-server
     nodePackages.vscode-langservers-extracted

@@ -2,10 +2,11 @@
   inputs,
   cell,
   config,
+  pkgs,
 }:
 {
   swaylock = {
-    package = inputs.nixpkgs.swaylock-effects;
+    package = pkgs.swaylock-effects;
     enable = true;
     settings = {
       screenshots = true;

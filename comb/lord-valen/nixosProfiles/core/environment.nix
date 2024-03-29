@@ -1,6 +1,10 @@
-{ inputs, cell }:
 {
-  systemPackages = with inputs.nixpkgs; [
+  inputs,
+  cell,
+  pkgs,
+}:
+{
+  systemPackages = with pkgs; [
     binutils
     coreutils
     dnsutils
