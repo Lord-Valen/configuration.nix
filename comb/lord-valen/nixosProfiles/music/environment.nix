@@ -1,6 +1,10 @@
-{ inputs, cell }:
 {
-  systemPackages = with inputs.nixpkgs; [
+  inputs,
+  cell,
+  pkgs,
+}:
+{
+  systemPackages = with pkgs; [
     zrythm
     cardinal
     geonkick
@@ -8,5 +12,6 @@
     supercollider-with-sc3-plugins
     haskellPackages.tidal
     vcv-rack
+    musescore
   ];
 }
