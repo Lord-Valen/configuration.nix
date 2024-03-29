@@ -13,5 +13,6 @@
     haskellPackages.tidal
     vcv-rack
     musescore
+    guitarix
   ];
 }
