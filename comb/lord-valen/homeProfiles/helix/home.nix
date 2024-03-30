@@ -5,7 +5,7 @@
 }:
 {
   programs = with pkgs; [
-    nil
+    nixd
     nodePackages.typescript-language-server
     nodePackages.vscode-langservers-extracted
     nodePackages.yaml-language-server
