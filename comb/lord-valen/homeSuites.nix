@@ -14,6 +14,7 @@ rec {
       git
       shell
       doom
+      helix
       face
       wallpaper
       zathura
