@@ -15,6 +15,7 @@
           libkrb5
         ];
     };
+    extraCompatPackages = with pkgs; [ proton-ge-bin ];
     remotePlay.openFirewall = true;
     gamescopeSession.enable = true;
   };
