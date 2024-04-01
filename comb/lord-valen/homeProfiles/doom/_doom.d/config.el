@@ -59,7 +59,7 @@
 
 (use-package! projectile
   :custom
-  (projectile-project-search-path `((,(file-truename "~/dev") . 2))))
+  (projectile-project-search-path `((,(file-truename "~/dev") . 3))))
 
 (use-package! typst-ts-mode
   :after apheleia
@@ -71,7 +71,7 @@
 
 (use-package! org-roam
   :custom
-  (org-roam-directory (file-truename "~/dev/Lord-Valen/knowledge-base"))
+  (org-roam-directory (file-truename "~/dev/github/Lord-Valen/knowledge-base"))
   (org-roam-capture-templates
    '(("d" "default" plain
       "%?"
