@@ -1,11 +1,12 @@
-{ inputs, cell }:
-let
-  inherit (inputs) nixpkgs;
-in
+{
+  inputs,
+  cell,
+  pkgs,
+}:
 {
   fonts.fontconfig.enable = true;
 
-  home.packages = with nixpkgs; [
+  home.packages = with pkgs; [
     ripgrep
     bottom
     powerline-fonts
