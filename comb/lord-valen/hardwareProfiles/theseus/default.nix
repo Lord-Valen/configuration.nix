@@ -1,13 +1,12 @@
 { inputs, cell }:
 let
-  inherit (inputs) common nixos-hardware;
+  inherit (inputs) nixos-hardware;
 in
 {
   imports = with nixos-hardware.nixosModules; [
+    cell.hardwareProfiles.base
     common-pc
     common-cpu-intel-sandy-bridge
     common-gpu-amd-southern-islands
   ];
-
-  inherit (common) hardware;
 }

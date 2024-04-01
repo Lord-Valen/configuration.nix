@@ -5,7 +5,6 @@
   lib,
 }:
 let
-  inherit (inputs) common;
   inherit (inputs.cells.lord-valen)
     nixosProfiles
     nixosSuites
@@ -16,7 +15,7 @@ let
   hostName = "weepingwillow";
 in
 {
-  inherit (common) bee time;
+  inherit (inputs.cells.lord-valen) bee;
   networking = {
     inherit hostName;
   };

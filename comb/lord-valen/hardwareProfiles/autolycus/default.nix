@@ -1,11 +1,12 @@
 { inputs, cell }:
 let
-  inherit (inputs) common nixos-hardware;
+  inherit (inputs) nixos-hardware;
 in
 {
-  imports = with nixos-hardware.nixosModules; [ lenovo-thinkpad-t420 ];
-
-  inherit (common) hardware;
+  imports = with nixos-hardware.nixosModules; [
+    cell.hardwareProfiles.base
+    lenovo-thinkpad-t420
+  ];
 
   boot.initrd.availableKernelModules = [ ]; # TODO
 }

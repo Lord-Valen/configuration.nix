@@ -1,15 +1,13 @@
 { inputs, cell }:
 let
-  inherit (inputs) common nixos-hardware;
+  inherit (inputs) nixos-hardware;
 in
 {
   imports = with nixos-hardware.nixosModules; [
-    common
+    cell.hardwareProfiles.base
     common-pc-laptop-hdd
     common-cpu-amd
   ];
-
-  inherit (common) hardware;
 
   boot.initrd.availableKernelModules = [
     "ahci"

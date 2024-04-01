@@ -4,5 +4,6 @@ let
 in
 {
   imports = [ cell.nixosConfigurations.weepingwillow ];
-  inherit (common) bee deployment;
+  inherit (inputs.cells.lord-valen) bee;
+  inherit (cell) deployment;
 }

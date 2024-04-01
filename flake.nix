@@ -126,6 +126,12 @@
             std.blockTypes
             hive.blockTypes
           ]); [
+            # bee module
+            (functions "bee")
+
+            # colmena profile
+            (functions "deployment")
+
             # modules
             (functions "nixosModules")
             (functions "homeModules")

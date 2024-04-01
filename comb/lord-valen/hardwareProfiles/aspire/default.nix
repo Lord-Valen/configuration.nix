@@ -1,10 +1,10 @@
 { inputs, cell }:
 let
-  inherit (inputs) common nixpkgs nixos-hardware;
-  inherit (common) hardware;
+  inherit (inputs) nixpkgs nixos-hardware;
 in
 {
   imports = with nixos-hardware.nixosModules; [
+    cell.hardwareProfiles.base
     common-pc-laptop-hdd
     common-cpu-amd
     common-gpu-amd
@@ -13,7 +13,7 @@ in
   environment.systemPackages = with nixpkgs; [ bluez ];
   services.blueman.enable = true;
 
-  hardware = hardware // {
+  hardware = {
     bluetooth = {
       enable = true;
       powerOnBoot = false;

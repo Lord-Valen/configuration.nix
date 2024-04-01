@@ -4,7 +4,6 @@
   lib,
 }:
 let
-  inherit (inputs) common;
   inherit (cell)
     hardwareProfiles
     nixosProfiles
@@ -15,7 +14,7 @@ let
   hostName = "autolycus";
 in
 {
-  inherit (common) bee time;
+  inherit (cell) bee;
   networking = {
     inherit hostName;
   };
