@@ -9,10 +9,8 @@
     enable = true;
     layout =
       let
-        # TODO: lib.getExe'
-        systemdBin = "${pkgs.systemd}/bin";
-        loginctl = "${systemdBin}/loginctl";
-        systemctl = "${systemdBin}/systemctl";
+        loginctl = lib.getExe' pkgs.systemd "loginctl";
+        systemctl = lib.getExe' pkgs.systemd "systemctl";
       in
       [
         {
