@@ -1,12 +1,14 @@
-{ inputs, cell }:
+{
+  inputs,
+  cell,
+  pkgs,
+}:
 let
-  inherit (inputs) nixpkgs;
-
-  inherit (cell) homeProfiles packages;
+  inherit (cell) homeProfiles;
 in
 {
   _imports = [ homeProfiles.terminal ];
-  packages = with nixpkgs; [
+  packages = with pkgs; [
     hyprpicker
     wl-clipboard
     libnotify

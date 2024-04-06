@@ -1,9 +1,10 @@
-{ inputs, cell }:
-let
-  inherit (inputs) nixpkgs;
-in
 {
-  environment.systemPackages = with nixpkgs; [
+  inputs,
+  cell,
+  pkgs,
+}:
+{
+  environment.systemPackages = with pkgs; [
     brave
     librewolf
     tor-browser-bundle-bin

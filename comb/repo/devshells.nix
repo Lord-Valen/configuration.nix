@@ -1,8 +1,8 @@
 { inputs, cell }:
 let
   inherit (inputs) hive std colmena;
-  nixpkgs = cell.pkgs;
-  inherit (nixpkgs) lib;
+  inherit (cell) pkgs;
+  inherit (pkgs) lib;
   inherit (hive.bootstrap.shell) bootstrap;
   inherit (std.lib) dev cfg;
 in
@@ -19,7 +19,7 @@ in
       (dev.mkNixago cfg.lefthook lefthook)
     ];
 
-    packages = with nixpkgs; [ nixfmt-rfc-style ];
+    packages = with pkgs; [ nixfmt-rfc-style ];
 
     commands =
       let

@@ -1,14 +1,16 @@
-{ inputs, cell }:
-let
-  inherit (inputs) nixpkgs;
-  lib = builtins // nixpkgs.lib;
-in
+{
+  inputs,
+  cell,
+  pkgs,
+  lib,
+}:
 {
   programs.wlogout = {
     enable = true;
     layout =
       let
-        systemdBin = "${nixpkgs.systemd}/bin";
+        # TODO: lib.getExe'
+        systemdBin = "${pkgs.systemd}/bin";
         loginctl = "${systemdBin}/loginctl";
         systemctl = "${systemdBin}/systemctl";
       in

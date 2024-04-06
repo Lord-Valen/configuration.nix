@@ -2,11 +2,11 @@
   inputs,
   cell,
   config,
+  pkgs,
   lib,
 }:
 let
-  inherit (inputs) nixpkgs home-manager;
-  inherit (home-manager.lib) hm;
+  inherit (inputs.home-manager.lib) hm;
 
   inherit (cell) pkgs-unstable;
 in
@@ -14,7 +14,7 @@ in
   # Doom
   activation.installDoomEmacs = hm.dag.entryAfter [ "writeBoundary" ] ''
     if [ ! -d "$XDG_CONFIG_HOME/emacs" ]; then
-       ${lib.getExe nixpkgs.git} clone $VERBOSE_ARG --depth=1 --single-branch \
+       ${lib.getExe pkgs.git} clone $VERBOSE_ARG --depth=1 --single-branch \
            "https://github.com/doomemacs/doomemacs.git" \
            "$XDG_CONFIG_HOME/emacs"
     fi
@@ -26,7 +26,7 @@ in
   ## forge
   file.".authinfo.gpg".source = ./_authinfo.gpg;
   packages =
-    with nixpkgs;
+    with pkgs;
     lib.concatLists [
       [
         # My Dependencies

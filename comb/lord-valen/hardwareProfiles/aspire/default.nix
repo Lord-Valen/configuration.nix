@@ -1,6 +1,10 @@
-{ inputs, cell }:
+{
+  inputs,
+  cell,
+  pkgs,
+}:
 let
-  inherit (inputs) nixpkgs nixos-hardware;
+  inherit (inputs) nixos-hardware;
 in
 {
   imports = with nixos-hardware.nixosModules; [
@@ -10,7 +14,7 @@ in
     common-gpu-amd
   ];
 
-  environment.systemPackages = with nixpkgs; [ bluez ];
+  environment.systemPackages = with pkgs; [ bluez ];
   services.blueman.enable = true;
 
   hardware = {

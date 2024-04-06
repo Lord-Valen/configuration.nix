@@ -1,11 +1,12 @@
-{ inputs, cell }:
-let
-  inherit (inputs) nixpkgs;
-in
+{
+  inputs,
+  cell,
+  pkgs,
+}:
 {
   hardware.sane.enable = true;
   programs.system-config-printer.enable = true;
-  environment.systemPackages = with nixpkgs; [ simple-scan ];
+  environment.systemPackages = with pkgs; [ simple-scan ];
 
   services = {
     avahi = {
@@ -15,7 +16,7 @@ in
 
     printing = {
       enable = true;
-      drivers = with nixpkgs; [
+      drivers = with pkgs; [
         gutenprint
         gutenprintBin
         foomatic-filters

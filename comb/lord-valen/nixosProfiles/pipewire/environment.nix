@@ -1,9 +1,10 @@
-{ inputs, cell }:
-let
-  inherit (inputs) nixpkgs;
-in
 {
-  systemPackages = with nixpkgs; [
+  inputs,
+  cell,
+  pkgs,
+}:
+{
+  systemPackages = with pkgs; [
     pavucontrol
     #pwvucontrol
     helvum

@@ -1,7 +1,8 @@
-{ inputs, cell }:
-let
-  inherit (inputs) nixpkgs;
-in
+{
+  inputs,
+  cell,
+  pkgs,
+}:
 {
   networking = {
     enableIPv6 = true;
@@ -12,7 +13,7 @@ in
     };
   };
 
-  environment.systemPackages = with nixpkgs; [
+  environment.systemPackages = with pkgs; [
     wget
     curl
     nmap

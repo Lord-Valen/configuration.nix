@@ -1,9 +1,10 @@
-{ inputs, cell }:
-let
-  inherit (inputs) nixpkgs;
-in
 {
-  environment.systemPackages = with nixpkgs; [
+  inputs,
+  cell,
+  pkgs,
+}:
+{
+  environment.systemPackages = with pkgs; [
     xorg.xkill
     xmobar
     rofi
@@ -12,7 +13,7 @@ in
     flameshot
   ];
 
-  fonts.packages = with nixpkgs; [
+  fonts.packages = with pkgs; [
     fira-code
     font-awesome
   ];

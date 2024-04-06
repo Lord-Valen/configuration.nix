@@ -1,13 +1,14 @@
-{ inputs, cell }:
-let
-  inherit (inputs) nixpkgs;
-in
+{
+  inputs,
+  cell,
+  pkgs,
+}:
 {
   fonts = {
     fontDir.enable = true;
     enableGhostscriptFonts = true;
     enableDefaultPackages = true;
-    packages = with nixpkgs; [
+    packages = with pkgs; [
       (iosevka-bin.override { variant = "etoile"; })
       (iosevka-bin.override { variant = "aile"; })
       (iosevka-bin.override { variant = "ss05"; })

@@ -1,7 +1,8 @@
-{ inputs, cell }:
-let
-  inherit (inputs) nixpkgs;
-in
+{
+  inputs,
+  cell,
+  pkgs,
+}:
 {
   imports = [ inputs.nix-doom-emacs.hmModule ];
 
@@ -10,7 +11,7 @@ in
   programs.doom-emacs = {
     enable = true;
     doomPrivateDir = ./_doom.d;
-    extraPackages = with nixpkgs; [
+    extraPackages = with pkgs; [
       # :term vterm
       emacsPackages.vterm
     ];

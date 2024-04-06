@@ -1,10 +1,11 @@
-{ inputs, cell }:
-let
-  inherit (inputs) nixpkgs;
-in
+{
+  inputs,
+  cell,
+  pkgs,
+}:
 {
   programs.npm.enable = true;
-  environment.systemPackages = with nixpkgs; [
+  environment.systemPackages = with pkgs; [
     nodejs
     nodePackages.pnpm
     yarn

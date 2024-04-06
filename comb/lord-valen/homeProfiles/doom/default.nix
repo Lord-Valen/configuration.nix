@@ -1,13 +1,14 @@
-{ inputs, cell }:
-let
-  inherit (inputs) nixpkgs;
-in
+{
+  inputs,
+  cell,
+  pkgs,
+}:
 {
   fonts.fontconfig.enable = true;
 
   programs.emacs = {
     enable = true;
-    package = nixpkgs.emacs29;
+    package = pkgs.emacs29;
     extraPackages =
       epkgs: with epkgs; [
         # :term vterm

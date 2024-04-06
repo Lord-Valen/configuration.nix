@@ -1,12 +1,13 @@
-{ inputs, cell }:
-let
-  inherit (inputs) nixpkgs;
-in
+{
+  inputs,
+  cell,
+  pkgs,
+}:
 {
   userDirs.enable = true;
   portal = {
     enable = true;
-    extraPortals = with nixpkgs; [ xdg-desktop-portal-kde ];
+    extraPortals = with pkgs; [ xdg-desktop-portal-kde ];
     config = {
       xmonad.default = [ "kde" ];
     };

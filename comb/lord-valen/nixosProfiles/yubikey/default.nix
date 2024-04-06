@@ -1,9 +1,10 @@
-{ inputs, cell }:
-let
-  inherit (inputs) nixpkgs;
-in
 {
-  environment.systemPackages = with nixpkgs; [ yubikey-manager ];
+  inputs,
+  cell,
+  pkgs,
+}:
+{
+  environment.systemPackages = with pkgs; [ yubikey-manager ];
 
   services.pcscd.enable = true;
 }
