@@ -20,6 +20,7 @@ rec {
       zathura
       less
       mpv
+      stylix
     ]
     ++ base;
 
