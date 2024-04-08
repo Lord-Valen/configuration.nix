@@ -36,7 +36,7 @@ in
             "NerdFontsSymbolsOnly"
           ];
         })
-        (iosevka-bin.override { variant = "aile"; })
+        (iosevka-bin.override { variant = "sgr-iosevka-aile"; })
         noto-fonts-emoji
         config.programs.nushell.package
       ]

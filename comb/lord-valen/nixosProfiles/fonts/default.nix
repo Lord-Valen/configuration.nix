@@ -9,9 +9,9 @@
     enableGhostscriptFonts = true;
     enableDefaultPackages = true;
     packages = with pkgs; [
-      (iosevka-bin.override { variant = "etoile"; })
-      (iosevka-bin.override { variant = "aile"; })
-      (iosevka-bin.override { variant = "ss05"; })
+      (iosevka-bin.override { variant = "sgr-iosevka-etoile"; })
+      (iosevka-bin.override { variant = "sgr-iosevka-aile"; })
+      (iosevka-bin.override { variant = "sgr-iosevka-ss05"; })
       noto-fonts-emoji
     ];
     fontconfig = {
