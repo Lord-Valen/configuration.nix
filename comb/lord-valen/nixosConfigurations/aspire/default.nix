@@ -32,6 +32,7 @@ in
         syncthing
         kubo
         zsa
+        music
 
         { programs.nm-applet.enable = true; }
         {
