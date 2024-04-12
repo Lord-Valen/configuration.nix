@@ -21,6 +21,7 @@ rec {
       less
       mpv
       stylix
+      appimage
     ]
     ++ base;
 
