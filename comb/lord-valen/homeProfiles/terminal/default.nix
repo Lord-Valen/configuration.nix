@@ -11,7 +11,7 @@
     alacritty = {
       enable = true;
       settings = {
-        cursor.shape = "block";
+        cursor.style.shape = "Block";
 
         font = lib.mkDefault {
           normal = {
