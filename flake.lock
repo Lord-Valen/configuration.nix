@@ -814,6 +814,23 @@
         "type": "github"
       }
     },
+    "gnome-shell": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1698794309,
+        "narHash": "sha256-/TIkZ8y5Wv3QHLFp79Poao9fINurKs5pa4z0CRe+F8s=",
+        "owner": "GNOME",
+        "repo": "gnome-shell",
+        "rev": "a7c169c6c29cf02a4c392fa0acbbc5f5072823e7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "GNOME",
+        "ref": "45.1",
+        "repo": "gnome-shell",
+        "type": "github"
+      }
+    },
     "haskell-flake": {
       "locked": {
         "lastModified": 1675296942,
@@ -1861,6 +1878,7 @@
         "base16-tmux": "base16-tmux",
         "base16-vim": "base16-vim",
         "flake-compat": [],
+        "gnome-shell": "gnome-shell",
         "home-manager": [
           "home-manager"
         ],
@@ -1869,18 +1887,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1705668784,
-        "narHash": "sha256-U/1Qol9H5nb8FtWSXSiHY8T4Y7TOIo7NHuqe4uuiBec=",
-        "owner": "danth",
-        "repo": "stylix",
-        "rev": "a9e3ce064a778b386fb88fb152c02ae95aa2cbd2",
-        "type": "github"
+        "lastModified": 1713025302,
+        "narHash": "sha256-za4w2wYt1fg9EdTv5fYLwEqAyHgPmPq88HmlxirXuEk=",
+        "rev": "83866ed8800ed39519a79ea30b18c8eb21f26080",
+        "revCount": 329,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/danth/stylix/0.1.329%2Brev-83866ed8800ed39519a79ea30b18c8eb21f26080/018ed844-74ce-7138-9aa9-7dc88c0b99c4/source.tar.gz"
       },
       "original": {
-        "owner": "danth",
-        "ref": "release-23.11",
-        "repo": "stylix",
-        "type": "github"
+        "type": "tarball",
+        "url": "https://flakehub.com/f/danth/stylix/0.1.%2A.tar.gz"
       }
     },
     "systems": {

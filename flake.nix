@@ -35,6 +35,15 @@
     };
     home-manager.follows = "home-manager-unstable";
 
+    stylix = {
+      url = "https://flakehub.com/f/danth/stylix/0.1.*.tar.gz";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+        flake-compat.follows = "";
+      };
+    };
+
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
     devshell.url = "github:numtide/devshell";
@@ -90,15 +99,6 @@
     nixd = {
       url = "github:nix-community/nixd";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    stylix = {
-      url = "github:danth/stylix/release-23.11";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-        flake-compat.follows = "";
-      };
     };
   };
 
