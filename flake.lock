@@ -1667,7 +1667,7 @@
         "disko": "disko",
         "hive": "hive",
         "home-manager": [
-          "home-manager-stable"
+          "home-manager-unstable"
         ],
         "home-manager-stable": "home-manager-stable",
         "home-manager-unstable": "home-manager-unstable",
@@ -1677,7 +1677,7 @@
         "nixd": "nixd",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": [
-          "nixpkgs-stable"
+          "nixpkgs-unstable"
         ],
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-unstable": "nixpkgs-unstable",

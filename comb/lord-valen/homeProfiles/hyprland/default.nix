@@ -1,11 +1,10 @@
 {
   inputs,
   cell,
-  pkgs,
   lib,
 }:
 let
-  inherit (cell) packages homeProfiles;
+  inherit (cell) homeProfiles;
 in
 {
   imports = [
@@ -15,8 +14,6 @@ in
   ];
   wayland.windowManager.hyprland = {
     enable = true;
-
-    plugins = with pkgs; [ packages.hyprfocus ];
 
     settings = {
       env = [

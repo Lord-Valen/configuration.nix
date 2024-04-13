@@ -23,7 +23,7 @@
   inputs = {
     nixpkgs-stable.url = "https://flakehub.com/f/NixOS/nixpkgs/*.tar.gz";
     nixpkgs-unstable.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.0.tar.gz";
-    nixpkgs.follows = "nixpkgs-stable";
+    nixpkgs.follows = "nixpkgs-unstable";
 
     home-manager-stable = {
       url = "https://flakehub.com/f/nix-community/home-manager/*.tar.gz";
@@ -33,7 +33,7 @@
       url = "https://flakehub.com/f/nix-community/home-manager/0.1.*.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    home-manager.follows = "home-manager-stable";
+    home-manager.follows = "home-manager-unstable";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
