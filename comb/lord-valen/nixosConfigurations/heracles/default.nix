@@ -44,7 +44,10 @@ in
         # TODO: Get an SSD
         # monero
 
-        { services.ratbagd.enable = true; }
+        {
+          services.ratbagd.enable = true;
+          environment.systemPackages = with pkgs; [ piper ];
+        }
       ];
       suites = with nixosSuites; desktop;
     in
