@@ -30,7 +30,7 @@
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
     home-manager-unstable = {
-      url = "https://flakehub.com/f/nix-community/home-manager/0.1.*.tar.gz";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     home-manager.follows = "home-manager-unstable";
