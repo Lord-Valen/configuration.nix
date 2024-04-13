@@ -1,11 +1,6 @@
 { inputs, cell }:
 let
-  inherit (inputs)
-    self
-    nixpkgs'
-    nixpkgs-stable
-    nixpkgs-unstable
-    ;
+  inherit (inputs) self nixpkgs-stable nixpkgs-unstable;
 in
 {
   gc = {
@@ -34,10 +29,7 @@ in
     fallback = true
   '';
 
-  nixPath = [
-    "nixpkgs=${nixpkgs'.outPath}"
-    "nixos-config=${self}"
-  ];
+  nixPath = [ "nixos-config=${self}" ];
 
   registry =
     let
@@ -48,7 +40,6 @@ in
       };
     in
     rec {
-      nixpkgs.flake = nixpkgs';
       stable.flake = nixpkgs-stable;
       unstable.flake = nixpkgs-unstable;
       configuration.to = me "configuration.nix";

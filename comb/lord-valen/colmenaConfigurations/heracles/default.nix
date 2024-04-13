@@ -1,7 +1,9 @@
 { inputs, cell }:
 {
-  imports = [ cell.nixosConfigurations.heracles ];
-  inherit (cell) bee;
+  imports = [
+    cell.bee
+    cell.nixosConfigurations.heracles
+  ];
   deployment = cell.deployment // {
     buildOnTarget = true;
     tags = [ "cluster1" ] ++ cell.deployment.tags;

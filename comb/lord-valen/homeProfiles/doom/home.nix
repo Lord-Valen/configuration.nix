@@ -36,7 +36,7 @@ in
             "NerdFontsSymbolsOnly"
           ];
         })
-        (iosevka-bin.override { variant = "sgr-iosevka-aile"; })
+        (iosevka-bin.override { variant = "Aile"; })
         noto-fonts-emoji
         config.programs.nushell.package
       ]
@@ -162,7 +162,7 @@ in
         ## lsp
         # nixd FIXME: broken until 1.2.3
         inputs.nixd.packages.default
-        nixfmt
+        nixfmt-rfc-style
       ]
       (lib.flatten [
         # :lang ocaml

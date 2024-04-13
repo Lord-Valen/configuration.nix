@@ -7,8 +7,8 @@
   fonts = {
     fontDir.enable = true;
     packages = with pkgs; [
-      (iosevka-bin.override { variant = "sgr-iosevka-aile"; })
-      (iosevka-bin.override { variant = "sgr-iosevka-etoile"; })
+      (iosevka-bin.override { variant = "Aile"; })
+      (iosevka-bin.override { variant = "Etoile"; })
       liberation_ttf
     ];
   };

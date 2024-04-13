@@ -17,6 +17,5 @@ in
         [[ -L "${dir}" ]] || mkdir -p $VERBOSE_ARG "${dir}"
       '';
       sessionPath = [ dir ];
-      packages = with pkgs; [ appimage-run ];
     };
 }

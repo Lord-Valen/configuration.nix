@@ -1,33 +1,25 @@
 { inputs, cell }:
 let
-  inherit (inputs)
-    self
-    hive
-    nixpkgs
-    nixpkgs'
-    ;
-  inherit (hive.bootstrap.profiles) bootstrap;
-  inherit (nixpkgs) lib;
+  inherit (inputs.hive.bootstrap.profiles) bootstrap;
+  inherit (cell) pkgs;
+  inherit (pkgs) lib;
 in
 # TODO: Use haumea
 rec {
   larva = {
     bee = {
       system = "x86_64-linux";
-      pkgs = nixpkgs;
+      pkgs = pkgs;
     };
+    nixpkgs.flake.source = inputs.nixpkgs-unstable.outPath;
 
     imports = [ bootstrap ];
     nix.registry = {
-      self.flake = {
-        inherit (self) outPath;
-      };
       configuration.to = {
         type = "github";
         owner = "Lord-Valen";
         repo = "configuration.nix";
       };
-      nixpkgs.flake = nixpkgs';
     };
 
     # Pre-authorized keys

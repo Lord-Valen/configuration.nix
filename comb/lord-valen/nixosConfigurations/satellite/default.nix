@@ -14,7 +14,6 @@ let
   hostName = "satellite";
 in
 {
-  inherit (cell) bee;
   networking = {
     inherit hostName;
   };
@@ -22,6 +21,7 @@ in
   imports =
     let
       profiles = with nixosProfiles; [
+        cell.bee
         hardwareProfiles."${hostName}"
 
         regreet

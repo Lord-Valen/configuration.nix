@@ -1,5 +1,8 @@
 { inputs, cell }:
 {
-  imports = [ cell.nixosConfigurations.aspire ];
-  inherit (cell) bee deployment;
+  imports = [
+    cell.bee
+    cell.nixosConfigurations.aspire
+  ];
+  inherit (cell) deployment;
 }

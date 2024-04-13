@@ -32,6 +32,7 @@ rec {
     ++ [
       chat
       userProfiles.lord-valen
+      appimage
     ];
 
   server = base ++ [ networking ];

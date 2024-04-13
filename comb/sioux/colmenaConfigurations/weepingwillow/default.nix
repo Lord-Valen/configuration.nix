@@ -3,7 +3,9 @@ let
   inherit (inputs) common;
 in
 {
-  imports = [ cell.nixosConfigurations.weepingwillow ];
-  inherit (inputs.cells.lord-valen) bee;
+  imports = [
+    inputs.cells.lord-valen.bee
+    cell.nixosConfigurations.weepingwillow
+  ];
   inherit (cell) deployment;
 }

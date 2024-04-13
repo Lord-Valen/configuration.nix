@@ -15,7 +15,6 @@ let
   hostName = "weepingwillow";
 in
 {
-  inherit (inputs.cells.lord-valen) bee;
   networking = {
     inherit hostName;
   };
@@ -36,6 +35,7 @@ in
   imports =
     let
       profiles = with nixosProfiles; [
+        inputs.cells.lord-valen.bee
         hardwareProfiles."${hostName}"
 
         lightdm

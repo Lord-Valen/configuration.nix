@@ -5,7 +5,7 @@
   pkgs,
 }:
 {
-  home.packages = with pkgs; [ (iosevka-bin.override { variant = "sgr-iosevka-term-ss05"; }) ];
+  home.packages = with pkgs; [ (iosevka-bin.override { variant = "SS05"; }) ];
 
   programs = {
     alacritty = {

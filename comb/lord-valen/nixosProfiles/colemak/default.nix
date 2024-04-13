@@ -1,4 +1,4 @@
 {
   console.useXkbConfig = true;
-  services.xserver.xkbVariant = "colemak_dh";
+  services.xserver.xkb.variant = "colemak_dh";
 }

@@ -24,14 +24,16 @@
     nixpkgs-stable.url = "https://flakehub.com/f/NixOS/nixpkgs/*.tar.gz";
     nixpkgs-unstable.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.0.tar.gz";
     nixpkgs.follows = "nixpkgs-stable";
-    #nixpkgs.follows = "nixpkgs-unstable";
-    nixpkgs'.follows = "nixpkgs";
 
-    home-manager = {
+    home-manager-stable = {
       url = "https://flakehub.com/f/nix-community/home-manager/*.tar.gz";
-      #url = "https://flakehub.com/f/nix-community/home-manager/0.1.*.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
+    home-manager-unstable = {
+      url = "https://flakehub.com/f/nix-community/home-manager/0.1.*.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    home-manager.follows = "home-manager-stable";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
@@ -160,20 +162,10 @@
             (installables "packages")
 
             # nixpkgs
+            (functions "nixpkgsConfig")
             (pkgs "pkgs")
+            (pkgs "pkgs-stable")
             (pkgs "pkgs-unstable")
-          ];
-
-        # I want to keep proprietary software to a minimum.
-        # allowUnfreePredicate forces me to keep track of what proprietary software I allow.
-        nixpkgsConfig.allowUnfreePredicate =
-          pkg:
-          lib.elem (lib.getName pkg) [
-            "steam"
-            "steam-run"
-            "steam-original"
-            "VCV-Rack"
-            "osu-lazer-bin-2023.1114.1"
           ];
       }
       {

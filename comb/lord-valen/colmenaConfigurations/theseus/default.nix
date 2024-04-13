@@ -1,7 +1,9 @@
 { inputs, cell }:
 {
-  imports = [ cell.nixosConfigurations.theseus ];
-  inherit (cell) bee;
+  imports = [
+    cell.bee
+    cell.nixosConfigurations.theseus
+  ];
   deployment = cell.deployment // {
     allowLocalDeployment = false;
     tags = cell.deployment.tags ++ [ "cluster1" ];

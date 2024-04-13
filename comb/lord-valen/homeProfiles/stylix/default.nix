@@ -44,15 +44,15 @@
         popups = 11;
       };
       serif = {
-        package = pkgs.iosevka-bin.override { variant = "sgr-iosevka-aile"; };
+        package = pkgs.iosevka-bin.override { variant = "Aile"; };
         name = "Iosevka Aile";
       };
       sansSerif = {
-        package = pkgs.iosevka-bin.override { variant = "sgr-iosevka-etoile"; };
+        package = pkgs.iosevka-bin.override { variant = "Etoile"; };
         name = "Iosevka Etoile";
       };
       monospace = {
-        package = pkgs.iosevka-bin.override { variant = "sgr-iosevka-term-ss05"; };
+        package = pkgs.iosevka-bin.override { variant = "SS05"; };
         name = "Iosevka Term SS05";
       };
     };
