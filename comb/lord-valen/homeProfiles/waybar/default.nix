@@ -27,6 +27,21 @@
           "network"
           "tray"
         ];
+        mpris = {
+          format = "({player_icon}  {status_icon} ) {dynamic}";
+          max-length = 999;
+          player-icons = {
+            default = "";
+            mpv = "";
+            vlc = "󰕼";
+            brave = "";
+            firefox = "";
+          };
+          status-icons = {
+            playing = "";
+            paused = "";
+          };
+        };
         "hyprland/workspaces" = {
           all-outputs = false;
         };
