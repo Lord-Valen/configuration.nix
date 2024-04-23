@@ -75,7 +75,7 @@ in
           {
             name = "dry";
             help = "Dry activate configuration";
-            command = ''nixos-rebuild dry-activate --flake $PRJ_ROOT "$@"'';
+            command = ''sudo nixos-rebuild dry-activate --flake $PRJ_ROOT "$@"'';
           }
           {
             name = "switch";
