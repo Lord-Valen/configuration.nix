@@ -29,6 +29,10 @@ in
         nix = mkCategory "nix";
       in
       lib.concatLists [
+        (with pkgs; [
+          { package = nix-inspect; }
+          { package = nix-du; }
+        ])
         (builtins.map paisano [ { package = std.std.cli.default; } ])
         (builtins.map bootstrap [
           { package = colmena.packages.colmena; }
