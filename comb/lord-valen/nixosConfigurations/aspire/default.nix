@@ -1,7 +1,6 @@
 {
   inputs,
   cell,
-  pkgs,
   lib,
 }:
 let
@@ -22,9 +21,6 @@ in
   imports =
     let
       profiles = with nixosProfiles; [
-        cell.bee
-        hardwareProfiles."${hostName}"
-
         adb
         regreet
         hyprland
@@ -47,6 +43,10 @@ in
       suites = with nixosSuites; laptop;
     in
     lib.concatLists [
+      [
+        cell.bee
+        hardwareProfiles."${hostName}"
+      ]
       profiles
       suites
     ];
