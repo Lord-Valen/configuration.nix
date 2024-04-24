@@ -76,6 +76,7 @@
 (use-package! org-roam
   :custom
   (org-roam-directory (file-truename "~/dev/github/Lord-Valen/knowledge-base"))
+  (citar-bibliography `(,(file-name-concat org-roam-directory "lib.bib")))
   (org-roam-capture-templates
    '(("d" "default" plain
       "%?"
