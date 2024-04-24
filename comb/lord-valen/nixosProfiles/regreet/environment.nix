@@ -10,6 +10,11 @@
     ''
       exec-once = ${lib.getExe' pkgs.dbus "dbus-update-activation-environment"} --systemd DISPLAY HYPRLAND_INSTANCE_SIGNATURE WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
       exec-once = ${lib.getExe config.programs.regreet.package}; ${lib.getExe' config.programs.hyprland.package "hyprctl"} dispatch exit
+
+      input {
+        kb_layout=${config.services.xserver.xkb.layout}
+        kb_variant=${config.services.xserver.xkb.variant}
+      }
     ''
     (
       if (lib.hasAttr "greetd/hyprland-monitor.conf" config.environment.etc) then
