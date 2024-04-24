@@ -53,6 +53,10 @@
   (langtool-bin "languagetool-commandline")
   (langtool-default-language "en-CA"))
 
+(use-package! nov
+  :config
+  (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode)))
+
 (use-package! parinfer-rust-mode
   :custom
   (parinfer-rust-preferred-mode "paren"))
