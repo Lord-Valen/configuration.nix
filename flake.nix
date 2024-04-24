@@ -79,27 +79,22 @@
       url = "github:nix-community/disko/v1.3.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    anyrun = {
-      url = "github:Kirottu/anyrun";
-    };
   };
 
   # Desktop
   inputs = {
+    anyrun.url = "github:Kirottu/anyrun";
+
     aagl-gtk-on-nix.url = "github:ezKEa/aagl-gtk-on-nix";
     aagl-gtk-on-nix.inputs.flake-compat.follows = "";
 
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nix-doom-emacs.inputs.flake-compat.follows = "";
 
+    nixd.url = "github:nix-community/nixd";
+
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-
-    nixd = {
-      url = "github:nix-community/nixd";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
