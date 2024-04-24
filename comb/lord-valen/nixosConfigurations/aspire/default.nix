@@ -33,7 +33,6 @@ in
         kubo
         zsa
         music
-        gnome
 
         { programs.nm-applet.enable = true; }
         {
