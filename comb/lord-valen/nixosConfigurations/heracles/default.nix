@@ -41,6 +41,7 @@ in
         geoclue
         zsa
         flatpak
+        sunshine
         # TODO: Get an SSD
         # monero
 

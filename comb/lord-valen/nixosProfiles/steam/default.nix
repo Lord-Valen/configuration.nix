@@ -6,6 +6,7 @@
 {
   programs = {
     gamemode.enable = true;
+    # NOTE: Steam might need avahi
     steam = {
       enable = true;
       package = pkgs.steam.override {

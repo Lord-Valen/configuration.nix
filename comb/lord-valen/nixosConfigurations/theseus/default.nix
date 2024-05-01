@@ -32,12 +32,16 @@ in
         arionProfiles.pihole
 
         gnome
-        steam
         servarr
         syncthing
         flatpak
       ];
-      suites = with nixosSuites; pc;
+      suites =
+        with nixosSuites;
+        lib.concatLists [
+          pc
+          remote-play
+        ];
     in
     lib.concatLists [
       profiles

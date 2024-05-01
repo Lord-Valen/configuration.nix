@@ -4,6 +4,11 @@ let
 in
 with nixosProfiles;
 rec {
+  remote-play = [
+    steam
+    moonlight
+  ];
+
   games = [
     nixosProfiles.games
     steam

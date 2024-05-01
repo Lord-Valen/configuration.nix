@@ -2,20 +2,17 @@
   inputs,
   cell,
   config,
-  options,
   pkgs,
   lib,
 }:
 let
-  inherit (inputs) home-manager;
-
-  cfg = config.services.sunshine;
+  cfg = config.programs.sunshine;
 
   conf = pkgs.formats.conf { };
   json = pkgs.formats.json { };
 in
 {
-  options.services.sunshine =
+  options.programs.sunshine =
     let
       inherit (lib)
         mkEnableOption
