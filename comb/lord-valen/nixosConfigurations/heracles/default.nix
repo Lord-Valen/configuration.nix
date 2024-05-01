@@ -41,13 +41,10 @@ in
         hyprland
         geoclue
         zsa
+        flatpak
         # TODO: Get an SSD
         # monero
 
-        {
-          # TODO: flatpak profile
-          services.flatpak.enable = true;
-        }
         {
           services.ratbagd.enable = true;
           environment.systemPackages = with pkgs; [ piper ];

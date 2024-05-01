@@ -35,6 +35,7 @@ in
         games
         servarr
         syncthing
+        flatpak
       ];
       suites = with nixosSuites; pc;
     in
@@ -69,8 +70,6 @@ in
       };
     };
   };
-
-  services.flatpak.enable = true;
 
   services.syncthing = {
     user = lib.mkForce "servarr";
