@@ -35,7 +35,6 @@ in
 
         adb
         music
-        games
         syncthing
         regreet
         hyprland
@@ -50,7 +49,12 @@ in
           environment.systemPackages = with pkgs; [ piper ];
         }
       ];
-      suites = with nixosSuites; desktop;
+      suites =
+        with nixosSuites;
+        lib.concatLists [
+          desktop
+          games
+        ];
     in
     lib.concatLists [
       profiles

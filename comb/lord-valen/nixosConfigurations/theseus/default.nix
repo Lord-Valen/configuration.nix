@@ -32,7 +32,7 @@ in
         arionProfiles.pihole
 
         gnome
-        games
+        steam
         servarr
         syncthing
         flatpak

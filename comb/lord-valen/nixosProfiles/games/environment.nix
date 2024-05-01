@@ -5,7 +5,6 @@
 }:
 {
   systemPackages = with pkgs; [
-    protonup-ng
     protontricks
     heroic
     lutris

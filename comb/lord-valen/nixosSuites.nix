@@ -4,6 +4,11 @@ let
 in
 with nixosProfiles;
 rec {
+  games = [
+    nixosProfiles.games
+    steam
+  ];
+
   base = [
     linux
     core
