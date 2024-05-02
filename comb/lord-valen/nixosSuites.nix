@@ -13,6 +13,7 @@ rec {
     nixosProfiles.games
     steam
     retroarch
+    osu
   ];
 
   base = [
