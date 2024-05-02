@@ -10,12 +10,12 @@ rec {
   ];
 
   games = [
-    nixosProfiles.games
     steam
     retroarch
     osu
     heroic
     lutris
+    aagl
   ];
 
   base = [
