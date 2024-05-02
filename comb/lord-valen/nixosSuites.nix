@@ -14,6 +14,8 @@ rec {
     steam
     retroarch
     osu
+    heroic
+    lutris
   ];
 
   base = [
