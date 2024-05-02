@@ -4,8 +4,11 @@
   pkgs,
 }:
 {
+  imports = with cell.nixosProfiles; [
+    gamemode
+    gamescope
+  ];
   programs = {
-    gamemode.enable = true;
     # NOTE: Steam might need avahi
     steam = {
       enable = true;

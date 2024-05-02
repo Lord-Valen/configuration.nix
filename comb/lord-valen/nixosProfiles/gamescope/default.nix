@@ -1,0 +1,1 @@
+{ programs.gamescope.enable = true; }

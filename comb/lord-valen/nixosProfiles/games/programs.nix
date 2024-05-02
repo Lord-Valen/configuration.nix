@@ -4,8 +4,10 @@
   pkgs,
 }:
 {
-  _imports = [ inputs.aagl-gtk-on-nix.nixosModules.default ];
+  _imports = with cell.nixosProfiles; [
+    inputs.aagl-gtk-on-nix.nixosModules.default
+    gamescope
+    gamemode
+  ];
   anime-game-launcher.enable = true;
-  gamescope.enable = true;
-  gamemode.enable = true;
 }
