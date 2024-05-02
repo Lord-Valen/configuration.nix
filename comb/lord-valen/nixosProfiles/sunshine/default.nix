@@ -4,15 +4,9 @@
   pkgs,
 }:
 {
-  environment.systemPackages = with pkgs; [ sunshine ];
   # TODO: figure out whether it was sunshine or moonlight that required avahi
-  services.avahi = {
-    enable = true;
-    publish = {
-      enable = true;
-      userServices = true;
-    };
-  };
+  imports = with cell.nixosProfiles; [ avahi ];
+  environment.systemPackages = with pkgs; [ sunshine ];
   networking.firewall = {
     allowedTCPPorts = [
       47984 # sunshine https

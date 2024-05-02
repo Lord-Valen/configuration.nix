@@ -4,12 +4,13 @@
   pkgs,
 }:
 {
+  # TODO: Figure out if Steam needs avahi
   imports = with cell.nixosProfiles; [
     gamemode
     gamescope
+    avahi
   ];
   programs = {
-    # NOTE: Steam might need avahi
     steam = {
       enable = true;
       package = pkgs.steam.override {
