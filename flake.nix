@@ -91,8 +91,6 @@
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
     nix-doom-emacs.inputs.flake-compat.follows = "";
 
-    nixd.url = "github:nix-community/nixd";
-
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };

@@ -12,6 +12,6 @@ in
       "steam-run"
       "steam-original"
       "vcv-rack"
-      "osu-lazer-bin-2024.412.1"
+      "osu-lazer-bin"
     ];
 }
