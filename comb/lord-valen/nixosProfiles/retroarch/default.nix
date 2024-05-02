@@ -4,7 +4,7 @@
   pkgs,
 }:
 {
-  xserver.desktopManager.retroarch = {
+  services.xserver.desktopManager.retroarch = {
     enable = true;
     package = pkgs.retroarch.override {
       cores = with pkgs.libretro; [

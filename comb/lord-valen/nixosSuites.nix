@@ -12,6 +12,7 @@ rec {
   games = [
     nixosProfiles.games
     steam
+    retroarch
   ];
 
   base = [
