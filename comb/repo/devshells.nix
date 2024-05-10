@@ -19,7 +19,12 @@ in
       (dev.mkNixago cfg.lefthook lefthook)
     ];
 
-    packages = with pkgs; [ nixfmt-rfc-style ];
+    packages = with pkgs; [
+      nixfmt-rfc-style
+      nh
+      nvd
+      nixos-rebuild
+    ];
 
     commands =
       let
@@ -56,7 +61,7 @@ in
           {
             name = "boot";
             help = "Switch boot configuration";
-            command = ''sudo nixos-rebuild boot --flake $PRJ_ROOT "$@"'';
+            command = ''FLAKE=$PRJ_ROOT nh os boot "$@"'';
           }
           {
             name = "build";
@@ -69,27 +74,28 @@ in
             command = ''nix flake check $PRJ_ROOT "$@"'';
           }
           {
-            name = "diff-closures";
+            name = "diff";
             help = "Diff configuration with current-system";
             command = ''
-              build "$@"
-              nix store diff-closures /run/current-system ./result
+              build
+              nvd "$@" /run/current-system result
+              rm result
             '';
           }
           {
             name = "dry";
             help = "Dry activate configuration";
-            command = ''sudo nixos-rebuild dry-activate --flake $PRJ_ROOT "$@"'';
+            command = ''FLAKE=$PRJ_ROOT nh os switch --dry "$@"'';
           }
           {
             name = "switch";
             help = "Switch configurations";
-            command = ''sudo nixos-rebuild switch --flake $PRJ_ROOT "$@"'';
+            command = ''FLAKE=$PRJ_ROOT nh os switch "$@"'';
           }
           {
             name = "test";
             help = "Test configuration";
-            command = ''sudo nixos-rebuild test --flake $PRJ_ROOT "$@"'';
+            command = ''FLAKE=$PRJ_ROOT nh os test "$@"'';
           }
           {
             name = "update";
