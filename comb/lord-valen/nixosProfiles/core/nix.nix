@@ -3,11 +3,12 @@ let
   inherit (inputs) self nixpkgs-stable nixpkgs-unstable;
 in
 {
-  gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 2d";
-  };
+  # NOTE: This is handled by nh. See ./programs.nix
+  # gc = {
+  #   automatic = true;
+  #   dates = "weekly";
+  #   options = "--delete-older-than 2d";
+  # };
 
   settings = {
     sandbox = true;
