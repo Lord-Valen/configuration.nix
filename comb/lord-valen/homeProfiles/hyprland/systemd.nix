@@ -28,7 +28,7 @@ rec {
           {
             Unit.Description = package.meta.description;
 
-            Service.ExecStart = ''${lib.getExe' package "wpaperd"} --no-daemon'';
+            Service.ExecStart = ''${lib.getExe' package "wpaperd"}'';
           };
       };
 
