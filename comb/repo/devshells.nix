@@ -1,22 +1,22 @@
 { inputs, cell }:
 let
-  inherit (inputs) hive std colmena;
+  inherit (inputs) std colmena;
+  inherit (inputs.hive.bootstrap.shell) bootstrap;
+  inherit (inputs.std.lib) dev cfg;
   inherit (cell) pkgs;
-  inherit (pkgs) lib;
-  inherit (hive.bootstrap.shell) bootstrap;
-  inherit (std.lib) dev cfg;
+  inherit (cell.pkgs) lib;
 in
 {
   default = dev.mkShell {
     name = "Hive";
 
     imports = [ bootstrap ];
-    nixago = with cell.configs; [
-      (dev.mkNixago cfg.treefmt treefmt)
-      (dev.mkNixago cfg.lefthook lefthook)
-      (dev.mkNixago cfg.editorconfig editorconfig)
-      (dev.mkNixago cfg.conform conform)
-      (dev.mkNixago cfg.lefthook lefthook)
+    nixago = map (name: dev.mkNixago cfg."${name}" cell.configs."${name}") [
+      "treefmt"
+      "lefthook"
+      "editorconfig"
+      "conform"
+      "lefthook"
     ];
 
     packages = with pkgs; [
@@ -38,8 +38,8 @@ in
           { package = nix-inspect; }
           { package = nix-du; }
         ])
-        (builtins.map paisano [ { package = std.std.cli.default; } ])
-        (builtins.map bootstrap [
+        (map paisano [ { package = std.std.cli.default; } ])
+        (map bootstrap [
           { package = colmena.packages.colmena; }
           {
             name = "larva";
@@ -56,7 +56,7 @@ in
             '';
           }
         ])
-        (builtins.map nix [
+        (map nix [
           # TODO: Upstream similar actions to blockTypes
           {
             name = "boot";
