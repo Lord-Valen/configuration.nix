@@ -1,14 +1,13 @@
-{ inputs, cell }:
 {
-  services.xserver.desktopManager.gnome.enable = true;
-
   xdg.portal.enable = true;
+
+  services.libinput = {
+    enable = true;
+    touchpad.naturalScrolling = true;
+  };
 
   services.xserver = {
     enable = true;
-    libinput = {
-      enable = true;
-      touchpad.naturalScrolling = true;
-    };
+    desktopManager.gnome.enable = true;
   };
 }
