@@ -40,11 +40,11 @@
   :after dash typst-ts-mode
   :config
   (--map (add-to-list 'eglot-server-programs it)
-         `((nix-mode . ,(eglot-alternatives '("nil" "nixd")))
-           (conf-toml-mode . ("taplo" "lsp" "stdio"))
-           (csharp-mode . ("OmniSharp" "-lsp"))
-           ((rjsx-mode typescript-tsx-mode) . ("typescript-language-server" "--stdio"))
-           (typst-ts-mode . ("typst-lsp"))))
+    `((nix-mode . ("nixd" :initializationOptions (:formatter (:command ["nixfmt"]))))
+      (conf-toml-mode . ("taplo" "lsp" "stdio"))
+      (csharp-mode . ("OmniSharp" "-lsp"))
+      ((rjsx-mode typescript-tsx-mode) . ("typescript-language-server" "--stdio"))
+      (typst-ts-mode . ("typst-lsp"))))
 
   (add-hook! (conf-toml-mode rjsx-mode typescript-tsx-mode typst-ts-mode) #'lsp!))
 
