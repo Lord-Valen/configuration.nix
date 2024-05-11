@@ -78,7 +78,7 @@ in
             help = "Diff configuration with current-system";
             command = ''
               build
-              nvd "$@" /run/current-system result
+              nvd diff "$@" /run/current-system result
               rm result
             '';
           }
