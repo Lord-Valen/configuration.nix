@@ -30,7 +30,10 @@ rec {
     writing
     printing
   ];
-  develop = [ javascript ];
+  develop = [
+    distrobox
+    javascript
+  ];
   pc = base ++ [
     pipewire
     networking
