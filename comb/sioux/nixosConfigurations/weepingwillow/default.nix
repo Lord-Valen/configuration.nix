@@ -40,6 +40,7 @@ in
 
         lightdm
         gnome
+        printing
 
         {
           system.autoUpgrade = {
