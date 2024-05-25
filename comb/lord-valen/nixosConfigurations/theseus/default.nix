@@ -29,8 +29,6 @@ in
         userProfiles.lord-valen
         userProfiles.nixos
 
-        arionProfiles.pihole
-
         gnome
         servarr
         syncthing
