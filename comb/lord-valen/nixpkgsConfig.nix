@@ -14,4 +14,5 @@ in
       "vcv-rack"
       "osu-lazer-bin"
     ];
+  overlays = [ inputs.nixos-cosmic.overlays.default ];
 }

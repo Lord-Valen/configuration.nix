@@ -1,8 +1,4 @@
-{
-  inputs,
-  cell,
-  lib,
-}:
+{ cell, lib }:
 let
   inherit (cell)
     hardwareProfiles
@@ -38,6 +34,7 @@ in
         syncthing
         regreet
         hyprland
+        cosmic
         geoclue
         zsa
         flatpak
