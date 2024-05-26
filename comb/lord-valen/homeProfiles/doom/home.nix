@@ -151,6 +151,14 @@ in
         texlive.combined.scheme-full
       ]
       [
+        # :lang lua
+        lua
+        ## lsp
+        lua-language-server
+        ## format
+        stylua
+      ]
+      [
         # :lang markdown
         marksman
         pandoc
