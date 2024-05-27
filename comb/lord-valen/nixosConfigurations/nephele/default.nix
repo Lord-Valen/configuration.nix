@@ -36,7 +36,7 @@ in
         userProfiles.lord-valen
 
         upgrade
-        # grocy
+        grocy
         # home-assistant
       ];
       suites = with nixosSuites; lib.concatLists [ server ];
