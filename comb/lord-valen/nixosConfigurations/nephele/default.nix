@@ -37,7 +37,7 @@ in
 
         upgrade
         grocy
-        # home-assistant
+        home-assistant
       ];
       suites = with nixosSuites; lib.concatLists [ server ];
     in
