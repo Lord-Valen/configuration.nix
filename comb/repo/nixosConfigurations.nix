@@ -39,6 +39,8 @@ rec {
         };
       };
 
+    services.fwupd.enable = true;
+
     # Use iwd
     networking = {
       networkmanager = {
