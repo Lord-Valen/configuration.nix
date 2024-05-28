@@ -88,7 +88,7 @@
 
   # Desktop
   inputs = {
-    anyrun.url = "github:Kirottu/anyrun";
+    anyrun.url = "github:anyrun-org/anyrun";
 
     aagl-gtk-on-nix.url = "github:ezKEa/aagl-gtk-on-nix";
     aagl-gtk-on-nix.inputs.flake-compat.follows = "";
