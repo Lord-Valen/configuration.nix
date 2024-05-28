@@ -1,6 +1,6 @@
+{ cell }:
 {
-  networking.firewall.allowedTCPPorts = [ 80 ];
-  networking.firewall.allowedUDPPorts = [ 80 ];
+  imports = [ cell.nixosProfiles.nginx ];
   services.grocy = {
     enable = true;
     hostName = "grocy.home *.grocy.home";
