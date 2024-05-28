@@ -38,6 +38,7 @@ in
         upgrade
         grocy
         home-assistant
+        cell.arionProfiles.pihole
       ];
       suites = with nixosSuites; lib.concatLists [ server ];
     in
