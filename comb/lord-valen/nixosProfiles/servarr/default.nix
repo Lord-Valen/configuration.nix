@@ -1,17 +1,53 @@
-{
-  inputs,
-  cell,
-  config,
-  lib,
-}:
+{ cell }:
 let
   inherit (cell) pkgs-unstable;
 in
 {
-  networking.firewall = {
-    allowedTCPPorts = [ 8080 ];
-  };
+  imports = [ cell.nixosProfiles.nginx ];
   services = {
+    nginx.virtualHosts = {
+      "deluge.home *.deluge.home" = {
+        locations."/" = {
+          proxyPass = "http://localhost:8112";
+        };
+      };
+      "jellyfin.home *.jellyfin.home" = {
+        locations."/" = {
+          proxyPass = "http://localhost:8096";
+        };
+      };
+      "prowlarr.home *.prowlarr.home" = {
+        locations."/" = {
+          proxyPass = "http://localhost:9696";
+        };
+      };
+      "sonarr.home *.sonarr.home" = {
+        locations."/" = {
+          proxyPass = "http://localhost:8989";
+        };
+      };
+      "radarr.home *.radarr.home" = {
+        locations."/" = {
+          proxyPass = "http://localhost:7878";
+        };
+      };
+      "lidarr.home *.lidarr.home" = {
+        locations."/" = {
+          proxyPass = "http://localhost:8686";
+        };
+      };
+      "readarr.home *.readarr.home" = {
+        locations."/" = {
+          proxyPass = "http://localhost:8787";
+        };
+      };
+      "calibre.home *.calibre.home" = {
+        locations."/" = {
+          proxyPass = "http://localhost:8080";
+        };
+      };
+    };
+
     calibre-server = {
       enable = true;
       user = "servarr";
@@ -28,17 +64,13 @@ in
       enable = true;
       user = "servarr";
       group = "servarr";
-      web = {
-        enable = true;
-        openFirewall = true;
-      };
+      web.enable = true;
     };
 
     jellyfin = {
       enable = true;
       user = "servarr";
       group = "servarr";
-      openFirewall = true;
     };
 
     lidarr = {
@@ -46,13 +78,11 @@ in
       package = pkgs-unstable.lidarr;
       user = "servarr";
       group = "servarr";
-      openFirewall = true;
     };
 
     prowlarr = {
       enable = true;
       package = pkgs-unstable.prowlarr;
-      openFirewall = true;
     };
 
     radarr = {
@@ -60,7 +90,6 @@ in
       package = pkgs-unstable.radarr;
       user = "servarr";
       group = "servarr";
-      openFirewall = true;
     };
 
     readarr = {
@@ -68,7 +97,6 @@ in
       package = pkgs-unstable.readarr;
       user = "servarr";
       group = "servarr";
-      openFirewall = true;
     };
 
     sonarr = {
@@ -76,7 +104,6 @@ in
       package = pkgs-unstable.sonarr;
       user = "servarr";
       group = "servarr";
-      openFirewall = true;
     };
   };
 }
