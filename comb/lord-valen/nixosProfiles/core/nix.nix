@@ -20,15 +20,13 @@ in
     allowed-users = [ "@wheel" ];
 
     auto-optimise-store = true;
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    min-free = 1073741824;
+    fallback = true;
   };
-
-  extraOptions = ''
-    experimental-features = nix-command flakes
-    min-free = 1073741824 # preserve 1 GiB
-    keep-outputs = true
-    keep-derivations = true
-    fallback = true
-  '';
 
   nixPath = [ "nixos-config=${self}" ];
 

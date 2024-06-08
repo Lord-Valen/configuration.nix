@@ -31,6 +31,7 @@ rec {
     printing
   ];
   develop = [
+    keep-outputs
     distrobox
     javascript
   ];
