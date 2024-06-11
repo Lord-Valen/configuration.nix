@@ -1,8 +1,4 @@
-{
-  inputs,
-  cell,
-  pkgs,
-}:
+{ inputs, pkgs }:
 {
   imports = [ inputs.stylix.homeManagerModules.stylix ];
   stylix = {
@@ -12,9 +8,12 @@
       NOTE: I'm not even using this, upstream should
       add an enable option or make it nullable. It also won't follow a symlink, so
       I'm forced to copy the file.
+
+      Since it's here, might as well try it out.
     */
     image = ./_image.jpg;
-    polarity = "dark";
+    # The generated scheme is pretty bright, I might need to change it.
+    # polarity = "dark";
 
     # base16Scheme = {
     #   base00 = "0C0A20";
