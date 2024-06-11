@@ -41,7 +41,7 @@ in
       general = {
         gaps_in = 5;
         gaps_out = 7.5;
-        border_size = 0;
+        border_size = 2;
         "col.active_border" = lib.mkDefault "rgba(33ccffee) rgba(00ff99ee) 45deg";
         "col.inactive_border" = lib.mkDefault "rgba(595959aa)";
 
