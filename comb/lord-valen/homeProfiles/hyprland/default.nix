@@ -113,7 +113,8 @@ in
       # Keybinds
       "$mainMod" = "SUPER";
       "$manipMod" = "$mainMod SHIFT";
-      "$metaMod" = "$mainMod SHIFT CTRL";
+      "$metaMod" = "$mainMod CTRL";
+      "$bigMod" = "$mainMod SHIFT CTRL";
 
       "$terminal" = "alacritty";
       "$appLauncher" = "anyrun";
@@ -134,8 +135,8 @@ in
       "$0" = 10;
 
       bind = [
-        "$metaMod, X, exec, wlogout"
-        "$metaMod, L, exec, $locker"
+        "$bigMod, X, exec, wlogout"
+        "$bigMod, L, exec, $locker"
         "$mainMod, Return, exec, $terminal"
         "$mainMod SHIFT, Return, exec, $appLauncher"
         "$mainMod, B, exec, $browser"
@@ -196,10 +197,13 @@ in
         "$manipMod, up, layoutmsg, swapnext, prev"
         "$manipMod, right, layoutmsg, addmaster"
 
-        "$manipMod, comma, swapactiveworkspaces, current l"
-        "$manipMod, comma, focusmonitor, l"
-        "$manipMod, period, swapactiveworkspaces, current r"
-        "$manipMod, period, focusmonitor, r"
+        "$manipMod, comma, movetoworkspacesilent, previous"
+        "$manipMod, period, movetoworkspacesilent, emptym"
+
+        "$metaMod, comma, swapactiveworkspaces, current l"
+        "$metaMod, comma, focusmonitor, l"
+        "$metaMod, period, swapactiveworkspaces, current r"
+        "$metaMod, period, focusmonitor, r"
 
         "$manipMod, 1, movetoworkspace, $1"
         "$manipMod, 2, movetoworkspace, $2"
