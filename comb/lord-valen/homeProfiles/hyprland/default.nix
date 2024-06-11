@@ -227,7 +227,7 @@ in
       submap = emacs
       bind = , A, exec, $emacs
       bind = , A, submap, reset
-      bind = , ESCAPE, submap, reset
+      bind = , catchall, submap, reset
       submap = reset
     '';
   };
