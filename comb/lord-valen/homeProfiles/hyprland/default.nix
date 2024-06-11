@@ -14,6 +14,7 @@ in
   ];
   wayland.windowManager.hyprland = {
     enable = true;
+    package = cell.pkgs-unstable.hyprland;
 
     settings = {
       env = [
