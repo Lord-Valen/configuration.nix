@@ -196,8 +196,10 @@ in
         "$manipMod, up, layoutmsg, swapnext, prev"
         "$manipMod, right, layoutmsg, addmaster"
 
-        "$manipMod, comma, swapactiveworkspaces, current, l"
-        "$manipMod, period, swapactiveworkspaces, current, r"
+        "$manipMod, comma, swapactiveworkspaces, current l"
+        "$manipMod, comma, focusmonitor, l"
+        "$manipMod, period, swapactiveworkspaces, current r"
+        "$manipMod, period, focusmonitor, r"
 
         "$manipMod, 1, movetoworkspace, $1"
         "$manipMod, 2, movetoworkspace, $2"
