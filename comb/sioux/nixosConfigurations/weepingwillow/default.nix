@@ -93,5 +93,5 @@ in
 
   swapDevices = [ { device = "/swap/swapfile"; } ];
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "24.05";
 }
