@@ -24,19 +24,19 @@
   };
 
   inputs = {
-    nixpkgs-stable.url = "https://flakehub.com/f/NixOS/nixpkgs/*.tar.gz";
+    nixpkgs-stable.url = "https://flakehub.com/f/NixOS/nixpkgs/0.2405.*.tar.gz";
     nixpkgs-unstable.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.0.tar.gz";
-    nixpkgs.follows = "nixpkgs-unstable";
+    nixpkgs.follows = "nixpkgs-stable";
 
     home-manager-stable = {
-      url = "https://flakehub.com/f/nix-community/home-manager/*.tar.gz";
+      url = "github:/nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
     home-manager-unstable = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    home-manager.follows = "home-manager-unstable";
+    home-manager.follows = "home-manager-stable";
 
     stylix = {
       url = "https://flakehub.com/f/danth/stylix/0.1.*.tar.gz";

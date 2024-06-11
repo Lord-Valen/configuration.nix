@@ -1,6 +1,6 @@
 { inputs, cell }:
 let
-  stream = "unstable";
+  stream = "stable";
 in
 {
   bee = {
