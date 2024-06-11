@@ -57,7 +57,7 @@ in
     users = {
       root = {
         imports = [ homeProfiles.shell ];
-        home.stateVersion = "23.11";
+        home.stateVersion = "24.05";
       };
       lord-valen = {
         imports =
@@ -76,7 +76,7 @@ in
             profiles
             suites
           ];
-        home.stateVersion = "23.05";
+        home.stateVersion = "24.05";
       };
     };
   };
