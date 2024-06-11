@@ -1,7 +1,11 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-(setq user-full-name "Lord Valen"
-      user-mail-address "lord_valen@pm.me")
+;; Load home-manager's `extraConfig'
+(load! "extraConfig.el")
+
+(setq
+  user-full-name "Lord Valen"
+  user-mail-address "lord_valen@pm.me")
 
 ;; Doom reload doesn't work with nushell
 (setq shell-file-name "bash")
@@ -17,10 +21,10 @@
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
 
-(setq doom-themes-enable-bold t
-      doom-themes-enable-italic t
-      global-prettify-symbols-mode t
-      doom-theme 'doom-outrun-electric)
+(setq
+  doom-themes-enable-bold t
+  doom-themes-enable-italic t
+  global-prettify-symbols-mode t)
 
 (setq ispell-dictionary "english")
 

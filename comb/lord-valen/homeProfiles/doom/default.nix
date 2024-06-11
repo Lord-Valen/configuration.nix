@@ -1,8 +1,4 @@
-{
-  inputs,
-  cell,
-  pkgs,
-}:
+{ pkgs }:
 {
   fonts.fontconfig.enable = true;
 
