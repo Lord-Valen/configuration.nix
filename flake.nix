@@ -39,7 +39,7 @@
     home-manager.follows = "home-manager-stable";
 
     stylix = {
-      url = "https://flakehub.com/f/danth/stylix/0.1.*.tar.gz";
+      url = "github:danth/stylix/release-24.05";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
