@@ -30,6 +30,7 @@ rec {
   music = with homeProfiles; [
     vcv
     mpd
+    strawberry
   ];
 
   hyprland = with homeProfiles; [ homeProfiles.hyprland ];
