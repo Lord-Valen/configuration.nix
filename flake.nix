@@ -90,12 +90,6 @@
   inputs = {
     anyrun.url = "github:anyrun-org/anyrun";
 
-    aagl-gtk-on-nix.url = "github:ezKEa/aagl-gtk-on-nix/release-24.05";
-    aagl-gtk-on-nix.inputs.flake-compat.follows = "";
-
-    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
-    nix-doom-emacs.inputs.flake-compat.follows = "";
-
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
