@@ -29,6 +29,7 @@ in
         kubo
         zsa
         music
+        flatpak
 
         { programs.nm-applet.enable = true; }
         {
