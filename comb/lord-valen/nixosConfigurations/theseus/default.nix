@@ -33,6 +33,7 @@ in
         servarr
         syncthing
         flatpak
+        retroarch
       ];
       suites =
         with nixosSuites;
