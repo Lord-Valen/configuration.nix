@@ -78,7 +78,7 @@ in
       };
 
       master = {
-        new_is_master = false;
+        # new_is_master = false;
         new_on_top = true;
         no_gaps_when_only = false;
         orientation = "right";
