@@ -9,4 +9,15 @@ in
     common-cpu-intel-sandy-bridge
     common-gpu-amd-southern-islands
   ];
+
+  hardware = {
+    bluetooth = {
+      enable = true;
+      # Compatibility with PS gamepads
+      input.General = {
+        ClassicBondedOnly = false;
+        UserspaceHID = false;
+      };
+    };
+  };
 }
