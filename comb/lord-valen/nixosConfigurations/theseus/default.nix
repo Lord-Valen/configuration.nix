@@ -52,11 +52,11 @@ in
     useGlobalPkgs = true;
     users = {
       root = {
-        imports = [ homeProfiles.shell ];
+        imports = homeSuites.base ++ [ homeProfiles.shell ];
         home.stateVersion = "24.05";
       };
       nixos = {
-        imports = with homeSuites; nixos;
+        imports = with homeSuites; base;
         home.stateVersion = "24.05";
       };
       lord-valen = {

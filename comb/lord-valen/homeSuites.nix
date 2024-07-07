@@ -25,8 +25,6 @@ rec {
     ]
     ++ base;
 
-  nixos = base;
-
   music = with homeProfiles; [
     vcv
     mpd
