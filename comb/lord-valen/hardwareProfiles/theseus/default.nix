@@ -6,7 +6,8 @@ in
   imports = with nixos-hardware.nixosModules; [
     cell.hardwareProfiles.base
     common-pc
-    common-cpu-intel-sandy-bridge
+    common-cpu-intel
+    common-gpu-intel-disable
     common-gpu-amd-southern-islands
   ];
 
