@@ -18,6 +18,11 @@ in
           introducer = true;
           autoAcceptFolders = true;
         };
+        "Oracle" = {
+          id = "YLAWK44-WVHDE2R-MWC7CPC-6XJIME2-MX25RAR-4RJIMW4-OMGGQ7M-LDSCQAM";
+          introducer = true;
+          autoAcceptFolders = true;
+        };
         "Aspire" = lib.mkIf (hostName != "aspire") {
           id = "W6RD47K-57IC3EK-5RDOGTU-UU4LH3W-LNF24R7-P6I2A4B-TLZJZM3-FM47IQS";
         };
