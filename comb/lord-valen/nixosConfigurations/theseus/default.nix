@@ -86,6 +86,7 @@ in
       devices = [
         "Heracles"
         "Pythia"
+        "Oracle"
       ];
     };
     "Pythia Photos" = {
@@ -95,6 +96,7 @@ in
       devices = [
         "Heracles"
         "Pythia"
+        "Oracle"
       ];
     };
     "Books" = {
@@ -105,6 +107,7 @@ in
         "lvAspire"
         "lvHeracles"
         "Pythia"
+        "Oracle"
       ];
     };
     "Music" = {
@@ -115,6 +118,7 @@ in
         "lvAspire"
         "lvHeracles"
         "Pythia"
+        "Oracle"
       ];
     };
   };
