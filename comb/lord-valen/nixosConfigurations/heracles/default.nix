@@ -39,6 +39,7 @@ in
         zsa
         flatpak
         sunshine
+        gnome
         # TODO: Get an SSD
         # monero
 
