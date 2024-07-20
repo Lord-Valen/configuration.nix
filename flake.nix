@@ -11,8 +11,8 @@
       "https://ezkea.cachix.org"
       # colmena
       "https://colmena.cachix.org"
-      # cosmic
-      "https://cosmic.cachix.org"
+      # # cosmic
+      # "https://cosmic.cachix.org"
     ];
 
     extra-trusted-public-keys = [
@@ -83,7 +83,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+    # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
   };
 
   # Desktop

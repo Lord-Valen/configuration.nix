@@ -34,7 +34,7 @@ in
         syncthing
         regreet
         hyprland
-        cosmic
+        # cosmic
         geoclue
         zsa
         flatpak
