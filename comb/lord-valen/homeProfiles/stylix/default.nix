@@ -12,8 +12,8 @@
       Since it's here, might as well try it out.
     */
     image = ./_image.jpg;
-    # The generated scheme is pretty bright, I might need to change it.
-    # polarity = "dark";
+    # The dark theme has much better contrast.
+    polarity = "dark";
 
     # base16Scheme = {
     #   base00 = "0C0A20";
