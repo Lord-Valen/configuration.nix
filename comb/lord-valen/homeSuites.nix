@@ -14,6 +14,7 @@ rec {
       git
       shell
       doom
+      vscode
       helix
       face
       wallpaper
