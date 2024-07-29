@@ -13,6 +13,7 @@ in
       "steam-original"
       "vcv-rack"
       "osu-lazer-bin"
+      "vscode-extension-ms-dotnettools-csdevkit"
     ];
   # overlays = [ inputs.nixos-cosmic.overlays.default ];
 }
