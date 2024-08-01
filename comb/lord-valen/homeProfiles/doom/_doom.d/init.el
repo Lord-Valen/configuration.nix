@@ -4,7 +4,7 @@
   :checkers
   grammar
   (spell +aspell)
-  syntax
+  (syntax +childframe +flymake)
 
   :completion
   (company +childframe +tng)
@@ -14,7 +14,7 @@
   (evil +everywhere)
   file-templates
   fold
-  (format +onsave)
+  (format +onsave +lsp)
   lispy
   multiple-cursors
   parinfer
@@ -36,16 +36,16 @@
   (csharp +lsp +tree-sitter +dotnet)
   data
   emacs-lisp
-  (haskell +lsp +tree-sitter)
-  (java +lsp +tree-sitter)
+  ;; (haskell +lsp +tree-sitter)
+  ;; (java +lsp +tree-sitter)
   (javascript +lsp +tree-sitter)
   (json +lsp +tree-sitter)
-  (kotlin +lsp)
+  ;; (kotlin +lsp)
   (latex +fold +lsp)
   (lua +lsp +tree-sitter)
   (markdown +grip)
   (nix +lsp +tree-sitter)
-  (ocaml +lsp +tree-sitter)
+  ;; (ocaml +lsp +tree-sitter)
   (org +dragndrop +pandoc +present +pretty +roam2)
   (rust +lsp +tree-sitter)
   (sh +lsp +tree-sitter)
@@ -65,8 +65,6 @@
   (magit +forge)
   make
   pdf
-  rgb
-  taskrunner
   tree-sitter
 
   :ui
@@ -89,7 +87,6 @@
 
   :app
   calendar
-  everywhere
 
   :config
   ;; This needs to be loaded last due to `featurep' use.

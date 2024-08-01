@@ -22,254 +22,170 @@ in
 
   sessionPath = [ "$XDG_CONFIG_HOME/emacs/bin" ];
 
-  # :tools magit
-  ## forge
+  # :tools magit +forge
   file.".authinfo.gpg".source = ./_authinfo.gpg;
   packages =
-    with pkgs;
-    lib.concatLists [
-      [
-        # My Dependencies
-        (nerdfonts.override {
-          fonts = [
-            "Iosevka"
-            "NerdFontsSymbolsOnly"
-          ];
-        })
-        (iosevka-bin.override { variant = "Aile"; })
-        noto-fonts-emoji
-        config.programs.nushell.package
-      ]
-      [
-        # Doom Dependencies
-        git
-        (ripgrep.override { withPCRE2 = true; })
-        gnutls
-      ]
-      [
-        # Doom Optional Dependencies
-        fd
-        imagemagick
-        zstd
-      ]
-      [
-        # typst-ts-mode
-        pkgs-unstable.typst
-        pkgs-unstable.typstfmt
-        ## lsp
-        pkgs-unstable.typst-lsp
-      ]
-      [
-        # :app everywhere
-        xclip
-        xdotool
-        xorg.xprop
-        xorg.xwininfo
-      ]
-      [
-        # :checkers grammar
-        languagetool
-      ]
-      [
-        # :checkers spell
-        aspell
-        aspellDicts.en
-        aspellDicts.en-computers
-        aspellDicts.en-science
-      ]
-      [
-        # :lang cc
-        clang
-        clang-tools
-        glslang
-        ## extra
-        gf
-      ]
-      [
-        # :lang common-lisp
-        sbcl
-      ]
-      [
-        # :lang coq
-        coq
-      ]
-      [
-        # :lang csharp
-        mono
-        ## format
-        csharpier
-        ## lsp
-        omnisharp-roslyn
-      ]
-      [
-        # :lang data
-        ## format
-        libxml2
-      ]
-      [
-        # :lang haskell
-        ghc
-        cabal-install
-        ormolu
-        haskellPackages.hoogle
-
-        ## lsp
-        haskell-language-server
-      ]
-      [
-        # :lang java
-        google-java-format
-
-        ## lsp
-        jdt-language-server
-      ]
-      [
-        # :lang javascript
-        nodejs
-        nodePackages.npm
-        nodePackages.prettier
-        bun
-
-        ## lsp
-        nodePackages.typescript-language-server
-      ]
-      [
-        # :lang json
-        nodePackages.prettier
-        ## lsp
-        vscode-langservers-extracted
-      ]
-      [
-        # :lang kotlin
-        kotlin
-        ktlint
-        ## lsp
-        kotlin-language-server
-      ]
-      [
-        # :lang latex
-        texlive.combined.scheme-full
-      ]
-      [
-        # :lang lua
-        lua
-        ## lsp
-        lua-language-server
-        ## format
-        stylua
-      ]
-      [
-        # :lang markdown
-        marksman
-        pandoc
-        nodePackages.prettier
-        python311Packages.grip
-      ]
-      [
-        # :lang nix
-        ## lsp
-        nixd
-        nixfmt-rfc-style
-      ]
-      (lib.flatten [
-        # :lang ocaml
-        ocaml
-        opam
-        dune_3
-        (with ocamlPackages; [
-          utop
-          ocp-indent
-          merlin
-        ])
-        ## format
-        ocamlformat
-        ## lsp
-        ocamlPackages.ocaml-lsp
-      ])
-      [
-        # :lang org
-        graphviz
-        ## latex
-        texlive.combined.scheme-full
-        ## roam
-        sqlite
-      ]
-      [
-        # :lang rust
-        rustc
-        cargo
-        ## format
-        rustfmt
-        ## lsp
-        rust-analyzer
-        ## extra
-        gf
-        cargo-nextest
-        cargo-edit
-        cargo-watch
-        cargo-audit
-      ]
-      [
-        # :lang toml
-        taplo
-      ]
-      [
-        # :lang sh
-        shfmt
-        shellcheck
-        ## lsp
-        nodePackages.bash-language-server
-      ]
-      [
-        # :lang web
-        html-tidy
-        stylelint
-        nodePackages.js-beautify
-      ]
-      [
-        # :lang yaml
-        ## lsp
-        nodePackages.yaml-language-server
-      ]
-      [
-        # :term vterm
-        libvterm
-        cmake
-        gnumake
-      ]
-      [
-        # :tools direnv
-        direnv
-      ]
-      [
-        # :tools editorconfig
-        editorconfig-core-c
-      ]
-      [
-        # :tools lsp
-        unzip
-        python3Full
-        cargo
-        nodejs
-        nodePackages.npm
-      ]
-      [
-        # :tools lookup
-        ripgrep
-        sqlite
-        wordnet
-      ]
-      [
-        #:tools make
-        gnumake
-      ]
-      [
-        # :ui doom-dashboard
-        emacs-all-the-icons-fonts
-      ]
-      [
-        # :ui emoji
-        emojione
-      ]
-    ];
+    let
+      profiles = with pkgs; {
+        doom = [
+          git
+          (ripgrep.override { withPCRE2 = true; })
+          gnutls
+        ];
+        doom-optional = [
+          fd
+          imagemagick
+          zstd
+        ];
+        mine = [
+          (nerdfonts.override {
+            fonts = [
+              "Iosevka"
+              "NerdFontsSymbolsOnly"
+            ];
+          })
+          (iosevka-bin.override { variant = "Aile"; })
+          noto-fonts-emoji
+          config.programs.nushell.package
+        ];
+        typst-ts-mode = [
+          pkgs-unstable.typst
+          pkgs-unstable.typstfmt
+        ];
+        typst-ts-mode-lsp = [ pkgs-unstable.typst-lsp ];
+        doom-checkers-grammar = [ languagetool ];
+        doom-checkers-spell = [
+          aspell
+          aspellDicts.en
+          aspellDicts.en-computers
+          aspellDicts.en-science
+        ];
+        doom-lang-cc = [
+          clang
+          clang-tools
+          glslang
+        ];
+        doom-lang-cc-extra = [ gf ];
+        doom-lang-common-lisp = [ sbcl ];
+        doom-lang-coq = [ coq ];
+        doom-lang-csharp = [ mono ];
+        doom-lang-csharp-format = [ csharpier ];
+        doom-lang-csharp-lsp = [ omnisharp-roslyn ];
+        doom-lang-data-format = [ libxml2 ];
+        doom-lang-haskell = [
+          ghc
+          cabal-install
+          ormolu
+          haskellPackages.hoogle
+        ];
+        doom-lang-haskell-lsp = [ haskell-language-server ];
+        doom-lang-java = [ google-java-format ];
+        doom-lang-java-lsp = [ jdt-language-server ];
+        doom-lang-javascript = [
+          nodejs
+          nodePackages.npm
+          nodePackages.prettier
+          bun
+        ];
+        doom-lang-javascript-lsp = [ nodePackages.typescript-language-server ];
+        doom-lang-json = [ nodePackages.prettier ];
+        doom-lang-json-lsp = [ vscode-langservers-extracted ];
+        doom-lang-kotlin = [
+          kotlin
+          ktlint
+        ];
+        doom-lang-kotlin-lsp = [ kotlin-language-server ];
+        doom-lang-latex = [ texlive.combined.scheme-full ];
+        doom-lang-lua = [ lua ];
+        doom-lang-lua-lsp = [ lua-language-server ];
+        doom-lang-lua-format = [ stylua ];
+        doom-lang-markdown = [
+          marksman
+          pandoc
+          nodePackages.prettier
+          python311Packages.grip
+        ];
+        doom-lang-nix-lsp = [
+          nixd
+          nixfmt-rfc-style
+        ];
+        doom-lang-ocaml = [
+          ocaml
+          opam
+          dune_3
+          (with ocamlPackages; [
+            utop
+            ocp-indent
+            merlin
+          ])
+        ];
+        doom-lang-ocaml-format = [ ocamlformat ];
+        doom-lang-ocaml-lsp = [ ocamlPackages.ocaml-lsp ];
+        doom-lang-org = [ graphviz ];
+        doom-lang-org-latex = [ texlive.combined.scheme-full ];
+        doom-lang-org-roam = [ sqlite ];
+        doom-lang-rust = [
+          rustc
+          cargo
+        ];
+        doom-lang-format = [ rustfmt ];
+        doom-lang-rust-lsp = [ rust-analyzer ];
+        doom-lang-rust-extra = [
+          gf
+          cargo-nextest
+          cargo-edit
+          cargo-watch
+          cargo-audit
+        ];
+        doom-lang-toml = [ taplo ];
+        doom-lang-sh = [
+          shfmt
+          shellcheck
+        ];
+        doom-lang-sh-lsp = [ nodePackages.bash-language-server ];
+        doom-lang-web = [
+          html-tidy
+          stylelint
+          nodePackages.js-beautify
+        ];
+        doom-lang-yaml-lsp = [ nodePackages.yaml-language-server ];
+        doom-term-vterm = [
+          libvterm
+          cmake
+          gnumake
+        ];
+        doom-tools-direnv = [ direnv ];
+        doom-tools-editorconfig = [ editorconfig-core-c ];
+        doom-tools-lsp = [
+          unzip
+          python3Full
+          cargo
+          nodejs
+          nodePackages.npm
+        ];
+        doom-tools-lookup = [
+          ripgrep
+          sqlite
+          wordnet
+        ];
+        doom-tools-make = [ gnumake ];
+        doom-ui-doom-dashboard = [ emacs-all-the-icons-fonts ];
+        doom-ui-emoji = [ emojione ];
+      };
+    in
+    lib.flatten (
+      lib.mapAttrsToList (_: value: value) (
+        lib.removeAttrs profiles [
+          "doom-lang-kotlin"
+          "doom-lang-kotlin-lsp"
+          "doom-lang-ocaml"
+          "doom-lang-ocaml-lsp"
+          "doom-lang-ocaml-format"
+          "doom-lang-haskell"
+          "doom-lang-haskell-lsp"
+          "doom-lang-java"
+          "doom-lang-java-lsp"
+        ]
+      )
+    );
 }
