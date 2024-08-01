@@ -68,7 +68,18 @@ in
         doom-lang-cc-extra = [ gf ];
         doom-lang-common-lisp = [ sbcl ];
         doom-lang-coq = [ coq ];
-        doom-lang-csharp = [ mono ];
+        doom-lang-csharp = [
+          mono
+          (
+            with pkgs.dotnetCorePackages;
+            lib.singleton (combinePackages [
+              sdk_6_0
+              sdk_7_0
+              sdk_8_0
+              sdk_9_0
+            ])
+          )
+        ];
         doom-lang-csharp-format = [ csharpier ];
         doom-lang-csharp-lsp = [ omnisharp-roslyn ];
         doom-lang-data-format = [ libxml2 ];
