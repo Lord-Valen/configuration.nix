@@ -1,6 +1,6 @@
-{ inputs, cell }:
+{ inputs }:
 let
-  inherit (inputs) self nixpkgs-stable nixpkgs-unstable;
+  inherit (inputs) nixpkgs-stable nixpkgs-unstable;
 in
 {
   # NOTE: This is handled by nh. See ./programs.nix
@@ -28,8 +28,6 @@ in
     min-free = 1073741824;
     fallback = true;
   };
-
-  nixPath = [ "nixos-config=${self}" ];
 
   registry =
     let
