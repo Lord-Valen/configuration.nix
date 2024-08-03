@@ -55,10 +55,14 @@ in
         typst-ts-mode-lsp = [ pkgs-unstable.typst-lsp ];
         doom-checkers-grammar = [ languagetool ];
         doom-checkers-spell = [
-          aspell
-          aspellDicts.en
-          aspellDicts.en-computers
-          aspellDicts.en-science
+          (aspellWithDicts (
+            dicts: with dicts; [
+              en
+              en-computers
+              en-science
+              fr
+            ]
+          ))
         ];
         doom-lang-cc = [
           clang
