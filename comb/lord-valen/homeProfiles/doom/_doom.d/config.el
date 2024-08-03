@@ -67,7 +67,8 @@
 
 (use-package! projectile
   :custom
-  (projectile-project-search-path `((,(file-truename "~/dev") . 3))))
+  (projectile-project-search-path `((,(file-truename "~/dev") . 3)))
+  (projectile-indexing-method 'alien))
 
 (use-package! typst-ts-mode
   :after apheleia
