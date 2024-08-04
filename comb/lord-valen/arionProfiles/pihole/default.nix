@@ -13,7 +13,8 @@ in
     allowedUDPPorts = [ 53 ];
   };
 
-  services.nginx.virtualHosts."hole.home *.hole.home" = {
+  services.nginx.virtualHosts.hole = {
+    serverAliases = [ "hole.home *.hole.home" ];
     locations."/" = {
       proxyPass = "http://localhost:4013";
     };

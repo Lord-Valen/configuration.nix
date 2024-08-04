@@ -2,7 +2,8 @@
 {
   imports = [ cell.nixosProfiles.nginx ];
   services.nginx = {
-    virtualHosts."home.home *.home.home" = {
+    virtualHosts.home = {
+      serverAliases = [ "home.home *.home.home" ];
       extraConfig = ''
         proxy_buffering off;
       '';

@@ -6,42 +6,53 @@ in
   imports = [ cell.nixosProfiles.nginx ];
   services = {
     nginx.virtualHosts = {
-      "deluge.home *.deluge.home" = {
+      deluge = {
+        serverAliases = [
+          "deluge.home"
+          "*.deluge.home"
+        ];
         locations."/" = {
           proxyPass = "http://localhost:8112";
         };
       };
-      "jellyfin.home *.jellyfin.home" = {
+      jellyfin = {
+        serverAliases = [ "jellyfin.home *.jellyfin.home" ];
         locations."/" = {
           proxyPass = "http://localhost:8096";
         };
       };
-      "prowlarr.home *.prowlarr.home" = {
+      prowlarr = {
+        serverAliases = [ "prowlarr.home *.prowlarr.home" ];
         locations."/" = {
           proxyPass = "http://localhost:9696";
         };
       };
-      "sonarr.home *.sonarr.home" = {
+      sonarr = {
+        serverAliases = [ "sonarr.home *.sonarr.home" ];
         locations."/" = {
           proxyPass = "http://localhost:8989";
         };
       };
-      "radarr.home *.radarr.home" = {
+      radarr = {
+        serverAliases = [ "radarr.home *.radarr.home" ];
         locations."/" = {
           proxyPass = "http://localhost:7878";
         };
       };
-      "lidarr.home *.lidarr.home" = {
+      lidarr = {
+        serverAliases = [ "lidarr.home *.lidarr.home" ];
         locations."/" = {
           proxyPass = "http://localhost:8686";
         };
       };
-      "readarr.home *.readarr.home" = {
+      readarr = {
+        serverAliases = [ "readarr.home *.readarr.home" ];
         locations."/" = {
           proxyPass = "http://localhost:8787";
         };
       };
-      "calibre.home *.calibre.home" = {
+      calibre = {
+        serverAliases = [ "calibre.home *.calibre.home" ];
         locations."/" = {
           proxyPass = "http://localhost:8080";
         };
