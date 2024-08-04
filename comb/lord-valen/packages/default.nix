@@ -7,7 +7,7 @@ let
   inherit (lib.path) append;
   inherit (lib.filesystem) packagesFromDirectoryRecursive;
 
-  callPackage = package: callPackageWith (inputs.nixpkgs // { inherit paisano; });
+  callPackage = callPackageWith (inputs.nixpkgs // { inherit paisano; });
   dirs = filterAttrs (_: type: type == "directory") (readDir ./.);
 in
 mapAttrs (
