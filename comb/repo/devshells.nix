@@ -36,7 +36,8 @@ in
       lib.concatLists [
         (with pkgs; [
           { package = nix-inspect; }
-          { package = nix-du; }
+          # FIXME: https://nixpk.gs/pr-tracker.html?pr=331856
+          #{ package = nix-du; }
         ])
         (map paisano [ { package = std.std.cli.default; } ])
         (map bootstrap [
