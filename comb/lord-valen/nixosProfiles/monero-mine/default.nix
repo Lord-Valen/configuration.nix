@@ -15,6 +15,19 @@ in
 
   environment.systemPackages = with pkgs; [ monero-gui ];
 
+  networking.firewall =
+    let
+      ports = [
+        18080
+        37889
+        37888
+      ];
+    in
+    {
+      allowedUDPPorts = ports;
+      allowedTCPPorts = ports;
+    };
+
   services = {
     monero = {
       enable = true;
@@ -22,13 +35,12 @@ in
 
       priorityNodes = [
         "node.moneroworld.com:18080"
-        "opennode.xmr-tw.org:18080"
-        "node.supportxmr.com:18080"
         "nodes.hashvault.pro:18080"
+        "xmr-node.cakewallet.com:18080"
       ];
 
       extraConfig = ''
-        zmq-pub=tcp://127.0.0.1:18083
+        zmq-pub=tcp://localhost:18083
 
         out-peers=${toString outPeers}
         in-peers=${toString inPeers}
