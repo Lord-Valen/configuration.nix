@@ -200,6 +200,8 @@ in
           "doom-lang-haskell-lsp"
           "doom-lang-java"
           "doom-lang-java-lsp"
+          # FIXME: https://github.com/nvarner/typst-lsp/pull/515
+          "typst-ts-mode-lsp"
         ]
       )
     );
