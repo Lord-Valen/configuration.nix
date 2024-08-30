@@ -42,6 +42,7 @@ in
         gnome
         printing
         upgrade
+        flatpak
       ];
       suites = with nixosSuites; lib.concatLists [ pc ];
     in
