@@ -37,6 +37,7 @@ in
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
+    backupFileExtension = "hm.bkup";
     users = {
       root = {
         imports = [ homeProfiles.shell ];

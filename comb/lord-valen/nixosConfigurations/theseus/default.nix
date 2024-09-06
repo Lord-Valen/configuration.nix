@@ -50,6 +50,7 @@ in
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
+    backupFileExtension = "hm.bkup";
     users = {
       root = {
         imports = homeSuites.base ++ [ homeProfiles.shell ];
