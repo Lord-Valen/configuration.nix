@@ -11,7 +11,7 @@
     settings = {
       screenshots = true;
       clock = true;
-      indicator = "b56cd2";
+      indicator = true;
       fade-in = 0.5;
       effect-blur = "7x5";
     };
