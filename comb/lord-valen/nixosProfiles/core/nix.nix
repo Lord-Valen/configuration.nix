@@ -17,7 +17,6 @@ in
       "root"
       "@wheel"
     ];
-    allowed-users = [ "@wheel" ];
 
     auto-optimise-store = true;
     experimental-features = [
