@@ -31,6 +31,7 @@ in
 
         adb
         music
+        musnix
         syncthing
         regreet
         hyprland

@@ -1,9 +1,10 @@
 {
   inputs,
   cell,
+  lib,
   pkgs,
 }:
 {
-  kernelPackages = pkgs.linuxKernel.packageAliases.linux_latest;
+  kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
   kernel.sysctl."kernel.sysrq" = 244;
 }

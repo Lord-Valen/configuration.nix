@@ -83,6 +83,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    musnix = {
+      url = "github:musnix/musnix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
   };
 
@@ -155,6 +160,7 @@
 
             # nixpkgs
             (functions "nixpkgsConfig")
+            (functions "overlays")
             (pkgs "pkgs")
             (pkgs "pkgs-stable")
             (pkgs "pkgs-unstable")

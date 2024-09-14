@@ -17,6 +17,7 @@ in
       "libvirtd"
       "networkmanager"
       "wheel"
+      "audio"
       config.services.kubo.group
     ];
     openssh.authorizedKeys.keys = [

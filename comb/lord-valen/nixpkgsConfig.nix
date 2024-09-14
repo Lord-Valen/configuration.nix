@@ -17,5 +17,4 @@ in
       "vscode-extension-ms-dotnettools-vscodeintellicode-csharp"
       "vscode-extension-ms-dotnettools-csdevkit"
     ];
-  # overlays = [ inputs.nixos-cosmic.overlays.default ];
 }
