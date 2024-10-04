@@ -69,7 +69,6 @@ $env.config = {
   show_banner: false
   color_config: $dark_theme
   use_ansi_coloring: true
-  use_grid_icons: true
   footer_mode: "25"
   float_precision: 2
   edit_mode: emacs
