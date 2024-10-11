@@ -73,7 +73,7 @@
 (use-package! typst-ts-mode
   :after apheleia
   :config
-  (set-formatter! 'typstfmt '("typstfmt") :modes '(typst-ts-mode))
+  (set-formatter! 'typstyle '("typstyle") :modes '(typst-ts-mode))
 
   :custom
   (typst-ts-mode-watch-options "--open"))

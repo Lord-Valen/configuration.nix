@@ -50,7 +50,7 @@ in
         ];
         typst-ts-mode = [
           pkgs-unstable.typst
-          pkgs-unstable.typstfmt
+          pkgs-unstable.typstyle
         ];
         typst-ts-mode-lsp = [ pkgs-unstable.typst-lsp ];
         doom-checkers-grammar = [ languagetool ];
