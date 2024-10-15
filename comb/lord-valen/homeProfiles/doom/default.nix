@@ -9,6 +9,7 @@
       epkgs: with epkgs; [
         # :term vterm
         vterm
+        treesit-grammars.with-all-grammars
       ];
   };
 
