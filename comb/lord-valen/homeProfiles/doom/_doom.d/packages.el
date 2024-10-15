@@ -6,5 +6,5 @@
 (package! nushell-ts-mode)
 (package! dash)
 (package! typst-ts-mode
-  :recipe (:host sourcehut :repo "meow_king/typst-ts-mode"))
+  :recipe (:host codeberg :repo "meow_king/typst-ts-mode"))
 (package! nov)
