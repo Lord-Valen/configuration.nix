@@ -23,6 +23,7 @@ rec {
       mpv
       stylix
       appimage
+      aria2
     ]
     ++ base;
 
