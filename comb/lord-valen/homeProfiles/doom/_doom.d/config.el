@@ -1,7 +1,7 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 ;; Load home-manager's `extraConfig'
-(load! "extraConfig.el")
+;;(load! "extraConfig.el")
 
 (setq
   user-full-name "Lord Valen"
