@@ -59,6 +59,7 @@ in
           profiles = with homeProfiles; [
             {
               home.packages = with pkgs; [
+                thunderbird
                 bottles
                 ungoogled-chromium
                 localsend
