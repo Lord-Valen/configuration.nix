@@ -19,5 +19,6 @@
   };
 
   services.das_watchdog.enable = true;
-  boot.kernelPackages = lib.mkForce pkgs.linuxPackages-rt_latest;
+  # FIXME: https://github.com/NixOS/nixpkgs/issues/351387
+  # boot.kernelPackages = lib.mkForce pkgs.linuxPackages-rt_latest;
 }
