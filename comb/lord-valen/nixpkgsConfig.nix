@@ -11,10 +11,19 @@ in
       "steam"
       "steam-run"
       "steam-original"
+      "steam-unwrapped"
       "vcv-rack"
       "osu-lazer-bin"
       "vscode"
       "vscode-extension-ms-dotnettools-vscodeintellicode-csharp"
       "vscode-extension-ms-dotnettools-csdevkit"
+      "aspell-dict-en-science"
     ];
+  permittedInsecurePackages = [
+    "dotnet-runtime-6.0.36"
+    "dotnet-sdk-wrapped-6.0.428"
+    "dotnet-sdk-6.0.428"
+    "aspnetcore-runtime-wrapped-6.0.36"
+    "aspnetcore-runtime-6.0.36"
+  ];
 }

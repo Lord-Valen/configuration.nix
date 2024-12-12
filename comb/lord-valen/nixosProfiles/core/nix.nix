@@ -22,7 +22,6 @@ in
     experimental-features = [
       "nix-command"
       "flakes"
-      "repl-flake"
     ];
     min-free = 1073741824;
     fallback = true;

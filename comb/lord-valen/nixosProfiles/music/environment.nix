@@ -8,7 +8,7 @@
     zrythm
     cardinal
     geonkick
-    distrho
+    distrho-ports
     supercollider-with-sc3-plugins
     haskellPackages.tidal
     vcv-rack

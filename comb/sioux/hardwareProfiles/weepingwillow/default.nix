@@ -4,7 +4,7 @@ let
 in
 {
   hardware = {
-    opengl.driSupport32Bit = true;
+    graphics.enable32Bit = true;
     enableRedistributableFirmware = true;
   };
 
