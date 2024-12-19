@@ -49,11 +49,12 @@ in
 
       decoration = {
         rounding = 10;
-        drop_shadow = true;
-        shadow_range = 4;
-        shadow_render_power = 3;
-        "col.shadow" = lib.mkDefault "rgba(1a1a1aee)";
-
+        shadow = {
+          enable = true;
+          range = 4;
+          render_power = 3;
+          color = lib.mkDefault "rgba(1a1a1aee)";
+        };
         blur = {
           enabled = true;
           size = 3;
@@ -79,7 +80,6 @@ in
       master = {
         # new_is_master = false;
         new_on_top = true;
-        no_gaps_when_only = false;
         orientation = "right";
       };
 
