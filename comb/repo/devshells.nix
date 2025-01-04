@@ -100,7 +100,7 @@ in
           {
             name = "update";
             help = "Update inputs";
-            command = ''nix flake update $PRJ_ROOT "$@"'';
+            command = ''nix flake update --flake $PRJ_ROOT "$@"'';
           }
         ])
       ];
