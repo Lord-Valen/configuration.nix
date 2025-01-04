@@ -31,6 +31,9 @@ in
 
         gnome
         servarr
+        {
+          services.nginx.virtualHosts.jellyfin.default = true;
+        }
         syncthing
         flatpak
         retroarch
