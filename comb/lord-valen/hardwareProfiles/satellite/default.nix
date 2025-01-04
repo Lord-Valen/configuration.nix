@@ -5,6 +5,8 @@ in
 {
   imports = with nixos-hardware.nixosModules; [
     cell.hardwareProfiles.base
+
+    common-pc-laptop
     common-pc-laptop-hdd
     common-cpu-amd
   ];

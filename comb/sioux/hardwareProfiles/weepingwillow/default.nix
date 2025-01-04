@@ -9,6 +9,7 @@ in
   };
 
   imports = with nixos-hardware.nixosModules; [
+    common-pc-laptop
     common-pc-laptop-hdd
     common-cpu-amd
     disko.nixosModules.disko
