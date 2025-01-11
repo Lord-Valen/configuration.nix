@@ -21,16 +21,26 @@ in
   imports =
     let
       profiles = with nixosProfiles; [
-        cell.bee
-        hardwareProfiles."${hostName}"
-
-        pipewire
-        music
+        adb
+        regreet
+        gnome
         hyprland
+        geoclue
+        syncthing
+        kubo
+        zsa
+        music
+        flatpak
+
+        { programs.nm-applet.enable = true; }
       ];
       suites = with nixosSuites; laptop;
     in
     lib.concatLists [
+      [
+        cell.bee
+        hardwareProfiles."${hostName}"
+      ]
       profiles
       suites
     ];
@@ -47,13 +57,13 @@ in
       lord-valen = {
         imports =
           let
-            profiles = with homeProfiles; [ { services.random-background.enable = true; } ];
+            profiles = with homeProfiles; [ syncthing ];
             suites =
               with homeSuites;
               lib.concatLists [
                 lord-valen
                 laptop
-                xmonad
+                hyprland
                 music
               ];
           in
@@ -61,68 +71,35 @@ in
             profiles
             suites
           ];
-        home.stateVersion = "24.05";
+        home.stateVersion = "24.11";
       };
     };
   };
 
-  boot = {
-    loader = {
-      grub = {
-        enable = true;
-        device = "nodev";
-        efiSupport = true;
-        enableCryptodisk = true;
-      };
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
-      };
-    };
-    initrd.luks.devices."MAIN".device = "/dev/disk/by-uuid/TODO";
-  };
-
-  fileSystems = {
-    "/boot/efi" = {
-      label = "BOOT";
-      fsType = "vfat";
-    };
-
-    "/" = {
-      encrypted.label = "MAIN";
-      device = "/dev/mapper/MAIN";
-      fsType = "btrfs";
-      options = [
-        "subvol=/@"
-        "noatime"
-        "compress=zstd"
+  services.syncthing.settings.folders = {
+    "Pythia Bup" = {
+      id = "jtafu-4mn0y";
+      path = "~/pythia-bup";
+      type = "receiveonly";
+      devices = [
+        "Heracles"
+        "Theseus"
+        "Aspire"
+        "Pythia"
+        "Oracle"
       ];
     };
-
-    "/home" = {
-      encrypted.label = "MAIN";
-      device = "/dev/mapper/MAIN";
-      fsType = "btrfs";
-      options = [
-        "subdol=/@home"
-        "noatime"
-        "compress=zstd"
-      ];
-    };
-
-    "/swap" = {
-      encrypted.label = "MAIN";
-      device = "/dev/mapper/MAIN";
-      fsType = "btrfs";
-      options = [
-        "subvol=/@swap"
-        "noatime"
-        "compress=zstd"
+    "Pythia Photos" = {
+      id = "pixel_7_n835-photos";
+      path = "~/pythia-photos";
+      type = "receiveonly";
+      devices = [
+        "Theseus"
+        "Aspire"
+        "Oracle"
       ];
     };
   };
 
-  swapDevices = [ { device = "/swap/swapfile"; } ];
-
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 }

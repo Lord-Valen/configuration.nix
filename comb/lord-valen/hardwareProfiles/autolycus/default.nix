@@ -5,8 +5,8 @@ in
 {
   imports = with nixos-hardware.nixosModules; [
     cell.hardwareProfiles.base
-    lenovo-thinkpad-t420
+    lenovo-thinkpad-t470s
+    common-pc-laptop
+    common-pc-laptop-ssd
   ];
-
-  boot.initrd.availableKernelModules = [ ]; # TODO
 }
