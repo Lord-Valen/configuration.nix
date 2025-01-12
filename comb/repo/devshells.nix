@@ -1,6 +1,6 @@
 { inputs, cell }:
 let
-  inherit (inputs) std colmena;
+  inherit (inputs) std colmena disko;
   inherit (inputs.hive.bootstrap.shell) bootstrap;
   inherit (inputs.std.lib) dev cfg;
   inherit (cell) pkgs;
@@ -41,6 +41,7 @@ in
         (map paisano [ { package = std.std.cli.default; } ])
         (map bootstrap [
           { package = colmena.packages.colmena; }
+          { package = disko.packages.disko; }
           {
             name = "larva";
             help = "Write a minimal iso to disk";
