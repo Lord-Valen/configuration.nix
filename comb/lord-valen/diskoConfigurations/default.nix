@@ -1,7 +1,7 @@
 { inputs, cell }:
 let # compat wrapper for haumea.lib.load
   inherit (inputs.nixpkgs) lib;
-  inherit (inputs.hive.inputs) haumea;
+  inherit (inputs.std.inputs) haumea;
   load =
     {
       inputs,
