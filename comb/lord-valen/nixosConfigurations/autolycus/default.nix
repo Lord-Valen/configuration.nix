@@ -31,6 +31,7 @@ in
         zsa
         music
         flatpak
+        tablet
 
         heroic
         steam

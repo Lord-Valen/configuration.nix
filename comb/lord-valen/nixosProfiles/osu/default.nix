@@ -1,9 +1,7 @@
 {
-  inputs,
-  cell,
   pkgs,
 }:
 {
+  _imports = [ cell.nixosProfiles.tablet ];
   environment.systemPackages = with pkgs; [ osu-lazer-bin ];
-  hardware.opentabletdriver.enable = true;
 }
