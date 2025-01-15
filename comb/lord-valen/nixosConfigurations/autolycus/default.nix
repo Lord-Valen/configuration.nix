@@ -32,6 +32,9 @@ in
         music
         flatpak
 
+        heroic
+        steam
+
         { programs.nm-applet.enable = true; }
       ];
       suites = with nixosSuites; laptop;
