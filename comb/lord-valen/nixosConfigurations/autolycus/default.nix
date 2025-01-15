@@ -21,22 +21,15 @@ in
   imports =
     let
       profiles = with nixosProfiles; [
-        adb
         regreet
         gnome
-        hyprland
         geoclue
         syncthing
-        kubo
-        zsa
         music
         flatpak
         tablet
-
         heroic
         steam
-
-        { programs.nm-applet.enable = true; }
       ];
       suites = with nixosSuites; laptop;
     in
@@ -67,7 +60,6 @@ in
               lib.concatLists [
                 lord-valen
                 laptop
-                hyprland
                 music
               ];
           in
