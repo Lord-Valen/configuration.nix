@@ -54,7 +54,10 @@ in
       lord-valen = {
         imports =
           let
-            profiles = with homeProfiles; [ syncthing ];
+            profiles = with homeProfiles; [
+              syncthing
+              xournal
+            ];
             suites =
               with homeSuites;
               lib.concatLists [

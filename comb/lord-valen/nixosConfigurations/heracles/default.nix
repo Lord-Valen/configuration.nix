@@ -74,6 +74,7 @@ in
         imports =
           let
             profiles = with homeProfiles; [
+              xournal
               syncthing
               {
                 wayland.windowManager.hyprland.settings.monitor = lib.mkForce [
