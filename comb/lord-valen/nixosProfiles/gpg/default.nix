@@ -25,4 +25,6 @@
     enableSSHSupport = true;
     pinentryPackage = pkgs.pinentry-gtk2;
   };
+
+  services.gnome.gnome-keyring.enable = lib.mkForce false;
 }
