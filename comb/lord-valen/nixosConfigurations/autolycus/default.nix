@@ -21,7 +21,7 @@ in
   imports =
     let
       profiles = with nixosProfiles; [
-        regreet
+        gdm
         gnome
         geoclue
         syncthing
