@@ -14,6 +14,7 @@
     utillinux
     pciutils
 
+    gptfdisk
     dosfstools
     btrfs-progs
 
