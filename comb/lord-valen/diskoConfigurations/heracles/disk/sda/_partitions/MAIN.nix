@@ -23,14 +23,6 @@ rec {
         ];
       };
 
-      "@docker" = {
-        mountpoint = "/docker";
-        mountOptions = [
-          "noatime"
-          "compress=zstd"
-        ];
-      };
-
       "@swap" = {
         mountpoint = "/swap";
         mountOptions = [
