@@ -1,4 +1,4 @@
 { pkgs }:
 {
-  home.packages = with pkgs; [ xournal ];
+  home.packages = with pkgs; [ xournalpp ];
 }
