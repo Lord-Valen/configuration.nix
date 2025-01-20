@@ -6,8 +6,5 @@
     touchpad.naturalScrolling = true;
   };
 
-  services.xserver = {
-    enable = true;
-    desktopManager.gnome.enable = true;
-  };
+  services.xserver.desktopManager.gnome.enable = true;
 }

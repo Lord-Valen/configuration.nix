@@ -29,6 +29,7 @@ in
         userProfiles.lord-valen
         userProfiles.nixos
 
+        gdm
         gnome
         servarr
         {
