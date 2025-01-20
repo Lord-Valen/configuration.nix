@@ -4,6 +4,7 @@
   pkgs,
 }:
 {
+  # TODO: Break up into smaller profiles: writing/production/patching
   systemPackages = with pkgs; [
     zrythm
     cardinal
@@ -13,6 +14,7 @@
     haskellPackages.tidal
     vcv-rack
     musescore
+    muse-sounds-manager
     guitarix
   ];
 }

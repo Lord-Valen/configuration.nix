@@ -18,6 +18,7 @@ in
       "vscode-extension-ms-dotnettools-vscodeintellicode-csharp"
       "vscode-extension-ms-dotnettools-csdevkit"
       "aspell-dict-en-science"
+      "muse-sounds-manager"
     ];
   permittedInsecurePackages = [
     "dotnet-runtime-6.0.36"
