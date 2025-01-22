@@ -30,6 +30,7 @@ in
         userProfiles.nixos
 
         gdm
+        { services.xserver.displayManager.gdm.autoSuspend = false; }
         gnome
         servarr
         {
