@@ -55,8 +55,8 @@ in
         imports =
           let
             profiles = with homeProfiles; [
+              notes
               syncthing
-              xournal
             ];
             suites =
               with homeSuites;

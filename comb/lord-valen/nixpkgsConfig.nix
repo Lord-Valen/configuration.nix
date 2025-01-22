@@ -19,6 +19,7 @@ in
       "vscode-extension-ms-dotnettools-csdevkit"
       "aspell-dict-en-science"
       "muse-sounds-manager"
+      "obsidian"
     ];
   permittedInsecurePackages = [
     "dotnet-runtime-6.0.36"
@@ -27,5 +28,6 @@ in
     "dotnet-sdk-wrapped-6.0.428"
     "aspnetcore-runtime-6.0.36"
     "aspnetcore-runtime-wrapped-6.0.36"
+    "electron-27.3.11"
   ];
 }
