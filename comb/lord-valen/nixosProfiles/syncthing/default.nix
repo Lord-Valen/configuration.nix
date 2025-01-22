@@ -23,6 +23,12 @@ in
           introducer = true;
           autoAcceptFolders = true;
         };
+        "Autolycus" = lib.mkIf (hostName != "autolycus") {
+          id = "UEH7TKO-70JPHVY-Z26FJFF-QYKSW5J-SE2KIBU-YDNKJ4U-YCIGCAJ-XQ4STAU";
+        };
+        "lvAutolycus" = lib.mkIf (hostName != "autolycus") {
+          id = "OUKE7M7-JXGJNQZ-YHV522X-SR43FKG-YIUMSEH-OSLULFY-AODTU4X-OF7V4AI";
+        };
         "Aspire" = lib.mkIf (hostName != "aspire") {
           id = "W6RD47K-57IC3EK-5RDOGTU-UU4LH3W-LNF24R7-P6I2A4B-TLZJZM3-FM47IQS";
         };
