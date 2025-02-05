@@ -8,22 +8,19 @@
   programs.helix = {
     enable = true;
     extraPackages = with pkgs; [
-      nodePackages.typescript-language-server
-      nodePackages.vscode-langservers-extracted
-      nodePackages.yaml-language-server
-      nodePackages.bash-language-server
+      typescript-language-server
+      vscode-langservers-extracted
+      yaml-language-server
+      bash-language-server
       nixd
       taplo
       rust-analyzer
       haskell-language-server
       clang-tools
       marksman
+      typstyle
+      tinymist
     ];
-    languages.language-server = {
-      nixd = {
-        command = lib.getExe pkgs.nixd;
-      };
-    };
     languages.language =
       let
         prettier = {
@@ -56,15 +53,6 @@
           name = "markdown";
           formatter = prettier;
           auto-format = true;
-        }
-        {
-          name = "nix";
-          roots = [
-            "flake.nix"
-            "flake.lock"
-          ];
-          auto-format = true;
-          language-servers = [ "nixd" ];
         }
       ];
   };

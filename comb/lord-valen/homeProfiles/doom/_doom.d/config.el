@@ -48,7 +48,7 @@
       (conf-toml-mode . ("taplo" "lsp" "stdio"))
       (csharp-mode . ("OmniSharp" "-lsp"))
       ((rjsx-mode typescript-tsx-mode) . ("typescript-language-server" "--stdio"))
-      (typst-ts-mode . ("typst-lsp"))))
+      (typst-ts-mode . ("tinymist"))))
 
   (add-hook! (conf-toml-mode rjsx-mode typescript-tsx-mode typst-ts-mode) #'lsp!))
 
