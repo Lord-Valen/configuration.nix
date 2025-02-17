@@ -13,8 +13,7 @@ rec {
     };
     nixpkgs.flake.source = inputs.nixpkgs-unstable.outPath;
 
-    # FIXME: https://github.com/divnix/hive/issues/38
-    # imports = [ bootstrap ];
+    imports = [ bootstrap ];
     nix.registry = {
       configuration.to = {
         type = "github";
@@ -59,15 +58,14 @@ rec {
   # Give me the same thing with a GNOME environment to show people
   demo = larva // {
     imports = [
-      # FIXME: https://github.com/divnix/hive/issues/38
-      # (
-      #   { modulesPath, ... }:
-      #   {
-      #     imports = [
-      #       (builtins.toString modulesPath + "/installer/cd-dvd/installation-cd-graphical-gnome.nix")
-      #     ];
-      #   }
-      # )
+      (
+        { modulesPath, ... }:
+        {
+          imports = [
+            (builtins.toString modulesPath + "/installer/cd-dvd/installation-cd-graphical-gnome.nix")
+          ];
+        }
+      )
     ];
   };
 }

@@ -66,7 +66,7 @@
     colmena.url = "https://flakehub.com/f/zhaofengli/colmena/0.4.0.tar.gz";
     colmena.inputs.flake-compat.follows = "";
     hive = {
-      url = "github:divnix/hive/e7e3873da470a2a8ed267e2ab492129ff780579b";
+      url = "github:divnix/hive";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         colmena.follows = "colmena";
