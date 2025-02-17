@@ -21,6 +21,10 @@ in
       "muse-sounds-manager"
       "obsidian"
     ];
+  allowlistedLicenses = with lib.licenses; [
+    fsl11Mit
+    fsl11Asl20
+  ];
   permittedInsecurePackages = [
     "dotnet-runtime-6.0.36"
     "dotnet-runtime-wrapped-6.0.36"
