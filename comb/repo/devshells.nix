@@ -40,7 +40,11 @@ in
         ])
         (map paisano [ { package = std.std.cli.default; } ])
         (map bootstrap [
-          { package = colmena.packages.colmena; }
+          {
+            name = "colmena";
+            help = "A simple, stateless NixOS deployment tool";
+            command = ''${lib.getExe colmena.packages.colmena} --experimental-flake-eval "$@"'';
+          }
           { package = disko.packages.disko; }
           {
             name = "larva";

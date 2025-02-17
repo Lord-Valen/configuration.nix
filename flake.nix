@@ -63,10 +63,11 @@
       };
     };
 
-    colmena.url = "https://flakehub.com/f/zhaofengli/colmena/0.4.0.tar.gz";
+    colmena.url = "github:zhaofengli/colmena";
+    colmena.inputs.nix-github-actions.follows = "";
     colmena.inputs.flake-compat.follows = "";
     hive = {
-      url = "github:divnix/hive";
+      url = "github:divnix/hive/";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         colmena.follows = "colmena";
