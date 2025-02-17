@@ -42,6 +42,7 @@ in
   };
 
   conform = {
+    hook.mode = "copy";
     data = {
       inherit (inputs) cells;
       commit = {
@@ -73,12 +74,12 @@ in
     data = {
       formatter = {
         nix = {
-          command = "nixfmt";
+          command = "${lib.getExe nixpkgs.nixfmt-rfc-style}";
           options = lib.cli.toGNUCommandLine { } { verify = true; };
           includes = [ "*.nix" ];
         };
         prettier = {
-          command = "prettier";
+          command = "${lib.getExe nixpkgs.nodePackages.prettier}";
           options = lib.cli.toGNUCommandLine { } { write = true; };
           includes = [
             "*.css"
@@ -94,7 +95,7 @@ in
           ];
         };
         shell = {
-          command = "shfmt";
+          command = "${lib.getExe nixpkgs.shfmt}";
           options = lib.cli.toGNUCommandLine { } {
             indent = 2;
             simplify = true;
@@ -114,7 +115,7 @@ in
             # allow WIP, fixup!/squash! commits locally
             run = ''
               [[ "$(head -n 1 {1})" =~ ^WIP(:.*)?$|^wip(:.*)?$|fixup\!.*|squash\!.* ]] ||
-              conform enforce --commit-msg-file {1}'';
+              ${lib.getExe nixpkgs.conform} enforce --commit-msg-file {1}'';
             skip = [
               "merge"
               "rebase"
@@ -125,7 +126,7 @@ in
       pre-commit = {
         commands = {
           treefmt = {
-            run = "treefmt --fail-on-change {staged_files}";
+            run = "${lib.getExe nixpkgs.treefmt} --fail-on-change {staged_files}";
             skip = [
               "merge"
               "rebase"
