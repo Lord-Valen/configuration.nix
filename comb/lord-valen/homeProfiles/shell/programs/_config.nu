@@ -150,8 +150,7 @@ $env.config = {
   }
 
   filesize: {
-    metric: false
-    format: "auto"
+    unit: "binary"
   }
 
   menus: [
