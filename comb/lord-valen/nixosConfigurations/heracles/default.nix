@@ -33,13 +33,14 @@ in
         music
         musnix
         syncthing
-        regreet
-        hyprland
-        # cosmic
         geoclue
         zsa
         flatpak
         sunshine
+        # regreet
+        gdm
+        # hyprland
+        # cosmic
         gnome
         # TODO: Get an SSD
         # monero
