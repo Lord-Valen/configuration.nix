@@ -12,6 +12,7 @@ rec {
     [
       gpg
       git
+      gitbutler
       shell
       doom
       vscode
