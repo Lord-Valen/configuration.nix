@@ -4,7 +4,6 @@
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs29;
     extraPackages =
       epkgs: with epkgs; [
         # :term vterm
