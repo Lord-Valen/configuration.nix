@@ -7,7 +7,7 @@
   (syntax +childframe +flymake)
 
   :completion
-  (company +childframe +tng)
+  (corfu +icons +orderless)
   (vertico +childframe)
 
   :editor
