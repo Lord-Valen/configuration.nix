@@ -34,4 +34,7 @@ in
     "aspnetcore-runtime-wrapped-6.0.36"
     "electron-27.3.11"
   ];
+  overlays = [
+    inputs.emacs-overlay.overlays.package
+  ];
 }
