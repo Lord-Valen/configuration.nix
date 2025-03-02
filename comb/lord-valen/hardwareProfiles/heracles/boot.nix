@@ -3,8 +3,9 @@
   initrd.availableKernelModules = [
     "xhci_pci"
     "ahci"
-    "usbhid"
     "usb_storage"
+    "usbhid"
+    "uas"
     "sd_mod"
   ];
   loader = {
@@ -14,7 +15,6 @@
     };
     efi = {
       canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
     };
   };
 }
