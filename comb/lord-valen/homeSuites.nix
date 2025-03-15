@@ -25,6 +25,7 @@ rec {
       stylix
       appimage
       aria2
+      easyeffects
     ]
     ++ base;
 

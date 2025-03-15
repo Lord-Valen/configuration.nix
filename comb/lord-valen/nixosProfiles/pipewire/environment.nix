@@ -1,13 +1,10 @@
 {
-  inputs,
-  cell,
   pkgs,
 }:
 {
   systemPackages = with pkgs; [
     pavucontrol
-    #pwvucontrol
+    pwvucontrol
     helvum
-    easyeffects
   ];
 }
