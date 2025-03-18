@@ -7,7 +7,7 @@
   (syntax +childframe +flymake)
 
   :completion
-  (company +childframe +tng)
+  (corfu +icons +orderless)
   (vertico +childframe)
 
   :editor
@@ -31,21 +31,15 @@
 
   :lang
   (cc +lsp +tree-sitter)
-  common-lisp
   coq
   (csharp +lsp +tree-sitter +dotnet)
   data
   emacs-lisp
-  ;; (haskell +lsp +tree-sitter)
-  ;; (java +lsp +tree-sitter)
   (javascript +lsp +tree-sitter)
   (json +lsp +tree-sitter)
-  ;; (kotlin +lsp)
-  (latex +fold +lsp)
   (lua +lsp +tree-sitter)
   (markdown +grip)
   (nix +lsp +tree-sitter)
-  ;; (ocaml +lsp +tree-sitter)
   (org +dragndrop +pandoc +present +pretty +roam2)
   (rust +lsp +tree-sitter)
   (sh +lsp +tree-sitter)
@@ -84,9 +78,6 @@
   vi-tilde-fringe
   window-select
   workspaces
-
-  :app
-  calendar
 
   :config
   ;; This needs to be loaded last due to `featurep' use.
