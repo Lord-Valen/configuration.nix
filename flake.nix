@@ -89,6 +89,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+    };
     # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
   };
 
