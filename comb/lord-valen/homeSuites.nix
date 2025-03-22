@@ -14,7 +14,7 @@ rec {
       git
       gitbutler
       shell
-      doom
+      emacs
       vscode
       helix
       face
