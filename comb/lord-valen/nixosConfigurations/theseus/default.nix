@@ -29,6 +29,9 @@ in
         userProfiles.lord-valen
         userProfiles.nixos
 
+        upgrade
+        {system.autoUpgrade.rebootWindow = { lower = "04:00"; upper = "06:00"; }; }
+        
         gdm
         { services.xserver.displayManager.gdm.autoSuspend = false; }
         gnome
