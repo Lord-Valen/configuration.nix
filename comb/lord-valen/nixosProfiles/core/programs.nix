@@ -1,4 +1,5 @@
 {
+  nix-ld.enable = true;
   git.enable = true;
   nh = {
     enable = true;
