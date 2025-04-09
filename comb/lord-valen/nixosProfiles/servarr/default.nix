@@ -1,3 +1,4 @@
+# TODO: This should be a suite
 { cell }:
 let
   inherit (cell) pkgs-unstable;
@@ -11,48 +12,64 @@ in
           "deluge.home"
           "*.deluge.home"
         ];
+        forceSSL = true;
+        enableACME = true;
         locations."/" = {
           proxyPass = "http://localhost:8112";
         };
       };
       jellyfin = {
         serverAliases = [ "jellyfin.home *.jellyfin.home" ];
+        forceSSL = true;
+        enableACME = true;
         locations."/" = {
           proxyPass = "http://localhost:8096";
         };
       };
       prowlarr = {
         serverAliases = [ "prowlarr.home *.prowlarr.home" ];
+        forceSSL = true;
+        enableACME = true;
         locations."/" = {
           proxyPass = "http://localhost:9696";
         };
       };
       sonarr = {
         serverAliases = [ "sonarr.home *.sonarr.home" ];
+        forceSSL = true;
+        enableACME = true;
         locations."/" = {
           proxyPass = "http://localhost:8989";
         };
       };
       radarr = {
         serverAliases = [ "radarr.home *.radarr.home" ];
+        forceSSL = true;
+        enableACME = true;
         locations."/" = {
           proxyPass = "http://localhost:7878";
         };
       };
       lidarr = {
         serverAliases = [ "lidarr.home *.lidarr.home" ];
+        forceSSL = true;
+        enableACME = true;
         locations."/" = {
           proxyPass = "http://localhost:8686";
         };
       };
       readarr = {
         serverAliases = [ "readarr.home *.readarr.home" ];
+        forceSSL = true;
+        enableACME = true;
         locations."/" = {
           proxyPass = "http://localhost:8787";
         };
       };
       calibre = {
         serverAliases = [ "calibre.home *.calibre.home" ];
+        forceSSL = true;
+        enableACME = true;
         locations."/" = {
           proxyPass = "http://localhost:8080";
         };
