@@ -1,4 +1,8 @@
 {
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "lord_valen@proton.me";
+  };
   services.nginx = {
     enable = true;
     recommendedOptimisation = true;
