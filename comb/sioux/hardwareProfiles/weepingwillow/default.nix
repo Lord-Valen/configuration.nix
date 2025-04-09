@@ -10,7 +10,7 @@ in
 
   imports = with nixos-hardware.nixosModules; [
     common-pc-laptop
-    common-pc-laptop-hdd
+    common-pc-laptop-ssd
     common-cpu-amd
     disko.nixosModules.disko
     { disko.devices = cell.diskoConfigurations.weepingwillow; }
@@ -25,24 +25,4 @@ in
     "sd_mod"
     "sr_mod"
   ];
-
-  fileSystems = {
-    "/" = {
-      label = "MAIN";
-      fsType = "btrfs";
-      options = [ "subvol=/@" ];
-    };
-
-    "/home" = {
-      label = "MAIN";
-      fsType = "btrfs";
-      options = [ "subvol=/@home" ];
-    };
-
-    "/swap" = {
-      label = "MAIN";
-      fsType = "btrfs";
-      options = [ "subvol=/@swap" ];
-    };
-  };
 }
