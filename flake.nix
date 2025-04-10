@@ -80,7 +80,7 @@
     };
 
     disko = {
-      url = "github:nix-community/disko/v1.6.1";
+      url = "github:nix-community/disko/v1.7.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
