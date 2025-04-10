@@ -62,7 +62,6 @@ in
             {
               home.packages = with pkgs; [
                 thunderbird
-                bottles
                 ungoogled-chromium
                 localsend
                 transmission-gtk
