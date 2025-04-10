@@ -35,7 +35,7 @@
       };
       "@swap" = {
         mountpoint = "/swap";
-        swap.swapfile.size = "8GiB";
+        swap.swapfile.size = "8G";
       };
     };
   };
