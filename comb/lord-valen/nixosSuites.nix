@@ -9,6 +9,17 @@ rec {
     moonlight
   ];
 
+  servarr = [
+    sonarr
+    radarr
+    readarr
+    lidarr
+    prowlarr
+    deluge-servarr
+    jellyfin-servarr
+    calibre-servarr
+  ];
+
   games = [
     steam
     retroarch
@@ -52,7 +63,10 @@ rec {
       appimage
     ];
 
-  server = base ++ [ networking ];
+  server = base ++ [
+    nginx
+    networking
+  ];
   desktop = pc' ++ [ kubo ];
   laptop = pc' ++ [ colemak ];
 }
