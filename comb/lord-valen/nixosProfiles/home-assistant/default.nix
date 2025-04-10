@@ -1,6 +1,4 @@
-{ cell }:
 {
-  imports = [ cell.nixosProfiles.nginx ];
   services.nginx = {
     virtualHosts.home = {
       serverAliases = [ "home.home *.home.home" ];

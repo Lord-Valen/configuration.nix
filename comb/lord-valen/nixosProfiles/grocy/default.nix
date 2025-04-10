@@ -1,6 +1,4 @@
-{ cell }:
 {
-  imports = [ cell.nixosProfiles.nginx ];
   services.grocy = {
     enable = true;
     hostName = "grocy.home *.grocy.home";

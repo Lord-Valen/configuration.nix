@@ -20,6 +20,8 @@ in
     inherit hostName;
   };
 
+  services.nginx.virtualHosts.jellyfin.default = true;
+
   imports =
     let
       profiles = with nixosProfiles; [
@@ -40,10 +42,6 @@ in
         gdm
         { services.xserver.displayManager.gdm.autoSuspend = false; }
         gnome
-        servarr
-        {
-          services.nginx.virtualHosts.jellyfin.default = true;
-        }
         syncthing
         flatpak
         retroarch
@@ -51,6 +49,9 @@ in
       suites =
         with nixosSuites;
         lib.concatLists [
+          #server
+          [ nixosProfiles.nginx ] # FIXME: deduplicate suite profiles
+          servarr
           pc
           remote-play
         ];
