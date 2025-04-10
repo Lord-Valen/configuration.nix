@@ -88,9 +88,8 @@ in
             suites =
               with homeSuites;
               lib.concatLists [
-                lord-valen
-                hyprland
-                music
+                full
+                #hyprland
               ];
           in
           lib.concatLists [
