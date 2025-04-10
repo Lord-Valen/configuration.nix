@@ -33,7 +33,7 @@ rec {
       "@swap" = {
         mountpoint = "/swap";
         swap = {
-          swapfile.size = "16GiB";
+          swapfile.size = "16G";
         };
       };
     };
