@@ -102,6 +102,11 @@ in
     };
   };
 
+  services.beesd.filesystems = {
+    MAIN.spec = "/";
+    games.spec = "/home/lord-valen/games";
+  };
+
   services.syncthing.settings.folders = {
     "Pythia Bup" = {
       id = "jtafu-4mn0y";

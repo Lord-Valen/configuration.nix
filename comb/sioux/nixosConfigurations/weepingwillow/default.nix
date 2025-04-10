@@ -19,6 +19,8 @@ in
     inherit hostName;
   };
 
+  services.beesd.filesystems.MAIN.spec = "/";
+
   users.users = {
     root.shell = lib.mkForce pkgs.shadow;
     sioux = {
