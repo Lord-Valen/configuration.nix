@@ -50,7 +50,7 @@ in
             suites =
               with homeSuites;
               lib.concatLists [
-                lord-valen
+                full
                 laptop
                 xmonad
                 hyprland

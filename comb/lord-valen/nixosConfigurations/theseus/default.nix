@@ -67,7 +67,7 @@ in
     backupFileExtension = "hm.bkup";
     users = {
       root = {
-        imports = homeSuites.base ++ [ homeProfiles.shell ];
+        imports = [ homeProfiles.shell ];
         home.stateVersion = "24.05";
       };
       nixos = {
@@ -78,7 +78,12 @@ in
         imports =
           let
             profiles = with homeProfiles; [ ];
-            suites = with homeSuites; lib.concatLists [ lord-valen ];
+            suites =
+              with homeSuites;
+              lib.concatLists [
+                base
+                cosmetic
+              ];
           in
           lib.concatLists [
             profiles

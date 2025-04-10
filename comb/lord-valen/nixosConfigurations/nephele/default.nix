@@ -62,13 +62,8 @@ in
         imports =
           let
             profiles = with homeProfiles; [
-              shell
-              gpg
-              git
-              helix
-              less
             ];
-            suites = with homeSuites; lib.concatLists [ ];
+            suites = with homeSuites; lib.concatLists [ base ];
           in
           lib.concatLists [
             profiles

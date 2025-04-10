@@ -3,37 +3,62 @@ let
   inherit (cell) homeProfiles;
 in
 rec {
-  base = with homeProfiles; [ core ];
+  base = with homeProfiles; [
+    core
+    shell
+    git
+    helix
+    zathura
+    less
+    gpg
+  ];
+
+  cosmetic = with homeProfiles; [
+    face
+    wallpaper
+    stylix
+  ];
+
+  apps = with homeProfiles; [
+    appimage
+  ];
+
+  development = with homeProfiles; [
+    gitbutler
+    emacs
+    vscode
+  ];
+
+  download = with homeProfiles; [
+    aria2
+  ];
+
+  audio = with homeProfiles; [
+    easyeffects
+  ];
+
+  video = with homeProfiles; [
+    mpv
+  ];
+
+  music =
+    with homeProfiles;
+    audio
+    ++ [
+      vcv
+      strawberry
+    ];
+
+  full = inputs.nixpkgs.lib.concatLists [
+    base
+    cosmetic
+    development
+    music
+    apps
+    download
+  ];
 
   laptop = with homeProfiles; [ colemak ];
-
-  lord-valen =
-    with homeProfiles;
-    [
-      gpg
-      git
-      gitbutler
-      shell
-      emacs
-      vscode
-      helix
-      face
-      wallpaper
-      zathura
-      less
-      mpv
-      stylix
-      appimage
-      aria2
-      easyeffects
-    ]
-    ++ base;
-
-  music = with homeProfiles; [
-    vcv
-    mpd
-    strawberry
-  ];
 
   hyprland = with homeProfiles; [ homeProfiles.hyprland ];
 
