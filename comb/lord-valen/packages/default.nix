@@ -1,4 +1,5 @@
 { inputs, cell }@paisano:
+#TODO: Surely, I could use haumea to get the directories?
 let
   inherit (inputs.nixpkgs) lib;
 
