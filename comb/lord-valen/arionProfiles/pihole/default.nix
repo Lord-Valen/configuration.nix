@@ -1,11 +1,7 @@
 { inputs, cell }:
-let
-  inherit (cell.arionProfiles) common;
-in
 {
   imports = [
-    common
-    cell.nixosProfiles.nginx
+    cell.arionProfiles.common
   ];
 
   networking.firewall = {
