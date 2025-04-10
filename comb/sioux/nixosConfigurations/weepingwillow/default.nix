@@ -82,18 +82,20 @@ in
           suites
         ];
 
-      home.stateVersion = "24.05";
+      home.stateVersion = "24.11";
     };
   };
 
   boot.loader = {
     grub = {
       enable = true;
-      device = "/dev/sda";
+      efiSupport = true;
+      efiInstallAsRemovable = true;
+      #device = "/dev/sda";
     };
   };
 
   swapDevices = [ { device = "/swap/swapfile"; } ];
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 }
