@@ -27,6 +27,8 @@ in
     };
   };
 
+  services.beesd.filesystems.MAIN.spec = "/";
+
   imports =
     let
       profiles = with nixosProfiles; [

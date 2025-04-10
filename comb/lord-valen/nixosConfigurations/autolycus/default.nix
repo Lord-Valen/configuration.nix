@@ -75,6 +75,8 @@ in
     };
   };
 
+  services.beesd.filesystems.MAIN.spec = "/";
+
   services.syncthing.settings.folders = {
     "Pythia Bup" = {
       id = "jtafu-4mn0y";

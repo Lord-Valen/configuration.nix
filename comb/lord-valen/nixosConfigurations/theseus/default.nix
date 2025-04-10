@@ -30,8 +30,13 @@ in
         userProfiles.nixos
 
         upgrade
-        {system.autoUpgrade.rebootWindow = { lower = "04:00"; upper = "06:00"; }; }
-        
+        {
+          system.autoUpgrade.rebootWindow = {
+            lower = "04:00";
+            upper = "06:00";
+          };
+        }
+
         gdm
         { services.xserver.displayManager.gdm.autoSuspend = false; }
         gnome
@@ -82,6 +87,8 @@ in
       };
     };
   };
+
+  services.beesd.filesystems.MAIN.spec = "/";
 
   services.syncthing = {
     user = lib.mkForce "servarr";
