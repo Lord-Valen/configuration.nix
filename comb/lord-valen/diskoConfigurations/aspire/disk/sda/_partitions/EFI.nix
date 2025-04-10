@@ -1,5 +1,4 @@
 rec {
-  priority = 1;
   name = "EFI";
   label = name;
   priority = 1;
