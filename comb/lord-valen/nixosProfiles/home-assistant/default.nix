@@ -1,7 +1,10 @@
 {
   services.nginx = {
     virtualHosts.home = {
-      serverAliases = [ "home.home *.home.home" ];
+      serverAliases = [
+        "home.home"
+        "*.home.home"
+      ];
       extraConfig = ''
         proxy_buffering off;
       '';

@@ -1,12 +1,10 @@
+{ config, lib }:
 {
   services = {
-    nginx.virtualHosts.lidarr = {
-      serverAliases = [ "lidarr.home *.lidarr.home" ];
-      forceSSL = true;
-      enableACME = true;
-      locations."/" = {
-        proxyPass = "http://localhost:8686";
-      };
+    nginx.virtualHosts."lidarr.laughing-man.xyz" = {
+      forceSSL = lib.mkDefault config.security.acme.acceptTerms;
+      enableACME = lib.mkDefault config.security.acme.acceptTerms;
+      locations."/".proxyPass = "http://localhost:8686";
     };
 
     lidarr = {

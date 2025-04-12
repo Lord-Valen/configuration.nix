@@ -20,7 +20,7 @@ in
     inherit hostName;
   };
 
-  services.nginx.virtualHosts.jellyfin.default = true;
+  services.nginx.virtualHosts."jellyfin.laughing-man.xyz".default = true;
 
   imports =
     let
