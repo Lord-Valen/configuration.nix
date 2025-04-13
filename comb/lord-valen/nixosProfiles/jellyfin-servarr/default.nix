@@ -1,13 +1,12 @@
+{ config, lib }:
 {
   services = {
-    nginx.virtualHosts.jellyfin = {
-      serverAliases = [ "jellyfin.home *.jellyfin.home" ];
-      forceSSL = true;
-      enableACME = true;
-      locations."/" = {
-        proxyPass = "http://localhost:8096";
-      };
+    nginx.virtualHosts."jellyfin.laughing-man.xyz" = {
+      forceSSL = lib.mkDefault config.security.acme.acceptTerms;
+      enableACME = lib.mkDefault config.security.acme.acceptTerms;
+      locations."/".proxyPass = "http://localhost:8096";
     };
+
     jellyfin = {
       enable = true;
       user = "servarr";

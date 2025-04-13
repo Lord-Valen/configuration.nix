@@ -20,7 +20,23 @@ in
     inherit hostName;
   };
 
-  services.nginx.virtualHosts.jellyfin.default = true;
+  services.cloudflare-dyndns = {
+    enable = true;
+    proxied = true;
+    domains = [
+      "jellyfin.laughing-man.xyz"
+      "sonarr.laughing-man.xyz"
+      "lidarr.laughing-man.xyz"
+      "readarr.laughing-man.xyz"
+      "radarr.laughing-man.xyz"
+      "deluge.laughing-man.xyz"
+      "calibre.laughing-man.xyz"
+      "prowlarr.laughing-man.xyz"
+    ];
+    apiTokenFile = "/data/cloudflare_token.conf";
+  };
+
+  services.nginx.virtualHosts."jellyfin.laughing-man.xyz".default = true;
 
   imports =
     let

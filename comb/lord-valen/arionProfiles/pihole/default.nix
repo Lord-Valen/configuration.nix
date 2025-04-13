@@ -10,7 +10,10 @@
   };
 
   services.nginx.virtualHosts.hole = {
-    serverAliases = [ "hole.home *.hole.home" ];
+    serverAliases = [
+      "hole.home"
+      "*.hole.home"
+    ];
     locations."/" = {
       proxyPass = "http://localhost:4013";
     };
