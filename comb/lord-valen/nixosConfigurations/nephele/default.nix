@@ -27,7 +27,15 @@ in
     };
   };
 
-  services.beesd.filesystems.MAIN.spec = "/";
+  services.beesd.filesystems.MAIN = {
+    spec = "/";
+    extraOptions = [
+      "-G"
+      "1"
+      "-g"
+      "5"
+    ];
+  };
 
   imports =
     let
