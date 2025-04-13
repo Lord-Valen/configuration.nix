@@ -102,8 +102,24 @@ in
   };
 
   services.beesd.filesystems = {
-    MAIN.spec = "/";
-    games.spec = "/home/lord-valen/games";
+    MAIN = {
+      spec = "/";
+      extraOptions = [
+        "-G"
+        "1"
+        "-g"
+        "5"
+      ];
+    };
+    games = {
+      spec = "/home/lord-valen/games";
+      extraOptions = [
+        "-G"
+        "1"
+        "-g"
+        "5"
+      ];
+    };
   };
 
   services.syncthing.settings.folders = {
