@@ -256,4 +256,6 @@
   :init (apheleia-global-mode))
 (use-package treemacs
   :bind ("C-c t" . treemacs))
-(use-package eglot)
+(use-package eglot
+  :ensure nil				;builtin
+  )
