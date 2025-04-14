@@ -10,7 +10,13 @@
     recommendedProxySettings = true;
   };
   networking = {
-    firewall.allowedTCPPorts = [ 80 ];
-    firewall.allowedUDPPorts = [ 80 ];
+    firewall.allowedTCPPorts = [
+      80
+      443
+    ];
+    firewall.allowedUDPPorts = [
+      80
+      443
+    ];
   };
 }
