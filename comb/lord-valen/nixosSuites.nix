@@ -26,6 +26,7 @@ rec {
     osu
     heroic
     lutris
+    liquorix
   ];
 
   base = [
