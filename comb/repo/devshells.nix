@@ -19,6 +19,7 @@ in
       "lefthook"
     ];
 
+    env = [{name="NH_FLAKE"; eval="$PRJ_ROOT";}];
     packages = with pkgs; [
       nixfmt-rfc-style
       nh
@@ -66,7 +67,7 @@ in
           {
             name = "boot";
             help = "Switch boot configuration";
-            command = ''FLAKE=$PRJ_ROOT nh os boot "$@"'';
+            command = ''nh os boot "$@"'';
           }
           {
             name = "build";
@@ -90,17 +91,17 @@ in
           {
             name = "dry";
             help = "Dry activate configuration";
-            command = ''FLAKE=$PRJ_ROOT nh os switch --dry "$@"'';
+            command = ''nh os switch --dry "$@"'';
           }
           {
             name = "switch";
             help = "Switch configurations";
-            command = ''FLAKE=$PRJ_ROOT nh os switch "$@"'';
+            command = ''nh os switch "$@"'';
           }
           {
             name = "test";
             help = "Test configuration";
-            command = ''FLAKE=$PRJ_ROOT nh os test "$@"'';
+            command = ''nh os test "$@"'';
           }
           {
             name = "update";
