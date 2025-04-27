@@ -10,11 +10,18 @@
       gitlab.user = "Lord-Valen";
       init.defaultBranch = "main";
       merge.confictStyle = "zdiff3";
+      
+      fetch = {
+        prune = true;
+        pruneTags = true;
+      };
+
       pull.rebase = true;
       push = {
         autoSetupRemote = true;
         default = "current";
       };
+      
       remote.pushDefault = "Lord-Valen";
     };
 
