@@ -6,6 +6,7 @@
       with pkgs.gnomeExtensions;
       map (package: { inherit package; }) [
         paperwm
+        switcher
       ];
   };
 }
