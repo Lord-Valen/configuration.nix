@@ -7,6 +7,7 @@
       map (package: { inherit package; }) [
         paperwm
         switcher
+        system-monitor
       ];
   };
 }
