@@ -75,6 +75,7 @@ in
         imports =
           let
             profiles = with homeProfiles; [
+              gnome
               notes
               syncthing
               {
