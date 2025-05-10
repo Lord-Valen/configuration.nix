@@ -8,6 +8,8 @@
         paperwm
         switcher
         system-monitor
+        status-icons
+        lilypad
       ];
   };
 }
