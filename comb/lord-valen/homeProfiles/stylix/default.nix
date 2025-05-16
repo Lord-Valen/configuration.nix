@@ -1,9 +1,10 @@
 { inputs, pkgs }:
 {
-  imports = [ inputs.stylix.homeManagerModules.stylix ];
+  imports = [ inputs.stylix.homeModules.stylix ];
   stylix = {
     enable = true;
 
+    overlays.enable = false;
     /*
       NOTE: I'm not even using this, upstream should
       add an enable option or make it nullable. It also won't follow a symlink, so

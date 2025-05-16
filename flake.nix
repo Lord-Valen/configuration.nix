@@ -24,21 +24,21 @@
   };
 
   inputs = {
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/release-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.follows = "nixpkgs-stable";
 
     home-manager-stable = {
       url = "github:/nix-community/home-manager/release-24.11";
-      inputs.nixpkgs.follows = "nixpkgs-stable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager-unstable = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-manager.follows = "home-manager-stable";
+    home-manager.follows = "home-manager-unstable";
 
-    stylix = {
+    stylix-stable = {
       url = "github:danth/stylix/release-24.11";
       inputs = {
         nixpkgs.follows = "nixpkgs";
@@ -46,6 +46,15 @@
         flake-compat.follows = "";
       };
     };
+    stylix-unstable = {
+      url = "github:danth/stylix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+        flake-compat.follows = "";
+      };
+    };
+    stylix.follows = "stylix-unstable";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 

@@ -1,13 +1,9 @@
 { inputs, cell }:
-let
-  inherit (inputs) anyrun;
-in
 {
-  imports = [ anyrun.homeManagerModules.anyrun ];
   programs.anyrun = {
     enable = true;
     config = {
-      plugins = with anyrun.packages; [
+      plugins = with inputs.anyrun.packages; [
         applications
         shell
         randr

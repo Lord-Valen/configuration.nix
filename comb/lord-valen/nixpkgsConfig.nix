@@ -15,6 +15,7 @@ in
       "vcv-rack"
       "osu-lazer-bin"
       "vscode"
+      "vscode-extension-ms-dotnettools-csharp"
       "vscode-extension-ms-dotnettools-vscodeintellicode-csharp"
       "vscode-extension-ms-dotnettools-csdevkit"
       "aspell-dict-en-science"
