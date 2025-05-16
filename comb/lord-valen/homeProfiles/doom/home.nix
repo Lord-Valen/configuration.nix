@@ -38,12 +38,8 @@ in
           zstd
         ];
         mine = [
-          (nerdfonts.override {
-            fonts = [
-              "Iosevka"
-              "NerdFontsSymbolsOnly"
-            ];
-          })
+          nerd-fonts.iosevka
+          nerd-fonts.symbols-only
           (iosevka-bin.override { variant = "Aile"; })
           noto-fonts-emoji
           config.programs.nushell.package
