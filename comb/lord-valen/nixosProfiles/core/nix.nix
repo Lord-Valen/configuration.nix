@@ -19,7 +19,7 @@ in
     ];
 
     download-buffer-size = 524288000;
-    
+
     auto-optimise-store = true;
     experimental-features = [
       "nix-command"

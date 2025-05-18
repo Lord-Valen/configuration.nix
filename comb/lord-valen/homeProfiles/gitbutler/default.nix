@@ -1,4 +1,4 @@
-{pkgs,}:
+{ pkgs }:
 {
-  home.packages = [pkgs.gitbutler];
+  home.packages = [ pkgs.gitbutler ];
 }
