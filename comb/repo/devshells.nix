@@ -19,7 +19,12 @@ in
       "lefthook"
     ];
 
-    env = [{name="NH_FLAKE"; eval="$PRJ_ROOT";}];
+    env = [
+      {
+        name = "NH_FLAKE";
+        eval = "$PRJ_ROOT";
+      }
+    ];
     packages = with pkgs; [
       nixfmt-rfc-style
       nh
