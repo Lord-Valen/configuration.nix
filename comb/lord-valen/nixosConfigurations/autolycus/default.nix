@@ -57,6 +57,7 @@ in
             profiles = with homeProfiles; [
               notes
               syncthing
+              gnome
             ];
             suites =
               with homeSuites;
