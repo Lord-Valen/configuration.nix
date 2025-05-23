@@ -14,22 +14,24 @@ in
   ];
   programs.vscode = {
     enable = true;
-    userSettings = {
-      "telemetry.telemetryLevel" = "off";
-      "dotnetAcquisitionExtension.enableTelemetry" = false;
+    profiles.default = {
+      userSettings = {
+        "telemetry.telemetryLevel" = "off";
+        "dotnetAcquisitionExtension.enableTelemetry" = false;
 
-      "editor.formatOnSave" = true;
-      "editor.formatOnPaste" = true;
-      "git.openRepositoryInParentFolders" = "always";
+        "editor.formatOnSave" = true;
+        "editor.formatOnPaste" = true;
+        "git.openRepositoryInParentFolders" = "always";
+      };
+      extensions = with pkgs.vscode-extensions; [
+        visualstudioexptteam.vscodeintellicode
+        mkhl.direnv
+        jnoortheen.nix-ide
+        ms-dotnettools.csdevkit
+        ms-dotnettools.csharp
+        ms-dotnettools.vscodeintellicode-csharp
+        ms-dotnettools.vscode-dotnet-runtime
+      ];
     };
-    extensions = with pkgs.vscode-extensions; [
-      visualstudioexptteam.vscodeintellicode
-      mkhl.direnv
-      jnoortheen.nix-ide
-      ms-dotnettools.csdevkit
-      ms-dotnettools.csharp
-      ms-dotnettools.vscodeintellicode-csharp
-      ms-dotnettools.vscode-dotnet-runtime
-    ];
   };
 }

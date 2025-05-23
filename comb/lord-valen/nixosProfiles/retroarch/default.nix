@@ -6,8 +6,8 @@
 {
   services.xserver.desktopManager.retroarch = {
     enable = true;
-    package = pkgs.retroarch.override {
-      cores = with pkgs.libretro; [
+    package = pkgs.retroarch.withCores (
+      cores: with cores; [
         scummvm
         beetle-psx
         ppsspp
@@ -17,7 +17,7 @@
         bsnes
         mupen64plus
         blastem
-      ];
-    };
+      ]
+    );
   };
 }
