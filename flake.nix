@@ -11,8 +11,6 @@
       "https://ezkea.cachix.org"
       # colmena
       "https://colmena.cachix.org"
-      # # cosmic
-      # "https://cosmic.cachix.org"
     ];
 
     extra-trusted-public-keys = [
@@ -28,17 +26,12 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs.follows = "nixpkgs-stable";
 
-    home-manager-stable = {
+    home-manager = {
       url = "github:/nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-manager-unstable = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    home-manager.follows = "home-manager-unstable";
 
-    stylix-stable = {
+    stylix = {
       url = "github:danth/stylix/release-25.05";
       inputs = {
         nixpkgs.follows = "nixpkgs";
@@ -46,15 +39,6 @@
         flake-compat.follows = "";
       };
     };
-    stylix-unstable = {
-      url = "github:danth/stylix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-        flake-compat.follows = "";
-      };
-    };
-    stylix.follows = "stylix-stable";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
@@ -101,7 +85,6 @@
     emacs-overlay = {
       url = "github:nix-community/emacs-overlay";
     };
-    # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
   };
 
   # Desktop
