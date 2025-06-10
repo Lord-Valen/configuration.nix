@@ -12,7 +12,7 @@
         type = "btrfs";
         extraArgs = [ "-f" ];
         subvolumes."@" = {
-          mountpoint = "/home/lord-valen/games";
+          mountpoint = "/home/lord-valen/Games";
           mountOptions = [
             "noatime"
             "compress=zstd"
