@@ -37,6 +37,7 @@ in
         zsa
         flatpak
         sunshine
+        wireshark
         # regreet
         gdm
         # hyprland
