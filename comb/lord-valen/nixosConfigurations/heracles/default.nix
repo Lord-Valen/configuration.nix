@@ -113,7 +113,7 @@ in
       ];
     };
     games = {
-      spec = "/home/lord-valen/games";
+      spec = "/home/lord-valen/Games";
       extraOptions = [
         "-G"
         "1"
