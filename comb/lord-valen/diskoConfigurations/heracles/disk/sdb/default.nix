@@ -11,12 +11,21 @@
       content = {
         type = "btrfs";
         extraArgs = [ "-f" ];
-        subvolumes."@" = {
-          mountpoint = "/home/lord-valen/Games";
-          mountOptions = [
-            "noatime"
-            "compress=zstd"
-          ];
+        subvolumes = {
+          "@" = {
+            mountpoint = "/home/lord-valen/Games";
+            mountOptions = [
+              "noatime"
+              "compress=zstd"
+            ];
+          };
+          ".snapshots/@" = {
+            mountpoint = "/home/lord-valen/Games/.snapshots";
+            mountOptions = [
+              "noatime"
+              "compress=zstd"
+            ];
+          };
         };
       };
     };
