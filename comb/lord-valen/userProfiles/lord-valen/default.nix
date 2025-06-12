@@ -18,6 +18,7 @@ in
       "networkmanager"
       "wheel"
       "audio"
+      "wireshark"
       config.services.kubo.group
     ];
     openssh.authorizedKeys.keys = [
