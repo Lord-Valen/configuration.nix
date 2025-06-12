@@ -61,6 +61,7 @@ in
         syncthing
         flatpak
         retroarch
+        snapper
       ];
       suites =
         with nixosSuites;
@@ -130,6 +131,36 @@ in
       ];
     };
   };
+
+  services.snapper.configs =
+    lib.mapAttrs
+      (
+        _: v:
+        {
+          QGROUP = "1/5400";
+          TIMELINE_CREATE = true;
+          TIMELINE_CLEANUP = true;
+          EMPTY_PRE_POST_CLEANUP = true;
+          TIMELINE_LIMIT_HOURLY = "5-10";
+          TIMELINE_LIMIT_DAILY = "2-5";
+          TIMELINE_LIMIT_WEEKLY = "1-4";
+          TIMELINE_LIMIT_MONTHLY = "0-2";
+          TIMELINE_LIMIT_QUARTERLY = "0-1";
+          TIMELINE_LIMIT_YEARLY = "0-1";
+        }
+        // v
+      )
+      {
+        root = {
+          SUBVOLUME = "/";
+        };
+        home = {
+          SUBVOLUME = "/home";
+        };
+        data = {
+          SUBVOLUME = "/data";
+        };
+      };
 
   services.syncthing = {
     user = lib.mkForce "servarr";

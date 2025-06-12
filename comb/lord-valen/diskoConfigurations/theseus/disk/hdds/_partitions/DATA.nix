@@ -12,6 +12,13 @@
           "noatime"
         ];
       };
+      ".snapshots/@data" = {
+        mountpoint = "/data/.snapshots";
+        mountOptions = [
+          "compress=zstd"
+          "noatime"
+        ];
+      };
     };
   };
 }
