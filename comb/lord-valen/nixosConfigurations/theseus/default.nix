@@ -110,14 +110,25 @@ in
     };
   };
 
-  services.beesd.filesystems.MAIN = {
-    spec = "/";
-    extraOptions = [
-      "-G"
-      "1"
-      "-g"
-      "5"
-    ];
+  services.beesd.filesystems = {
+    MAIN = {
+      spec = "/";
+      extraOptions = [
+        "-G"
+        "1"
+        "-g"
+        "5"
+      ];
+    };
+    DATA = {
+      spec = "/data";
+      extraOptions = [
+        "-G"
+        "1"
+        "-g"
+        "5"
+      ];
+    };
   };
 
   services.syncthing = {

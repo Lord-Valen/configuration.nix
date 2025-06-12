@@ -1,5 +1,5 @@
 {
-  name = "MAIN";
+  name = "THESEUSMAIN";
   size = "100%";
   content = {
     type = "btrfs";
@@ -14,20 +14,6 @@
       };
       "@nix" = {
         mountpoint = "/nix";
-        mountOptions = [
-          "compress=zstd"
-          "noatime"
-        ];
-      };
-      "@docker" = {
-        mountpoint = "/docker";
-        mountOptions = [
-          "compress=zstd"
-          "noatime"
-        ];
-      };
-      "@data" = {
-        mountpoint = "/data";
         mountOptions = [
           "compress=zstd"
           "noatime"
