@@ -49,6 +49,10 @@ rec {
       strawberry
     ];
 
+  games = with homeProfiles; [
+    lutris
+  ];
+
   full = inputs.nixpkgs.lib.concatLists [
     base
     cosmetic
@@ -56,6 +60,7 @@ rec {
     music
     apps
     download
+    games
   ];
 
   laptop = with homeProfiles; [ colemak ];
