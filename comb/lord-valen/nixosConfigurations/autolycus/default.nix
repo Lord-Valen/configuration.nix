@@ -30,6 +30,7 @@ in
         tablet
         heroic
         steam
+        snapper
       ];
       suites = with nixosSuites; laptop;
     in
@@ -83,6 +84,22 @@ in
       "-g"
       "5"
     ];
+  };
+
+  services.snapper.configs = {
+    home = {
+      SUBVOLUME = "/home";
+      QGROUP = "1/5400";
+      TIMELINE_CREATE = true;
+      TIMELINE_CLEANUP = true;
+      EMPTY_PRE_POST_CLEANUP = true;
+      TIMELINE_LIMIT_HOURLY = "5-10";
+      TIMELINE_LIMIT_DAILY = "2-5";
+      TIMELINE_LIMIT_WEEKLY = "1-4";
+      TIMELINE_LIMIT_MONTHLY = "0-2";
+      TIMELINE_LIMIT_QUARTERLY = "0-1";
+      TIMELINE_LIMIT_YEARLY = "0-1";
+    };
   };
 
   services.syncthing.settings.folders = {
