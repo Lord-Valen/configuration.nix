@@ -29,6 +29,11 @@ rec {
     liquorix
   ];
 
+  btrfs = [
+    btrfsMaintenance
+    snapper
+  ];
+
   base = [
     linux
     core

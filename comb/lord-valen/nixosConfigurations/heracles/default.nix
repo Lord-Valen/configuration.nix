@@ -38,7 +38,6 @@ in
         flatpak
         sunshine
         wireshark
-        snapper
         # regreet
         gdm
         # hyprland
@@ -55,6 +54,7 @@ in
       suites =
         with nixosSuites;
         lib.concatLists [
+          btrfs
           desktop
           games
         ];

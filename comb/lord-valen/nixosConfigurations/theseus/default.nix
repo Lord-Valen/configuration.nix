@@ -61,13 +61,13 @@ in
         syncthing
         flatpak
         retroarch
-        snapper
       ];
       suites =
         with nixosSuites;
         lib.concatLists [
           #server
           [ nixosProfiles.nginx ] # FIXME: deduplicate suite profiles
+          btrfs
           servarr
           pc
           remote-play

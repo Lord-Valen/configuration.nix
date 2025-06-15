@@ -30,9 +30,13 @@ in
         tablet
         heroic
         steam
-        snapper
       ];
-      suites = with nixosSuites; laptop;
+      suites =
+        with nixosSuites;
+        lib.concatLists [
+          btrfs
+          laptop
+        ];
     in
     lib.concatLists [
       [
