@@ -174,7 +174,6 @@ in
       devices = [
         "Heracles"
         "Pythia"
-        "Oracle"
       ];
     };
     "Pythia Photos" = {
@@ -184,7 +183,6 @@ in
       devices = [
         "Heracles"
         "Pythia"
-        "Oracle"
       ];
     };
     "Books" = {

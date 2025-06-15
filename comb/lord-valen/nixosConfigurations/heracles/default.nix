@@ -163,7 +163,6 @@ in
       devices = [
         "Theseus"
         "Pythia"
-        "Oracle"
       ];
     };
     "Pythia Photos" = {
@@ -173,7 +172,6 @@ in
       devices = [
         "Theseus"
         "Pythia"
-        "Oracle"
       ];
     };
   };
