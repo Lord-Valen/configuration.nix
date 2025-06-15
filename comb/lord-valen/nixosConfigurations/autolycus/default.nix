@@ -93,9 +93,7 @@ in
       devices = [
         "Heracles"
         "Theseus"
-        "Aspire"
         "Pythia"
-        "Oracle"
       ];
     };
     "Pythia Photos" = {
@@ -104,8 +102,7 @@ in
       type = "receiveonly";
       devices = [
         "Theseus"
-        "Aspire"
-        "Oracle"
+        "Pythia"
       ];
     };
   };
