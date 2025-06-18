@@ -21,6 +21,14 @@ rec {
         ];
       };
 
+      ".snapshots/@home" = {
+        mountpoint = "/home/.snapshots";
+        mountOptions = [
+          "compress=zstd"
+          "noatime"
+        ];
+      };
+
       "@nix" = {
         mountpoint = "/nix";
         mountOptions = [
