@@ -1,3 +1,4 @@
+# TODO: This should be a suite.
 {
   inputs,
   cell,
@@ -12,10 +13,8 @@
       liberation_ttf
     ];
   };
-
   environment.systemPackages = with pkgs; [
     zotero
-    texlive.combined.scheme-full
     biber
     onlyoffice-bin
   ];
