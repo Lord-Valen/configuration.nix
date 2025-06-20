@@ -190,7 +190,6 @@ in
       path = "/data/media/books";
       type = "sendreceive";
       devices = [
-        "lvAspire"
         "lvHeracles"
         "Pythia"
         "Oracle"
@@ -201,7 +200,6 @@ in
       path = "/data/media/music";
       type = "sendonly";
       devices = [
-        "lvAspire"
         "lvHeracles"
         "Pythia"
         "Oracle"
