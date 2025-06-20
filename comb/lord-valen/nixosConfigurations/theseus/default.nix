@@ -192,7 +192,6 @@ in
       devices = [
         "lvHeracles"
         "Pythia"
-        "Oracle"
       ];
     };
     "Music" = {
@@ -202,7 +201,6 @@ in
       devices = [
         "lvHeracles"
         "Pythia"
-        "Oracle"
       ];
     };
   };
