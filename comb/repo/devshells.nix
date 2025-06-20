@@ -15,7 +15,6 @@ in
       "treefmt"
       "lefthook"
       "editorconfig"
-      "conform"
       "lefthook"
     ];
 

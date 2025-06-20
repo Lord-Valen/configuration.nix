@@ -1,7 +1,7 @@
 { inputs, cell }:
 let
-  nixpkgs = cell.pkgs;
-  inherit (nixpkgs) lib;
+  inherit (cell) pkgs;
+  inherit (pkgs) lib;
 in
 {
   editorconfig = {
@@ -41,32 +41,8 @@ in
     };
   };
 
-  conform = {
-    hook.mode = "copy";
-    data = {
-      inherit (inputs) cells;
-      commit = {
-        header.length = 89;
-        conventional = {
-          types = [
-            "chore"
-            "dev"
-            "ci"
-            "docs"
-            "feat"
-            "fix"
-            "refactor"
-            "style"
-            "test"
-          ];
-          scopes = [ ];
-        };
-      };
-    };
-  };
-
   treefmt = {
-    packages = with nixpkgs; [
+    packages = with pkgs; [
       nixfmt-rfc-style
       nodePackages.prettier
       shfmt
@@ -74,12 +50,12 @@ in
     data = {
       formatter = {
         nix = {
-          command = "${lib.getExe nixpkgs.nixfmt-rfc-style}";
+          command = "${lib.getExe pkgs.nixfmt-rfc-style}";
           options = lib.cli.toGNUCommandLine { } { verify = true; };
           includes = [ "*.nix" ];
         };
         prettier = {
-          command = "${lib.getExe nixpkgs.nodePackages.prettier}";
+          command = "${lib.getExe pkgs.nodePackages.prettier}";
           options = lib.cli.toGNUCommandLine { } { write = true; };
           includes = [
             "*.css"
@@ -95,7 +71,7 @@ in
           ];
         };
         shell = {
-          command = "${lib.getExe nixpkgs.shfmt}";
+          command = "${lib.getExe pkgs.shfmt}";
           options = lib.cli.toGNUCommandLine { } {
             indent = 2;
             simplify = true;
@@ -109,29 +85,13 @@ in
 
   lefthook = {
     data = {
-      commit-msg = {
-        commands = {
-          conform = {
-            # allow WIP, fixup!/squash! commits locally
-            run = ''
-              [[ "$(head -n 1 {1})" =~ ^WIP(:.*)?$|^wip(:.*)?$|fixup\!.*|squash\!.* ]] ||
-              ${lib.getExe nixpkgs.conform} enforce --commit-msg-file {1}'';
-            skip = [
-              "merge"
-              "rebase"
-            ];
-          };
-        };
-      };
-      pre-commit = {
-        commands = {
-          treefmt = {
-            run = "${lib.getExe nixpkgs.treefmt} --fail-on-change {staged_files}";
-            skip = [
-              "merge"
-              "rebase"
-            ];
-          };
+      pre-commit.commands = {
+        treefmt = {
+          run = "${lib.getExe pkgs.treefmt} --fail-on-change {staged_files}";
+          skip = [
+            "merge"
+            "rebase"
+          ];
         };
       };
     };
