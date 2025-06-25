@@ -25,6 +25,7 @@ rec {
 
   development = with homeProfiles; [
     gitbutler
+    devenv
     emacs
     vscode
   ];
