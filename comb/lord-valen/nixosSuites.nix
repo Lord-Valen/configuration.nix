@@ -10,6 +10,7 @@ rec {
   ];
 
   servarr = [
+    servarr
     sonarr
     radarr
     readarr
