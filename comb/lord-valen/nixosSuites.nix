@@ -2,14 +2,14 @@
 let
   inherit (cell) nixosProfiles userProfiles;
 in
-with nixosProfiles;
 rec {
-  remote-play = [
+  remote-play = with nixosProfiles; [
     steam
     moonlight
   ];
 
-  servarr = [
+  servarr = with nixosProfiles; [
+    nixosProfiles.servarr
     sonarr
     radarr
     readarr
@@ -20,7 +20,7 @@ rec {
     calibre-servarr
   ];
 
-  games = [
+  games = with nixosProfiles; [
     steam
     retroarch
     osu
@@ -29,12 +29,12 @@ rec {
     liquorix
   ];
 
-  btrfs = [
+  btrfs = with nixosProfiles; [
     btrfsMaintenance
     snapper
   ];
 
-  base = [
+  base = with nixosProfiles; [
     linux
     core
     cachix
@@ -42,37 +42,41 @@ rec {
     gpg
     userProfiles.root
   ];
-  office = [
+  office = with nixosProfiles; [
     writing
     printing
   ];
-  develop = [
+  develop = with nixosProfiles; [
     keep-outputs
     distrobox
     javascript
   ];
-  pc = base ++ [
-    pipewire
-    networking
-    yubikey
-    browser
-    upower
-    localsend
-  ];
+  pc =
+    base
+    ++ (with nixosProfiles; [
+      pipewire
+      networking
+      yubikey
+      browser
+      upower
+      localsend
+    ]);
   pc' =
     pc
     ++ develop
     ++ office
-    ++ [
+    ++ (with nixosProfiles; [
       chat
       userProfiles.lord-valen
       appimage
-    ];
+    ]);
 
-  server = base ++ [
-    nginx
-    networking
-  ];
-  desktop = pc' ++ [ kubo ];
-  laptop = pc' ++ [ colemak ];
+  server =
+    base
+    ++ (with nixosProfiles; [
+      nginx
+      networking
+    ]);
+  desktop = pc' ++ (with nixosProfiles; [ kubo ]);
+  laptop = pc' ++ (with nixosProfiles; [ colemak ]);
 }

@@ -9,7 +9,6 @@
 
     deluge = {
       enable = true;
-      user = "servarr";
       group = "servarr";
       web.enable = true;
     };
