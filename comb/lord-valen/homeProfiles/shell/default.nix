@@ -12,6 +12,7 @@
     powerline-fonts
     carapace
     bat
+    ouch
   ];
 
   home.shellAliases = {

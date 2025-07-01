@@ -14,7 +14,6 @@ in
   bash.enable = true;
   nushell = {
     enable = true;
-    package = pkgs-unstable.nushell;
     configFile.source = ./_config.nu;
     envFile.source = ./_env.nu;
   };
@@ -69,7 +68,6 @@ in
   };
 
   zoxide = {
-    package = pkgs-unstable.zoxide;
     enable = true;
     options = lib.cli.toGNUCommandLine { } { cmd = "cd"; };
   };
