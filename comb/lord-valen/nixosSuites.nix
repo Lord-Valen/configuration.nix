@@ -41,6 +41,7 @@ rec {
     fonts
     gpg
     userProfiles.root
+    fwupd
   ];
   office = with nixosProfiles; [
     writing
