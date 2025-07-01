@@ -3,9 +3,6 @@
   cell,
   pkgs,
 }:
-let
-  inherit (cell) pkgs-unstable;
-in
 {
   services.openssh.enable = true;
 
@@ -15,7 +12,6 @@ in
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJlTDo77mX1eDjo5o44C9pvIt+8nOptLVJQoGr1/Ilgl" # cardno:25_313_700
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICpUIUwaDNzvZJpkhhsK/yN1DaMCqhpmDFILhXG1kfOr" # cardno:20_624_908
     ];
-    # shell = pkgs.nushell;
-    shell = pkgs-unstable.nushell;
+    shell = pkgs.nushell;
   };
 }
