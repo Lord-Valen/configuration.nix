@@ -30,6 +30,7 @@ in
         tablet
         heroic
         steam
+        adb
       ];
       suites =
         with nixosSuites;
