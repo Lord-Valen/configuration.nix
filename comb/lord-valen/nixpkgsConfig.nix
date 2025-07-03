@@ -18,6 +18,8 @@ in
       "vscode-extension-ms-dotnettools-csharp"
       "vscode-extension-ms-dotnettools-vscodeintellicode-csharp"
       "vscode-extension-ms-dotnettools-csdevkit"
+      "vscode-extension-github-copilot"
+      "vscode-extension-github-copilot-chat"
       "aspell-dict-en-science"
       "muse-sounds-manager"
       "obsidian"
