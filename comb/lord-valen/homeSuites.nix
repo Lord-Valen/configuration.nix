@@ -52,6 +52,7 @@ rec {
 
   games = with homeProfiles; [
     lutris
+    opentrack
   ];
 
   full = inputs.nixpkgs.lib.concatLists [
