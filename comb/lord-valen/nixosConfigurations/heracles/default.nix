@@ -152,6 +152,9 @@ in
         };
         games = {
           SUBVOLUME = "/home/lord-valen/Games";
+          TIMELINE_LIMIT_HOURLY = "2-10";
+          TIMELINE_LIMIT_DAILY = "0-5";
+          TIMELINE_LIMIT_WEEKLY = "0-4";
         };
       };
 
