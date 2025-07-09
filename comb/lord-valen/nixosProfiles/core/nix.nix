@@ -24,6 +24,7 @@ in
     experimental-features = [
       "nix-command"
       "flakes"
+      "pipe-operators"
     ];
     min-free = 1073741824;
     fallback = true;
