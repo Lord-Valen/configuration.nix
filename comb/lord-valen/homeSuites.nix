@@ -7,6 +7,7 @@ rec {
     core
     shell
     git
+    jujutsu
     helix
     zathura
     less
