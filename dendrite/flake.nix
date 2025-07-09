@@ -1,0 +1,58 @@
+# DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
+# Use `nix run .#write-flake` to regenerate it.
+{
+  description = "Lord-Valen's NixOS Configurations";
+  inputs = {
+    allfollow = {
+      url = "github:spikespaz/allfollow";
+    };
+    dendrix = {
+      url = "github:vic/dendrix";
+    };
+    devshell = {
+      url = "github:numtide/devshell";
+    };
+    files = {
+      url = "github:mightyiam/files";
+    };
+    flake-file = {
+      url = "github:vic/flake-file";
+    };
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.05";
+    };
+    import-tree = {
+      url = "github:vic/import-tree";
+    };
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-25.05";
+    };
+    nixpkgs-lib = {
+      url = "github:nixos/nixpkgs/nixos-25.05";
+    };
+    rust-overlay = {
+      inputs = {
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
+      };
+      url = "github:oxalica/rust-overlay";
+    };
+    stylix = {
+      url = "github:danth/stylix/release-25.05";
+    };
+    systems = {
+      url = "github:nix-systems/default";
+    };
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+    };
+  };
+  nixConfig = {
+    extra-experimental-features = "nix-command flakes pipe-operators";
+  };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
+}
