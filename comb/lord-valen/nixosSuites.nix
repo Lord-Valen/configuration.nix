@@ -68,6 +68,7 @@ rec {
     ++ office
     ++ (with nixosProfiles; [
       chat
+      gphoto
       userProfiles.lord-valen
       appimage
     ]);
