@@ -176,11 +176,11 @@
     },
     "flake-file": {
       "locked": {
-        "lastModified": 1751600876,
-        "narHash": "sha256-+frHZbR3w6FXe5/Ls41AJHJp1b0aJiUVdS/Hrrhz9Sc=",
+        "lastModified": 1752638477,
+        "narHash": "sha256-7qbQ9Cfch3+91wwjNzhXAudN1BAwftqXNo1Auf7LLok=",
         "owner": "vic",
         "repo": "flake-file",
-        "rev": "d515758b175bd0dd76901c0d058a9a49038ef81e",
+        "rev": "07bebae2f8be9b3a3aa02296b03456fa3d944a13",
         "type": "github"
       },
       "original": {
@@ -356,22 +356,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-lib_3": {
-      "locked": {
-        "lastModified": 1751943650,
-        "narHash": "sha256-7orTnNqkGGru8Je6Un6mq1T8YVVU/O5kyW4+f9C1mZQ=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "88983d4b665fb491861005137ce2b11a9f89f203",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-25.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1752596105,
@@ -506,7 +490,9 @@
         "home-manager": "home-manager",
         "import-tree": "import-tree_2",
         "nixpkgs": "nixpkgs_5",
-        "nixpkgs-lib": "nixpkgs-lib_3",
+        "nixpkgs-lib": [
+          "nixpkgs"
+        ],
         "rust-overlay": "rust-overlay_2",
         "stylix": "stylix",
         "systems": "systems_3",

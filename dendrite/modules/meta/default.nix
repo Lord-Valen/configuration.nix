@@ -23,11 +23,11 @@
   flake-file.inputs.files.url = "github:mightyiam/files";
 
   flake-file.inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-  flake-file.inputs.nixpkgs-lib.url =
+  flake-file.inputs.nixpkgs-lib =
     if config.flake-file.inputs ? nixpkgs then
-      config.flake-file.inputs.nixpkgs.url
+      { follows = "nixpkgs"; }
     else
-      "github:nix-community/nixpkgs.lib";
+      { url = "github:nix-community/nixpkgs.lib"; };
   flake-file.inputs.stylix.url = "github:danth/stylix/release-25.05";
   flake-file.nixConfig = {
     extra-experimental-features = "nix-command flakes pipe-operators";
