@@ -2,6 +2,17 @@
 # Use `nix run .#write-flake` to regenerate it.
 {
   description = "Lord-Valen's NixOS Configurations";
+
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
+
+  nixConfig = {
+    extra-experimental-features = "nix-command flakes pipe-operators";
+    extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+    extra-trusted-substituters = [ "https://nix-community.cachix.org" ];
+  };
+
   inputs = {
     allfollow = {
       url = "github:spikespaz/allfollow";
@@ -34,7 +45,7 @@
       url = "github:nixos/nixpkgs/nixos-25.05";
     };
     nixpkgs-lib = {
-      url = "github:nixos/nixpkgs/nixos-25.05";
+      follows = "nixpkgs";
     };
     rust-overlay = {
       inputs = {
@@ -54,12 +65,5 @@
       url = "github:numtide/treefmt-nix";
     };
   };
-  nixConfig = {
-    extra-experimental-features = "nix-command flakes pipe-operators";
-    extra-trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-    ];
-    extra-trusted-substituters = [ "https://nix-community.cachix.org" ];
-  };
-  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
+
 }
