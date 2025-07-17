@@ -41,6 +41,9 @@
     import-tree = {
       url = "github:vic/import-tree";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+    };
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-25.05";
     };
