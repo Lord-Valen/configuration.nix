@@ -44,6 +44,9 @@
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
     };
+    nixos-facter-modules = {
+      url = "github:nix-community/nixos-facter-modules";
+    };
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-25.05";
     };
