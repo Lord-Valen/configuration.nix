@@ -26,12 +26,10 @@ in
           "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICpUIUwaDNzvZJpkhhsK/yN1DaMCqhpmDFILhXG1kfOr" # cardno:20_624_908
         ];
         # shell = pkgs.nushell;
-        home-manager.users.lord-valen = {
-          imports = with config.flake.modules.home-manager; [
-            nushell
-          ];
-          homeDirectory = "/home/${username}";
-        };
+        home-manager.users.lord-valen.imports = with config.flake.modules.home-manager; [
+          config.flake.modules.home-manager.${username}
+          nushell
+        ];
       };
     };
     homeManager.${username} =
@@ -42,7 +40,7 @@ in
       }:
       {
         home = {
-          username = lib.mkDefault username;
+          inherit username;
           homeDirectory = "/home/${username}";
           stateVersion = lib.mkDefault "25.05";
           sessionPath = [ "$HOME/.local/bin" ];
