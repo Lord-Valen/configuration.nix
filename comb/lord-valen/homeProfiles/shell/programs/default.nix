@@ -9,7 +9,7 @@ let
   inherit (cell) pkgs-unstable;
 in
 {
-  _imports = [ nix-index-database.hmModules.nix-index ];
+  _imports = [ nix-index-database.homeModules.nix-index ];
 
   bash.enable = true;
   nushell = {
