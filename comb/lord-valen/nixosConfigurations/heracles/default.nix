@@ -123,6 +123,15 @@ in
         "5"
       ];
     };
+    games_nvme = {
+      spec = "/home/lord-valen/Games/nvme";
+      extraOptions = [
+        "-G"
+        "1"
+        "-g"
+        "5"
+      ];
+    };
   };
 
   services.snapper.configs =
@@ -152,6 +161,12 @@ in
         };
         games = {
           SUBVOLUME = "/home/lord-valen/Games";
+          TIMELINE_LIMIT_HOURLY = "2-10";
+          TIMELINE_LIMIT_DAILY = "0-5";
+          TIMELINE_LIMIT_WEEKLY = "0-4";
+        };
+        games_nvme = {
+          SUBVOLUME = "/home/lord-valen/Games/nvme";
           TIMELINE_LIMIT_HOURLY = "2-10";
           TIMELINE_LIMIT_DAILY = "0-5";
           TIMELINE_LIMIT_WEEKLY = "0-4";
