@@ -45,6 +45,7 @@ in
         gnome
         # TODO: Get an SSD
         # monero
+        ollama
 
         {
           services.ratbagd.enable = true;
@@ -81,6 +82,7 @@ in
               gnome
               notes
               syncthing
+              ollama
               {
                 wayland.windowManager.hyprland.settings.monitor = lib.mkForce [
                   "HDMI-A-1, preferred, 0x0, 1"
