@@ -34,6 +34,10 @@ rec {
     snapper
   ];
 
+  rocm = with nixosProfiles; [
+    rocmBase
+  ];
+
   base = with nixosProfiles; [
     linux
     core

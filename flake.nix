@@ -29,6 +29,7 @@
           ]); [
             # bee module
             (functions "bee")
+            (functions "bee-rocm")
 
             # colmena profile
             (functions "deployment")
@@ -65,7 +66,9 @@
             (functions "overlays")
             (pkgs "pkgs")
             (pkgs "pkgs-stable")
+            (pkgs "pkgs-stable-rocm")
             (pkgs "pkgs-unstable")
+            (pkgs "pkgs-unstable-rocm")
           ];
       }
       {
