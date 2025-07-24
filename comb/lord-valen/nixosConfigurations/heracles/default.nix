@@ -26,7 +26,7 @@ in
   imports =
     let
       profiles = with nixosProfiles; [
-        cell.bee
+        cell.bee-rocm
         hardwareProfiles."${hostName}"
 
         adb
@@ -54,6 +54,7 @@ in
       suites =
         with nixosSuites;
         lib.concatLists [
+          rocm
           btrfs
           desktop
           games
