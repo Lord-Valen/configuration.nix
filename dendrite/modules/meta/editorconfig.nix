@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 {
   text.editorconfig = # TOML
     ''
@@ -33,7 +33,7 @@
       trim_trailing_whitespace=unset
     '';
   perSystem =
-    { ... }:
+    { pkgs, ... }:
     {
       files.files = [
         {
