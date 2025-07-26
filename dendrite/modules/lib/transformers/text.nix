@@ -41,7 +41,7 @@
       ]
     );
     apply = lib.mapAttrs (
-      name: text:
+      _name: text:
       if lib.isAttrs text then
         lib.pipe text.order [
           (map (lib.flip lib.getAttr text.parts))
