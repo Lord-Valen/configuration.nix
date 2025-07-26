@@ -37,7 +37,6 @@ in
     homeManager.${username} =
       {
         lib,
-        osConfig,
         ...
       }:
       {
