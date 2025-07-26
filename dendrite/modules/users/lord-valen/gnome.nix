@@ -1,10 +1,4 @@
-{ lib, ... }:
+{ lib, inputs, ... }:
 {
-  flake.modules.nixos.gnome =
-    { config, ... }:
-    lib.mkIf (config.home-manager.users ? "lord-valen") {
-      home-manager.users.lord-valen.imports = with config.flake.modules.home-manager; [
-        gnome
-      ];
-    };
+  flake.modules.nixos.gnome = inputs.self.lib.importForUser "lord-valen" "gnome";
 }
