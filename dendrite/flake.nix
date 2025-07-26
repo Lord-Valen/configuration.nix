@@ -53,14 +53,6 @@
     nixpkgs-lib = {
       follows = "nixpkgs";
     };
-    rust-overlay = {
-      inputs = {
-        nixpkgs = {
-          follows = "nixpkgs";
-        };
-      };
-      url = "github:oxalica/rust-overlay";
-    };
     stylix = {
       url = "github:danth/stylix/release-25.05";
     };
