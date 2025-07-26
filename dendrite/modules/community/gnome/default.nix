@@ -1,16 +1,14 @@
 {
-  flake.modules.nixos.gnome =
-    { pkgs, ... }:
-    {
-      xdg.portal.enable = true;
+  flake.modules.nixos.gnome = {
+    xdg.portal.enable = true;
 
-      services.libinput = {
-        enable = true;
-        touchpad.naturalScrolling = true;
-      };
-
-      services.xserver.desktopManager.gnome.enable = true;
+    services.libinput = {
+      enable = true;
+      touchpad.naturalScrolling = true;
     };
+
+    services.xserver.desktopManager.gnome.enable = true;
+  };
 
   flake.modules.home-manager.gnome =
     { pkgs, ... }:
