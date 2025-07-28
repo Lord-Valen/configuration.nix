@@ -1,0 +1,28 @@
+{ config, self, ... }:
+let
+  inherit (config.flake) modules;
+in
+{
+  flake.modules.hosts.autolycus = {
+    system.stateVersion = "24.05";
+    imports = with modules.nixos; [
+      networking
+
+      gdm
+      gnome
+
+      home-manager
+      lord-valen
+      (
+        with modules.homeManager;
+        self.lib.importManyForUser "lord-valen" [
+          {
+            home.stateVersion = "24.05";
+          }
+          vscode
+          emacs
+        ]
+      )
+    ];
+  };
+}
