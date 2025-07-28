@@ -16,6 +16,7 @@ in
 
       colemak
       yubikey
+      gpg
 
       localsend
 
