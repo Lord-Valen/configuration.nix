@@ -37,7 +37,7 @@
     {
       files.files = [
         {
-          path_ = ".editorconfig";
+          path_ = "dendrite/.editorconfig";
           drv = pkgs.writeText ".editorconfig" config.text.editorconfig;
         }
       ];
