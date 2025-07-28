@@ -39,6 +39,9 @@ in
           {
             home.stateVersion = "24.11";
           }
+
+          easyeffects
+
           vscode
           emacs
           notes
