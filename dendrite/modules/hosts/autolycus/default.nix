@@ -14,7 +14,9 @@ in
       gdm
       gnome
       pipewire
+
       fwupd
+      keepOutputs
 
       colemak
       yubikey
