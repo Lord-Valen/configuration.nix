@@ -10,7 +10,7 @@
     services.xserver.desktopManager.gnome.enable = true;
   };
 
-  flake.modules.home-manager.gnome =
+  flake.modules.homeManager.gnome =
     { pkgs, ... }:
     {
       programs.gnome-shell = {

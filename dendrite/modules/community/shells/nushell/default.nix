@@ -1,7 +1,7 @@
 { config, ... }:
 {
-  flake.modules.home-manager.nushell = {
-    imports = with config.flake.modules.home-manager; [
+  flake.modules.homeManager.nushell = {
+    imports = with config.flake.modules.homeManager; [
       shell
     ];
     programs.nushell = {
