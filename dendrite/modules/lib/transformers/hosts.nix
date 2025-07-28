@@ -1,26 +1,24 @@
 {
+  inputs,
   lib,
   config,
   ...
 }:
 let
   hosts = config.flake.modules.hosts or { };
-  toNixos = hostName: module: {
-    name = hostName;
-    value = lib.nixosSystem {
+  toNixos =
+    hostName: module:
+    inputs.nixpkgs.lib.nixosSystem {
       modules = [
-        module
+        (module // { _class = "nixos"; })
         { networking = { inherit hostName; }; }
       ];
     };
-  };
   toCheck = hostName: module: {
-    ${module.config.nixpkgs.hostPlatform.system} = {
-      "${hostName}" = module.config.system.build.toplevel;
-    };
+    ${module.config.nixpkgs.hostPlatform.system}.${hostName} = module.config.system.build.toplevel;
   };
 in
 {
-  flake.nixosConfigurations = hosts |> lib.mapAttrs' toNixos;
+  flake.nixosConfigurations = hosts |> lib.mapAttrs toNixos;
   flake.checks = config.flake.nixosConfigurations |> lib.mapAttrsToList toCheck |> lib.mkMerge;
 }
