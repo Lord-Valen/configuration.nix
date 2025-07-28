@@ -52,6 +52,11 @@
               command = ''nix flake check "$PRJ_ROOT" "$@"'';
             }
             {
+              name = "write-files";
+              help = "Run write-files script";
+              command = ''nix run "$PRJ_ROOT#write-files" "$@"'';
+            }
+            {
               name = "write-flake";
               help = "Run write-flake script";
               command = ''nix run "$PRJ_ROOT#write-flake" "$@"'';
