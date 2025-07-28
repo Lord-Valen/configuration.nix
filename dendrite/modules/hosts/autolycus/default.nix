@@ -16,6 +16,8 @@ in
       colemak
       yubikey
 
+      localsend
+
       photography
 
       home-manager
