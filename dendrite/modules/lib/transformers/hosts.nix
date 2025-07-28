@@ -5,12 +5,14 @@
   ...
 }:
 let
-  hosts = config.flake.modules.hosts or { };
+  modules = config.flake.modules;
+  hosts = modules.hosts or { };
   toNixos =
     hostName: module:
     inputs.nixpkgs.lib.nixosSystem {
       modules = [
         (module // { _class = "nixos"; })
+        modules.nixos.base
         { networking = { inherit hostName; }; }
       ];
     };
