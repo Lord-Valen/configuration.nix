@@ -7,7 +7,6 @@ rec {
     core
     shell
     git
-    jujutsu
     helix
     zathura
     less
@@ -26,6 +25,7 @@ rec {
 
   development = with homeProfiles; [
     gitbutler
+    jujutsu
     devenv
     emacs
     vscode
