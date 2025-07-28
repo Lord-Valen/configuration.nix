@@ -1,4 +1,4 @@
-{ lib, inputs, ... }:
+{ lib, self, ... }:
 {
-  flake.modules.nixos.gnome = inputs.self.lib.importForUser "lord-valen" "gnome";
+  flake.modules.nixos.gnome = self.lib.importForUser "lord-valen" "gnome";
 }
