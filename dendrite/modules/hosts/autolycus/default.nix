@@ -12,6 +12,7 @@ in
 
       gdm
       gnome
+      pipewire
 
       colemak
       yubikey
