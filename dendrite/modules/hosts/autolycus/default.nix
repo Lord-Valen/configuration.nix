@@ -23,6 +23,7 @@ in
       gpg
 
       flatpak
+      appimage
 
       localsend
 
