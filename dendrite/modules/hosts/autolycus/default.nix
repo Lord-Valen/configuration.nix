@@ -15,6 +15,8 @@ in
 
       colemak
 
+      photography
+
       home-manager
       lord-valen
       (
