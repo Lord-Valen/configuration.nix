@@ -37,7 +37,6 @@ in
           <| self.lib.importManyForUser username [
             modules.homeManager.${username}
             modules.homeManager.nushell
-            modules.homeManager.comma
           ];
       };
     homeManager.${username} = {
