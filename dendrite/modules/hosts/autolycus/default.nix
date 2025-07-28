@@ -22,6 +22,8 @@ in
       yubikey
       gpg
 
+      flatpak
+
       localsend
 
       writing
