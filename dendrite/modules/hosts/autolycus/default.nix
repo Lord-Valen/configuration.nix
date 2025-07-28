@@ -13,6 +13,8 @@ in
       gdm
       gnome
 
+      colemak
+
       home-manager
       lord-valen
       (
