@@ -1,12 +1,12 @@
 { config, ... }:
 {
-  flake.modules.home-manager.shell =
+  flake.modules.homeManager.shell =
     {
       pkgs,
       ...
     }:
     {
-      imports = with config.flake.modules.home-manager; [
+      imports = with config.flake.modules.homeManager; [
         fonts
         comma
       ];
