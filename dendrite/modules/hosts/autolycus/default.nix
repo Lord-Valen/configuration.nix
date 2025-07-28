@@ -4,7 +4,7 @@ let
 in
 {
   flake.modules.hosts.autolycus = {
-    system.stateVersion = "24.05";
+    system.stateVersion = "24.11";
     imports = with modules.nixos; [
       networking
 
@@ -17,7 +17,7 @@ in
         with modules.homeManager;
         self.lib.importManyForUser "lord-valen" [
           {
-            home.stateVersion = "24.05";
+            home.stateVersion = "24.11";
           }
           vscode
           emacs
