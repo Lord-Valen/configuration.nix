@@ -41,6 +41,8 @@ in
           ];
       };
     homeManager.${username} = {
+      # TODO: implement a transformer like hosts.nix
+      imports = with modules.homeManager; [ base ];
       home = {
         inherit username;
         homeDirectory = "/home/${username}";
