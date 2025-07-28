@@ -14,6 +14,7 @@ in
       gnome
 
       colemak
+      yubikey
 
       photography
 
