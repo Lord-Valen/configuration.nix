@@ -14,7 +14,7 @@
     {
       files.files = [
         {
-          path_ = "README.md";
+          path_ = "dendrite/README.md";
           drv = pkgs.writeText "README.md" config.text.readme;
         }
       ];
