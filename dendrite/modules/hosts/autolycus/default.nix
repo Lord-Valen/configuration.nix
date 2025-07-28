@@ -6,6 +6,7 @@ in
   flake.modules.hosts.autolycus = {
     system.stateVersion = "24.11";
     imports = with modules.nixos; [
+      liquorix
       btrfs
 
       networking
