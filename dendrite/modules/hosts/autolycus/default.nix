@@ -25,6 +25,7 @@ in
       localsend
 
       writing
+      printing
       photography
 
       home-manager
