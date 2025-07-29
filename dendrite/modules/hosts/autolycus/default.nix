@@ -28,6 +28,7 @@ in
 
       localsend
 
+      development
       writing
       printing
       photography
@@ -44,7 +45,6 @@ in
           modules.homeManager."lord-valen/wallpaper"
           easyeffects
 
-          development
           vscode
           emacs
           notes
