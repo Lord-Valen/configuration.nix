@@ -22,6 +22,7 @@ in
       colemak
       yubikey
       gpg
+      tablet
 
       flatpak
       appimage
