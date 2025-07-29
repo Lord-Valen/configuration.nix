@@ -25,7 +25,6 @@
       { follows = "nixpkgs"; }
     else
       { url = "github:nix-community/nixpkgs.lib"; };
-  flake-file.inputs.stylix.url = "github:danth/stylix/release-25.05";
   flake-file.nixConfig = {
     extra-experimental-features = "nix-command flakes pipe-operators";
   };
