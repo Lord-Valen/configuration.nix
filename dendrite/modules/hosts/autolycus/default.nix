@@ -40,6 +40,7 @@ in
             home.stateVersion = "24.11";
           }
 
+          modules.homeManager."lord-valen/wallpaper"
           easyeffects
 
           development
