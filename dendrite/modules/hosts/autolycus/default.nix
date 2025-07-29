@@ -42,6 +42,7 @@ in
 
           easyeffects
 
+          development
           vscode
           emacs
           notes
