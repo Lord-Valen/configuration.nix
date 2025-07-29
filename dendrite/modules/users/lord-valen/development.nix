@@ -4,7 +4,7 @@
     with config.flake.modules.homeManager;
     [
       development
-      "lord-valen/development"
+      config.flake.modules.homeManager."lord-valen/development"
     ]
     |> self.lib.importManyForUser "lord-valen";
 
@@ -12,7 +12,7 @@
     { config, ... }:
     {
       programs.jujutsu = {
-        inherit (config.programs.git) userName userEmail;
+        settings = { inherit (config.programs.git) userName userEmail; };
       };
       programs.git = {
         userName = "Lord-Valen";
@@ -38,7 +38,7 @@
           remote.pushDefault = "Lord-Valen";
         };
 
-        sighning = {
+        signing = {
           key = "C5129E27E5CCA729";
           signByDefault = true;
         };
