@@ -1,0 +1,5 @@
+{
+  nixpkgs.allowedUnfreePackages = [
+    "gitbutler"
+  ];
+}
