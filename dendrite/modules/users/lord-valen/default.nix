@@ -47,6 +47,7 @@ in
         homeDirectory = "/home/${username}";
         stateVersion = lib.mkDefault "25.05";
         sessionPath = [ "$HOME/.local/bin" ];
+        file.".face".source = ./_face.png;
       };
       xdg = {
         enable = true;
