@@ -11,6 +11,7 @@ in
 
       networking
 
+      stylix
       gdm
       gnome
       pipewire
