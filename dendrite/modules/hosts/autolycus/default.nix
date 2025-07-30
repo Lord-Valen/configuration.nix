@@ -28,6 +28,7 @@ in
       appimage
 
       localsend
+      steam
 
       development
       writing
