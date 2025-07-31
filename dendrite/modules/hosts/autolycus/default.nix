@@ -30,6 +30,7 @@ in
       localsend
       steam
 
+      audio
       development
       writing
       printing

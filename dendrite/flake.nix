@@ -41,6 +41,9 @@
     import-tree = {
       url = "github:vic/import-tree";
     };
+    musnix = {
+      url = "github:musnix/musnix";
+    };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
     };
