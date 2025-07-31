@@ -53,6 +53,7 @@ in
           notes
           brave
           tor
+          musescore
         ]
       )
     ];
