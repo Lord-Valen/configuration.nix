@@ -56,6 +56,7 @@ in
           musescore
           chat
           zathura
+          heroic
         ]
       )
     ];
