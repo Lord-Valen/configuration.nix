@@ -3,6 +3,8 @@
   flake.modules.nixos.base =
     { pkgs, ... }:
     {
+      time.timeZone = lib.mkDefault "Canada/Eastern";
+      boot.tmp.cleanOnBoot = true;
       environment.systemPackages = with pkgs; [
         binutils
         coreutils
