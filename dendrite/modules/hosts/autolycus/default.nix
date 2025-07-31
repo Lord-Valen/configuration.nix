@@ -57,6 +57,7 @@ in
           chat
           zathura
           heroic
+          lutris
         ]
       )
     ];
