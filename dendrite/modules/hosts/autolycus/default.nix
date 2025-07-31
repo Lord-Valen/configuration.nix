@@ -51,6 +51,7 @@ in
           vscode
           emacs
           notes
+          brave
         ]
       )
     ];
