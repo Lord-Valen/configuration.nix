@@ -55,6 +55,7 @@ in
           tor
           musescore
           chat
+          zathura
         ]
       )
     ];
