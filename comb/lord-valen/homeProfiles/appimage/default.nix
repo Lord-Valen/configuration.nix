@@ -13,7 +13,7 @@ in
       dir = config.home.homeDirectory + "/Applications";
     in
     {
-      activation.createApplicationDirectory = hm.dag.entryAfter [ "linkGeneration" ] ''
+      activation.createApplicationDirectory = hm.dag.entryAfter [ "writeBoundary" ] ''
         [[ -L "${dir}" ]] || mkdir -p $VERBOSE_ARG "${dir}"
       '';
       sessionPath = [ dir ];
