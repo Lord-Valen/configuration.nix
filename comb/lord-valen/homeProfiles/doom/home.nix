@@ -13,11 +13,11 @@ in
 {
   # Doom
   activation.installDoomEmacs = hm.dag.entryAfter [ "writeBoundary" ] ''
-    if [ ! -d "${XDG_CONFIG_HOME:=~/.config}/emacs" ]; then
-       ${lib.getExe pkgs.git} clone $VERBOSE_ARG --depth=1 --single-branch \
-           "https://github.com/doomemacs/doomemacs.git" \
-           "$XDG_CONFIG_HOME/emacs"
-    fi
+    [[ -d "${XDG_CONFIG_HOME:=~/.config}/emacs" ]] \
+    || run ${lib.getExe pkgs.git} \
+      clone $VERBOSE_ARG --depth=1 --single-branch \
+      "https://github.com/doomemacs/doomemacs.git" \
+      "$XDG_CONFIG_HOME/emacs"
   '';
 
   sessionPath = [ "$XDG_CONFIG_HOME/emacs/bin" ];
