@@ -54,6 +54,7 @@ in
           brave
           tor
           musescore
+          chat
         ]
       )
     ];
