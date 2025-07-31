@@ -37,6 +37,13 @@ in
       photography
 
       home-manager
+      root
+      (
+        with modules.homeManager;
+        self.lib.importManyForUser "root" [
+          { home.stateVersion = "24.05"; }
+        ]
+      )
       lord-valen
       (
         with modules.homeManager;
