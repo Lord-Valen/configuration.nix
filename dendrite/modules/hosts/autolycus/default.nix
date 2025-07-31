@@ -52,6 +52,7 @@ in
           emacs
           notes
           brave
+          tor
         ]
       )
     ];
