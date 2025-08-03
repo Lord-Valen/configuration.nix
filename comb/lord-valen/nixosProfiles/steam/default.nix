@@ -13,13 +13,10 @@
   programs = {
     steam = {
       enable = true;
-      package = pkgs.steam.override {
-        extraPkgs =
-          pkgs: with pkgs; [
-            keyutils
-            libkrb5
-          ];
-      };
+      extraPackages = with pkgs; [
+        wineasio
+        pkgsi686Linux.pipewire.jack
+      ];
       extraCompatPackages = with pkgs; [ proton-ge-bin ];
       remotePlay.openFirewall = true;
       gamescopeSession.enable = true;
