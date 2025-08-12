@@ -14,7 +14,7 @@
         in
         {
           activation.createApplicationDirectory = hm.dag.entryAfter [ "writeBoundary" ] ''
-            [[ -a "${dir}" ]] || run mkdir -p "$VERBOSE_ARG" "${dir}"
+            [[ ! -d "${dir}" ]] && run mkdir -p "$VERBOSE_ARG" "${dir}"
           '';
           sessionPath = [ dir ];
         };
