@@ -3,7 +3,14 @@
     enable = true;
     ediff = false;
     settings = {
-      inherit (config.programs.git) userName userEmail;
+      user =
+        let
+          inherit (config.programs.git) userName userEmail;
+        in
+        {
+          name = userName;
+          email = userEmail;
+        };
       signing = {
         behaviour = "drop";
         backend = "gpg";
