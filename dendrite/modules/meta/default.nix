@@ -19,7 +19,7 @@
   '';
   systems = import inputs.systems;
 
-  flake-file.inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+  flake-file.inputs.nixpkgs.url = "https://channels.nixos.org/nixos-25.05/nixexprs.tar.xz";
   flake-file.inputs.nixpkgs-lib =
     if config.flake-file.inputs ? nixpkgs then
       { follows = "nixpkgs"; }
