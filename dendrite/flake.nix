@@ -51,7 +51,7 @@
       url = "github:nix-community/nixos-facter-modules";
     };
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-25.05";
+      url = "https://channels.nixos.org/nixos-25.05/nixexprs.tar.xz";
     };
     nixpkgs-lib = {
       follows = "nixpkgs";
