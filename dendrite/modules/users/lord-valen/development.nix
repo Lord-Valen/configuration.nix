@@ -12,7 +12,14 @@
     { config, ... }:
     {
       programs.jujutsu = {
-        settings = { inherit (config.programs.git) userName userEmail; };
+        settings.user =
+          let
+            inherit (config.programs.git) userName userEmail;
+          in
+          {
+            name = userName;
+            email = userEmail;
+          };
       };
       programs.git = {
         userName = "Lord-Valen";
