@@ -22,12 +22,12 @@
     };
 
   /**
-    Create a nixos module which imports a home-manager module, `module`, for `user`.
+    Create a nixos module which imports a list of home-manager modules, `modules`, for `user`.
 
     # Type
 
     ```
-    importForUser :: string -> [Module] -> Module
+    importManyForUser :: string -> [Module] -> Module
     ```
   */
   flake.lib.importManyForUser =
@@ -36,7 +36,7 @@
       config,
       ...
     }:
-    {
-      home-manager.users.${user}.imports = lib.optionals (config ? home-manager) modules;
+    lib.mkIf (config ? home-manager) {
+      home-manager.users.${user}.imports = modules;
     };
 }
