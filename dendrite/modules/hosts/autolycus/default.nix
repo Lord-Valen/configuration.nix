@@ -6,10 +6,13 @@ in
   flake.modules.hosts.autolycus = {
     system.stateVersion = "24.11";
     imports = with modules.nixos; [
+      pc
+
       liquorix
       btrfs
 
       networking
+      kubo
 
       stylix
       gdm
