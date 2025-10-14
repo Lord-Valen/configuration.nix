@@ -25,6 +25,7 @@ in
         path = "~/pythia-photos";
         type = "receiveonly";
         devices = [
+          "Heracles"
           "Theseus"
           "Pythia"
         ];
