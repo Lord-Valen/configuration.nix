@@ -16,13 +16,6 @@
       programs.jujutsu = {
         enable = true;
         ediff = false;
-        settings = {
-          signing = {
-            behaviour = "drop";
-            backend = "gpg";
-          };
-          git.sign-on-push = true;
-        };
       };
     };
 }

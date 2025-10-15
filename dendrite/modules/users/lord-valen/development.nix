@@ -19,6 +19,12 @@
           {
             name = userName;
             email = userEmail;
+
+            signing = {
+              behaviour = "drop";
+              backend = "ssh";
+            };
+            git.sign-on-push = true;
           };
       };
       programs.git = {
@@ -46,8 +52,8 @@
         };
 
         signing = {
-          key = "C5129E27E5CCA729";
           signByDefault = true;
+          format = "ssh";
         };
       };
     };
