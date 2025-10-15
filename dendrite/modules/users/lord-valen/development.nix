@@ -20,6 +20,7 @@
             name = userName;
             email = userEmail;
 
+            ui.default-command = "log";
             signing = {
               behaviour = "drop";
               backend = "ssh";
