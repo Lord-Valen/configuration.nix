@@ -11,6 +11,10 @@
           package = pkgs.graphite-cursors;
           size = 28;
         };
+        targets = {
+          # This breaks the console otherwise
+          console.enable = false;
+        };
       };
     };
   flake.modules.nixos.stylixStandalone = {
