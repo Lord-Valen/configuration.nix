@@ -18,10 +18,12 @@ in
         indent_size = 2;
       };
 
-      "*.{diff,patch}" = {
+      "*.{diff,patch,lock}" = {
+        charset = "unset";
         end_of_line = "unset";
         insert_final_newline = "unset";
         trim_trailing_whitespace = "unset";
+        indent_style = "unset";
         indent_size = "unset";
       };
 
@@ -30,7 +32,7 @@ in
         trim_trailing_whitespace = false;
       };
 
-      "{LICENSES/**,LICENSE}" = {
+      "{LICENCES/**,LICENCE}" = {
         end_of_line = "unset";
         insert_final_newline = "unset";
         trim_trailing_whitespace = "unset";
