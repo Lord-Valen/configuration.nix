@@ -9,7 +9,6 @@
 
     deluge = {
       enable = true;
-      group = "servarr";
       web.enable = true;
     };
   };

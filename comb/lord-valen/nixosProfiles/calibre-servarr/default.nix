@@ -9,8 +9,6 @@
 
     calibre-server = {
       enable = true;
-      user = "servarr";
-      group = "servarr";
       libraries = [ "/data/media/books" ];
       auth = {
         enable = true;

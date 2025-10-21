@@ -9,7 +9,6 @@ rec {
   ];
 
   servarr = with nixosProfiles; [
-    nixosProfiles.servarr
     sonarr
     radarr
     readarr

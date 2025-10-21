@@ -7,10 +7,6 @@
       locations."/".proxyPass = "http://localhost:8686";
     };
 
-    lidarr = {
-      enable = true;
-      user = "servarr";
-      group = "servarr";
-    };
+    lidarr.enable = true;
   };
 }
