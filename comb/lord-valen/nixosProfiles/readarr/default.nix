@@ -7,10 +7,6 @@
       locations."/".proxyPass = "http://localhost:8787";
     };
 
-    readarr = {
-      enable = true;
-      user = "servarr";
-      group = "servarr";
-    };
+    readarr.enable = true;
   };
 }

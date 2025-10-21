@@ -10,10 +10,6 @@
       };
     };
 
-    jellyfin = {
-      enable = true;
-      user = "servarr";
-      group = "servarr";
-    };
+    jellyfin.enable = true;
   };
 }

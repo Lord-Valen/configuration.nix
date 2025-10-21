@@ -7,8 +7,6 @@
       locations."/".proxyPass = "http://localhost:9696";
     };
 
-    prowlarr = {
-      enable = true;
-    };
+    prowlarr.enable = true;
   };
 }
