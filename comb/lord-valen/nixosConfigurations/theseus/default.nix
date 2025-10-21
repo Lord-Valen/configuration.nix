@@ -32,6 +32,7 @@ in
       "deluge.laughing-man.xyz"
       "calibre.laughing-man.xyz"
       "prowlarr.laughing-man.xyz"
+      "bazarr.laughing-man.xyz"
     ];
     apiTokenFile = "/data/cloudflare_token.conf";
   };
