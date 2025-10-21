@@ -49,9 +49,12 @@ in
 
         upgrade
         {
-          system.autoUpgrade.rebootWindow = {
-            lower = "04:00";
-            upper = "06:00";
+          system.autoUpgrade = {
+            allowReboot = true;
+            rebootWindow = {
+              lower = "02:00";
+              upper = "04:00";
+            };
           };
         }
 
