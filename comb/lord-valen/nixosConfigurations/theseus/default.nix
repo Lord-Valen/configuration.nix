@@ -163,9 +163,12 @@ in
         };
         data = {
           SUBVOLUME = "/data";
-          TIMELINE_LIMIT_HOURLY = "1-10";
+          TIMELINE_LIMIT_HOURLY = "1-2";
           TIMELINE_LIMIT_DAILY = "0-5";
-          TIMELINE_LIMIT_WEEKLY = "0-4";
+          TIMELINE_LIMIT_WEEKLY = "0";
+          TIMELINE_LIMIT_MONTHLY = "0";
+          TIMELINE_LIMIT_QUARTERLY = "0";
+          TIMELINE_LIMIT_YEARLY = "0";
         };
       };
 
