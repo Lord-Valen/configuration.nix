@@ -1,6 +1,6 @@
 {
   flake.modules.homeManager.shell = {
-    programs.less.keys = ''
+    programs.less.config = ''
       m    left-scroll
       n    forw-line
       e    back-line
