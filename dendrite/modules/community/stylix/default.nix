@@ -15,6 +15,7 @@
           # This breaks the console otherwise
           console.enable = false;
         };
+        overlays.enable = false;
       };
     };
   flake.modules.nixos.stylixStandalone = {

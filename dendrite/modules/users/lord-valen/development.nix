@@ -12,27 +12,23 @@
     { config, ... }:
     {
       programs.jujutsu = {
-        settings.user =
-          let
-            inherit (config.programs.git) userName userEmail;
-          in
-          {
-            name = userName;
-            email = userEmail;
+        settings.user = {
+          inherit (config.programs.git.settings.user) name email;
 
-            ui.default-command = "log";
-            signing = {
-              behaviour = "drop";
-              backend = "ssh";
-            };
-            git.sign-on-push = true;
+          ui.default-command = "log";
+          signing = {
+            behaviour = "drop";
+            backend = "ssh";
           };
+          git.sign-on-push = true;
+        };
       };
       programs.git = {
-        userName = "Lord-Valen";
-        userEmail = "lord_valen@protonmail.com";
-
-        extraConfig = {
+        settings = {
+          user = {
+            name = "Lord-Valen";
+            email = "lord_valen@protonmail.com";
+          };
           github.user = "Lord-Valen";
           gitlab.user = "Lord-Valen";
           init.defaultBranch = "main";

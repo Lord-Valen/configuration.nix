@@ -7,7 +7,11 @@
       touchpad.naturalScrolling = true;
     };
 
-    services.xserver.desktopManager.gnome.enable = true;
+    services.desktopManager.gnome.enable = true;
+  };
+
+  flake.modules.nixos.stylix = {
+    stylix.targets.qt.enable = false;
   };
 
   flake.modules.homeManager.gnome =

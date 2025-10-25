@@ -3,7 +3,8 @@
     { pkgs, ... }:
     {
       home.packages = with pkgs; [
-        musescore
+        # FIXME: "https://nixpk.gs/pr-tracker.html?pr=454915"
+        #musescore
         muse-sounds-manager
       ];
     };

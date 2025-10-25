@@ -61,7 +61,7 @@ in
           modules.homeManager."lord-valen/wallpaper"
           easyeffects
 
-          music
+          musescore
           strawberry
           vscode
           emacs
