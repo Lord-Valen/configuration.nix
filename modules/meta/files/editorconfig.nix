@@ -1,0 +1,45 @@
+{ config, ... }:
+{
+  text.editorconfig = # TOML
+    ''
+      root=true
+
+      [*]
+      charset=utf-8
+      end_of_line=lf
+      indent_size=2
+      indent_style=space
+      insert_final_newline=true
+      trim_trailing_whitespace=true
+
+      [*.md]
+      max_line_length=off
+      trim_trailing_whitespace=false
+
+      [*.{diff,patch,lock}]
+      charset=unset
+      end_of_line=unset
+      indent_size=unset
+      indent_style=unset
+      insert_final_newline=unset
+      trim_trailing_whitespace=unset
+
+      [{LICENCES/**,LICENCE}]
+      charset=unset
+      end_of_line=unset
+      indent_size=unset
+      indent_style=unset
+      insert_final_newline=unset
+      trim_trailing_whitespace=unset
+    '';
+  perSystem =
+    { pkgs, ... }:
+    {
+      files.files = [
+        {
+          path_ = ".editorconfig";
+          drv = pkgs.writeText ".editorconfig" config.text.editorconfig;
+        }
+      ];
+    };
+}
