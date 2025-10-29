@@ -1,185 +1,70 @@
+# DO-NOT-EDIT. This file was auto-generated using github:vic/flake-file.
+# Use `nix run .#write-flake` to regenerate it.
 {
   description = "Lord-Valen's NixOS Configurations";
 
-  outputs =
-    {
-      self,
-      hive,
-      std,
-      ...
-    }@inputs:
-    let
-      inherit (inputs.nixpkgs-unstable) lib;
-
-      # I don't need to worry about name collisions.
-      # If you think you might, don't do this.
-      myCollect = hive.collect // {
-        renamer = cell: target: "${target}";
-      };
-    in
-    hive.growOn
-      {
-        inherit inputs;
-
-        cellsFrom = ./comb;
-        cellBlocks =
-          with (lib.mergeAttrsList [
-            std.blockTypes
-            hive.blockTypes
-          ]); [
-            # bee module
-            (functions "bee")
-            (functions "bee-rocm")
-
-            # colmena profile
-            (functions "deployment")
-
-            # modules
-            (functions "nixosModules")
-            (functions "homeModules")
-
-            # profiles
-            (functions "hardwareProfiles")
-            (functions "nixosProfiles")
-            (functions "userProfiles")
-            (functions "arionProfiles")
-            (functions "homeProfiles")
-
-            # suites
-            (functions "nixosSuites")
-            (functions "homeSuites")
-
-            # configurations
-            nixosConfigurations
-            diskoConfigurations
-            colmenaConfigurations
-
-            # devshells
-            (nixago "configs")
-            (devshells "devshells")
-
-            # packages
-            (installables "packages")
-
-            # nixpkgs
-            (functions "nixpkgsConfig")
-            (functions "overlays")
-            (pkgs "pkgs")
-            (pkgs "pkgs-stable")
-            (pkgs "pkgs-stable-rocm")
-            (pkgs "pkgs-unstable")
-            (pkgs "pkgs-unstable-rocm")
-          ];
-      }
-      {
-        devShells = std.harvest self [
-          "repo"
-          "devshells"
-        ];
-        packages = std.harvest self [
-          "lord-valen"
-          "packages"
-        ];
-      }
-      {
-        nixosConfigurations = myCollect self "nixosConfigurations";
-        homeConfigurations = myCollect self "homeConfigurations";
-        diskoConfigurations = myCollect self "diskoConfigurations";
-        colmenaHive = myCollect self "colmenaConfigurations";
-        # TODO: implement
-        # nixosModules = collect self "nixosModules";
-        # hmModules = collect self "homeModules";
-      };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
 
   nixConfig = {
     extra-experimental-features = "nix-command flakes pipe-operators";
-
-    extra-substituters = [
-      # nix-community
-      "https://nix-community.cachix.org"
-      # aagl
-      "https://ezkea.cachix.org"
-      # colmena
-      "https://colmena.cachix.org"
-    ];
-
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
-      "colmena.cachix.org-1:7BzpDnjjH8ki2CT3f6GdOk7QAzPOl+1t3LvTLXqYcSg="
-      "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
     ];
+    extra-trusted-substituters = [ "https://nix-community.cachix.org" ];
   };
 
   inputs = {
-    nixpkgs-stable.url = "https://channels.nixos.org/nixos-25.05/nixexprs.tar.xz";
-    nixpkgs-unstable.url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
-    nixpkgs.follows = "nixpkgs-stable";
-
-    home-manager = {
-      url = "github:/nix-community/home-manager/release-25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
+    allfollow = {
+      url = "github:spikespaz/allfollow";
     };
-
-    stylix = {
-      url = "github:danth/stylix/release-25.05";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
+    dendrix = {
+      url = "github:vic/dendrix";
     };
-
-    nixos-hardware.url = "github:nixos/nixos-hardware";
-
-    devshell.url = "github:numtide/devshell";
-    nixago.url = "github:nix-community/nixago";
-    nixago.inputs.nixpkgs.follows = "nixpkgs";
-    std = {
-      url = "github:divnix/std";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        arion.follows = "arion";
-        devshell.follows = "devshell";
-        devshell.inputs.nixpkgs.follows = "nixpkgs";
-        nixago.follows = "nixago";
-      };
+    devshell = {
+      url = "github:numtide/devshell";
     };
-
-    colmena.url = "github:zhaofengli/colmena";
-    colmena.inputs.nix-github-actions.follows = "";
-    colmena.inputs.flake-compat.follows = "";
-    hive = {
-      url = "github:divnix/hive/";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        colmena.follows = "colmena";
-      };
-    };
-
-    arion = {
-      url = "github:hercules-ci/arion";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     disko = {
       url = "github:nix-community/disko/v1.11.0";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    files = {
+      url = "github:mightyiam/files";
+    };
+    flake-file = {
+      url = "github:vic/flake-file";
+    };
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+    };
+    import-tree = {
+      url = "github:vic/import-tree";
+    };
     musnix = {
       url = "github:musnix/musnix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    emacs-overlay = {
-      url = "github:nix-community/emacs-overlay";
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+    };
+    nixos-facter-modules = {
+      url = "github:nix-community/nixos-facter-modules";
+    };
+    nixpkgs = {
+      url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+    };
+    nixpkgs-lib = {
+      follows = "nixpkgs";
+    };
+    stylix = {
+      url = "github:nix-community/stylix";
+    };
+    systems = {
+      url = "github:nix-systems/default";
+    };
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
     };
   };
 
-  # Desktop
-  inputs = {
-    anyrun.url = "github:anyrun-org/anyrun";
-
-    nix-index-database.url = "github:nix-community/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-  };
 }

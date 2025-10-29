@@ -1,7 +1,11 @@
-# Configuration.nix
+## Unfree packages
 
-[![Nix](https://img.shields.io/badge/built_with-nix-blueviolet?style=for-the-badge&logo=nixos)](https://nixos.org)
-[![Standard](https://img.shields.io/badge/divnix-std-blueviolet?style=for-the-badge&logo=nixos)](https://github.com/divnix/std)
-[![Hive](https://img.shields.io/badge/divnix-hive-blueviolet?style=for-the-badge&logo=nixos)](https://github.com/divnix/hive)
+Which unfree packages are allowed is configured at the flake level via an option.
+That is then used in the configuration of Nixpkgs.
+See definition at [`unfree-packages.nix`](modules/lib/options/unfree-packages.nix).
+See usage at [`vscode`](modules/community/vscode/+unfree.nix).
+The value of this option is available as a flake output:
 
-This repository is home to the code that builds my systems.
+```console
+$ nix eval .#meta.nixpkgs.allowedUnfreePackages
+```
