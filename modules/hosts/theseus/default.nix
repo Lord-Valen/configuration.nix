@@ -29,6 +29,8 @@ in
       steam
       retroarch
 
+      nginx
+      cloudflare
       servarr
 
       home-manager
