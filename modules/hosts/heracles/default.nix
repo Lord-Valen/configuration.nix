@@ -18,6 +18,7 @@ in
       stylix
       gdm
       gnome
+      cosmic
       pipewire
       ollama
       podman
