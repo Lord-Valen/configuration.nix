@@ -9,8 +9,9 @@
     |> self.lib.importManyForUser "lord-valen";
 
   flake.modules.homeManager."lord-valen/development" =
-    { config, ... }:
+    { config, pkgs, ... }:
     {
+      home.packages = with pkgs; [ reuse ];
       programs.jujutsu = {
         settings = {
           user = {
