@@ -12,13 +12,16 @@
     { config, ... }:
     {
       programs.jujutsu = {
-        settings.user = {
-          inherit (config.programs.git.settings.user) name email;
+        settings = {
+          user = {
+            inherit (config.programs.git.settings.user) name email;
+          };
 
           ui.default-command = "log";
           signing = {
             behaviour = "drop";
             backend = "ssh";
+            key = "~/.ssh/id_ed25519.pub";
           };
           git.sign-on-push = true;
         };
