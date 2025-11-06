@@ -1,44 +1,38 @@
-{ lib, ... }:
+{ lib, inputs, ... }:
 {
   flake.modules.nixos.base =
     { pkgs, ... }:
     {
       time.timeZone = lib.mkDefault "Canada/Eastern";
       boot.tmp.cleanOnBoot = true;
-      nix.settings = {
-        trusted-users = [
-          "root"
-          "@wheel"
-        ];
-
-        download-buffer-size = 524288000;
-
-        auto-optimise-store = true;
-        experimental-features = [
-          "nix-command"
-          "flakes"
-          "pipe-operators"
-        ];
-        min-free = 1073741824;
-        fallback = true;
-      };
-      nix.registry =
-        let
-          me = repo: {
-            inherit repo;
-            owner = "Lord-Valen";
-            type = "github";
+      nix = {
+        registry =
+          let
+            inherit (inputs.nixpkgs-registry) registry;
+          in
+          registry
+          // {
+            unstable = registry.nixos-unstable;
           };
-        in
-        rec {
-          unstable.to = {
-            type = "tarball";
-            url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
-          };
-          configuration.to = me "configuration.nix";
-          templates.to = me "nix-templates";
-          devshells.to = templates.to;
+
+        settings = {
+          trusted-users = [
+            "root"
+            "@wheel"
+          ];
+
+          download-buffer-size = 524288000;
+
+          auto-optimise-store = true;
+          experimental-features = [
+            "nix-command"
+            "flakes"
+            "pipe-operators"
+          ];
+          min-free = 1073741824;
+          fallback = true;
         };
+      };
 
       environment.systemPackages = with pkgs; [
         binutils

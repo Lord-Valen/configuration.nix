@@ -56,6 +56,9 @@
     nixpkgs-lib = {
       follows = "nixpkgs";
     };
+    nixpkgs-registry = {
+      url = "github:Lord-Valen/nixpkgs-registry";
+    };
     stylix = {
       url = "github:nix-community/stylix";
     };
