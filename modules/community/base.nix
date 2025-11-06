@@ -32,10 +32,8 @@
         in
         rec {
           unstable.to = {
-            type = "github";
-            owner = "NixOS";
-            repo = "nixpkgs";
-            ref = "nixos-unstable";
+            type = "tarball";
+            url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
           };
           configuration.to = me "configuration.nix";
           templates.to = me "nix-templates";
