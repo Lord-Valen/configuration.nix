@@ -26,6 +26,7 @@
         mountOptions = [
           "compress=zstd"
           "noatime"
+          "nofail"
         ];
       };
 
@@ -39,6 +40,7 @@
 
       "@swap" = {
         mountpoint = "/swap";
+        mountOptions = [ "nofail" ];
         swap = {
           swapfile.size = "16G";
         };

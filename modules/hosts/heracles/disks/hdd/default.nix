@@ -13,6 +13,7 @@
           mountOptions = [
             "noatime"
             "compress=zstd"
+            "nofail"
           ];
         };
         ".snapshots/@" = {
@@ -20,6 +21,7 @@
           mountOptions = [
             "noatime"
             "compress=zstd"
+            "nofail"
           ];
         };
       };

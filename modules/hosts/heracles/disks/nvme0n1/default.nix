@@ -12,12 +12,14 @@
           mountOptions = [
             "noatime"
             "compress=no"
+            "nofail"
           ];
         };
         ".snapshots/@" = {
           mountpoint = "/home/lord-valen/Games/nvme/.snapshots";
           mountOptions = [
             "noatime"
+            "nofail"
           ];
         };
       };
