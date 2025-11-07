@@ -11,7 +11,7 @@
       environment.systemPackages = with pkgs; [
         zotero
         biber
-        onlyoffice-bin
+        libreoffice-fresh
         typst
       ];
     };

@@ -41,7 +41,7 @@
         inetutils
         iputils
         usbutils
-        utillinux
+        util-linux
         pciutils
         gptfdisk
         dosfstools
