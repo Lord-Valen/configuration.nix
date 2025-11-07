@@ -7,12 +7,12 @@
   imports = [
     inputs.flake-parts.flakeModules.modules
     inputs.flake-file.flakeModules.default
+    inputs.flake-file.flakeModules.nix-auto-follow
   ];
   flake-file.description = "Lord-Valen's NixOS Configurations";
   flake-file.inputs.flake-parts.url = "github:hercules-ci/flake-parts";
-  flake-file.inputs.import-tree.url = "github:vic/import-tree";
-  flake-file.inputs.flake-file.url = "github:vic/flake-file";
-  flake-file.inputs.allfollow.url = "github:spikespaz/allfollow";
+  flake-file.inputs.import-tree.url = "github:vic/import-tree/v0.1.0";
+  flake-file.inputs.flake-file.url = "github:vic/flake-file/0.1.0";
   flake-file.inputs.systems.url = "github:nix-systems/default";
   flake-file.outputs = ''
     inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules)

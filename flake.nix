@@ -14,9 +14,6 @@
   };
 
   inputs = {
-    allfollow = {
-      url = "github:spikespaz/allfollow";
-    };
     dendrix = {
       url = "github:vic/dendrix";
     };
@@ -30,7 +27,7 @@
       url = "github:mightyiam/files";
     };
     flake-file = {
-      url = "github:vic/flake-file";
+      url = "github:vic/flake-file/0.1.0";
     };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -39,10 +36,18 @@
       url = "github:nix-community/home-manager";
     };
     import-tree = {
-      url = "github:vic/import-tree";
+      url = "github:vic/import-tree/v0.1.0";
     };
     musnix = {
       url = "github:musnix/musnix";
+    };
+    nix-auto-follow = {
+      inputs = {
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
+      };
+      url = "github:fzakaria/nix-auto-follow";
     };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
