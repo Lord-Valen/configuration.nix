@@ -1,1 +1,4 @@
 **/*.lock linguist-generated
+flake.nix linguist-generated
+.editorconfig linguist-generated
+README.md linguist-generated
