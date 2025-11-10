@@ -14,6 +14,7 @@ in
 
       stylix
       gdm
+      { services.displayManager.gdm.autoSuspend = false; }
       gnome
       pipewire
 
