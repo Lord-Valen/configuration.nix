@@ -2,6 +2,7 @@
   flake.modules.homeManager.discord =
     { pkgs, ... }:
     {
-      home.packages = with pkgs; [ webcord ];
+      # TODO: Use nixcord to install dorion.
+      home.packages = with pkgs; [ dorion ];
     };
 }
