@@ -11,6 +11,7 @@
         };
 
         calibre-server = {
+          inherit (config.services.readarr) user group;
           enable = true;
           libraries = [ "/data/media/books" ];
           auth = {
