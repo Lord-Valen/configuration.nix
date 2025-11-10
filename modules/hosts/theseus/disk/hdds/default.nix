@@ -1,5 +1,5 @@
 {
-  flake.modules.hosts.theseus.disko.devices.disk.sdb = {
+  flake.modules.hosts.theseus.disko.devices.disk.hdds = {
     device = "/dev/sdb";
     type = "disk";
     content = {
