@@ -9,7 +9,7 @@
       extraArgs = [ "-f" ];
       subvolumes = {
         "@" = {
-          mountpoint = "/home/lord-valen/Games";
+          mountpoint = "/home/lord-valen/Games/hdd";
           mountOptions = [
             "noatime"
             "compress=zstd"
@@ -17,7 +17,7 @@
           ];
         };
         ".snapshots/@" = {
-          mountpoint = "/home/lord-valen/Games/.snapshots";
+          mountpoint = "/home/lord-valen/Games/hdd/.snapshots";
           mountOptions = [
             "noatime"
             "compress=zstd"
