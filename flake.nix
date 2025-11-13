@@ -26,6 +26,9 @@
     files = {
       url = "github:mightyiam/files";
     };
+    flake-aspects = {
+      url = "github:vic/flake-aspects";
+    };
     flake-file = {
       url = "github:vic/flake-file/0.1.0";
     };
