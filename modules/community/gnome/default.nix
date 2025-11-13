@@ -27,7 +27,7 @@
         };
       };
   };
-  flake.modules.nixos.stylix = {
+  flake.aspects.stylix.nixos = {
     stylix.targets.qt.enable = false;
   };
 }
