@@ -3,7 +3,7 @@
   ...
 }:
 {
-  imports = [ inputs.devshell.flakeModule ];
+  imports = [ (inputs.devshell.flakeModule or { }) ];
   flake-file.inputs.devshell.url = "github:numtide/devshell";
   perSystem =
     { self', lib, ... }:

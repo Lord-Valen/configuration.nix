@@ -2,7 +2,7 @@
 {
   flake-file.inputs.files.url = "github:mightyiam/files";
   imports = [
-    inputs.files.flakeModules.default
+    (inputs.files.flakeModules.default or { })
   ];
 
   perSystem =

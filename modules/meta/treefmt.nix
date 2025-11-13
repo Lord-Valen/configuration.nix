@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   imports = [
-    inputs.treefmt-nix.flakeModule
+    (inputs.treefmt-nix.flakeModule or { })
   ];
   flake-file.inputs.treefmt-nix.url = "github:numtide/treefmt-nix";
 
