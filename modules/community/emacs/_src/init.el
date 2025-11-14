@@ -59,7 +59,7 @@
   :delight
   :demand t
   :custom
-  (meow-cheatsheet-layout meow-cheetsheet-layout-colemak-dh)
+  (meow-cheatsheet-layout meow-cheatsheet-layout-colemak-dh)
   :config
   (meow-define-keys
       'motion
