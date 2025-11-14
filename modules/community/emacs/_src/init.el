@@ -171,6 +171,16 @@
   :bind (("C-c l" . clm/toggle-command-log-buffer))
   :config (global-command-log-mode))
 
+;; projects
+(use-package vc-jj
+  :demand t)
+
+(use-package project
+  :ensure nil
+  :demand t
+  :custom
+  (project-mode-line t))
+
 ;; completion
 (use-package vertico
   :delight
@@ -195,7 +205,13 @@
   (tab-always-indent #'complete))
 
 ;; TODO
-(use-package embark)
+(use-package embark
+  :bind
+  (("C-c C-." . embark-act)
+   ("C-c ." . embark-dwim)
+   ("C-h B" . embark-bindings))
+  :custom
+  (prefix-help-command #'embark-prefix-help-command))
 (use-package consult)
 (use-package embark-consult
   :after (embark consult)

@@ -16,6 +16,7 @@
           epkgs: with epkgs; [
             melpaStablePackages.no-littering
             meow
+            vc-jj
             doom-modeline
             vertico
             marginalia
