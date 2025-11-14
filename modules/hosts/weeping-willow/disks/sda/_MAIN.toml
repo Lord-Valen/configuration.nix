@@ -1,0 +1,22 @@
+name = "ROOT"
+size = "100%"
+
+[content]
+type = "btrfs"
+extraArgs = ["-f"]
+
+[content.subvolumes."@"]
+mountpoint = "/"
+mountOptions = ["compress=zstd", "noatime"]
+
+[content.subvolumes."@home"]
+mountpoint = "/home"
+mountOptions = ["compress=zstd", "noatime"]
+
+[content.subvolumes."@nix"]
+mountpoint = "/nix"
+mountOptions = ["compress=zstd", "noatime"]
+
+[content.subvolumes."@swap"]
+mountpoint = "/swap"
+swap.swapfile.size = "8G"
