@@ -3,6 +3,9 @@ result
 /*.qcow2
 .std
 
+# Emacs lockfiles
+.#*
+
 # nixago: ignore-linked-files
 /.editorconfig
 /.conform.yaml
