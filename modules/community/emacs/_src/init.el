@@ -183,7 +183,10 @@
 ;; completion
 (use-package vertico
   :delight
-  :hook emacs-startup)
+  :hook emacs-startup
+  :custom
+  (vertico-cycle t)
+  )
 (use-package savehist
   :ensure nil				;builtin
   :delight
@@ -202,8 +205,10 @@
 ;; TODO
 (use-package embark
   :bind
-  (("C-c C-." . embark-act)
-   ("C-c ." . embark-dwim)
+  (("C-c ." . embark-act)
+   ("C-." . embark-act)
+   ("C-c ;" . embark-dwim)
+   ("C-;" . embark-dwim)
    ("C-h B" . embark-bindings))
   :custom
   (prefix-help-command #'embark-prefix-help-command))
@@ -235,11 +240,6 @@
   :hook after-init
   :custom
   (which-key-idle-delay 0.3))
-
-(use-package doom-modeline
-  :delight
-  :demand t
-  :hook emacs-startup)
 
 (use-package rainbow-delimiters
   :delight
