@@ -19,6 +19,16 @@ in
       pipewire
 
       fwupd
+      upgrade
+      {
+        system.autoUpgrade = {
+          allowReboot = true;
+          rebootWindow = {
+            lower = "02:00";
+            upper = "04:00";
+          };
+        };
+      }
 
       yubikey
       gpg
