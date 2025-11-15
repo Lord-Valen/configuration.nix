@@ -4,7 +4,7 @@ let
 in
 {
   flake.modules.hosts.weeping-willow = {
-    nixpkgs.hostPLatform = "x86_64-linux";
+    nixpkgs.hostPlatform = "x86_64-linux";
     system.stateVersion = "24.11";
     imports = with modules.nixos; [
       pc

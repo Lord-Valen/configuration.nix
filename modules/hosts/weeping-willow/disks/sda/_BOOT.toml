@@ -1,0 +1,4 @@
+priority = 1
+name = "BOOT"
+size = "1M"
+type = "EF02"

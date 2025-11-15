@@ -1,4 +1,4 @@
-priority = 1
+priority = 2
 name = "EFI"
 size = "1G"
 type = "EF00"
