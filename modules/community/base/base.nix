@@ -13,6 +13,11 @@
           registry
           // {
             unstable = registry.nixos-unstable;
+            configuration.to = {
+              type = "github";
+              owner = "Lord-Valen";
+              repo = "configuration.nix";
+            };
           };
 
         settings = {
