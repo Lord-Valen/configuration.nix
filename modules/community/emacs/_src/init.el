@@ -173,7 +173,6 @@
 
 ;; projects
 (use-package vc-jj)
-
 (use-package project
   :ensure nil
   :requires vc-jj
@@ -263,6 +262,7 @@
   (emacs-startup . global-treesit-auto-mode))
 
 (use-package apheleia
+  :delight
   :hook (emacs-startup . apheleia-global-mode))
 (use-package treemacs
   :bind ("C-c t" . treemacs))
