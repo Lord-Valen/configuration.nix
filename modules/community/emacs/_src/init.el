@@ -169,38 +169,33 @@
 (use-package command-log-mode
   :delight
   :bind (("C-c l" . clm/toggle-command-log-buffer))
-  :config (global-command-log-mode))
+  :hook (emacs-startup . global-command-log))
 
 ;; projects
-(use-package vc-jj
-  :demand t)
+(use-package vc-jj)
 
 (use-package project
   :ensure nil
-  :demand t
+  :requires vc-jj
   :custom
   (project-mode-line t))
 
 ;; completion
 (use-package vertico
   :delight
-  :demand t
-  :init (vertico-mode))
+  :hook emacs-startup)
 (use-package savehist
   :ensure nil				;builtin
   :delight
-  :demand t
-  :init (savehist-mode))
+  :hook after-init)
 (use-package marginalia
   :delight
-  :demand t
-  :init (marginalia-mode)
+  :hook emacs-startup
   :bind (:map minibuffer-local-map
               ("M-A" . marginalia-cycle)))
 (use-package corfu
   :delight
-  :demand t
-  :init (global-corfu-mode)
+  :hook (emacs-startup . global-corfu-mode)
   :custom
   (tab-always-indent #'complete))
 
@@ -215,7 +210,7 @@
 (use-package consult)
 (use-package embark-consult
   :after (embark consult)
-  :demand t                ; only necessary if you have the hook below
+  :demand t                ; necessary if you have the hook below or embark/consult is deferred
   ;; if you want to have consult previews as you move around an
   ;; auto-updating embark collect buffer
   :hook
@@ -237,23 +232,22 @@
 
 (use-package which-key
   :delight
-  :demand t
-  :init (which-key-mode)
+  :hook after-init
   :custom
   (which-key-idle-delay 0.3))
 
 (use-package doom-modeline
   :delight
   :demand t
-  :init (doom-modeline-mode))
+  :hook emacs-startup)
 
 (use-package rainbow-delimiters
   :delight
-  :hook (prog-mode . rainbow-delimiters-mode))
+  :hook prog-mode)
 
 ;; lisp
 (use-package lispy
-  :hook (lisp-data-mode . lispy-mode))
+  :hook lisp-data-mode)
 
 (use-package nix-ts-mode
   :mode "\\.nix\\'")
@@ -265,11 +259,11 @@
   :mode "\\.gd\\'")
 
 (use-package treesit-auto
-  :config
-  (global-treesit-auto-mode))
+  :hook
+  (emacs-startup . global-treesit-auto-mode))
 
 (use-package apheleia
-  :init (apheleia-global-mode))
+  :hook (emacs-startup . apheleia-global-mode))
 (use-package treemacs
   :bind ("C-c t" . treemacs))
 (use-package eglot
