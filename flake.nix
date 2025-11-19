@@ -14,9 +14,6 @@
   };
 
   inputs = {
-    dendrix = {
-      url = "github:vic/dendrix";
-    };
     devshell = {
       url = "github:numtide/devshell";
     };
@@ -27,7 +24,7 @@
       url = "github:mightyiam/files";
     };
     flake-aspects = {
-      url = "github:vic/flake-aspects";
+      url = "github:vic/flake-aspects/v0.2.0";
     };
     flake-file = {
       url = "github:vic/flake-file/0.1.0";
