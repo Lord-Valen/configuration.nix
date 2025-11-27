@@ -9,8 +9,6 @@
           enableACME = lib.mkDefault config.security.acme.acceptTerms;
           locations = {
             "/".proxyPass = "http://localhost:4533";
-            "/share".proxyPass = "http://localhost:4533";
-            "/rest".proxyPass = "http://localhost:4533";
           };
         };
 
