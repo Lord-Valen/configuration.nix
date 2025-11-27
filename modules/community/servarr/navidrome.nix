@@ -16,6 +16,8 @@
           enable = true;
           settings = {
             MusicFolder = "/data/media/music";
+            EnableSharing = true;
+            DefaultShareExpiration = "168h";
           };
         };
       };
