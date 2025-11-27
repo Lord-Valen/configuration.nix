@@ -5,7 +5,7 @@
       services.cloudflare-dyndns = {
         enable = true;
         proxied = true;
-        apiTokenFile = lib.mkDefault "/var/lib/cloudflare-dyndns/cloudflare_token.conf";
+        apiTokenFile = lib.mkDefault "/etc/cloudflare_token.txt";
       };
     };
 }
