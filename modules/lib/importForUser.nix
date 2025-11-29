@@ -15,7 +15,7 @@
       config,
       ...
     }:
-    lib.mkIf (config ? home-manager) {
+    {
       home-manager.users.${user}.imports = [
         module
       ];
@@ -36,7 +36,7 @@
       config,
       ...
     }:
-    lib.mkIf (config ? home-manager) {
+    {
       home-manager.users.${user}.imports = modules;
     };
 }
