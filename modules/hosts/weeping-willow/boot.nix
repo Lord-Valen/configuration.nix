@@ -1,13 +1,12 @@
 {
   flake.modules.hosts.weeping-willow = {
     # Early KMS
-    # hardware.amdgpu.initrd.enable = true;
+    hardware.amdgpu.initrd.enable = true;
     boot = {
       loader = {
-        grub = {
-          enable = true;
-          efiSupport = true;
-          efiInstallAsRemovable = true;
+        systemd-boot.enable = true;
+        efi = {
+          canTouchEfiVariables = true;
         };
       };
     };
