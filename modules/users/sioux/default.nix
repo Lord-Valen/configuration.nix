@@ -32,7 +32,7 @@ in
       imports = with modules.homeManager; [ base ];
       home = {
         inherit username;
-        homeDirectory = "/${username}";
+        homeDirectory = "/home/${username}";
         stateVersion = lib.mkDefault "24.11";
         sessionPath = [ "$HOME/.local/bin" ];
       };
