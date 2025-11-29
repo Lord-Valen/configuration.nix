@@ -35,7 +35,7 @@ in
       (
         with modules.homeManager;
         self.lib.importManyForUser "root" [
-          { home.stateVersion = "24.05"; }
+          { home.stateVersion = "25.11"; }
         ]
       )
       sioux
@@ -43,7 +43,7 @@ in
         with modules.homeManager;
         self.lib.importManyForUser "sioux" [
           {
-            home.stateVersion = "24.11";
+            home.stateVersion = "25.11";
           }
 
           brave
