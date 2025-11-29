@@ -5,18 +5,18 @@ size = "100%"
 type = "btrfs"
 extraArgs = ["-f"]
 
-[content.subvolumes."@"]
+[content.subvolumes."root"]
 mountpoint = "/"
 mountOptions = ["compress=zstd", "noatime"]
 
-[content.subvolumes."@home"]
+[content.subvolumes."home"]
 mountpoint = "/home"
 mountOptions = ["compress=zstd", "noatime"]
 
-[content.subvolumes."@nix"]
+[content.subvolumes."nix"]
 mountpoint = "/nix"
 mountOptions = ["compress=zstd", "noatime"]
 
-[content.subvolumes."@swap"]
+[content.subvolumes."swap"]
 mountpoint = "/swap"
 swap.swapfile.size = "8G"
