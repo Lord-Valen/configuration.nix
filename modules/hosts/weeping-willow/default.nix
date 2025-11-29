@@ -5,7 +5,7 @@ in
 {
   flake.modules.hosts.weeping-willow = {
     nixpkgs.hostPlatform = "x86_64-linux";
-    system.stateVersion = "24.11";
+    system.stateVersion = "25.11";
     imports = with modules.nixos; [
       pc
 
@@ -15,6 +15,7 @@ in
 
       gdm
       gnome
+      kde
       cosmic
       pipewire
 
