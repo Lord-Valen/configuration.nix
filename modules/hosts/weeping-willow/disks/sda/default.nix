@@ -7,7 +7,6 @@
       content = {
         type = "gpt";
         partitions = {
-          BOOT = lib.importTOML ./_BOOT.toml;
           EFI = lib.importTOML ./_EFI.toml;
           MAIN = lib.importTOML ./_MAIN.toml;
         };
