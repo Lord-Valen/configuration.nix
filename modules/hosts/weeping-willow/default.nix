@@ -47,7 +47,17 @@ in
           }
 
           brave
-          localsend
+        ]
+      )
+      lord-valen
+      (
+        with modules.homeManager;
+        self.lib.importManyForUser "lord-valen" [
+          {
+            home.stateVersion = "25.11";
+          }
+
+          brave
         ]
       )
     ];
