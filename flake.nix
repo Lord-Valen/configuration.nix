@@ -33,7 +33,7 @@
       url = "github:hercules-ci/flake-parts";
     };
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-25.11";
     };
     import-tree = {
       url = "github:vic/import-tree/v0.1.0";
@@ -56,7 +56,7 @@
       url = "github:nix-community/nixos-facter-modules";
     };
     nixpkgs = {
-      url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz";
+      url = "https://channels.nixos.org/nixos-25.11/nixexprs.tar.xz";
     };
     nixpkgs-lib = {
       follows = "nixpkgs";
@@ -65,7 +65,7 @@
       url = "github:Lord-Valen/nixpkgs-registry";
     };
     stylix = {
-      url = "github:nix-community/stylix";
+      url = "github:nix-community/stylix/release-25.11";
     };
     systems = {
       url = "github:nix-systems/default";
