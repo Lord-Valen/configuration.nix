@@ -4,7 +4,7 @@
     { pkgs, ... }:
     {
       time.timeZone = lib.mkDefault "Canada/Eastern";
-      boot.tmp.cleanOnBoot = true;
+      boot.tmp.useTmpfs = true;
       nix = {
         registry =
           let
