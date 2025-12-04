@@ -14,65 +14,27 @@
   };
 
   inputs = {
-    devshell = {
-      url = "github:numtide/devshell";
-    };
-    disko = {
-      url = "github:nix-community/disko/v1.11.0";
-    };
-    files = {
-      url = "github:mightyiam/files";
-    };
-    flake-aspects = {
-      url = "github:vic/flake-aspects/v0.2.0";
-    };
-    flake-file = {
-      url = "github:vic/flake-file/0.1.0";
-    };
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-    };
-    home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
-    };
-    import-tree = {
-      url = "github:vic/import-tree/v0.1.0";
-    };
-    musnix = {
-      url = "github:musnix/musnix";
-    };
+    devshell.url = "github:numtide/devshell";
+    disko.url = "github:nix-community/disko/v1.11.0";
+    files.url = "github:mightyiam/files";
+    flake-aspects.url = "github:vic/flake-aspects/v0.2.0";
+    flake-file.url = "github:vic/flake-file/v0.2.0";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    home-manager.url = "github:nix-community/home-manager/release-25.11";
+    import-tree.url = "github:vic/import-tree/v0.1.0";
+    musnix.url = "github:musnix/musnix";
     nix-auto-follow = {
-      inputs = {
-        nixpkgs = {
-          follows = "nixpkgs";
-        };
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:fzakaria/nix-auto-follow";
     };
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-    };
-    nixos-facter-modules = {
-      url = "github:nix-community/nixos-facter-modules";
-    };
-    nixpkgs = {
-      url = "https://channels.nixos.org/nixos-25.11/nixexprs.tar.xz";
-    };
-    nixpkgs-lib = {
-      follows = "nixpkgs";
-    };
-    nixpkgs-registry = {
-      url = "github:Lord-Valen/nixpkgs-registry";
-    };
-    stylix = {
-      url = "github:nix-community/stylix/release-25.11";
-    };
-    systems = {
-      url = "github:nix-systems/default";
-    };
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
-    };
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nixos-facter-modules.url = "github:nix-community/nixos-facter-modules";
+    nixpkgs.url = "https://channels.nixos.org/nixos-25.11/nixexprs.tar.xz";
+    nixpkgs-lib.follows = "nixpkgs";
+    nixpkgs-registry.url = "github:Lord-Valen/nixpkgs-registry";
+    stylix.url = "github:nix-community/stylix/release-25.11";
+    systems.url = "github:nix-systems/default";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
 }

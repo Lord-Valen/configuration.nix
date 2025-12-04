@@ -15,7 +15,7 @@
   flake-file.inputs.flake-parts.url = "github:hercules-ci/flake-parts";
   flake-file.inputs.flake-aspects.url = "github:vic/flake-aspects/v0.2.0";
   flake-file.inputs.import-tree.url = "github:vic/import-tree/v0.1.0";
-  flake-file.inputs.flake-file.url = "github:vic/flake-file/0.1.0";
+  flake-file.inputs.flake-file.url = "github:vic/flake-file/v0.2.0";
   flake-file.inputs.systems.url = "github:nix-systems/default";
 
   flake-file.outputs = ''
