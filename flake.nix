@@ -17,7 +17,7 @@
     devshell.url = "github:numtide/devshell";
     disko.url = "github:nix-community/disko/v1.11.0";
     files.url = "github:mightyiam/files";
-    flake-aspects.url = "github:vic/flake-aspects/v0.2.0";
+    flake-aspects.url = "github:vic/flake-aspects/v0.4.0";
     flake-file.url = "github:vic/flake-file/v0.2.0";
     flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager.url = "github:nix-community/home-manager/release-25.11";
