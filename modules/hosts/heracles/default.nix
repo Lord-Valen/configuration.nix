@@ -16,8 +16,10 @@ in
       kubo
 
       stylix
-      gdm
-      gnome
+      sddm
+      kde
+      # gdm
+      # gnome
       cosmic
       pipewire
       ollama
