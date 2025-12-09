@@ -6,6 +6,7 @@
       useGlobalPkgs = true;
       useUserPackages = true;
       extraSpecialArgs.hasGlobalPkgs = true;
+      backupFileExtension = "hmbak";
     };
   };
 }
