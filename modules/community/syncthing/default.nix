@@ -4,6 +4,12 @@
       enable = true;
       group = "users";
       settings.devices = import ./_devices.nix args;
+      openDefaultPorts = true;
+    };
+    networking.firewall = {
+      # User Syncthing uses these ports
+      allowedTCPPorts = [ 46693 ];
+      allowedUDPPorts = [ 46693 ];
     };
   };
   flake.modules.homeManager.syncthing = args: {
