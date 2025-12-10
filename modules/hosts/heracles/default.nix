@@ -18,6 +18,10 @@ in
       stylix
       sddm
       kde
+      {
+        # FIXME: "https://github.com/nix-community/stylix/issues/1092"
+        stylix.targets.qt.enable = false;
+      }
       # gdm
       # gnome
       cosmic
@@ -59,6 +63,11 @@ in
         self.lib.importManyForUser "lord-valen" [
           {
             home.stateVersion = "24.05";
+          }
+
+          {
+            # FIXME: "https://github.com/nix-community/stylix/issues/1092"
+            stylix.targets.qt.enable = false;
           }
 
           modules.homeManager."lord-valen/wallpaper"
