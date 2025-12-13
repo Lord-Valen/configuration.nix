@@ -6,6 +6,7 @@
       imports = [ inputs.stylix.nixosModules.stylix ];
       stylix = {
         enable = true;
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
         cursor = {
           name = "graphite-dark";
           package = pkgs.graphite-cursors;
