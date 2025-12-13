@@ -15,8 +15,15 @@ in
       kubo
 
       stylix
-      gdm
-      gnome
+
+      sddm
+      kde
+      {
+        # FIXME: "https://github.com/nix-community/stylix/issues/1092"
+        stylix.targets.qt.enable = false;
+      }
+      # gdm
+      # gnome
       pipewire
 
       fwupd
@@ -53,6 +60,11 @@ in
         self.lib.importManyForUser "lord-valen" [
           {
             home.stateVersion = "24.11";
+          }
+
+          {
+            # FIXME: "https://github.com/nix-community/stylix/issues/1092"
+            stylix.targets.qt.enable = false;
           }
 
           modules.homeManager."lord-valen/wallpaper"
