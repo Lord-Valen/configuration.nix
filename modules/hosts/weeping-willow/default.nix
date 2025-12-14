@@ -13,8 +13,7 @@ in
 
       networking
 
-      gdm
-      gnome
+      sddm
       kde
       cosmic
       pipewire
