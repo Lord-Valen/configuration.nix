@@ -32,6 +32,7 @@
     nixpkgs.url = "https://channels.nixos.org/nixos-25.11/nixexprs.tar.xz";
     nixpkgs-lib.follows = "nixpkgs";
     nixpkgs-registry.url = "github:Lord-Valen/nixpkgs-registry";
+    pkgs-by-name.url = "github:drupol/pkgs-by-name-for-flake-parts";
     stylix.url = "github:nix-community/stylix/release-25.11";
     systems.url = "github:nix-systems/default";
     treefmt-nix.url = "github:numtide/treefmt-nix";
