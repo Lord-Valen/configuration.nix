@@ -20,6 +20,7 @@ in
 
       fwupd
       upgrade
+      upgradeReboot
 
       flatpak
       appimage
