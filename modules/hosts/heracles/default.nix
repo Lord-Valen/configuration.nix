@@ -11,6 +11,7 @@ in
       liquorix
       btrfs
       zsa
+      rocm
 
       networking
       kubo
