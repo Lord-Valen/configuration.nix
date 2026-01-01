@@ -47,6 +47,7 @@ in
           }
 
           brave
+          calibre
         ]
       )
       lord-valen

@@ -80,6 +80,7 @@ in
           zathura
           heroic
           lutris
+          calibre
         ]
       )
     ];
