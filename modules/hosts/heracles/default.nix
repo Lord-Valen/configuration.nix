@@ -28,6 +28,11 @@ in
       cosmic
       pipewire
       ollama
+      {
+        services.ollama.environmentVariables = {
+          OLLAMA_KV_CACHE_TYPE = "q8_0";
+        };
+      }
       podman
 
       fwupd
