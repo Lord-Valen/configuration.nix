@@ -20,6 +20,7 @@ in
         extraCompatPackages = with pkgs; [ proton-ge-bin ];
         remotePlay.openFirewall = true;
         gamescopeSession.enable = true;
+        protontricks.enable = true;
       };
       hardware.steam-hardware.enable = true;
     };
