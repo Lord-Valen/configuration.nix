@@ -1,7 +1,7 @@
 { lib, inputs, ... }:
 {
   flake.modules.nixos.base =
-    { pkgs, ... }:
+    { pkgs, config, ... }:
     {
       time.timeZone = lib.mkDefault "Canada/Eastern";
       boot.tmp.useTmpfs = true;
@@ -25,8 +25,6 @@
             "root"
             "@wheel"
           ];
-
-          download-buffer-size = 524288000;
 
           auto-optimise-store = true;
           experimental-features = [
