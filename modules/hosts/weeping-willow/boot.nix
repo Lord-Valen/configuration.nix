@@ -1,5 +1,5 @@
 {
-  flake.modules.hosts.weeping-willow = {
+  flake.modules.host.weeping-willow = {
     # Early KMS
     hardware.amdgpu.initrd.enable = true;
     boot = {

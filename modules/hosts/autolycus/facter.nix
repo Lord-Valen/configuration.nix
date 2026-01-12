@@ -3,7 +3,7 @@ let
   inherit (config.flake) modules;
 in
 {
-  flake.modules.hosts.autolycus = {
+  flake.modules.host.autolycus = {
     imports = with modules.nixos; [
       nixos-facter
     ];

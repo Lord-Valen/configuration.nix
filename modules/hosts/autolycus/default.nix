@@ -3,7 +3,7 @@ let
   inherit (config.flake) modules;
 in
 {
-  flake.modules.hosts.autolycus = {
+  flake.modules.host.autolycus = {
     system.stateVersion = "24.11";
     imports = with modules.nixos; [
       pc

@@ -3,7 +3,7 @@ let
   inherit (config.flake) modules;
 in
 {
-  flake.modules.hosts.theseus = {
+  flake.modules.host.theseus = {
     imports = with modules.nixos; [
       syncthing
     ];

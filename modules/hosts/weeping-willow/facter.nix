@@ -3,7 +3,7 @@ let
   inherit (config.flake) modules;
 in
 {
-  flake.modules.hosts.weeping-willow = {
+  flake.modules.host.weeping-willow = {
     imports = with modules.nixos; [
       nixos-facter
     ];

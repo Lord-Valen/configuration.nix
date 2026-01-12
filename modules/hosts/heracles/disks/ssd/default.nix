@@ -1,5 +1,5 @@
 {
-  flake.modules.hosts.heracles.disko.devices.disk.sda = {
+  flake.modules.host.heracles.disko.devices.disk.sda = {
     device = "/dev/sda";
     type = "disk";
     content = {

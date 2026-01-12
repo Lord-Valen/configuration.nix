@@ -3,7 +3,7 @@ let
   inherit (config.flake) modules;
 in
 {
-  flake.modules.hosts.heracles = {
+  flake.modules.host.heracles = {
     imports = with modules.nixos; [
       syncthing
       (self.lib.importForUser "lord-valen" modules.homeManager.syncthing)

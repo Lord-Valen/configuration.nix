@@ -1,5 +1,5 @@
 {
-  flake.modules.hosts.autolycus.services.snapper.configs.home = {
+  flake.modules.host.autolycus.services.snapper.configs.home = {
     SUBVOLUME = "/home";
     # QGROUP = "1/5400";
     TIMELINE_CREATE = true;

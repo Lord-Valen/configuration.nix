@@ -1,5 +1,5 @@
 {
-  flake.modules.hosts.autolycus.boot = {
+  flake.modules.host.autolycus.boot = {
     # Early KMS
     kernelModules = [ "i915" ];
     loader = {

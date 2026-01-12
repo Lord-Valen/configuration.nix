@@ -6,7 +6,7 @@
 }:
 let
   modules = config.flake.modules;
-  hosts = modules.hosts or { };
+  hosts = modules.host or { };
   toNixos =
     hostName: module:
     inputs.nixpkgs.lib.nixosSystem {

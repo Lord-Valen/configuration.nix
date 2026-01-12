@@ -1,5 +1,5 @@
 {
-  flake.modules.hosts.autolycus.disko.devices.disk.nvme0n1 = {
+  flake.modules.host.autolycus.disko.devices.disk.nvme0n1 = {
     device = "/dev/nvme0n1";
     type = "disk";
     content = {

@@ -1,5 +1,5 @@
 {
-  flake.modules.hosts.heracles.services.snapper.configs.home = {
+  flake.modules.host.heracles.services.snapper.configs.home = {
     SUBVOLUME = "/home";
     # QGROUP = "1/5400";
     TIMELINE_CREATE = true;

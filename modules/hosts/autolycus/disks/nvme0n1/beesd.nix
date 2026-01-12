@@ -1,5 +1,5 @@
 {
-  flake.modules.hosts.autolycus.services.beesd.filesystems.MAIN = {
+  flake.modules.host.autolycus.services.beesd.filesystems.MAIN = {
     spec = "/";
     extraOptions = [
       "-G"

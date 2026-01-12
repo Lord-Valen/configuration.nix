@@ -1,5 +1,5 @@
 {
-  flake.modules.hosts.heracles.disko.devices.disk.nvme0n1 = {
+  flake.modules.host.heracles.disko.devices.disk.nvme0n1 = {
     device = "/dev/nvme0n1";
     type = "disk";
     name = "disk-nvme0n1-GAME";
