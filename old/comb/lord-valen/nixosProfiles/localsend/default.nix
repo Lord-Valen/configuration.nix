@@ -1,3 +1,0 @@
-{
-  programs.localsend.enable = true;
-}

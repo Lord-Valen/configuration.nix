@@ -1,1 +1,0 @@
-{ userDirs.enable = true; }
