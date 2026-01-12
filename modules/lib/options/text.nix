@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024 Shahar "Dawn" Or
+#
+# SPDX-License-Identifier: MIT
+
 /*
   MIT License
 
