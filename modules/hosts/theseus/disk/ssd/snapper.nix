@@ -1,5 +1,5 @@
 {
-  flake.modules.host.theseus.services.snapper.configs = {
+  flake.modules.nixos.theseus.services.snapper.configs = {
     root = {
       SUBVOLUME = "/";
       # QGROUP = "1/5400";

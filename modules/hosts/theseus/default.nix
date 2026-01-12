@@ -3,7 +3,8 @@ let
   inherit (config.flake) modules;
 in
 {
-  flake.modules.host.theseus = {
+  hosts.theseus = config.flake.modules.nixos.theseus;
+  flake.modules.nixos.theseus = {
     system.stateVersion = "24.05";
     imports = with modules.nixos; [
       pc

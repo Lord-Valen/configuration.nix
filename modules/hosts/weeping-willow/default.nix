@@ -3,7 +3,8 @@ let
   inherit (config.flake) modules;
 in
 {
-  flake.modules.host.weeping-willow = {
+  hosts.weeping-willow = config.flake.modules.nixos.weeping-willow;
+  flake.modules.nixos.weeping-willow = {
     nixpkgs.hostPlatform = "x86_64-linux";
     system.stateVersion = "25.11";
     imports = with modules.nixos; [

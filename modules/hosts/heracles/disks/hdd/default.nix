@@ -1,5 +1,5 @@
 {
-  flake.modules.host.heracles.disko.devices.disk.sdb = rec {
+  flake.modules.nixos.heracles.disko.devices.disk.sdb = rec {
     device = "/dev/sdb";
     type = "disk";
     name = "disk-sdb-GAME";

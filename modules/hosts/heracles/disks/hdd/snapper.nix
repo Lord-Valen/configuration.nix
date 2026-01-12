@@ -1,5 +1,5 @@
 {
-  flake.modules.host.heracles.services.snapper.configs.games_hdd = {
+  flake.modules.nixos.heracles.services.snapper.configs.games_hdd = {
     SUBVOLUME = "/home/lord-valen/Games/hdd";
     # QGROUP = "1/5400";
     TIMELINE_CREATE = true;

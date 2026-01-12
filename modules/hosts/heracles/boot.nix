@@ -1,5 +1,5 @@
 {
-  flake.modules.host.heracles = {
+  flake.modules.nixos.heracles = {
     # Early KMS
     hardware.amdgpu.initrd.enable = true;
     boot = {

@@ -3,7 +3,7 @@ let
   inherit (config.flake) modules;
 in
 {
-  flake.modules.host.heracles = {
+  flake.modules.nixos.heracles = {
     imports = with modules.nixos; [
       nixos-facter
     ];

@@ -1,5 +1,5 @@
 {
-  flake.modules.host.theseus.boot = {
+  flake.modules.nixos.theseus.boot = {
     # Early KMS
     kernelModules = [ "amdgpu" ];
     loader = {

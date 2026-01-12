@@ -3,7 +3,8 @@ let
   inherit (config.flake) modules;
 in
 {
-  flake.modules.host.heracles = {
+  hosts.heracles = config.flake.modules.nixos.heracles;
+  flake.modules.nixos.heracles = {
     system.stateVersion = "24.05";
     imports = with modules.nixos; [
       pc

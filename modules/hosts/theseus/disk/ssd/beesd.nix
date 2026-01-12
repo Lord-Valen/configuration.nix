@@ -1,5 +1,5 @@
 {
-  flake.modules.host.theseus.services.beesd.filesystems.MAIN = {
+  flake.modules.nixos.theseus.services.beesd.filesystems.MAIN = {
     spec = "/";
     extraOptions = [
       "-G"

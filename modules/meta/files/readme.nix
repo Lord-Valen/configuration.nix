@@ -3,6 +3,7 @@
   text.readme = {
     order = [
       "allowedUnfreePackages"
+      "hosts"
     ];
   };
 

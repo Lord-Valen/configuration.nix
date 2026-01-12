@@ -1,5 +1,5 @@
 {
-  flake.modules.host.heracles.services.beesd.filesystems.games_nvme = {
+  flake.modules.nixos.heracles.services.beesd.filesystems.games_nvme = {
     spec = "/home/lord-valen/Games/nvme";
     extraOptions = [
       "-G"

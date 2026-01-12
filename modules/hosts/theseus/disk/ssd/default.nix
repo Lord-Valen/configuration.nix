@@ -1,5 +1,5 @@
 {
-  flake.modules.host.theseus.disko.devices.disk.ssd = {
+  flake.modules.nixos.theseus.disko.devices.disk.ssd = {
     device = "/dev/sda";
     type = "disk";
     content = {
