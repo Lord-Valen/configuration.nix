@@ -156,6 +156,7 @@
   (kept-new-versions 5)
   (kept-old-versions 5)
   (version-control t)
+  (electric-pair-mode t)
   :config
   (indent-tabs-mode 0)
   (column-number-mode)
