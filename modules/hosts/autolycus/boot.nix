@@ -3,7 +3,7 @@
     # Early KMS
     kernelModules = [ "i915" ];
     loader = {
-      systemd-boot.enable = true;
+      limine.enable = true;
       efi = {
         canTouchEfiVariables = true;
       };
