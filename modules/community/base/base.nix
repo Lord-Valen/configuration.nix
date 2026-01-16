@@ -1,9 +1,8 @@
 { lib, inputs, ... }:
 {
-  flake.modules.nixos.base =
+  flake.aspects.base.nixos =
     { pkgs, config, ... }:
     {
-      time.timeZone = lib.mkDefault "Canada/Eastern";
       boot.tmp.useTmpfs = true;
       nix = {
         registry =
