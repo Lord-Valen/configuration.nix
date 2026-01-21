@@ -43,7 +43,6 @@ in
         path = "/data/media/music";
         type = "sendonly";
         devices = [
-          "lvHeracles"
           "Pythia"
         ];
       };
