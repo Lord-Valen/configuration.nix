@@ -12,7 +12,7 @@ in
       liquorix
       btrfs
       zsa
-      rocm
+      #rocm
 
       networking
       kubo
