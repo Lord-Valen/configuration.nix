@@ -184,6 +184,11 @@
   :bind (("C-c l" . clm/toggle-command-log-buffer))
   :hook (emacs-startup . global-command-log))
 
+(use-package indent-bars
+  :hook prog-mode
+  :custom
+  (indent-bars-no-descend-lists 'skip))
+
 ;; projects
 (use-package vc-jj)
 (use-package project
