@@ -138,7 +138,8 @@
     '("z" . meow-pop-selection)
     '("'" . repeat)
     '("<escape>" . ignore))
-  (meow-global-mode 1))
+  (meow-global-mode 1)
+  (meow-setup-indicator))
 
 (use-package emacs
   :ensure nil				;builtin
@@ -167,6 +168,17 @@
   (set-fringe-mode 10)
   (global-display-line-numbers-mode t))
 
+(use-package moody
+  :hook
+  ((emacs-startup . moody-replace-mode-line-front-space)
+   (emacs-startup . moody-replace-mode-line-buffer-identification)
+   (emacs-startup . moody-replace-vc-mode)))
+
+(use-package minions
+  :custom
+  (minions-mode-line-delimiters nil)
+  :hook emacs-startup)
+
 (use-package command-log-mode
   :delight
   :bind (("C-c l" . clm/toggle-command-log-buffer))
@@ -190,7 +202,7 @@
 (use-package savehist
   :ensure nil				;builtin
   :delight
-  :hook after-init)
+  :hook emacs-startup)
 (use-package marginalia
   :delight
   :hook emacs-startup
@@ -237,7 +249,7 @@
 
 (use-package which-key
   :delight
-  :hook after-init
+  :hook emacs-startup
   :custom
   (which-key-idle-delay 0.3))
 
