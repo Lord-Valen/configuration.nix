@@ -166,7 +166,9 @@
   (tooltip-mode 0)
   (menu-bar-mode 0)
   (set-fringe-mode 10)
-  (global-display-line-numbers-mode t))
+  (global-display-line-numbers-mode t)
+  (global-auto-revert-mode)
+  (global-tab-line-mode))
 
 (use-package moody
   :hook
@@ -182,7 +184,7 @@
 (use-package command-log-mode
   :delight
   :bind (("C-c l" . clm/toggle-command-log-buffer))
-  :hook (emacs-startup . global-command-log))
+  :hook (emacs-startup . global-command-log-mode))
 
 (use-package indent-bars
   :hook prog-mode
@@ -202,8 +204,7 @@
   :delight
   :hook emacs-startup
   :custom
-  (vertico-cycle t)
-  )
+  (vertico-cycle t) )
 (use-package savehist
   :ensure nil				;builtin
   :delight
@@ -268,6 +269,8 @@
 
 (use-package nix-ts-mode
   :mode "\\.nix\\'")
+(use-package direnv
+  :hook emacs-startup)
 
 (use-package typst-ts-mode
   :mode "\\.typ\\'")
