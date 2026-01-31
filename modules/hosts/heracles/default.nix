@@ -12,6 +12,7 @@ in
       liquorix
       btrfs
       zsa
+      drone
       #rocm
 
       networking
