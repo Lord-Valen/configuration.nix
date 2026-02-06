@@ -1,0 +1,89 @@
+diff --git a/src/steamcmd/getappinfo.go b/src/steamcmd/getappinfo.go
+index 53e6854..f822a66 100644
+--- a/src/steamcmd/getappinfo.go
++++ b/src/steamcmd/getappinfo.go
+@@ -6,7 +6,6 @@ import (
+ 	"maps"
+ 	"os"
+ 	"os/exec"
+-	"path/filepath"
+ 	"regexp"
+ 	"runtime"
+ 	"strings"
+@@ -82,17 +81,10 @@ func getAppInfo() error {
+ 		steamMu.Lock() // Block until steamMu becomes available, then snack it and lock it again
+ 		logger.Core.Debug("🔄 Locking SteamMu for SteamCMD AppInfo...")
+ 	}
+-	steamcmddir := SteamCMDLinuxDir
+-	executable := "steamcmd.sh"
+ 	appid := config.GetGameServerAppID()
+ 
+-	if runtime.GOOS == "windows" {
+-		executable = "steamcmd.exe"
+-		steamcmddir = SteamCMDWindowsDir
+-	}
+-
+ 	// Build SteamCMD command with +app_info_update to ensure fresh data
+-	cmd := exec.Command(filepath.Join(steamcmddir, executable), "+login", "anonymous", "+app_info_update", "1", "+app_info_print", appid, "+quit")
++	cmd := exec.Command("steamcmd", "+login", "anonymous", "+app_info_update", "1", "+app_info_print", appid, "+quit")
+ 
+ 	// Capture output instead of printing directly
+ 	var stdout, stderr bytes.Buffer
+diff --git a/src/steamcmd/steamcmd-helper.go b/src/steamcmd/steamcmd-helper.go
+index 4caee4f..0f462c6 100644
+--- a/src/steamcmd/steamcmd-helper.go
++++ b/src/steamcmd/steamcmd-helper.go
+@@ -120,6 +120,7 @@ func setExecutablePermissions(steamCMDDir string) error {
+ 		return nil
+ 	}
+ 	// List of files that need executable permissions
++	return nil
+ 	files := []string{
+ 		filepath.Join(steamCMDDir, "steamcmd.sh"),
+ 		filepath.Join(steamCMDDir, "linux32", "steamcmd"),
+@@ -144,6 +145,7 @@ func verifySteamCMDBinary(steamCMDDir string) error {
+ 		binaryPath = filepath.Join(steamCMDDir, "steamcmd.exe")
+ 	} else {
+ 		binaryPath = filepath.Join(steamCMDDir, "linux32", "steamcmd")
++		return nil
+ 	}
+ 
+ 	if _, err := os.Stat(binaryPath); os.IsNotExist(err) {
+diff --git a/src/steamcmd/steamcmd.go b/src/steamcmd/steamcmd.go
+index 8554657..8ffc57a 100644
+--- a/src/steamcmd/steamcmd.go
++++ b/src/steamcmd/steamcmd.go
+@@ -209,5 +209,5 @@ func buildSteamCMDCommand(steamCMDDir, currentDir string) *exec.Cmd {
+ 	if runtime.GOOS == "windows" {
+ 		return exec.Command(filepath.Join(steamCMDDir, "steamcmd.exe"), "+force_install_dir", currentDir, "+login", "anonymous", "+app_update", config.GetGameServerAppID(), "-beta", config.GetGameBranch(), "validate", "+quit")
+ 	}
+-	return exec.Command(filepath.Join(steamCMDDir, "steamcmd.sh"), "+force_install_dir", currentDir, "+login", "anonymous", "+app_update", config.GetGameServerAppID(), "-beta", config.GetGameBranch(), "validate", "+quit")
++	return exec.Command("steamcmd", "+force_install_dir", currentDir, "+login", "anonymous", "+app_update", config.GetGameServerAppID(), "-beta", config.GetGameBranch(), "validate", "+quit")
+ }
+diff --git a/src/steamcmd/workshop.go b/src/steamcmd/workshop.go
+index c28d1de..ce6480d 100644
+--- a/src/steamcmd/workshop.go
++++ b/src/steamcmd/workshop.go
+@@ -55,21 +55,13 @@ func DownloadWorkshopItems(workshopHandles []string) ([]string, error) {
+ 		logger.Core.Debug("🔄 Unlocking SteamMu after SteamCMD Workshop Downloads...")
+ 	}()
+ 
+-	steamcmddir := SteamCMDLinuxDir
+-	executable := "steamcmd.sh"
+-
+-	if runtime.GOOS == "windows" {
+-		executable = "steamcmd.exe"
+-		steamcmddir = SteamCMDWindowsDir
+-	}
+-
+ 	// Download each workshop item
+ 	for i, appID := range workshopHandles {
+ 		logger.Install.Infof("📦 Downloading workshop item %d/%d: %s", i+1, len(workshopHandles), appID)
+ 
+ 		// Build SteamCMD command
+ 		cmd := exec.Command(
+-			filepath.Join(steamcmddir, executable),
++			"steamcmd",
+ 			"+force_install_dir", "../",
+ 			"+login", "anonymous",
+ 			"+workshop_download_item", "544550", appID,
