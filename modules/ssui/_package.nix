@@ -5,11 +5,14 @@
 {
   callPackage,
   lib,
+  makeBinaryWrapper,
+  makeWrapper,
   ssui-unwrapped ? callPackage ./_unwrapped.nix { },
   symlinkJoin,
   writeShellScriptBin,
 }:
 let
+  runtimeDeps = lib.makeBinPath ssui-unwrapped.buildInputs;
   wrapper = writeShellScriptBin ssui-unwrapped.meta.mainProgram ''
     # Set up the directory structure for steamcmd and ssui to work together.
     mkdir -p .local/share/Steam
@@ -30,8 +33,20 @@ symlinkJoin {
     ssui-unwrapped
   ];
 
+  nativeBuildInputs = [ makeWrapper ];
+
+  postBuild = ''
+    wrapProgram $out/bin/${ssui-unwrapped.meta.mainProgram} \
+      --prefix PATH : ${runtimeDeps}
+  '';
+
   meta = {
-    inherit (ssui-unwrapped.meta) description homepage maintainers mainProgram;
-    license = with lib.licenses; [mit];
+    inherit (ssui-unwrapped.meta)
+      description
+      homepage
+      maintainers
+      mainProgram
+      ;
+    license = with lib.licenses; [ mit ];
   };
 }
