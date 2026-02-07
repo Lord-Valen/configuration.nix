@@ -36,6 +36,7 @@ in
       nginx
       cloudflare
       servarr
+      stationeers
 
       home-manager
       root
