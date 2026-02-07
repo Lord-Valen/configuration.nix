@@ -20,12 +20,7 @@
         enable = lib.mkEnableOption "Stationeers Server UI";
         package = lib.mkPackageOption pkgs "StationeersServerUI" {
           default = "ssui";
-        };
-        dataDir = lib.mkOption {
-          type = lib.types.str;
-          default = "/var/lib/ssui";
-          description = "Main directory for Stationeers Server UI.";
-        };
+          };
         openFirewall = lib.mkOption {
           type = lib.types.bool;
           default = false;
@@ -55,8 +50,8 @@
 
           serviceConfig = {
             DynamicUser = true;
-            StateDirectory = cfg.dataDir;
-            WorkingDirectory = cfg.dataDir;
+            StateDirectory = "ssui";
+            WorkingDirectory = "/var/lib/ssui";
             ExecStartPre = lib.optionalString (lib.isAttrs cfg.settings) ''
               ${lib.getExe' pkgs.coreutils "ln"} -sf ${settingsFile} ${cfg.dataDir}/UIMod/config/config.json
             '';
