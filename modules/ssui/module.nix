@@ -72,8 +72,10 @@
             Group = cfg.group;
             StateDirectory = "ssui";
             WorkingDirectory = "/var/lib/ssui";
-            ExecStartPre = lib.optionalString (lib.isAttrs cfg.settings) ''
-              ${lib.getExe' pkgs.coreutils "ln"} -sf ${settingsFile} ${cfg.dataDir}/UIMod/config/config.json
+            ExecStartPre = ''
+              ${lib.getExe' pkgs.coreutils "chown"} -R ${cfg.user}:${cfg.group} /var/lib/ssui
+            '' + lib.optionalString (lib.isAttrs cfg.settings) ''
+              ${lib.getExe' pkgs.coreutils "ln"} -sf ${settingsFile} /var/lib/ssui/UIMod/config/config.json
             '';
             ExecStart = "${lib.getExe cfg.package}";
             Restart = "on-failure";
