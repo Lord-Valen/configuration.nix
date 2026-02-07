@@ -50,6 +50,15 @@ in
 
       localsend
       steam
+      (
+        { pkgs, ... }:
+        {
+          programs.steam.extraPackages = with pkgs; [
+            wineasio
+            pkgsi686Linux.pipewire.jack
+          ];
+        }
+      )
 
       audio
       development

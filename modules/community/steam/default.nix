@@ -13,10 +13,6 @@ in
       ];
       programs.steam = {
         enable = true;
-        extraPackages = with pkgs; [
-          wineasio
-          pkgsi686Linux.pipewire.jack
-        ];
         extraCompatPackages = with pkgs; [ proton-ge-bin ];
         remotePlay.openFirewall = true;
         gamescopeSession.enable = true;
