@@ -20,11 +20,21 @@
         enable = lib.mkEnableOption "Stationeers Server UI";
         package = lib.mkPackageOption pkgs "StationeersServerUI" {
           default = "ssui";
-          };
+        };
         openFirewall = lib.mkOption {
           type = lib.types.bool;
           default = false;
           description = "Whether to open the firewall for Stationeers Server UI.";
+        };
+        user = lib.mkOption {
+          type = lib.types.str;
+          default = "ssui";
+          description = "User to run the Stationeers Server UI service as.";
+        };
+        group = lib.mkOption {
+          type = lib.types.str;
+          default = "ssui";
+          description = "Group to run the Stationeers Server UI service as.";
         };
         settings = lib.mkOption {
           type = with lib.types; nullOr attrs;
@@ -39,6 +49,15 @@
           (cfg.settings.UpdatePort or 27015)
           (cfg.settings.GamePort or 27016)
         ];
+
+        users.users.${cfg.user} = {
+          isSystemUser = true;
+          group = cfg.group;
+          home = "/var/lib/ssui";
+          createHome = true;
+        };
+        users.groups.${cfg.group} = { };
+
         systemd.services.ssui = {
           description = "Stationeers Server UI";
 
@@ -49,7 +68,8 @@
           wantedBy = [ "multi-user.target" ];
 
           serviceConfig = {
-            DynamicUser = true;
+            User = cfg.user;
+            Group = cfg.group;
             StateDirectory = "ssui";
             WorkingDirectory = "/var/lib/ssui";
             ExecStartPre = lib.optionalString (lib.isAttrs cfg.settings) ''
