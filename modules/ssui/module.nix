@@ -55,11 +55,9 @@
 
           serviceConfig = {
             DynamicUser = true;
+            StateDirectory = cfg.dataDir;
             WorkingDirectory = cfg.dataDir;
-            ExecStartPre = ''
-              ${lib.getExe' pkgs.coreutils "mkdir"} -p ${cfg.dataDir}
-            ''
-            + lib.optionalString (lib.isAttrs cfg.settings) ''
+            ExecStartPre = lib.optionalString (lib.isAttrs cfg.settings) ''
               ${lib.getExe' pkgs.coreutils "ln"} -sf ${settingsFile} ${cfg.dataDir}/UIMod/config/config.json
             '';
             ExecStart = "${lib.getExe cfg.package}";
