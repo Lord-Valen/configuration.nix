@@ -36,7 +36,8 @@ in
       steam
       retroarch
 
-      nginx
+      caddy
+      # nginx
       cloudflare
       servarr
       stationeers

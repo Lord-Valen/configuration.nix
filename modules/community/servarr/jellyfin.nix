@@ -4,6 +4,9 @@
     {
       services = {
         cloudflare-dyndns.domains = [ "jellyfin.laughing-man.xyz" ];
+        caddy.virtualHosts."jellyfin.laughing-man.xyz".extraConfig = ''
+          reverse_proxy http://localhost:8096
+        '';
         nginx.virtualHosts."jellyfin.laughing-man.xyz" = {
           default = lib.mkDefault true;
           forceSSL = lib.mkDefault config.security.acme.acceptTerms;

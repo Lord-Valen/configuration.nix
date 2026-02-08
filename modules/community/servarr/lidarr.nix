@@ -4,6 +4,9 @@
     {
       services = {
         cloudflare-dyndns.domains = [ "lidarr.laughing-man.xyz" ];
+        caddy.virtualHosts."lidarr.laughing-man.xyz".extraConfig = ''
+          reverse_proxy http://localhost:8686
+        '';
         nginx.virtualHosts."lidarr.laughing-man.xyz" = {
           forceSSL = lib.mkDefault config.security.acme.acceptTerms;
           enableACME = lib.mkDefault config.security.acme.acceptTerms;
