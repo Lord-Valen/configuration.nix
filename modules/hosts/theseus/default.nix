@@ -22,6 +22,9 @@ in
       fwupd
       upgrade
       upgradeReboot
+      {
+        system.autoUpgrade.dates = "weekly";
+      }
 
       yubikey
       gpg
