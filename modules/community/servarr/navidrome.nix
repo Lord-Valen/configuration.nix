@@ -18,9 +18,11 @@
         navidrome = {
           enable = true;
           settings = {
-            MusicFolder = "/data/media/music";
-            EnableSharing = true;
+            BaseUrl = "https://navidrome.laughing-man.xyz";
             DefaultShareExpiration = "168h";
+            EnableInsightsCollector = true;
+            EnableSharing = true;
+            MusicFolder = "/data/media/music";
           };
         };
       };
