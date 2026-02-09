@@ -13,6 +13,20 @@
           locations."/".proxyPass = "http://localhost:8787";
         };
 
+        prometheus.exporters.exportarr-readarr.enable = true;
+        prometheus.scrapeConfigs = [
+          {
+            job_name = "readarr";
+            static_configs = [
+              {
+                targets = [
+                  "localhost:${lib.toString config.services.prometheus.exporters.exportarr-readarr.port}"
+                ];
+              }
+            ];
+          }
+        ];
+
         readarr.enable = true;
       };
     };

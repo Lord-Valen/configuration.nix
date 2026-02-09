@@ -15,6 +15,9 @@
           locations."/api".proxyPass = "http://localhost:58846";
         };
 
+        # TODO: Need secret management
+        #prometheus.exporters.deluge.enable = true;
+
         deluge = {
           enable = true;
           web.enable = true;

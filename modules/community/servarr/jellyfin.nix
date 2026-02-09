@@ -5,7 +5,8 @@
       services = {
         cloudflare-dyndns.domains = [ "jellyfin.laughing-man.xyz" ];
         caddy.virtualHosts."jellyfin.laughing-man.xyz".extraConfig = ''
-          reverse_proxy http://localhost:8096
+          @not_metrics not path /metrics
+          reverse_proxy @not_metrics http://localhost:8096
         '';
         nginx.virtualHosts."jellyfin.laughing-man.xyz" = {
           default = lib.mkDefault true;
@@ -16,6 +17,19 @@
             "/socket".proxyPass = "http://localhost:8096";
           };
         };
+
+        prometheus.scrapeConfigs = [
+          {
+            job_name = "navidrome";
+            static_configs = [
+              {
+                targets = [
+                  "localhost:8096"
+                ];
+              }
+            ];
+          }
+        ];
 
         jellyfin.enable = true;
       };

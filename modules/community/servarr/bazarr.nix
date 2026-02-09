@@ -13,6 +13,20 @@
           locations."/".proxyPass = "http://localhost:6767";
         };
 
+        prometheus.exporters.exportarr-bazarr.enable = true;
+        prometheus.scrapeConfigs = [
+          {
+            job_name = "bazarr";
+            static_configs = [
+              {
+                targets = [
+                  "localhost:${lib.toString config.services.prometheus.exporters.exportarr-bazarr.port}"
+                ];
+              }
+            ];
+          }
+        ];
+
         bazarr.enable = true;
       };
     };

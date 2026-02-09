@@ -36,6 +36,7 @@ in
       steam
       retroarch
 
+      prometheus
       caddy
       # nginx
       cloudflare

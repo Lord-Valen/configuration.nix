@@ -13,6 +13,20 @@
           locations."/".proxyPass = "http://localhost:8686";
         };
 
+        prometheus.exporters.exportarr-lidarr.enable = true;
+        prometheus.scrapeConfigs = [
+          {
+            job_name = "lidarr";
+            static_configs = [
+              {
+                targets = [
+                  "localhost:${lib.toString config.services.prometheus.exporters.exportarr-lidarr.port}"
+                ];
+              }
+            ];
+          }
+        ];
+
         lidarr.enable = true;
       };
     };
