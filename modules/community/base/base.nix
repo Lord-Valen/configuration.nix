@@ -1,8 +1,23 @@
-{ lib, inputs, ... }:
+{ inputs, ... }:
 {
-  flake.aspects.base.nixos =
-    { pkgs, config, ... }:
+  flake.aspects.base.homeManager =
+    { lib, ... }:
     {
+      manual = {
+        html.enable = lib.mkDefault false;
+        json.enable = lib.mkDefault false;
+        manpages.enable = lib.mkDefault false;
+      };
+    };
+  flake.aspects.base.nixos =
+    {
+      config,
+      lib,
+      pkgs,
+      ...
+    }:
+    {
+      documentation.enable = lib.mkDefault false;
       boot.tmp.useTmpfs = true;
       nix = {
         registry =
