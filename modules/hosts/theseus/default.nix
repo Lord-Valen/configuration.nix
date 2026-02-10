@@ -37,6 +37,7 @@ in
       retroarch
 
       prometheus
+      grafana
       caddy
       # nginx
       cloudflare
