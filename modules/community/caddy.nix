@@ -18,7 +18,7 @@
         caddy = {
           enable = true;
           email = "lord_valen@proton.me";
-          globalConfig = lib.optionalString config.prometheus.enable "monitor";
+          globalConfig = lib.optionalString config.services.prometheus.enable "monitor";
         };
       };
     };

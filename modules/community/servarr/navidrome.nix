@@ -1,6 +1,6 @@
 {
   flake.modules.nixos.servarr =
-    { lib, config, ... }:
+    { config, lib, ... }:
     let
       port = config.services.navidrome.settings.Port or 4553;
     in
@@ -9,13 +9,13 @@
         cloudflare-dyndns.domains = [ "navidrome.laughing-man.xyz" ];
         caddy.virtualHosts."navidrome.laughing-man.xyz".extraConfig = ''
           @not_metrics not path /metrics
-          reverse_proxy @not_metrics http://localhost:${lib.toString port}
+          reverse_proxy @not_metrics http://localhost:${toString port}
         '';
         nginx.virtualHosts."navidrome.laughing-man.xyz" = {
           forceSSL = lib.mkDefault config.security.acme.acceptTerms;
           enableACME = lib.mkDefault config.security.acme.acceptTerms;
           locations = {
-            "/".proxyPass = "http://localhost:${lib.toString port}";
+            "/".proxyPass = "http://localhost:${toString port}";
           };
         };
 
@@ -25,7 +25,7 @@
             static_configs = [
               {
                 targets = [
-                  "localhost:${lib.toString port}"
+                  "localhost:${toString port}"
                 ];
               }
             ];

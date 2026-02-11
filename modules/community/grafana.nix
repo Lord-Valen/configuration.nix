@@ -4,8 +4,8 @@
     {
       services =
         let
-          addr = lib.toString config.services.grafana.settings.server.http_addr;
-          port = lib.toString config.services.grafana.settings.server.http_port;
+          addr = toString config.services.grafana.settings.server.http_addr;
+          port = toString config.services.grafana.settings.server.http_port;
         in
         {
           cloudflare-dyndns.domains = [ "grafana.laughing-man.xyz" ];

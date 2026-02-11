@@ -1,6 +1,6 @@
 {
   flake.modules.nixos.servarr =
-    { lib, config, ... }:
+    { config, lib, ... }:
     {
       services = {
         cloudflare-dyndns.domains = [ "readarr.laughing-man.xyz" ];
@@ -20,7 +20,7 @@
             static_configs = [
               {
                 targets = [
-                  "localhost:${lib.toString config.services.prometheus.exporters.exportarr-readarr.port}"
+                  "localhost:${toString config.services.prometheus.exporters.exportarr-readarr.port}"
                 ];
               }
             ];

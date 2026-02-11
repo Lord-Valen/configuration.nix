@@ -1,6 +1,6 @@
 {
   flake.aspects.prometheus.nixos =
-    { config, lib, ... }:
+    { config, ... }:
     {
       services.prometheus = {
         enable = true;
@@ -14,7 +14,7 @@
             static_configs = [
               {
                 targets = [
-                  "localhost:${lib.toString config.services.prometheus.exporters.node.port}"
+                  "localhost:${toString config.services.prometheus.exporters.node.port}"
                 ];
               }
             ];

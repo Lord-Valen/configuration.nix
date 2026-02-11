@@ -20,7 +20,7 @@
             static_configs = [
               {
                 targets = [
-                  "localhost:${lib.toString config.services.prometheus.exporters.exportarr-radarr.port}"
+                  "localhost:${toString config.services.prometheus.exporters.exportarr-radarr.port}"
                 ];
               }
             ];
