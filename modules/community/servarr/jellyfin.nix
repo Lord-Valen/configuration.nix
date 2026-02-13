@@ -20,7 +20,7 @@
 
         prometheus.scrapeConfigs = [
           {
-            job_name = "navidrome";
+            job_name = "jellyfin";
             static_configs = [
               {
                 targets = [
