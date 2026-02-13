@@ -8,7 +8,7 @@
       "@data" = {
         mountpoint = "/data";
         mountOptions = [
-          "compress=zstd"
+          "compress=zstd:5"
           "noatime"
           "nofail"
         ];
@@ -16,7 +16,6 @@
       ".snapshots/@data" = {
         mountpoint = "/data/.snapshots";
         mountOptions = [
-          "compress=zstd"
           "noatime"
           "nofail"
         ];

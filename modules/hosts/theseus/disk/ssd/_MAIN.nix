@@ -15,28 +15,26 @@
       ".snapshots/@" = {
         mountpoint = "/.snapshots";
         mountOptions = [
-          "compress=zstd"
           "noatime"
+          "nofail"
         ];
       };
       "@home" = {
         mountpoint = "/home";
         mountOptions = [
-          "compress=zstd"
           "noatime"
         ];
       };
       ".snapshots/@home" = {
         mountpoint = "/home/.snapshots";
         mountOptions = [
-          "compress=zstd"
           "noatime"
+          "nofail"
         ];
       };
       "@nix" = {
         mountpoint = "/nix";
         mountOptions = [
-          "compress=zstd"
           "noatime"
         ];
       };

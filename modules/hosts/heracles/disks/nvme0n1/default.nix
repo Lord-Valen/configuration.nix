@@ -10,8 +10,8 @@
         "@" = {
           mountpoint = "/home/lord-valen/Games/nvme";
           mountOptions = [
+            "compress=zstd:-1"
             "noatime"
-            "compress=no"
             "nofail"
           ];
         };

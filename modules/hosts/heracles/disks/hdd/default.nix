@@ -11,8 +11,8 @@
         "@" = {
           mountpoint = "/home/lord-valen/Games/hdd";
           mountOptions = [
+            "compress=zstd:5"
             "noatime"
-            "compress=zstd"
             "nofail"
           ];
         };
@@ -20,7 +20,6 @@
           mountpoint = "/home/lord-valen/Games/hdd/.snapshots";
           mountOptions = [
             "noatime"
-            "compress=zstd"
             "nofail"
           ];
         };
