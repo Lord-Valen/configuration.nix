@@ -20,6 +20,7 @@ in
       kubo
 
       stylix
+      stylix-catppuccin-mocha
       sddm
       kde
       {

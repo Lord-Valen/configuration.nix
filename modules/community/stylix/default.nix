@@ -1,17 +1,12 @@
 { inputs, config, ... }:
 {
-  flake.modules.nixos.stylix =
-    { pkgs, ... }:
+  flake.aspects.stylix.nixos =
+    { lib, pkgs, ... }:
     {
       imports = [ inputs.stylix.nixosModules.stylix ];
       stylix = {
         enable = true;
-        base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
-        cursor = {
-          name = "graphite-dark";
-          package = pkgs.graphite-cursors;
-          size = 28;
-        };
+        base16Scheme = lib.mkDefault "${pkgs.base16-schemes}/share/themes/nord.yaml";
         targets = {
           # This breaks the console otherwise
           console.enable = false;
@@ -19,11 +14,11 @@
         overlays.enable = false;
       };
     };
-  flake.modules.nixos.stylixStandalone = {
+  flake.aspects.stylixStandalone.nixos = {
     imports = [ config.flake.modules.nixos.stylix ];
     stylix.homeManagerIntegration.autoImport = false;
   };
-  flake.modules.homeManager.stylix = {
+  flake.aspects.stylix.homeManager = {
     imports = [ inputs.stylix.homeModules.stylix ];
     stylix.enable = true;
   };

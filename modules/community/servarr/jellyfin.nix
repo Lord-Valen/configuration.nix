@@ -4,6 +4,9 @@
     {
       services = {
         cloudflare-dyndns.domains = [ "jellyfin.laughing-man.xyz" ];
+        ddclient = {
+          domains = [ "jellyfin.laughing-man.xyz" ];
+        };
         caddy.virtualHosts."jellyfin.laughing-man.xyz".extraConfig = ''
           @not_metrics not path /metrics
           reverse_proxy @not_metrics http://localhost:8096
