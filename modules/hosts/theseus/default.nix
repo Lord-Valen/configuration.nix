@@ -14,9 +14,12 @@ in
       networking
 
       stylix
-      gdm
-      { services.displayManager.gdm.autoSuspend = false; }
-      gnome
+      stylix-catppuccin-mocha
+      # gdm
+      # { services.displayManager.gdm.autoSuspend = false; }
+      # gnome
+      sddm
+      kde
       pipewire
 
       fwupd
