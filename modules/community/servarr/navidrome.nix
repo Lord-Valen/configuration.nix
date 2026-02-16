@@ -5,6 +5,14 @@
       port = config.services.navidrome.settings.Port or 4553;
     in
     {
+      nixpkgs.overlays = [
+        (final: prev: {
+          navidrome = prev.navidrome.overrideAttrs (finalAttrs: {
+            # FIXME: https://github.com/NixOS/nixpkgs/issues/481611#issuecomment-3874561864
+            CGO_CFLAGS_ALLOW = ".*--define-prefix.*";
+          });
+        })
+      ];
       services = {
         cloudflare-dyndns.domains = [ "navidrome.laughing-man.xyz" ];
         caddy.virtualHosts."navidrome.laughing-man.xyz".extraConfig = ''
