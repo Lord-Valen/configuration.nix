@@ -1,8 +1,10 @@
+{ config, ... }:
 {
   flake.aspects.development = {
     nixos =
       { pkgs, ... }:
       {
+        imports = [ config.flake.modules.nixos.dynamic-derivations ];
         environment.systemPackages = with pkgs; [
           man-pages
           man-pages-posix
