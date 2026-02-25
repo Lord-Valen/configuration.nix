@@ -16,6 +16,11 @@
           # FIXME: https://github.com/nix-community/stylix/issues/
           # nixos.includeAllModules = true;
         };
+        nix.settings = {
+          keep-build-log = true;
+          keep-derivations = true;
+          keep-outputs = true;
+        };
       };
     homeManager =
       { pkgs, ... }:

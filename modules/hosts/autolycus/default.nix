@@ -8,7 +8,6 @@ in
     system.stateVersion = "24.11";
     imports = with modules.nixos; [
       pc
-      development
 
       liquorix
       btrfs
@@ -29,7 +28,6 @@ in
       pipewire
 
       fwupd
-      keepOutputs
 
       colemak
       yubikey

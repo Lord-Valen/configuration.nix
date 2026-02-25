@@ -8,7 +8,6 @@ in
     system.stateVersion = "24.05";
     imports = with modules.nixos; [
       pc
-      development
 
       liquorix
       btrfs
@@ -40,7 +39,6 @@ in
       podman
 
       fwupd
-      keepOutputs
 
       ratbag
       yubikey

@@ -19,38 +19,29 @@
     {
       documentation.enable = lib.mkDefault false;
       boot.tmp.useTmpfs = true;
-      nix = {
-        registry =
-          let
-            inherit (inputs.nixpkgs-registry) registry;
-          in
-          registry
-          // {
-            unstable = registry.nixos-unstable;
-            configuration.to = {
-              type = "github";
-              owner = "Lord-Valen";
-              repo = "configuration.nix";
-            };
-          };
 
-        settings = {
-          trusted-users = [
-            "root"
-            "@wheel"
-          ];
-
-          auto-optimise-store = true;
-          experimental-features = [
-            "nix-command"
-            "flakes"
-            "pipe-operators"
-          ];
-          min-free = 1073741824;
-          fallback = true;
-        };
+      nix.settings = {
+        auto-optimise-store = true;
+        keep-build-log = lib.mkDefault false;
+        keep-derivations = lib.mkDefault false;
+        min-free = 1073741824;
+        pure-eval = true;
+        trusted-users = lib.singleton "root";
       };
+      nix.gc.automatic = lib.mkDefault true;
 
+      hardware.enableRedistributableFirmware = lib.mkDefault true;
+      services = {
+        openssh = {
+          enable = true;
+          settings.PasswordAuthentication = false;
+        };
+        earlyoom.enable = true;
+      };
+    };
+  flake.aspects.pc.nixos =
+    { lib, pkgs, ... }:
+    {
       environment.systemPackages = with pkgs; [
         binutils
         coreutils
@@ -68,29 +59,39 @@
         whois
         bottom
       ];
-      hardware = {
-        graphics.enable32Bit = lib.mkDefault true;
-        enableRedistributableFirmware = lib.mkDefault true;
-      };
-      programs = {
-        nix-ld.enable = true;
-        git.enable = true;
-        nh = {
-          enable = true;
-          clean = {
-            enable = true;
-            dates = "weekly";
-            extraArgs = "--keep 2 --keep-since 2d";
+
+      nix.registry =
+        let
+          inherit (inputs.nixpkgs-registry) registry;
+        in
+        registry
+        // {
+          unstable = registry.nixos-unstable;
+          configuration.to = {
+            type = "github";
+            owner = "Lord-Valen";
+            repo = "configuration.nix";
           };
         };
+      nix.settings = {
+        trusted-users = lib.singleton "@wheel";
+        fallback = true;
       };
-      services = {
-        openssh = {
+      nix.gc.automatic = lib.mkForce false;
+
+      hardware.graphics.enable32Bit = lib.mkDefault true;
+
+      programs.nix-ld.enable = true;
+      programs.git.enable = true;
+      programs.nh = {
+        enable = true;
+        clean = {
           enable = true;
-          settings.PasswordAuthentication = false;
+          dates = "weekly";
+          extraArgs = "--keep 2 --keep-since 2d";
         };
-        earlyoom.enable = true;
-        udisks2.enable = true;
       };
+
+      services.udisks2.enable = true;
     };
 }
