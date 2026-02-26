@@ -1,10 +1,7 @@
+{ config, ... }:
 {
   flake.modules.nixos.nginx = {
-    security.acme = {
-      acceptTerms = true;
-      defaults.email = "lord_valen@proton.me";
-    };
-
+    imports = [ config.flake.modules.nixos.acme ];
     services.nginx = {
       enable = true;
       recommendedOptimisation = true;
