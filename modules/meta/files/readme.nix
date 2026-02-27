@@ -4,6 +4,7 @@
     order = [
       "allowedUnfreePackages"
       "hosts"
+      "closure-checks"
     ];
   };
 

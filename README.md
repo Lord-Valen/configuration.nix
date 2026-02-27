@@ -17,3 +17,11 @@ without string matching.
 
 See definition at [`hosts.nix`](modules/lib/options/hosts.nix).
 See usage at [`autolycus`](modules/hosts/autolycus/default.nix).
+## Closure Size Checks
+
+Closure sizes for specific configurations are monitored via snapshot tests.
+These are defined using the `closureChecks` option and automatically generate flake checks.
+
+The checks use `pkgs.closureInfo` to avoid IFD (import-from-derivation).
+
+See definition at [`closureChecks.nix`](modules/lib/options/closureChecks.nix).
