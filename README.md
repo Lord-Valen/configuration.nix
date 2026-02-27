@@ -13,7 +13,7 @@ $ nix eval .#meta.nixpkgs.allowedUnfreePackages
 
 The set of NixOS hosts is defined via an option which accepts deferred modules.
 Differentiating the hosts as a subset of the NixOS modules allows us to map over the hosts
-both when generating NixOS configurations and when defining checks for the flake.
+without string matching.
 
 See definition at [`hosts.nix`](modules/lib/options/hosts.nix).
 See usage at [`autolycus`](modules/hosts/autolycus/default.nix).
