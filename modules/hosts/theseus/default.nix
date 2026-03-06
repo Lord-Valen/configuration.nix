@@ -44,7 +44,6 @@ in
       caddy
       # nginx
       cloudflare
-      servarr
       stationeers
 
       home-manager
