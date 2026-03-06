@@ -17,15 +17,19 @@ in
             "lidarr"
             "readarr"
             "bazarr"
-            "deluge"
+            "deluged"
             "calibre-server"
           ];
         in
-        lib.foldl (attrs: name: {
-          ${name} = {
-            after = [ "data.mount" ];
-            bindsTo = [ "data.mount" ];
-          };
-        }) { } services;
+        lib.foldl (
+          attrs: name:
+          attrs
+          // {
+            ${name} = {
+              after = [ "data.mount" ];
+              bindsTo = [ "data.mount" ];
+            };
+          }
+        ) { } services;
     };
 }
