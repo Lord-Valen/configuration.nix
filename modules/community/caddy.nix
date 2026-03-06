@@ -21,5 +21,16 @@
           globalConfig = lib.optionalString config.services.prometheus.enable "metrics";
         };
       };
+
+      networking = {
+        firewall.allowedTCPPorts = [
+          80
+          443
+        ];
+        firewall.allowedUDPPorts = [
+          80
+          443
+        ];
+      };
     };
 }
