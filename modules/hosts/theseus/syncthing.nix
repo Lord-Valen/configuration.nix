@@ -34,7 +34,6 @@ in
         path = "/data/media/books";
         type = "sendonly";
         devices = [
-          "lvHeracles"
           "Pythia"
         ];
       };
@@ -43,7 +42,6 @@ in
         path = "/data/media/music";
         type = "sendonly";
         devices = [
-          "Pythia"
         ];
       };
     };
