@@ -25,7 +25,7 @@
         keep-build-log = lib.mkDefault false;
         keep-derivations = lib.mkDefault false;
         min-free = 1073741824;
-        pure-eval = true;
+        # pure-eval = true;
         trusted-users = lib.singleton "root";
       };
       nix.gc.automatic = lib.mkDefault true;
