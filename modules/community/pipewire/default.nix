@@ -10,4 +10,18 @@
     };
     security.rtkit.enable = true;
   };
+  flake.aspects.pc.nixos =
+    {
+      config,
+      lib,
+      pkgs,
+      ...
+    }:
+    {
+      environment.systemPackages =
+        with pkgs;
+        lib.mkIf (config.services.pipewire.enable) [
+          qpwgraph
+        ];
+    };
 }

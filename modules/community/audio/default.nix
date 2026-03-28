@@ -3,15 +3,21 @@ let
   inherit (config.flake) modules;
 in
 {
-  flake.modules.nixos.audio = { };
-  flake.modules.homeManager.audio = {
-    imports = with modules.homeManager; [
-      zrythm
-      plugins
+  flake.aspects.audio = {
+    nixos = {
+      imports = with modules.nixos; [
+        browser-audio
+      ];
+    };
+    homeManager = {
+      imports = with modules.homeManager; [
+        zrythm
+        plugins
 
-      supercollider
-      vcv
-      guitarix
-    ];
+        supercollider
+        vcv
+        guitarix
+      ];
+    };
   };
 }
