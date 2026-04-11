@@ -9,7 +9,7 @@ in
     imports = with modules.nixos; [
       pc
 
-      liquorix
+      xanmod
       btrfs
       zsa
       drone

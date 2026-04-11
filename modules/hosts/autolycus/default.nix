@@ -9,7 +9,6 @@ in
     imports = with modules.nixos; [
       pc
 
-      liquorix
       btrfs
 
       networking
