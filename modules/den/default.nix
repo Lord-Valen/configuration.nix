@@ -5,7 +5,10 @@
   ...
 }:
 {
-  imports = [ (inputs.den.flakeModule or { }) ];
+  imports = [
+    (inputs.den.flakeModule or { })
+    inputs.elcoco.flakeModules.den
+  ];
 
   den.hosts.x86_64-linux = {
     autolycus.users = {

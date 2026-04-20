@@ -41,6 +41,11 @@
       steam
 
       writing
+      javascript
+      nix-lang
+      lisp
+      android
+      emacs-overlay
       printing
     ];
 
@@ -60,6 +65,9 @@
 
     provides.lord-valen = {
       includes = with den.aspects; [
+        basics
+        ai
+        writing
         easyeffects
         musescore
         strawberry

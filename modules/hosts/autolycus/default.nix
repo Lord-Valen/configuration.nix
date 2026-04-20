@@ -37,6 +37,9 @@
       steam
 
       writing
+      javascript
+      nix-lang
+      lisp
       printing
     ];
 

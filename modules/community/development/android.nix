@@ -1,5 +1,5 @@
 {
-  den.aspects.development.nixos = {
+  den.aspects.android.nixos = {
     programs.adb.enable = true;
   };
 }
