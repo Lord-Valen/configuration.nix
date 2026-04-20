@@ -5,7 +5,6 @@
 {
   callPackage,
   lib,
-  makeBinaryWrapper,
   makeWrapper,
   ssui-unwrapped ? callPackage ./_unwrapped.nix { },
   symlinkJoin,

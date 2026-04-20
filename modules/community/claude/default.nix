@@ -8,7 +8,7 @@ in
   };
   flake.aspects.claude.nixos = {
     nixpkgs.overlays = [
-      (final: prev: {
+      (_final: prev: {
         nushell = prev.nushell.override {
           additionalFeatures = feats: feats ++ [ "mcp" ];
         };

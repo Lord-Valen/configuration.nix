@@ -11,9 +11,7 @@
     };
   flake.aspects.base.nixos =
     {
-      config,
       lib,
-      pkgs,
       ...
     }:
     {

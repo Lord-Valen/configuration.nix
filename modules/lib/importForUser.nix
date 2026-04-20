@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 {
   /**
     Create a nixos module which imports a home-manager module, `module`, for `user`.
@@ -12,7 +12,6 @@
   flake.lib.importForUser =
     user: module:
     {
-      config,
       ...
     }:
     {
@@ -33,7 +32,6 @@
   flake.lib.importManyForUser =
     user: modules:
     {
-      config,
       ...
     }:
     {

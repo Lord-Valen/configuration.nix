@@ -1,5 +1,4 @@
 {
-  deluge,
   fetchFromGitHub,
   lib,
   python3Packages,

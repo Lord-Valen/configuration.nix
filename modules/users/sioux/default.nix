@@ -11,7 +11,7 @@ in
 {
   flake.modules = {
     nixos.${username} =
-      { pkgs, ... }:
+      { ... }:
       {
         users.users.${username} = {
           initialHashedPassword = "$y$j9T$1ttrJXMNjeH62Or9EOGfG/$pdm3JxpOroaC5BaqDN/79xKEvlUXW5fjBMGKPTFqeyA";

@@ -1,4 +1,4 @@
-{ config, self, ... }:
+{ config, ... }:
 let
   inherit (config.flake) modules;
 in

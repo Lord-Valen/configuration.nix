@@ -6,13 +6,13 @@ let
 in
 {
   closureChecks.minimal-disko = {
-    bytes = 1925511400;
+    bytes = 1971567304;
     human = "1.8GiB";
     closure = modules.nixos.minimal-disko;
   };
 
   flake.aspects.minimal-disko.nixos =
-    { lib, ... }:
+    { ... }:
     {
       imports = with modules.nixos; [ disko ];
       disko.devices.disk.sda = {

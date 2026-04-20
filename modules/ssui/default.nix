@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: MIT
 
-{ config, ... }:
+{ ... }:
 {
   perSystem =
     { pkgs, ... }:
@@ -10,7 +10,7 @@
       packages.ssui = pkgs.callPackage ./_package.nix { };
       packages.ssui-unwrapped = pkgs.callPackage ./_unwrapped.nix { };
     };
-  flake.overlays.ssui = final: prev: {
+  flake.overlays.ssui = _final: prev: {
     ssui = prev.callPackage ./_package.nix { };
     ssui-unwrapped = prev.callPackage ./_unwrapped.nix { };
   };
