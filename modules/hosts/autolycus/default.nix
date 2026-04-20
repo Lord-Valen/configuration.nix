@@ -40,6 +40,11 @@
       steam
 
       writing
+      javascript
+      nix-lang
+      rust
+      lisp
+      emacs-overlay
       printing
     ];
 

@@ -1,10 +1,18 @@
+{ den, ... }:
 {
-  den.aspects.development.nixos = {
-    programs.npm.enable = true;
-  };
-  den.aspects.development.homeManager =
-    { pkgs, ... }:
-    {
+  den.aspects.javascript = {
+    provides.lord-valen.includes = [ den.aspects.javascript ];
+    includes = with den.aspects; [ development ];
+    elcoco = {
+      source = ./javascript.el;
+      extraPackages =
+        epkgs: with epkgs; [
+          typescript-mode
+          (treesit-grammars.with-grammars (g: [ g.tree-sitter-typescript ]))
+        ];
+    };
+    nixos.programs.npm.enable = true;
+    homeManager = { pkgs, ... }: {
       home.packages = with pkgs; [
         nodejs
         pnpm
@@ -13,4 +21,5 @@
         deno
       ];
     };
+  };
 }

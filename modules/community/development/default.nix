@@ -1,7 +1,18 @@
 { den, ... }:
 {
   den.aspects.development = {
+    provides.lord-valen.includes = with den.aspects; [ development ];
     includes = with den.aspects; [ dynamic-derivations ];
+
+    elcoco = {
+      source = ./langs.el;
+      extraPackages =
+        epkgs: with epkgs; [
+          eglot
+          treesit-auto
+          (treesit-grammars.with-grammars (g: [ g.tree-sitter-json ]))
+        ];
+    };
 
     nixos =
       { pkgs, ... }:
@@ -47,8 +58,6 @@
           ediff = false;
         };
       };
-
-    provides.lord-valen.includes = with den.aspects; [ development ];
 
     provides.lord-valen = {
       homeManager =

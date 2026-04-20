@@ -4,4 +4,5 @@
   mdnix = src: import src.outPath { };
   llm-agents.inputs.nixpkgs.follows = "nixpkgs-unstable";
   exos-wifi = src: import src.outPath;
+  elcoco = src: import src.outPath;
 }

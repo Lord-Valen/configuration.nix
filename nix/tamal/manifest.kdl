@@ -1,7 +1,7 @@
 // ┏┓╻+╻ ╱┏┳┓┏┓┏┳┓┏┓╻
 // ┃┃┃┃┗━┓╹┃╹┣┫┃┃┃┣┫┃   Read the manpage:
 // ╹┗┛╹╱ ╹ ╹ ╹╹╹ ╹╹╹┗┛  $ man nixtamal-manifest
-version "1.1.0"
+version "1.4.0"
 inputs {
 	nixpkgs {
 		archive {
@@ -37,6 +37,21 @@ inputs {
 		}
 		fresh-cmd {
 			$ git ls-remote --branches "https://github.com/nix-community/home-manager.git" release-26.05
+			| cut -f1
+		}
+	}
+	elcoco {
+		git {
+			repository "https://github.com/Lord-Valen/elcoco.git"
+			ref "640e4241aa703db2feb4cc8af70089ad4938ebc8"
+		}
+	}
+	emacs-overlay {
+		archive {
+			url "https://github.com/nix-community/emacs-overlay/archive/{{fresh_value}}.tar.gz"
+		}
+		fresh-cmd {
+			$ git ls-remote --branches "https://github.com/nix-community/emacs-overlay.git" master
 			| cut -f1
 		}
 	}
