@@ -1,7 +1,16 @@
 { den, ... }:
 {
   den.aspects.development = {
-    includes = with den.aspects; [ dynamic-derivations ];
+    includes = with den.aspects; [ dynamic-derivations basics ];
+
+    elcoco = {
+      source = ./langs.el;
+      extraPackages = epkgs: with epkgs; [
+        eglot
+        treesit-auto
+        (treesit-grammars.with-grammars (g: [ g.tree-sitter-json ]))
+      ];
+    };
 
     nixos =
       { pkgs, ... }:

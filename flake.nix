@@ -17,6 +17,8 @@
     den.url = "github:denful/den";
     devshell.url = "github:numtide/devshell";
     disko.url = "github:nix-community/disko/v1.13.0";
+    elcoco.url = "github:Lord-Valen/elcoco";
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
     files = {
       url = "github:mightyiam/files";
       flake = false;
