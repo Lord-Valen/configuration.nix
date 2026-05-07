@@ -11,7 +11,10 @@
   flake.modules.homeManager."lord-valen/development" =
     { config, pkgs, ... }:
     {
-      home.packages = with pkgs; [ reuse ];
+      home.packages = with pkgs; [
+        reuse
+        jq
+      ];
       programs.jujutsu = {
         settings = {
           user = {
