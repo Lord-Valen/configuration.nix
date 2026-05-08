@@ -13,6 +13,7 @@ in
 
       networking
       kubo
+      aria2
 
       stylix
       stylix-catppuccin-mocha
