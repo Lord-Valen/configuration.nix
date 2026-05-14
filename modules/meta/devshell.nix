@@ -11,7 +11,7 @@
       devshells.default = {
         env = [
           {
-            name = "NH_FlAKE";
+            name = "NH_FLAKE";
             eval = "$PRJ_ROOT";
           }
         ];
