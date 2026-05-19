@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.rocm = {
+  den.aspects.rocm.nixos = {
     nixpkgs.config.rocmSupport = true;
   };
 }

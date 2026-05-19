@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.tablet = {
+  den.aspects.tablet.nixos = {
     hardware.opentabletdriver.enable = true;
   };
 }

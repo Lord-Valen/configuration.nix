@@ -1,5 +1,5 @@
 {
-  flake.aspects.stylix-nord.nixos =
+  den.aspects.stylix-nord.nixos =
     { pkgs, ... }:
     {
       stylix = {

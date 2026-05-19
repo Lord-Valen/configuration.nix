@@ -1,10 +1,10 @@
 {
-  flake.aspects.calibre.nixos =
+  den.aspects.calibre.nixos =
     { pkgs, ... }:
     {
       environment.systemPackages = with pkgs; [ calibre ];
     };
-  flake.aspects.calibre.homeManager =
+  den.aspects.calibre.homeManager =
     { pkgs, ... }:
     {
       home.packages = with pkgs; [ calibre ];

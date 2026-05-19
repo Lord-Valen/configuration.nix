@@ -1,5 +1,5 @@
 {
-  flake.aspects.aria2.nixos =
+  den.aspects.aria2.nixos =
     { config, pkgs, ... }:
     {
       services.aria2 = {

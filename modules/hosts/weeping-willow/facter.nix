@@ -1,12 +1,7 @@
-{ config, ... }:
-let
-  inherit (config.flake) modules;
-in
+{ den, ... }:
 {
-  flake.modules.nixos.weeping-willow = {
-    imports = with modules.nixos; [
-      nixos-facter
-    ];
-    facter.reportPath = ./facter.json;
+  den.aspects.weeping-willow = {
+    includes = with den.aspects; [ nixos-facter ];
+    nixos.facter.reportPath = ./facter.json;
   };
 }

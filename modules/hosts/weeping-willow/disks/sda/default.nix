@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.weeping-willow.disko.devices.disk.sda =
+  den.aspects.weeping-willow.nixos.disko.devices.disk.sda =
     { lib, ... }:
     {
       device = "/dev/sda";

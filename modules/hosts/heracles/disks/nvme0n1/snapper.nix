@@ -1,5 +1,5 @@
 {
-  # flake.modules.nixos.heracles.services.snapper.configs.games_nvme = {
+  # den.aspects.heracles.nixos.services.snapper.configs.games_nvme = {
   #   SUBVOLUME = "/home/lord-valen/Games/nvme";
   #   # QGROUP = "1/5400";
   #   TIMELINE_CREATE = true;

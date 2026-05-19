@@ -1,6 +1,9 @@
+{ den, ... }:
 {
-  nixpkgs.allowedUnfreePackages = [
-    "ssui-unwrapped"
-    "steamcmd"
+  den.aspects.stationeers.includes = [
+    (den.batteries.unfree [
+      "ssui-unwrapped"
+      "steamcmd"
+    ])
   ];
 }

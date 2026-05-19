@@ -1,23 +1,22 @@
-{ config, ... }:
+{ den, ... }:
 {
-  flake.modules.homeManager.shell =
-    {
-      pkgs,
-      ...
-    }:
-    {
-      imports = with config.flake.modules.homeManager; [
-        fonts
-        comma
-      ];
-      programs.bash.enable = true;
+  den.aspects.shell = {
+    includes = with den.aspects; [
+      fonts
+      comma
+    ];
+    homeManager =
+      { pkgs, ... }:
+      {
+        programs.bash.enable = true;
 
-      home.packages = with pkgs; [
-        ripgrep
-        bottom
-        carapace
-        bat
-        ouch
-      ];
-    };
+        home.packages = with pkgs; [
+          ripgrep
+          bottom
+          carapace
+          bat
+          ouch
+        ];
+      };
+  };
 }

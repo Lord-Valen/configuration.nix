@@ -1,5 +1,5 @@
 {
-  flake.aspects.grafana.nixos =
+  den.aspects.grafana.nixos =
     { config, lib, ... }:
     {
       services =

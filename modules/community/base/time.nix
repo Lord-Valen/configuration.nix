@@ -1,5 +1,5 @@
 {
-  flake.aspects.base.nixos =
+  den.aspects.base.nixos =
     { lib, ... }:
     {
       time.timeZone = lib.mkDefault "Canada/Eastern";

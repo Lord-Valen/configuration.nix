@@ -1,11 +1,11 @@
 {
-  flake.modules.nixos.sddm = {
+  den.aspects.sddm.nixos = {
     services.displayManager.sddm = {
       enable = true;
       wayland.enable = true;
     };
   };
-  flake.modules.nixos.kde = {
+  den.aspects.kde.nixos = {
     services.displayManager.sddm.wayland.compositor = "kwin";
   };
 }

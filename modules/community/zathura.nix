@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.zathura = {
+  den.aspects.zathura.homeManager = {
     programs.zathura = {
       enable = true;
       mappings = {

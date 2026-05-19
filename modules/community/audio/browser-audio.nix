@@ -1,5 +1,5 @@
 {
-  flake.aspects.browser-audio = {
+  den.aspects.browser-audio = {
     nixos = {
       services.pipewire.extraConfig.pipewire."10-browser" = {
         "context.modules" = [

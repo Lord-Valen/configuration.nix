@@ -1,9 +1,4 @@
-{ config, ... }:
-let
-  inherit (config.flake) modules;
-in
+{ den, ... }:
 {
-  flake.modules.nixos.weeping-willow.imports = with modules.nixos; [
-    disko
-  ];
+  den.aspects.weeping-willow.includes = with den.aspects; [ disko ];
 }

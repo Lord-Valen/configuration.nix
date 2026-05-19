@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.cloudflare =
+  den.aspects.cloudflare.nixos =
     { lib, ... }:
     {
       services.cloudflare-dyndns = {

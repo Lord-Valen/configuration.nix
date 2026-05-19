@@ -1,9 +1,7 @@
-{ config, ... }:
+{ den, ... }:
 {
-  flake.modules.nixos.plymouth = {
+  den.aspects.plymouth.nixos = {
     boot.plymouth.enable = true;
   };
-  flake.modules.nixos.pc = {
-    imports = [ config.flake.modules.nixos.plymouth ];
-  };
+  den.aspects.pc.includes = with den.aspects; [ plymouth ];
 }

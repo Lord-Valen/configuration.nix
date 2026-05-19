@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.autolycus.disko.devices.disk.nvme0n1 = {
+  den.aspects.autolycus.nixos.disko.devices.disk.nvme0n1 = {
     device = "/dev/nvme0n1";
     type = "disk";
     content = {

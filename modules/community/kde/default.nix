@@ -1,5 +1,5 @@
 {
-  flake.aspects.kde = {
+  den.aspects.kde = {
     nixos = {
       xdg.portal.enable = true;
 

@@ -1,15 +1,10 @@
-{ config, self, ... }:
-let
-  inherit (config.flake) modules;
-in
+{ den, ... }:
 {
-  hosts.weeping-willow = config.flake.modules.nixos.weeping-willow;
-  flake.modules.nixos.weeping-willow = {
-    nixpkgs.hostPlatform = "x86_64-linux";
-    system.stateVersion = "25.11";
-    imports = with modules.nixos; [
-      pc
+  den.aspects.weeping-willow = {
+    includes = with den.aspects; [
+      appimage
 
+      pc
       btrfs
 
       networking
@@ -24,44 +19,29 @@ in
       upgradeReboot
 
       flatpak
-      appimage
 
       localsend
 
       writing
       printing
-
-      home-manager
-      root
-      (
-        with modules.homeManager;
-        self.lib.importManyForUser "root" [
-          { home.stateVersion = "25.11"; }
-        ]
-      )
-      sioux
-      (
-        with modules.homeManager;
-        self.lib.importManyForUser "sioux" [
-          {
-            home.stateVersion = "25.11";
-          }
-
-          brave
-          calibre
-        ]
-      )
-      lord-valen
-      (
-        with modules.homeManager;
-        self.lib.importManyForUser "lord-valen" [
-          {
-            home.stateVersion = "25.11";
-          }
-
-          brave
-        ]
-      )
     ];
+
+    nixos = {
+      nixpkgs.hostPlatform = "x86_64-linux";
+      system.stateVersion = "25.11";
+    };
+
+    to-users.homeManager.home.stateVersion = "25.11";
+
+    provides.lord-valen = {
+      includes = with den.aspects; [ brave ];
+    };
+
+    provides.sioux = {
+      includes = with den.aspects; [
+        brave
+        calibre
+      ];
+    };
   };
 }

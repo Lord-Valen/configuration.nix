@@ -1,5 +1,5 @@
 {
-  flake.aspects.gnome = {
+  den.aspects.gnome = {
     nixos = {
       xdg.portal.enable = true;
 
@@ -27,7 +27,7 @@
         };
       };
   };
-  flake.aspects.stylix.nixos = {
+  den.aspects.stylix.nixos = {
     stylix.targets.qt.enable = false;
   };
 }

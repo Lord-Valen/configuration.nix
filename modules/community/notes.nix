@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.notes =
+  den.aspects.notes.homeManager =
     { pkgs, ... }:
     {
       home.packages = with pkgs; [

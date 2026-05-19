@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.servarr =
+  den.aspects.servarr.nixos =
     { lib, config, ... }:
     {
       services = {

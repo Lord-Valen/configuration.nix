@@ -1,6 +1,6 @@
-{ inputs, config, ... }:
+{ den, inputs, ... }:
 {
-  flake.aspects.stylix.nixos =
+  den.aspects.stylix.nixos =
     { lib, pkgs, ... }:
     {
       imports = [ inputs.stylix.nixosModules.stylix ];
@@ -14,11 +14,11 @@
         overlays.enable = false;
       };
     };
-  flake.aspects.stylixStandalone.nixos = {
-    imports = [ config.flake.modules.nixos.stylix ];
-    stylix.homeManagerIntegration.autoImport = false;
+  den.aspects.stylixStandalone = {
+    includes = with den.aspects; [ stylix ];
+    nixos.stylix.homeManagerIntegration.autoImport = false;
   };
-  flake.aspects.stylix.homeManager = {
+  den.aspects.stylix.homeManager = {
     imports = [ inputs.stylix.homeModules.stylix ];
     stylix.enable = true;
   };

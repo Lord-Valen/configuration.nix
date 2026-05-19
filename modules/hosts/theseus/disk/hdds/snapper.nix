@@ -1,5 +1,5 @@
 {
-  # flake.modules.nixos.theseus.services.snapper.configs = {
+  # den.aspects.theseus.nixos.services.snapper.configs = {
   #   data = {
   #     SUBVOLUME = "/data";
   #     # QGROUP = "1/5400";

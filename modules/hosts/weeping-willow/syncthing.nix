@@ -1,15 +1,7 @@
-{ config, self, ... }:
-let
-  inherit (config.flake) modules;
-in
+{ den, ... }:
 {
-  flake.modules.nixos.weeping-willow = {
-    imports = with modules.nixos; [
-      syncthing
-      (self.lib.importForUser "sioux" modules.homeManager.syncthing)
-    ];
-
-    services.syncthing.settings.folders = {
-    };
+  den.aspects.weeping-willow = {
+    includes = with den.aspects; [ syncthing ];
+    provides.sioux.includes = with den.aspects; [ syncthing ];
   };
 }

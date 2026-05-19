@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.development = {
+  den.aspects.development.nixos = {
     programs.adb.enable = true;
   };
 }

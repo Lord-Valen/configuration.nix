@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.pipewire = {
+  den.aspects.pipewire.nixos = {
     services.pipewire = {
       enable = true;
       audio.enable = true;
@@ -10,7 +10,7 @@
     };
     security.rtkit.enable = true;
   };
-  flake.aspects.pc.nixos =
+  den.aspects.pc.nixos =
     {
       config,
       lib,

@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.autolycus.services.beesd.filesystems.MAIN = {
+  den.aspects.heracles.nixos.services.beesd.filesystems.MAIN = {
     spec = "/";
     extraOptions = [
       "-G"

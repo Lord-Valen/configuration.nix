@@ -1,12 +1,3 @@
-{ config, ... }:
-let
-  inherit (config.flake) modules;
-in
 {
-  flake.modules.nixos.autolycus = {
-    imports = with modules.nixos; [
-      nixos-facter
-    ];
-    facter.reportPath = ./facter.json;
-  };
+  den.aspects.autolycus.nixos.facter.reportPath = ./facter.json;
 }

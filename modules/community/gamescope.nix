@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.gamescope =
+  den.aspects.gamescope.nixos =
     { pkgs, ... }:
     {
       programs.gamescope = {

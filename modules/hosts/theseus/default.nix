@@ -1,23 +1,19 @@
-{ config, self, ... }:
-let
-  inherit (config.flake) modules;
-in
+{ den, ... }:
 {
-  hosts.theseus = config.flake.modules.nixos.theseus;
-  flake.modules.nixos.theseus = {
-    system.stateVersion = "24.05";
-    imports = with modules.nixos; [
-      pc
+  den.aspects.theseus = {
+    includes = with den.aspects; [
+      appimage
+      gpg
+      wallpaper
 
+      pc
       btrfs
 
       networking
 
       stylix
       stylix-catppuccin-mocha
-      # gdm
-      # { services.displayManager.gdm.autoSuspend = false; }
-      # gnome
+
       sddm
       kde
       pipewire
@@ -25,15 +21,10 @@ in
       fwupd
       upgrade
       upgradeReboot
-      {
-        system.autoUpgrade.dates = "weekly";
-      }
 
       yubikey
-      gpg
 
       flatpak
-      appimage
 
       localsend
       steam
@@ -42,41 +33,29 @@ in
       prometheus
       grafana
       caddy
-      # nginx
       cloudflare
       stationeers
-
-      home-manager
-      root
-      (
-        with modules.homeManager;
-        self.lib.importManyForUser "root" [
-          { home.stateVersion = "24.05"; }
-        ]
-      )
-      lord-valen
-      (
-        with modules.homeManager;
-        self.lib.importManyForUser "lord-valen" [
-          {
-            home.stateVersion = "24.05";
-          }
-
-          modules.homeManager."lord-valen/wallpaper"
-
-          strawberry
-          brave
-          heroic
-          lutris
-        ]
-      )
-      {
-        users.users.nixos = {
-          initialHashedPassword = "$y$j9T$QQ6ekOvwUjMHEpiW78DbX1$F7evMbAa0tQeMXFUiwBOViSAHqe2aij3BcxbARFgU6/";
-          isNormalUser = true;
-          createHome = true;
-        };
-      }
     ];
+
+    nixos = {
+      system.stateVersion = "24.05";
+      system.autoUpgrade.dates = "weekly";
+    };
+
+    to-users.homeManager.home.stateVersion = "24.05";
+
+    provides.lord-valen = {
+      includes = with den.aspects; [
+        strawberry
+        brave
+        heroic
+        lutris
+      ];
+    };
+  };
+
+  den.aspects.nixos = {
+    includes = [ den.batteries.define-user ];
+    user.initialHashedPassword = "$y$j9T$QQ6ekOvwUjMHEpiW78DbX1$F7evMbAa0tQeMXFUiwBOViSAHqe2aij3BcxbARFgU6/";
   };
 }

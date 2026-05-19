@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.retroarch =
+  den.aspects.retroarch.nixos =
     { pkgs, ... }:
     {
       services.xserver.desktopManager.retroarch = {

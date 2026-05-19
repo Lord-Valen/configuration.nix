@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.writing =
+  den.aspects.writing.nixos =
     { pkgs, ... }:
     {
       fonts.packages = with pkgs; [
@@ -16,7 +16,7 @@
       ];
     };
 
-  flake.modules.nixos.fonts = {
+  den.aspects.fonts.nixos = {
     fonts.fontDir.enable = true;
   };
 }

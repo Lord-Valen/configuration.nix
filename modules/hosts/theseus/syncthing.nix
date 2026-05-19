@@ -1,14 +1,8 @@
-{ config, ... }:
-let
-  inherit (config.flake) modules;
-in
+{ den, ... }:
 {
-  flake.modules.nixos.theseus = {
-    imports = with modules.nixos; [
-      syncthing
-    ];
-
-    services.syncthing.settings.folders = {
+  den.aspects.theseus = {
+    includes = with den.aspects; [ syncthing ];
+    nixos.services.syncthing.settings.folders = {
       "Pythia Bup" = {
         id = "jtafu-4mn0y";
         path = "/data/pythia-bup";
@@ -41,8 +35,7 @@ in
         id = "zfumc-pfy38";
         path = "/data/media/music";
         type = "sendonly";
-        devices = [
-        ];
+        devices = [ ];
       };
     };
   };

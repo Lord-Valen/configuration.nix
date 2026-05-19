@@ -1,16 +1,18 @@
-{ config, self, ... }:
-let
-  inherit (config.flake) modules;
-in
+{ den, ... }:
 {
-  hosts.autolycus = config.flake.modules.nixos.autolycus;
-  flake.modules.nixos.autolycus = {
-    system.stateVersion = "24.11";
-    imports = with modules.nixos; [
+  den.aspects.autolycus = {
+    includes = with den.aspects; [
+      development
+      audio
+      appimage
+      gpg
+      photography
+      wallpaper
+
       pc
-
       btrfs
-
+      nixos-facter
+      disko
       networking
       kubo
       aria2
@@ -20,70 +22,49 @@ in
 
       sddm
       kde
-      {
-        # FIXME: "https://github.com/nix-community/stylix/issues/1092"
-        stylix.targets.qt.enable = false;
-      }
-      # gdm
-      # gnome
       pipewire
 
       fwupd
+      secureBoot
 
       colemak
       yubikey
-      gpg
       tablet
 
       flatpak
-      appimage
 
       localsend
       steam
 
-      audio
-      development
       writing
       printing
-      photography
-
-      home-manager
-      root
-      (
-        with modules.homeManager;
-        self.lib.importManyForUser "root" [
-          { home.stateVersion = "24.05"; }
-        ]
-      )
-      lord-valen
-      (
-        with modules.homeManager;
-        self.lib.importManyForUser "lord-valen" [
-          {
-            home.stateVersion = "24.11";
-          }
-
-          {
-            # FIXME: "https://github.com/nix-community/stylix/issues/1092"
-            stylix.targets.qt.enable = false;
-          }
-
-          modules.homeManager."lord-valen/wallpaper"
-          easyeffects
-
-          vscode
-          emacs
-          notes
-          brave
-          tor
-          musescore
-          chat
-          zathura
-          heroic
-          lutris
-          calibre
-        ]
-      )
     ];
+
+    nixos = {
+      system.stateVersion = "24.11";
+      stylix.targets.qt.enable = false;
+    };
+
+    to-users.homeManager.home.stateVersion = "24.11";
+
+    provides.lord-valen = {
+      includes = with den.aspects; [
+        easyeffects
+        vscode
+        emacs
+        notes
+        brave
+        tor
+        musescore
+        chat
+        zathura
+        heroic
+        lutris
+        calibre
+      ];
+      homeManager = {
+        stylix.targets.qt.enable = false;
+      };
+    };
   };
 }

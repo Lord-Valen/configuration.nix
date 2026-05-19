@@ -1,5 +1,5 @@
 {
-  flake.aspects.drone.nixos =
+  den.aspects.drone.nixos =
     { pkgs, ... }:
     {
       environment.systemPackages = with pkgs; [

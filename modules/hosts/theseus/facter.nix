@@ -1,12 +1,7 @@
-{ config, ... }:
-let
-  inherit (config.flake) modules;
-in
+{ den, ... }:
 {
-  flake.modules.nixos.theseus = {
-    imports = with modules.nixos; [
-      nixos-facter
-    ];
-    facter.reportPath = ./facter.json;
+  den.aspects.theseus = {
+    includes = with den.aspects; [ nixos-facter ];
+    nixos.facter.reportPath = ./facter.json;
   };
 }

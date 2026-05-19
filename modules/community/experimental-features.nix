@@ -1,37 +1,26 @@
-{ config, ... }:
-let
-  inherit (config.flake) modules;
-in
+{ den, ... }:
 {
-  flake.aspects.base.nixos = {
-    imports = with modules.nixos; [
-      flakes
-    ];
-  };
-  flake.aspects.pc.nixos = {
-    imports = with modules.nixos; [
-      pipe-operators
-    ];
-  };
-  flake.aspects.flakes.nixos = {
+  den.aspects.base.includes = with den.aspects; [ flakes ];
+  den.aspects.pc.includes = with den.aspects; [ pipe-operators ];
+  den.aspects.flakes.nixos = {
     nix.settings.experimental-features = [
       "nix-command"
       "flakes"
     ];
   };
-  flake.aspects.pipe-operators.nixos = {
+  den.aspects.pipe-operators.nixos = {
     nix.settings.experimental-features = [
       "pipe-operators"
     ];
   };
-  flake.aspects.ca-derivations.nixos = {
+  den.aspects.ca-derivations.nixos = {
     nix.settings.experimental-features = [
       "ca-derivations"
     ];
   };
-  flake.aspects.dynamic-derivations.nixos = {
-    imports = [ config.flake.modules.nixos.ca-derivations ];
-    nix.settings.experimental-features = [
+  den.aspects.dynamic-derivations = {
+    includes = with den.aspects; [ ca-derivations ];
+    nixos.nix.settings.experimental-features = [
       "dynamic-derivations"
       "recursive-nix"
     ];

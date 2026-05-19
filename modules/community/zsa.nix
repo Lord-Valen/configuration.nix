@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.zsa =
+  den.aspects.zsa.nixos =
     { pkgs, ... }:
     {
       hardware.keyboard.zsa.enable = true;

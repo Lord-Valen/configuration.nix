@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.tor =
+  den.aspects.tor.homeManager =
     { pkgs, ... }:
     {
       home.packages = with pkgs; [

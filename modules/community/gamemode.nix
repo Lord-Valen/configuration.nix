@@ -1,3 +1,3 @@
 {
-  flake.modules.nixos.gamemode.programs.gamemode.enable = true;
+  den.aspects.gamemode.nixos.programs.gamemode.enable = true;
 }

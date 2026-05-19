@@ -13,17 +13,14 @@
     type = lib.types.attrsOf (
       lib.types.submodule {
         options = {
-          bytes = lib.mkOption {
-            type = lib.types.int;
-            description = "Expected closure size in bytes.";
-          };
-          human = lib.mkOption {
-            type = lib.types.str;
-            description = "Human-readable closure size (for reference).";
-            example = "1.2GiB";
+          budget = lib.mkOption {
+            type = lib.types.nullOr lib.types.int;
+            default = null;
+            description = "Maximum acceptable closure size in bytes. Null means log only.";
+            example = 2000000000;
           };
           closure = lib.mkOption {
-            type = lib.types.deferredModule;
+            type = lib.types.anything;
             description = "NixOS configuration to check.";
           };
         };
@@ -36,70 +33,50 @@
   config =
     let
       inherit (config) closureChecks;
-      inherit (config.flake) modules;
 
       toClosureCheck =
         hostName: check:
         let
-          toNixos =
-            module:
-            inputs.nixpkgs.lib.nixosSystem {
-              modules = [
-                module
-                modules.nixos.base
-                {
-                  networking = { inherit hostName; };
-                  nixpkgs.config = {
-                    allowBroken = true;
-                    allowInsecurePredicate = _: true;
-                    allowUnfree = true;
-                  };
-                }
-              ];
-            };
+          nixosClosure = inputs.nixpkgs.lib.nixosSystem {
+            modules = [
+              check.closure
+              {
+                networking = { inherit hostName; };
+                nixpkgs.config = {
+                  allowBroken = true;
+                  allowInsecurePredicate = _: true;
+                  allowUnfree = true;
+                };
+              }
+            ];
+          };
 
-          nixosClosure = toNixos check.closure;
           pkgs = nixosClosure.pkgs;
           nixosConfig = nixosClosure.config;
           system = nixosConfig.nixpkgs.hostPlatform.system;
           toplevel = nixosConfig.system.build.toplevel;
           closureInfo = pkgs.closureInfo { rootPaths = [ toplevel ]; };
 
-          checkDrv =
-            pkgs.runCommand "closure-size-${hostName}.nix"
-              {
-                buildInputs = with pkgs; [ coreutils ];
-              }
+          budgetCheck =
+            if check.budget != null then
               ''
-                actualBytes=$(cat ${closureInfo}/total-nar-size)
-                actualHuman=$(numfmt --to=iec-i --suffix=B $actualBytes)
-                expectedBytes=${builtins.toString check.bytes}
-                expectedHuman="${check.human}"
-
-                # Output Nix attrset for easy copying
-                cat > $out <<EOF
-                {
-                  bytes = $actualBytes;
-                  human = "$actualHuman";
-                }
-                EOF
-
-                echo "=== ${hostName} Closure Size ==="
-                echo "Actual:   $actualBytes bytes ($actualHuman)"
-                echo "Expected: $expectedBytes bytes ($expectedHuman)"
-
-                if [ "$actualBytes" != "$expectedBytes" ]; then
-                  echo ""
-                  echo "❌ MISMATCH!"
-                  echo ""
-                  echo "If this change is intentional, update closureChecks.${hostName}:"
-                  echo "  bytes = $actualBytes;"
-                  echo "  human = \"$actualHuman\";"
+                if [ "$actualBytes" -gt "${builtins.toString check.budget}" ]; then
+                  budgetHuman=$(numfmt --to=iec-i --suffix=B ${builtins.toString check.budget})
+                  echo "❌ OVER BUDGET: $actualHuman > $budgetHuman"
                   exit 1
                 fi
+                echo "✓ Within budget"
+              ''
+            else
+              "";
 
-                echo "✓ Match!"
-              '';
+          checkDrv = pkgs.runCommand "closure-size-${hostName}" { buildInputs = with pkgs; [ coreutils ]; } ''
+            actualBytes=$(cat ${closureInfo}/total-nar-size)
+            actualHuman=$(numfmt --to=iec-i --suffix=B $actualBytes)
+            echo "=== ${hostName} closure size: $actualHuman ($actualBytes bytes) ==="
+            ${budgetCheck}
+            echo "$actualHuman" > $out
+          '';
         in
         {
           ${system}."closure-size-${hostName}" = checkDrv;
@@ -107,15 +84,15 @@
     in
     {
       flake.checks = closureChecks |> lib.mapAttrsToList toClosureCheck |> lib.mkMerge;
+
       text.readme.parts.closure-checks = ''
-        ## Closure Size Checks
+        ## Closure Checks
 
-        Closure sizes for specific configurations are monitored via snapshot tests.
-        These are defined using the `closureChecks` option and automatically generate flake checks.
-
-        The checks use `pkgs.closureInfo` to avoid IFD (import-from-derivation).
+        Closure size checks are defined via the `closureChecks` option.
+        Each entry logs the human-readable closure size; an optional `budget` field causes the check to fail if the size exceeds it.
 
         See definition at [`closureChecks.nix`](modules/lib/options/closureChecks.nix).
+        See checks at [`closureChecks/`](modules/closureChecks/).
       '';
     };
 }

@@ -1,5 +1,5 @@
 {
-  flake.aspects.stylix-catppuccin-mocha.nixos =
+  den.aspects.stylix-catppuccin-mocha.nixos =
     {
       config,
       lib,

@@ -14,6 +14,7 @@
   };
 
   inputs = {
+    den.url = "github:denful/den";
     devshell.url = "github:numtide/devshell";
     disko.url = "github:nix-community/disko/v1.11.0";
     files.url = "github:mightyiam/files";

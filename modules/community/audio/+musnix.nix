@@ -1,11 +1,11 @@
 {
+  den,
   inputs,
-  config,
   lib,
   ...
 }:
 {
-  flake.modules.nixos.musnix = {
+  den.aspects.musnix.nixos = {
     imports = [ inputs.musnix.nixosModules.musnix ];
     musnix = {
       enable = true;
@@ -14,5 +14,5 @@
     };
     services.das_watchdog.enable = lib.mkForce true;
   };
-  flake.modules.nixos.audio.imports = [ config.flake.modules.nixos.musnix ];
+  den.aspects.audio.includes = with den.aspects; [ musnix ];
 }

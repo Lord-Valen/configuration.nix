@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.shell = {
+  den.aspects.shell.homeManager = {
     programs.less.config = ''
       m    left-scroll
       n    forw-line

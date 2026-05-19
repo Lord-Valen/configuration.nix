@@ -1,9 +1,4 @@
-{ config, ... }:
-let
-  inherit (config.flake) modules;
-in
+{ den, ... }:
 {
-  flake.modules.nixos.heracles.imports = with modules.nixos; [
-    disko
-  ];
+  den.aspects.heracles.includes = with den.aspects; [ disko ];
 }

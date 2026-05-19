@@ -1,3 +1,4 @@
+{ den, ... }:
 {
-  nixpkgs.allowedUnfreePackages = [ "muse-sounds-manager" ];
+  den.aspects.musescore.includes = [ (den.batteries.unfree [ "muse-sounds-manager" ]) ];
 }

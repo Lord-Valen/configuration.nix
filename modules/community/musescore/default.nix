@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.musescore =
+  den.aspects.musescore.homeManager =
     { pkgs, ... }:
     {
       home.packages = with pkgs; [

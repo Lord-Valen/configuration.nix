@@ -1,5 +1,5 @@
 {
-  flake.aspects.upgrade.nixos =
+  den.aspects.upgrade.nixos =
     { lib, ... }:
     {
       system.autoUpgrade = {
@@ -9,7 +9,7 @@
         flake = "configuration";
       };
     };
-  flake.aspects.upgradeReboot.nixos =
+  den.aspects.upgradeReboot.nixos =
     { lib, ... }:
     {
       system.autoUpgrade = {

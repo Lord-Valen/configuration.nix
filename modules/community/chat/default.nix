@@ -1,13 +1,7 @@
+{ den, ... }:
 {
-  config,
-  ...
-}:
-let
-  inherit (config.flake) modules;
-in
-{
-  flake.modules.homeManager.chat = {
-    imports = with modules.homeManager; [
+  den.aspects.chat = {
+    includes = with den.aspects; [
       discord
       matrix
     ];

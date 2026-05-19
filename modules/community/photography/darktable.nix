@@ -1,7 +1,9 @@
 {
-  flake.modules.homeManager.photography =
-    { pkgs, ... }:
-    {
-      home.packages = with pkgs; [ darktable ];
-    };
+  den.aspects.photography.provides.lord-valen = {
+    homeManager =
+      { pkgs, ... }:
+      {
+        home.packages = with pkgs; [ darktable ];
+      };
+  };
 }

@@ -1,6 +1,6 @@
 #TODO: logseq://graph/paneideon?block-id=68004fe4-5c97-421b-8c36-f635850013ff
 {
-  flake.modules.homeManager.emacs =
+  den.aspects.emacs.homeManager =
     { pkgs, ... }:
     {
       xdg.configFile.emacs = {

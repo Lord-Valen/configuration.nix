@@ -1,9 +1,4 @@
-{ config, ... }:
-let
-  inherit (config.flake) modules;
-in
+{ den, ... }:
 {
-  flake.modules.nixos.theseus.imports = with modules.nixos; [
-    disko
-  ];
+  den.aspects.theseus.includes = with den.aspects; [ disko ];
 }

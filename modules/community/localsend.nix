@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.localsend = {
+  den.aspects.localsend.nixos = {
     programs.localsend.enable = true;
   };
 }

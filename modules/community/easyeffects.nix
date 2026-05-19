@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.easyeffects =
+  den.aspects.easyeffects.homeManager =
     { pkgs, ... }:
     {
       services.easyeffects.enable = true;

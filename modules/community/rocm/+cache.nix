@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.rocm = {
+  den.aspects.rocm.nixos = {
     nix.settings = {
       trusted-substituters = [
         "https://nix-community.cachix.org"

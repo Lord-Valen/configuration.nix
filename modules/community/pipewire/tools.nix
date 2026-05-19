@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.pipewire =
+  den.aspects.pipewire.nixos =
     {
       pkgs,
       ...

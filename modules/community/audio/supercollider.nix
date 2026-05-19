@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.supercollider =
+  den.aspects.supercollider.homeManager =
     { pkgs, ... }:
     {
       home.packages = with pkgs; [

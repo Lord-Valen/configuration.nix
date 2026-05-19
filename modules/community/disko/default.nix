@@ -3,7 +3,7 @@
   ...
 }:
 {
-  flake.modules.nixos.disko = {
+  den.aspects.disko.nixos = {
     imports = [
       inputs.disko.nixosModules.default
     ];

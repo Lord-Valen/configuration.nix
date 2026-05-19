@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.heracles.disko.devices.disk.sda = {
+  den.aspects.heracles.nixos.disko.devices.disk.sda = {
     device = "/dev/sda";
     type = "disk";
     content = {

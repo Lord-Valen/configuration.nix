@@ -1,3 +1,4 @@
+{ den, ... }:
 {
-  nixpkgs.allowedUnfreePackages = [ "vcv-rack" ];
+  den.aspects.vcv.includes = [ (den.batteries.unfree [ "vcv-rack" ]) ];
 }

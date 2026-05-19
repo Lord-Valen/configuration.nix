@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.btrfs.services.btrfs = {
+  den.aspects.btrfs.nixos.services.btrfs = {
     autoScrub.enable = true;
   };
 }

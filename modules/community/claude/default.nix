@@ -1,12 +1,7 @@
-{ config, ... }:
-let
-  inherit (config.flake) modules;
-in
+{ den, ... }:
 {
-  flake.aspects.development.nixos = {
-    imports = with modules.nixos; [ claude ];
-  };
-  flake.aspects.claude.nixos = {
+  den.aspects.development.includes = with den.aspects; [ claude ];
+  den.aspects.claude.nixos = {
     nixpkgs.overlays = [
       (_final: prev: {
         nushell = prev.nushell.override {

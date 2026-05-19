@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.modules.nixos.home-manager = {
+  den.aspects.home-manager.nixos = {
     imports = [ (inputs.home-manager.nixosModules.default or { }) ];
     home-manager = {
       useGlobalPkgs = true;

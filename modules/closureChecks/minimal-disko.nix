@@ -1,20 +1,11 @@
 # The bare minimum config with disko.
 # Useful for testing the size of the base module.
-{ config, ... }:
-let
-  inherit (config.flake) modules;
-in
+{ inputs, ... }:
 {
-  closureChecks.minimal-disko = {
-    bytes = 1971567304;
-    human = "1.8GiB";
-    closure = modules.nixos.minimal-disko;
-  };
-
-  flake.aspects.minimal-disko.nixos =
+  closureChecks.minimal-disko.closure =
     { ... }:
     {
-      imports = with modules.nixos; [ disko ];
+      imports = [ inputs.disko.nixosModules.default ];
       disko.devices.disk.sda = {
         device = "/dev/sda";
         type = "disk";

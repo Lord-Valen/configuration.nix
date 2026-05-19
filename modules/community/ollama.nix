@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.ollama =
+  den.aspects.ollama.nixos =
     { pkgs, ... }:
     {
       services.ollama = {

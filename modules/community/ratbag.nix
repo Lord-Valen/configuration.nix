@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.ratbag =
+  den.aspects.ratbag.nixos =
     { pkgs, ... }:
     {
       services.ratbagd.enable = true;

@@ -1,3 +1,3 @@
 {
-  flake.modules.nixos.photography.programs.gphoto2.enable = true;
+  den.aspects.photography.nixos.programs.gphoto2.enable = true;
 }

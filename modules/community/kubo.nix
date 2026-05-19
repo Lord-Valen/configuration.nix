@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.kubo = {
+  den.aspects.kubo.nixos = {
     services.kubo = {
       enable = true;
       enableGC = true;
@@ -8,7 +8,7 @@
       };
     };
   };
-  flake.modules.nixos.pc = {
+  den.aspects.pc.nixos = {
     services.kubo.localDiscovery = true;
   };
 }

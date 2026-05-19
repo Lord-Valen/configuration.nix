@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.aspects.base.homeManager =
+  den.aspects.base.homeManager =
     { lib, ... }:
     {
       manual = {
@@ -9,7 +9,7 @@
         manpages.enable = lib.mkDefault false;
       };
     };
-  flake.aspects.base.nixos =
+  den.aspects.base.nixos =
     {
       lib,
       ...
@@ -37,7 +37,7 @@
         earlyoom.enable = true;
       };
     };
-  flake.aspects.pc.nixos =
+  den.aspects.pc.nixos =
     { lib, pkgs, ... }:
     {
       environment.systemPackages = with pkgs; [

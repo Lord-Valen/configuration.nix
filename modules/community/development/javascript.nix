@@ -1,8 +1,8 @@
 {
-  flake.modules.nixos.development = {
+  den.aspects.development.nixos = {
     programs.npm.enable = true;
   };
-  flake.modules.homeManager.development =
+  den.aspects.development.homeManager =
     { pkgs, ... }:
     {
       home.packages = with pkgs; [

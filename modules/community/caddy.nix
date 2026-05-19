@@ -1,5 +1,5 @@
 {
-  flake.aspects.caddy.nixos =
+  den.aspects.caddy.nixos =
     { config, lib, ... }:
     {
       services = {

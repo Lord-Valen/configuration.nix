@@ -1,12 +1,13 @@
+{ den, ... }:
 {
-  nixpkgs.allowedUnfreePackages = [
-    "claude-code"
-  ];
-  flake.aspects.claude.nixos =
-    { pkgs, ... }:
-    {
-      environment.systemPackages = with pkgs; [
-        claude-code
-      ];
-    };
+  den.aspects.claude = {
+    includes = [ (den.batteries.unfree [ "claude-code" ]) ];
+    nixos =
+      { pkgs, ... }:
+      {
+        environment.systemPackages = with pkgs; [
+          claude-code
+        ];
+      };
+  };
 }

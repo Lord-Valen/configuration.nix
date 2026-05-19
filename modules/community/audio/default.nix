@@ -1,19 +1,12 @@
-{ config, ... }:
-let
-  inherit (config.flake) modules;
-in
+{ den, ... }:
 {
-  flake.aspects.audio = {
-    nixos = {
-      imports = with modules.nixos; [
-        browser-audio
-      ];
-    };
-    homeManager = {
-      imports = with modules.homeManager; [
+  den.aspects.audio = {
+    includes = with den.aspects; [ browser-audio ];
+
+    provides.lord-valen = {
+      includes = with den.aspects; [
         zrythm
         plugins
-
         supercollider
         vcv
         guitarix

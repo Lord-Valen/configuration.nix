@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.yubikey =
+  den.aspects.yubikey.nixos =
     { pkgs, ... }:
     {
       environment.systemPackages = with pkgs; [ yubikey-manager ];

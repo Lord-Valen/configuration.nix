@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.brave =
+  den.aspects.brave.homeManager =
     { pkgs, ... }:
     {
       home.packages = with pkgs; [

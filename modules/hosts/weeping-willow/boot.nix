@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.weeping-willow = {
+  den.aspects.weeping-willow.nixos = {
     # Early KMS
     hardware.amdgpu.initrd.enable = true;
     boot = {

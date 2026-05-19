@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.vcv =
+  den.aspects.vcv.homeManager =
     { pkgs, ... }:
     {
       home.packages = with pkgs; [

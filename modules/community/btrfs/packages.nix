@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.btrfs =
+  den.aspects.btrfs.nixos =
     {
       pkgs,
       ...

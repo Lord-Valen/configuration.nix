@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.cosmic =
+  den.aspects.cosmic.nixos =
     { ... }:
     {
       services.desktopManager.cosmic.enable = true;

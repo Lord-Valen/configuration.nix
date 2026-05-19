@@ -1,23 +1,22 @@
-{ config, ... }:
-let
-  inherit (config.flake) modules;
-in
+{ den, ... }:
 {
-  flake.modules.nixos.steam =
-    { pkgs, ... }:
-    {
-      imports = with modules.nixos; [
-        gamemode
-        gamescope
-        avahi
-      ];
-      programs.steam = {
-        enable = true;
-        extraCompatPackages = with pkgs; [ proton-ge-bin ];
-        remotePlay.openFirewall = true;
-        gamescopeSession.enable = true;
-        protontricks.enable = true;
+  den.aspects.steam = {
+    includes = with den.aspects; [
+      gamemode
+      gamescope
+      avahi
+    ];
+    nixos =
+      { pkgs, ... }:
+      {
+        programs.steam = {
+          enable = true;
+          extraCompatPackages = with pkgs; [ proton-ge-bin ];
+          remotePlay.openFirewall = true;
+          gamescopeSession.enable = true;
+          protontricks.enable = true;
+        };
+        hardware.steam-hardware.enable = true;
       };
-      hardware.steam-hardware.enable = true;
-    };
+  };
 }

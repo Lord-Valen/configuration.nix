@@ -1,15 +1,8 @@
-{ config, self, ... }:
-let
-  inherit (config.flake) modules;
-in
+{ den, ... }:
 {
-  flake.modules.nixos.heracles = {
-    imports = with modules.nixos; [
-      syncthing
-      (self.lib.importForUser "lord-valen" modules.homeManager.syncthing)
-    ];
-
-    services.syncthing.settings.folders = {
+  den.aspects.heracles = {
+    includes = with den.aspects; [ syncthing ];
+    nixos.services.syncthing.settings.folders = {
       "Pythia Bup" = {
         id = "jtafu-4mn0y";
         path = "~/pythia-bup";
@@ -31,5 +24,6 @@ in
         ];
       };
     };
+    provides.lord-valen.includes = with den.aspects; [ syncthing ];
   };
 }

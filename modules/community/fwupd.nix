@@ -1,3 +1,3 @@
 {
-  flake.modules.nixos.fwupd.services.fwupd.enable = true;
+  den.aspects.fwupd.nixos.services.fwupd.enable = true;
 }

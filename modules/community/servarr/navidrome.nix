@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.servarr =
+  den.aspects.servarr.nixos =
     { config, lib, ... }:
     let
       port = config.services.navidrome.settings.Port or 4553;

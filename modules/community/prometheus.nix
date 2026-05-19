@@ -1,5 +1,5 @@
 {
-  flake.aspects.prometheus.nixos =
+  den.aspects.prometheus.nixos =
     { config, ... }:
     {
       services.prometheus = {

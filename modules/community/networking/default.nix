@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.networking =
+  den.aspects.networking.nixos =
     { pkgs, ... }:
     {
       networking = {

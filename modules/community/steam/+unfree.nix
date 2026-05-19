@@ -1,6 +1,9 @@
+{ den, ... }:
 {
-  nixpkgs.allowedUnfreePackages = [
-    "steam"
-    "steam-unwrapped"
+  den.aspects.steam.includes = [
+    (den.batteries.unfree [
+      "steam"
+      "steam-unwrapped"
+    ])
   ];
 }

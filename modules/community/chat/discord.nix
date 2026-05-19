@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.discord =
+  den.aspects.discord.homeManager =
     { ... }:
     {
       # TODO: Use nixcord to install dorion.

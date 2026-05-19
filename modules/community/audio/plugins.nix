@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.plugins =
+  den.aspects.plugins.homeManager =
     { pkgs, ... }:
     {
       home.packages = with pkgs; [

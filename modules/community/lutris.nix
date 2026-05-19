@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.lutris =
+  den.aspects.lutris.homeManager =
     { pkgs, osConfig, ... }:
     {
       programs.lutris = {

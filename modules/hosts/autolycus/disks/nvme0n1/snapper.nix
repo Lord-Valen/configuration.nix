@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.autolycus.services.snapper.configs.home = {
+  den.aspects.autolycus.nixos.services.snapper.configs.home = {
     SUBVOLUME = "/home";
     # QGROUP = "1/5400";
     TIMELINE_CREATE = true;

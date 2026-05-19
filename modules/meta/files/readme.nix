@@ -2,7 +2,6 @@
 {
   text.readme = {
     order = [
-      "allowedUnfreePackages"
       "hosts"
       "closure-checks"
     ];

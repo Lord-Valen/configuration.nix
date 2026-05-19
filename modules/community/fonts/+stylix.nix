@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.stylix =
+  den.aspects.stylix.nixos =
     { pkgs, ... }:
     {
       stylix.fonts = {

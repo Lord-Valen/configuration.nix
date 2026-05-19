@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.syncthing = args: {
+  den.aspects.syncthing.nixos = args: {
     services.syncthing = {
       enable = true;
       group = "users";
@@ -12,7 +12,7 @@
       allowedUDPPorts = [ 46693 ];
     };
   };
-  flake.modules.homeManager.syncthing = args: {
+  den.aspects.syncthing.homeManager = args: {
     services.syncthing = {
       enable = true;
       guiAddress = "127.0.0.1:8385";
