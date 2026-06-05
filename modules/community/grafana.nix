@@ -23,6 +23,7 @@
 
           grafana = {
             enable = true;
+            settings.security.secret_key = "SW2YcwTIb9zpOOhoPsMm";
             settings.server = {
               enable_gzip = true;
               enforce_domain = true;

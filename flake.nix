@@ -21,7 +21,7 @@
     flake-aspects.url = "github:vic/flake-aspects/v0.4.0";
     flake-file.url = "github:vic/flake-file/v0.2.0";
     flake-parts.url = "github:hercules-ci/flake-parts";
-    home-manager.url = "github:nix-community/home-manager/release-25.11";
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
     import-tree.url = "github:vic/import-tree/v0.1.0";
     musnix.url = "github:musnix/musnix";
     nix-auto-follow = {
@@ -30,11 +30,11 @@
     };
     nix-index-database.url = "github:nix-community/nix-index-database";
     nixos-facter-modules.url = "github:nix-community/nixos-facter-modules";
-    nixpkgs.url = "https://channels.nixos.org/nixos-25.11/nixexprs.tar.xz";
+    nixpkgs.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz";
     nixpkgs-lib.follows = "nixpkgs";
     nixpkgs-registry.url = "github:Lord-Valen/nixpkgs-registry";
     pkgs-by-name.url = "github:drupol/pkgs-by-name-for-flake-parts";
-    stylix.url = "github:nix-community/stylix/release-25.11";
+    stylix.url = "github:nix-community/stylix/release-26.05";
     systems.url = "github:nix-systems/default";
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };

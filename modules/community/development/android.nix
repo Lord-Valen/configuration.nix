@@ -1,5 +1,7 @@
 {
-  den.aspects.development.nixos = {
-    programs.adb.enable = true;
-  };
+  den.aspects.development.nixos =
+    { pkgs, ... }:
+    {
+      environment.systemPackages = [ pkgs.android-tools ];
+    };
 }

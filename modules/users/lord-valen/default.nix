@@ -14,9 +14,7 @@
         initialHashedPassword = "$6$nVSlPb7ImRaYAkid$xMyn6KfAw1r9KqOZrZB8ldfk5zNZSU7U/QKST.M218dkzxGbXLf/7RzQflpH.csU6vubGG21QqRRqv8yKrsdb0";
         shell = pkgs.nushell;
         extraGroups = [
-          "adbusers"
           "libvirtd"
-          "audio"
           "wireshark"
         ]
         ++ lib.optional osConfig.services.kubo.enable osConfig.services.kubo.group;
@@ -37,6 +35,7 @@
         userDirs = {
           enable = true;
           createDirectories = true;
+          setSessionVariables = true;
         };
         configFile."nixpkgs/config.nix".source = ./_config.nix;
       };

@@ -13,7 +13,7 @@
         documentation = {
           enable = true;
           dev.enable = true;
-          man.generateCaches = true;
+          man.cache.enable = true;
           # FIXME: https://github.com/nix-community/stylix/issues/98
           # nixos.includeAllModules = true;
         };
