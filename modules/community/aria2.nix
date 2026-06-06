@@ -1,10 +1,9 @@
 {
   den.aspects.aria2.nixos =
-    { config, pkgs, ... }:
+    { config, ... }:
     {
       services.aria2 = {
         enable = true;
-        rpcSecretFile = pkgs.writeText "aria2-rpc-secret" "$$secret$$";
         settings = {
           enable-rpc = true;
           max-connection-per-server = 16;

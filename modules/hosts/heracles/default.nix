@@ -15,6 +15,8 @@
       zsa
       drone
 
+      sops
+
       networking
       kubo
       aria2
