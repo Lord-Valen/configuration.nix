@@ -11,13 +11,13 @@
 }:
 buildGoModule (finalAttrs: {
   pname = "ssui-unwrapped";
-  version = "5.12.3";
+  version = "5.13.2";
 
   src = fetchFromGitHub {
     owner = "SteamServerUI";
     repo = "StationeersServerUI";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-lgvo14vyc/6hbh3yYR8swENpKoFlLD5o3OFdL//38Hk=";
+    hash = "sha256-FC06KFfxmQX/iRyKfZiFKquSyOWdKyzi/DRqs42f0ag=";
   };
 
   vendorHash = "sha256-Cxv2aG+dhpmOtH99jZ0uFlXVEkNrcXvEwEjOd2TPZ2Y=";
