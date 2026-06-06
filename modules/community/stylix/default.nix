@@ -22,4 +22,5 @@
     imports = [ inputs.stylix.homeModules.stylix ];
     stylix.enable = true;
   };
+  den.aspects.stylix.provides.root.homeManager.stylix.enable = false;
 }
