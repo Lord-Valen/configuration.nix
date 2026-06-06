@@ -33,13 +33,8 @@
       trim_trailing_whitespace=unset
     '';
   perSystem =
-    { pkgs, ... }:
+    { ... }:
     {
-      files.files = [
-        {
-          path_ = ".editorconfig";
-          drv = pkgs.writeText ".editorconfig" config.text.editorconfig;
-        }
-      ];
+      files.file.".editorconfig".text = config.text.editorconfig;
     };
 }

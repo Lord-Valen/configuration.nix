@@ -17,12 +17,14 @@
     den.url = "github:denful/den";
     devshell.url = "github:numtide/devshell";
     disko.url = "github:nix-community/disko/v1.11.0";
-    files.url = "github:mightyiam/files";
-    flake-aspects.url = "github:vic/flake-aspects/v0.4.0";
-    flake-file.url = "github:vic/flake-file/v0.2.0";
+    files = {
+      flake = false;
+      url = "github:mightyiam/files";
+    };
+    flake-file.url = "github:denful/flake-file/v0.6.0";
     flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager.url = "github:nix-community/home-manager/release-26.05";
-    import-tree.url = "github:vic/import-tree/v0.1.0";
+    import-tree.url = "github:denful/import-tree/v0.2.0";
     musnix.url = "github:musnix/musnix";
     nix-auto-follow = {
       inputs.nixpkgs.follows = "nixpkgs";
