@@ -30,6 +30,8 @@
       steam
       retroarch
 
+      sops
+
       prometheus
       grafana
       caddy

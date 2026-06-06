@@ -34,6 +34,7 @@
     nixpkgs-lib.follows = "nixpkgs";
     nixpkgs-registry.url = "github:Lord-Valen/nixpkgs-registry";
     pkgs-by-name.url = "github:drupol/pkgs-by-name-for-flake-parts";
+    sops-nix.url = "github:Mic92/sops-nix";
     stylix.url = "github:nix-community/stylix/release-26.05";
     systems.url = "github:nix-systems/default";
     treefmt-nix.url = "github:numtide/treefmt-nix";
