@@ -2,6 +2,7 @@
 {
   den.aspects.theseus = {
     includes = with den.aspects; [
+      root
       appimage
       gpg
       wallpaper

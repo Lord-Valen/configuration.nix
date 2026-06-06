@@ -2,6 +2,7 @@
 {
   den.aspects.weeping-willow = {
     includes = with den.aspects; [
+      root
       appimage
 
       pc
