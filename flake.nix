@@ -16,10 +16,10 @@
   inputs = {
     den.url = "github:denful/den";
     devshell.url = "github:numtide/devshell";
-    disko.url = "github:nix-community/disko/v1.11.0";
+    disko.url = "github:nix-community/disko/v1.13.0";
     files = {
-      flake = false;
       url = "github:mightyiam/files";
+      flake = false;
     };
     flake-file.url = "github:denful/flake-file/v0.6.0";
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -27,8 +27,8 @@
     import-tree.url = "github:denful/import-tree/v0.2.0";
     musnix.url = "github:musnix/musnix";
     nix-auto-follow = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:fzakaria/nix-auto-follow";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-index-database.url = "github:nix-community/nix-index-database";
     nixos-facter-modules.url = "github:nix-community/nixos-facter-modules";
@@ -41,5 +41,4 @@
     systems.url = "github:nix-systems/default";
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };
-
 }
