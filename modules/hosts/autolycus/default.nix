@@ -13,6 +13,8 @@
       btrfs
       nixos-facter
       disko
+      sops
+
       networking
       kubo
       aria2
