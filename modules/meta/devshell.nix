@@ -4,7 +4,6 @@
 }:
 {
   imports = [ (inputs.devshell.flakeModule or { }) ];
-  flake-file.inputs.devshell.url = "github:numtide/devshell";
   perSystem =
     { self', lib, pkgs, ... }:
     {
@@ -23,7 +22,8 @@
           in
           lib.map nixCategory [
             { package = self'.packages.write-files; }
-            { package = self'.packages.write-flake; }
+            { package = pkgs.nixtamal; }
+            { package = pkgs.nh; }
           ]
           ++ lib.map secretsCategory [
             { package = pkgs.age; }

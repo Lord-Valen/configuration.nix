@@ -1,0 +1,172 @@
+// ┏┓╻+╻ ╱┏┳┓┏┓┏┳┓┏┓╻
+// ┃┃┃┃┗━┓╹┃╹┣┫┃┃┃┣┫┃   Read the manpage:
+// ╹┗┛╹╱ ╹ ╹ ╹╹╹ ╹╹╹┗┛  $ man nixtamal-manifest
+version "1.1.0"
+default-fetch-time "eval"
+inputs {
+	nixpkgs {
+		archive {
+			url "{{fresh_value}}"
+		}
+		fresh-cmd {
+			$ curl -sI "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz"
+			| grep -i "^link:"
+			| cut -d "<" -f2
+			| cut -d ">" -f1
+		}
+	}
+	home-manager {
+		archive {
+			url "https://github.com/nix-community/home-manager/archive/{{fresh_value}}.tar.gz"
+		}
+		fresh-cmd {
+			$ git ls-remote --branches "https://github.com/nix-community/home-manager.git" release-26.05
+			| cut -f1
+		}
+	}
+	nixpkgs-registry {
+		archive {
+			url "https://github.com/Lord-Valen/nixpkgs-registry/archive/{{fresh_value}}.tar.gz"
+		}
+		fresh-cmd {
+			$ git ls-remote --branches "https://github.com/Lord-Valen/nixpkgs-registry.git" main
+			| cut -f1
+		}
+	}
+	with-inputs frozen=#true {
+		archive {
+			url "https://github.com/denful/with-inputs/archive/{{fresh_value}}.tar.gz"
+		}
+		fresh-cmd {
+			$ git ls-remote --tags "--sort=v:refname" "https://github.com/denful/with-inputs.git"
+			| grep -E "refs/tags/v?([0-9]+\\.)+[0-9]+$"
+			| tail -n1
+			| sed "s|.*refs/tags/||"
+		}
+	}
+	den frozen=#true {
+		archive {
+			url "https://github.com/denful/den/archive/{{fresh_value}}.tar.gz"
+		}
+		fresh-cmd {
+			$ git ls-remote --tags "--sort=v:refname" "https://github.com/denful/den.git"
+			| grep -E "refs/tags/v([0-9]+\\.)+[0-9]+$"
+			| tail -n1
+			| sed "s|.*refs/tags/||"
+		}
+	}
+	import-tree frozen=#true {
+		archive {
+			url "https://github.com/denful/import-tree/archive/{{fresh_value}}.tar.gz"
+		}
+		fresh-cmd {
+			$ git ls-remote --tags "--sort=v:refname" "https://github.com/denful/import-tree.git"
+			| grep -E "refs/tags/v([0-9]+\\.)+[0-9]+$"
+			| tail -n1
+			| sed "s|.*refs/tags/||"
+		}
+	}
+	flake-parts frozen=#true {
+		archive {
+			url "https://github.com/hercules-ci/flake-parts/archive/{{fresh_value}}.tar.gz"
+		}
+		fresh-cmd {
+			$ git ls-remote --branches "https://github.com/hercules-ci/flake-parts.git" main
+			| cut -f1
+		}
+	}
+	disko frozen=#true {
+		archive {
+			url "https://github.com/nix-community/disko/archive/{{fresh_value}}.tar.gz"
+		}
+		fresh-cmd {
+			$ git ls-remote --tags "--sort=v:refname" "https://github.com/nix-community/disko.git"
+			| grep -E "refs/tags/v([0-9]+\\.)+[0-9]+$"
+			| tail -n1
+			| sed "s|.*refs/tags/||"
+		}
+	}
+	nix-index-database frozen=#true {
+		archive {
+			url "https://github.com/nix-community/nix-index-database/archive/{{fresh_value}}.tar.gz"
+		}
+		fresh-cmd {
+			$ git ls-remote --tags "--sort=v:refname" "https://github.com/nix-community/nix-index-database.git"
+			| grep "refs/tags/[0-9]"
+			| tail -n1
+			| sed "s|.*refs/tags/||"
+		}
+	}
+	nixos-facter-modules frozen=#true {
+		archive {
+			url "https://github.com/nix-community/nixos-facter-modules/archive/{{fresh_value}}.tar.gz"
+		}
+		fresh-cmd {
+			$ git ls-remote --branches "https://github.com/nix-community/nixos-facter-modules.git" main
+			| cut -f1
+		}
+	}
+	stylix {
+		archive {
+			url "https://github.com/nix-community/stylix/archive/{{fresh_value}}.tar.gz"
+		}
+		fresh-cmd {
+			$ git ls-remote --branches "https://github.com/nix-community/stylix.git" release-26.05
+			| cut -f1
+		}
+	}
+	sops-nix frozen=#true {
+		archive {
+			url "https://github.com/Mic92/sops-nix/archive/{{fresh_value}}.tar.gz"
+		}
+		fresh-cmd {
+			$ git ls-remote --branches "https://github.com/Mic92/sops-nix.git" master
+			| cut -f1
+		}
+	}
+	musnix frozen=#true {
+		archive {
+			url "https://github.com/musnix/musnix/archive/{{fresh_value}}.tar.gz"
+		}
+		fresh-cmd {
+			$ git ls-remote --branches "https://github.com/musnix/musnix.git" master
+			| cut -f1
+		}
+	}
+	devshell frozen=#true {
+		archive {
+			url "https://github.com/numtide/devshell/archive/{{fresh_value}}.tar.gz"
+		}
+		fresh-cmd {
+			$ git ls-remote --branches "https://github.com/numtide/devshell.git" main
+			| cut -f1
+		}
+	}
+	treefmt-nix frozen=#true {
+		archive {
+			url "https://github.com/numtide/treefmt-nix/archive/{{fresh_value}}.tar.gz"
+		}
+		fresh-cmd {
+			$ git ls-remote --branches "https://github.com/numtide/treefmt-nix.git" main
+			| cut -f1
+		}
+	}
+	files frozen=#true {
+		archive {
+			url "https://github.com/mightyiam/files/archive/{{fresh_value}}.tar.gz"
+		}
+		fresh-cmd {
+			$ git ls-remote --branches "https://github.com/mightyiam/files.git" master
+			| cut -f1
+		}
+	}
+	pkgs-by-name frozen=#true {
+		archive {
+			url "https://github.com/drupol/pkgs-by-name-for-flake-parts/archive/{{fresh_value}}.tar.gz"
+		}
+		fresh-cmd {
+			$ git ls-remote --branches "https://github.com/drupol/pkgs-by-name-for-flake-parts.git" main
+			| cut -f1
+		}
+	}
+}
