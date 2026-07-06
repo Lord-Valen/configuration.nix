@@ -86,7 +86,6 @@
       flake.checks = closureChecks |> lib.mapAttrsToList toClosureCheck |> lib.mkMerge;
 
       text.readme.parts.closure-checks = ''
-
         ## Closure Checks
 
         Closure size checks are defined via the `closureChecks` option.

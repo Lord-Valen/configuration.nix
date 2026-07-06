@@ -26,7 +26,11 @@
       if lib.isAttrs text then
         lib.pipe text.order [
           (map (lib.flip lib.getAttr text.parts))
-          lib.concatStrings
+          # SPDX-SnippetBegin
+          # SPDX-SnippetCopyrightText: 2026 Lord-Valen
+          # SPDX-License-Identifier: MIT
+          (lib.concatStringsSep "\n\n")
+          # SPDX-SnippetEnd
         ]
       else
         text

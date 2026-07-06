@@ -11,7 +11,6 @@
     parts.header = ''
       <!-- This file is generated. Do not edit directly. -->
       <!-- Source: modules/meta/files/readme.nix. Regenerate with write-files (available in devshell). -->
-
     '';
 
     parts.inputs-management = ''
