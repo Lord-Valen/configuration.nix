@@ -25,8 +25,8 @@
       | File | Purpose |
       |------|---------|
       | `default.nix` | Primary entry point; returns full flake outputs |
-      | `configuration.nix` | Convenience entry point; selects the NixOS config for the current hostname |
-      | `flake.nix` | Thin shim so flake-aware tools (cachix, etc.) still work |
+      | `configuration.nix` | Convenience entry point; selects the NixOS config for the current hostname (impure — reads `/etc/hostname`) |
+      | `flake.nix` | Thin shim so flake-aware tools still work |
 
       ### Switching
 
@@ -41,6 +41,8 @@
       nixtamal refresh <name>      # refresh one input
       nixtamal check-soundness     # verify all fetches resolve
       ```
+
+      See definition at [`readme.nix`](modules/meta/files/readme.nix).
     '';
   };
 
