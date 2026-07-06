@@ -35,7 +35,7 @@
     to-users.homeManager.home.stateVersion = "25.11";
 
     provides.lord-valen = {
-      includes = with den.aspects; [ brave ];
+      includes = with den.aspects; [ brave thunderbird ];
     };
 
     provides.sioux = {

@@ -59,6 +59,7 @@
         tor
         musescore
         chat
+        thunderbird
         zathura
         heroic
         lutris

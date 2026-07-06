@@ -71,6 +71,7 @@
         brave
         tor
         chat
+        thunderbird
         zathura
         heroic
         lutris
