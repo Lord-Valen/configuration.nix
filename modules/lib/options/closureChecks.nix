@@ -91,7 +91,6 @@
         Closure size checks are defined via the `closureChecks` option.
         Each entry logs the human-readable closure size; an optional `budget` field causes the check to fail if the size exceeds it.
 
-        See definition at [`closureChecks.nix`](modules/lib/options/closureChecks.nix).
         See checks at [`closureChecks/`](modules/closureChecks/).
       '';
     };

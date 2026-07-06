@@ -38,7 +38,6 @@
         Differentiating the hosts as a subset of the NixOS modules allows us to map over the hosts
         without string matching.
 
-        See definition at [`hosts.nix`](modules/lib/options/hosts.nix).
         See usage at [`autolycus`](modules/hosts/autolycus/default.nix).
       '';
     };

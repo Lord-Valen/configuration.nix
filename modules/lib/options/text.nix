@@ -21,19 +21,19 @@
         })
       ]
     );
+    # SPDX-SnippetBegin
+    # SPDX-SnippetCopyrightText: 2026 Lord-Valen
+    # SPDX-License-Identifier: MIT
     apply = lib.mapAttrs (
       _name: text:
       if lib.isAttrs text then
-        lib.pipe text.order [
-          (map (lib.flip lib.getAttr text.parts))
-          # SPDX-SnippetBegin
-          # SPDX-SnippetCopyrightText: 2026 Lord-Valen
-          # SPDX-License-Identifier: MIT
-          (lib.concatStringsSep "\n\n")
-          # SPDX-SnippetEnd
-        ]
+        text.order
+        |> map (lib.flip lib.getAttr text.parts)
+        |> map lib.trim
+        |> lib.concatStringsSep "\n\n"
       else
         text
     );
+    # SPDX-SnippetEnd
   };
 }
