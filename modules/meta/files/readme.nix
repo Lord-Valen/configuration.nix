@@ -42,7 +42,6 @@
       nixtamal refresh <name>      # refresh one input
       nixtamal check-soundness     # verify all fetches resolve
       ```
-
     '';
   };
 

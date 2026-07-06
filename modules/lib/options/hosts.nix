@@ -32,6 +32,7 @@
     {
       flake.nixosConfigurations = hosts |> lib.mapAttrs toNixos;
       text.readme.parts.hosts = ''
+
         ## Hosts
 
         The set of NixOS hosts is defined via an option which accepts deferred modules.

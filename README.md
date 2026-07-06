@@ -37,6 +37,7 @@ without string matching.
 
 See definition at [`hosts.nix`](modules/lib/options/hosts.nix).
 See usage at [`autolycus`](modules/hosts/autolycus/default.nix).
+
 ## Closure Checks
 
 Closure size checks are defined via the `closureChecks` option.

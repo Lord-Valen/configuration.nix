@@ -10,8 +10,8 @@
       devshells.default = {
         env = [
           {
-            name = "NH_FLAKE";
-            eval = "$PRJ_ROOT";
+            name = "NH_FILE";
+            eval = "$PRJ_ROOT/configuration.nix";
           }
         ];
         commands =
