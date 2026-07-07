@@ -76,6 +76,7 @@
         heroic
         lutris
         calibre
+        vcv
       ];
       homeManager = {
         stylix.targets.qt.enable = false;
