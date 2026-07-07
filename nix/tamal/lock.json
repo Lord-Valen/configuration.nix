@@ -1,6 +1,6 @@
 {"v":"1.1.0"
 ,"i":{
-"nixpkgs":{"sn":"nixpkgs-src","kd":[1,{"ft":0,"ur":"https://releases.nixos.org/nixos/26.05/nixos-26.05.4193.a50de1b7d8a5/nixexprs.tar.xz?rev=a50de1b7d8a586adc18d2395c19de7d6058e6030&amp%3BlastModified=1783148766","ms":[]}],"ha":{"al":0,"vl":"sha256-H9+N+GFtsbVC8ZniHliChM7ndizxtqVZs6bnGOLM3WQ="},"fv":"https://releases.nixos.org/nixos/26.05/nixos-26.05.4193.a50de1b7d8a5/nixexprs.tar.xz?rev=a50de1b7d8a586adc18d2395c19de7d6058e6030&lastModified=1783148766","ps":["nixpkgs-flatpak-fix-fonts"]}
+"nixpkgs":{"sn":"nixpkgs-src","kd":[1,{"ft":0,"ur":"https://releases.nixos.org/nixos/26.05/nixos-26.05.4193.a50de1b7d8a5/nixexprs.tar.xz?rev=a50de1b7d8a586adc18d2395c19de7d6058e6030&amp%3BlastModified=1783148766","ms":[]}],"ha":{"al":0,"vl":"sha256-H9+N+GFtsbVC8ZniHliChM7ndizxtqVZs6bnGOLM3WQ="},"fv":"https://releases.nixos.org/nixos/26.05/nixos-26.05.4193.a50de1b7d8a5/nixexprs.tar.xz?rev=a50de1b7d8a586adc18d2395c19de7d6058e6030&lastModified=1783148766","ps":["nixpkgs-flatpak-fix-fonts","nixpkgs-vcv-rack-fix-segfault"]}
 ,"nixpkgs-registry":{"sn":"nixpkgs-registry-src","kd":[1,{"ft":0,"ur":"https://github.com/Lord-Valen/nixpkgs-registry/archive/2d3e87a090d20dde559136f9557c3deff461c7ed.tar.gz","ms":[]}],"ha":{"al":0,"vl":"sha256-o2GN44YbAr07bTcWcWNPRAYiZ6SWv2h9Bu7tSSbCmGk="},"fv":"2d3e87a090d20dde559136f9557c3deff461c7ed","ps":[]}
 ,"den":{"sn":"den-src","kd":[1,{"ft":0,"ur":"https://github.com/denful/den/archive/v0.18.0.tar.gz","ms":[]}],"ha":{"al":0,"vl":"sha256-8Mntz200pNVIF2l8twpdc4wvEFqzrlkICz2tvkfwz0s="},"fv":"v0.18.0","ps":[]}
 ,"devshell":{"sn":"devshell-src","kd":[1,{"ft":0,"ur":"https://github.com/numtide/devshell/archive/255a2b1725a20d060f566e4755dbf571bbbb5f76.tar.gz","ms":[]}],"ha":{"al":0,"vl":"sha256-460jc0+CZfyaO8+w8JNtlClB2n4ui1RbHfPTLkpwhU8="},"fv":"255a2b1725a20d060f566e4755dbf571bbbb5f76","ps":[]}
@@ -20,5 +20,6 @@
 }
 ,"p":{
 "nixpkgs-flatpak-fix-fonts":{"ur":"https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/529277.diff","ha":{"al":0,"vl":"sha256-KwcKR0m9UHpQadAdGM7HgZkc7Bx7UTC5ShTBwPy+4Vw="}}
+,"nixpkgs-vcv-rack-fix-segfault":{"ur":"https://patch-diff.githubusercontent.com/raw/NixOS/nixpkgs/pull/538580.diff","ha":{"al":0,"vl":"sha256-PsGQwsKHl0FO+Pco8iEH9fFpw+v1+szVrfq6I73+8qE="}}
 }
 }
