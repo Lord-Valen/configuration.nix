@@ -11,7 +11,7 @@
         env = [
           {
             name = "NH_FILE";
-            eval = "$PRJ_ROOT/configuration.nix";
+            eval = "$PRJ_ROOT/system.nix";
           }
         ];
         commands =

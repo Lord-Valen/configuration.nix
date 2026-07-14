@@ -12,13 +12,13 @@ There is no `flake.lock`; pins live in [`nix/tamal/lock.json`](nix/tamal/lock.js
 | File | Purpose |
 |------|---------|
 | `default.nix` | Primary entry point; returns full flake outputs |
-| `configuration.nix` | Convenience entry point; selects the NixOS config for the current hostname (impure — reads `/etc/hostname`) |
+| `system.nix` | Convenience entry point; selects the NixOS config for the current hostname (impure — reads `/etc/hostname`) |
 | `flake.nix` | Thin shim so flake-aware tools still work |
 
 ### Switching
 
 ```bash
-nh os switch -f ./configuration.nix
+nh os switch -f ./system.nix
 ```
 
 ### Updating inputs
