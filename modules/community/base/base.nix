@@ -38,7 +38,12 @@
       };
     };
   den.aspects.pc.nixos =
-    { lib, pkgs, ... }:
+    {
+      config,
+      lib,
+      pkgs,
+      ...
+    }:
     {
       environment.systemPackages = with pkgs; [
         binutils
@@ -74,6 +79,7 @@
       nix.settings = {
         trusted-users = lib.singleton "@wheel";
         fallback = true;
+        http3 = lib.mkIf (lib.versionAtLeast config.nix.package.version "2.35.0") true;
       };
       nix.gc.automatic = lib.mkForce false;
 
