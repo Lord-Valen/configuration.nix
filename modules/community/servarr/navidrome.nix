@@ -6,7 +6,6 @@
     in
     {
       services = {
-        cloudflare-dyndns.domains = [ "navidrome.laughing-man.xyz" ];
         caddy.virtualHosts."navidrome.laughing-man.xyz".extraConfig = ''
           @not_metrics not path /metrics
           reverse_proxy @not_metrics http://localhost:${toString port}

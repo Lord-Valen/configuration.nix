@@ -77,6 +77,7 @@
         lutris
         calibre
         vcv
+        pangolin-cli
       ];
       homeManager = {
         stylix.targets.qt.enable = false;

@@ -1,15 +1,17 @@
-{ den, ... }:
+{ config, den, ... }:
+let
+  newtOverlay = config.flake.overlays.fosrl-unstable;
+in
 {
-  # Scaffolded, not yet wired into theseus's aspect list.
-  # Only needed if Pangolin moves off theseus (e.g. onto a VPS) and theseus becomes a remote site tunneling in.
-  # While Pangolin runs on theseus itself, this aspect stays unused.
-  #
-  # `NEWT_ID` and `NEWT_SECRET` are issued by Pangolin's dashboard when creating a client, not self-generated.
-  # Populate once that client exists.
+  # Needed even on the same host as Pangolin: the "Local" site type doesn't
+  # support private resources, only a "Newt" site does.
+  # NEWT_ID/NEWT_SECRET come from the dashboard's Add Site flow, not self-generated.
   den.aspects.newt.provides.theseus = {
     nixos =
       { config, ... }:
       {
+        nixpkgs.overlays = [ newtOverlay ];
+
         sops.secrets.newt_id = {
           sopsFile = ./../secrets/newt.yaml;
           key = "id";
@@ -26,7 +28,8 @@
         services.newt = {
           enable = true;
           environmentFile = config.sops.templates.newt-env.path;
-          settings.endpoint = "https://pangolin.laughing-man.xyz";
+          # Talks straight to Pangolin's internal API port, same pattern as Gerbil.
+          settings.endpoint = "http://localhost:${toString config.services.pangolin.settings.server.external_port}";
         };
       };
   };

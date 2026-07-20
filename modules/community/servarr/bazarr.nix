@@ -3,7 +3,6 @@
     { config, lib, ... }:
     {
       services = {
-        cloudflare-dyndns.domains = [ "bazarr.laughing-man.xyz" ];
         caddy.virtualHosts."bazarr.laughing-man.xyz".extraConfig = ''
           reverse_proxy http://localhost:6767
         '';

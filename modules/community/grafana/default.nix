@@ -8,7 +8,6 @@
           port = toString config.services.grafana.settings.server.http_port;
         in
         {
-          cloudflare-dyndns.domains = [ "grafana.laughing-man.xyz" ];
           caddy.virtualHosts."grafana.laughing-man.xyz".extraConfig = ''
             reverse_proxy http://${addr}:${port}
           '';

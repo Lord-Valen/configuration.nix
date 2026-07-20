@@ -64,6 +64,7 @@
         heroic
         lutris
         calibre
+        pangolin-cli
       ];
       homeManager = {
         stylix.targets.qt.enable = false;

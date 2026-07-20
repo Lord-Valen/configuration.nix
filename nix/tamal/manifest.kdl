@@ -19,6 +19,17 @@ inputs {
 			| cut -d ">" -f1
 		}
 	}
+	nixpkgs-unstable {
+		archive fetch-time=build {
+			url "{{fresh_value}}"
+		}
+		fresh-cmd {
+			$ curl -sI "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
+			| grep -i "^link:"
+			| cut -d "<" -f2
+			| cut -d ">" -f1
+		}
+	}
 	home-manager {
 		archive {
 			url "https://github.com/nix-community/home-manager/archive/{{fresh_value}}.tar.gz"
