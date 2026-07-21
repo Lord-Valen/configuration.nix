@@ -1,6 +1,23 @@
 <!-- This file is generated. Do not edit directly. -->
 <!-- Source: modules/meta/files/readme.nix. Regenerate with write-files (available in devshell). -->
 
+## How This README Is Generated
+
+Each section is contributed by whichever module it documents, via
+`text.readme.parts.<name>`, and assembled in the order listed by
+`text.readme.order`. For example, the Hosts section below comes from
+[`modules/lib/options/hosts.nix`](modules/lib/options/hosts.nix), not this file -
+each module documents itself next to its own definition rather than everything
+living in one place.
+
+Regenerate after editing any `parts.*` with:
+
+```bash
+write-files
+```
+
+(available in the devshell). [^modules-meta-files-readme-nix]
+
 ## Input Management
 
 Inputs are pinned with [nixtamal](https://nixtamal.toast.al) and resolved with
@@ -29,19 +46,21 @@ nixtamal refresh <name>      # refresh one input
 nixtamal check-soundness     # verify all fetches resolve
 ```
 
-See definition at [`readme.nix`](modules/meta/files/readme.nix).
-
 ## Hosts
 
 The set of NixOS hosts is defined via an option which accepts deferred modules.
 Differentiating the hosts as a subset of the NixOS modules allows us to map over the hosts
 without string matching.
 
-See usage at [`autolycus`](modules/hosts/autolycus/default.nix).
+See usage at [`autolycus`](modules/hosts/autolycus/default.nix). [^modules-lib-options-hosts-nix]
 
 ## Closure Checks
 
 Closure size checks are defined via the `closureChecks` option.
 Each entry logs the human-readable closure size; an optional `budget` field causes the check to fail if the size exceeds it.
 
-See checks at [`closureChecks/`](modules/closureChecks/).
+See checks at [`closureChecks/`](modules/closureChecks/). [^modules-lib-options-closureChecks-nix]
+
+[^modules-meta-files-readme-nix]: Written at [`readme.nix`](modules/meta/files/readme.nix).
+[^modules-lib-options-hosts-nix]: Written at [`hosts.nix`](modules/lib/options/hosts.nix).
+[^modules-lib-options-closureChecks-nix]: Written at [`closureChecks.nix`](modules/lib/options/closureChecks.nix).

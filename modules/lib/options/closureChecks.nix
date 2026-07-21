@@ -85,13 +85,16 @@
     {
       flake.checks = closureChecks |> lib.mapAttrsToList toClosureCheck |> lib.mkMerge;
 
-      text.readme.parts.closure-checks = ''
-        ## Closure Checks
+      text.readme.parts.closure-checks = {
+        source = "modules/lib/options/closureChecks.nix";
+        text = ''
+          ## Closure Checks
 
-        Closure size checks are defined via the `closureChecks` option.
-        Each entry logs the human-readable closure size; an optional `budget` field causes the check to fail if the size exceeds it.
+          Closure size checks are defined via the `closureChecks` option.
+          Each entry logs the human-readable closure size; an optional `budget` field causes the check to fail if the size exceeds it.
 
-        See checks at [`closureChecks/`](modules/closureChecks/).
-      '';
+          See checks at [`closureChecks/`](modules/closureChecks/).
+        '';
+      };
     };
 }

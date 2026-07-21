@@ -3,6 +3,7 @@
   text.readme = {
     order = [
       "header"
+      "how-this-works"
       "inputs-management"
       "hosts"
       "closure-checks"
@@ -12,6 +13,28 @@
       <!-- This file is generated. Do not edit directly. -->
       <!-- Source: modules/meta/files/readme.nix. Regenerate with write-files (available in devshell). -->
     '';
+
+    parts.how-this-works = {
+      source = "modules/meta/files/readme.nix";
+      text = ''
+        ## How This README Is Generated
+
+        Each section is contributed by whichever module it documents, via
+        `text.readme.parts.<name>`, and assembled in the order listed by
+        `text.readme.order`. For example, the Hosts section below comes from
+        [`modules/lib/options/hosts.nix`](modules/lib/options/hosts.nix), not this file -
+        each module documents itself next to its own definition rather than everything
+        living in one place.
+
+        Regenerate after editing any `parts.*` with:
+
+        ```bash
+        write-files
+        ```
+
+        (available in the devshell).
+      '';
+    };
 
     parts.inputs-management = ''
       ## Input Management
@@ -41,8 +64,6 @@
       nixtamal refresh <name>      # refresh one input
       nixtamal check-soundness     # verify all fetches resolve
       ```
-
-      See definition at [`readme.nix`](modules/meta/files/readme.nix).
     '';
   };
 

@@ -31,14 +31,17 @@
     in
     {
       flake.nixosConfigurations = hosts |> lib.mapAttrs toNixos;
-      text.readme.parts.hosts = ''
-        ## Hosts
+      text.readme.parts.hosts = {
+        source = "modules/lib/options/hosts.nix";
+        text = ''
+          ## Hosts
 
-        The set of NixOS hosts is defined via an option which accepts deferred modules.
-        Differentiating the hosts as a subset of the NixOS modules allows us to map over the hosts
-        without string matching.
+          The set of NixOS hosts is defined via an option which accepts deferred modules.
+          Differentiating the hosts as a subset of the NixOS modules allows us to map over the hosts
+          without string matching.
 
-        See usage at [`autolycus`](modules/hosts/autolycus/default.nix).
-      '';
+          See usage at [`autolycus`](modules/hosts/autolycus/default.nix).
+        '';
+      };
     };
 }
