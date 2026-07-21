@@ -32,7 +32,10 @@
           json.enable = true;
           manpages.enable = true;
         };
-        home.packages = with pkgs; [ devenv ];
+        home.packages = with pkgs; [
+          devenv
+          nixtamal
+        ];
         home.sessionPath = [ "$HOME/.local/bin" ];
         programs.direnv = {
           enable = true;
