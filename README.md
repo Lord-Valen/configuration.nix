@@ -1,7 +1,7 @@
 <!-- This file is generated. Do not edit directly. -->
 <!-- Source: modules/meta/files/readme.nix. Regenerate with write-files (available in devshell). -->
 
-## How This README Is Generated
+## How This README Is Generated[^modules-meta-files-readme-nix]
 
 Each section is contributed by whichever module it documents, via
 `text.readme.parts.<name>`, and assembled in the order listed by
@@ -16,20 +16,20 @@ Regenerate after editing any `parts.*` with:
 write-files
 ```
 
-(available in the devshell). [^modules-meta-files-readme-nix]
+(available in the devshell).
 
 ## Input Management
 
-Inputs are pinned with [nixtamal](https://nixtamal.toast.al) and resolved with
-[with-inputs](https://github.com/denful/with-inputs).
-There is no `flake.lock`; pins live in [`nix/tamal/lock.json`](nix/tamal/lock.json).
+Inputs are pinned with [nixtamal](https://nixtamal.toast.al) and resolved with [with-inputs](https://github.com/denful/with-inputs).
+There is no `flake.lock`; pins live in
+[`nix/tamal/lock.json`](nix/tamal/lock.json).
 
 ### Entry points
 
 | File | Purpose |
 |------|---------|
 | `default.nix` | Primary entry point; returns full flake outputs |
-| `system.nix` | Convenience entry point; selects the NixOS config for the current hostname (impure — reads `/etc/hostname`) |
+| `system.nix` | Convenience entry point; selects the NixOS config for the current hostname (impure - reads `/etc/hostname`) |
 | `flake.nix` | Thin shim so flake-aware tools still work |
 
 ### Switching
@@ -46,21 +46,23 @@ nixtamal refresh <name>      # refresh one input
 nixtamal check-soundness     # verify all fetches resolve
 ```
 
-## Hosts
+## Hosts[^modules-lib-options-hosts-nix]
 
 The set of NixOS hosts is defined via an option which accepts deferred modules.
 Differentiating the hosts as a subset of the NixOS modules allows us to map over the hosts
 without string matching.
 
-See usage at [`autolycus`](modules/hosts/autolycus/default.nix). [^modules-lib-options-hosts-nix]
+See usage at [`autolycus`](modules/hosts/autolycus/default.nix).
 
-## Closure Checks
+## Closure Checks[^modules-lib-options-closureChecks-nix]
 
 Closure size checks are defined via the `closureChecks` option.
 Each entry logs the human-readable closure size; an optional `budget` field causes the check to fail if the size exceeds it.
 
-See checks at [`closureChecks/`](modules/closureChecks/). [^modules-lib-options-closureChecks-nix]
+See checks at [`closureChecks/`](modules/closureChecks/).
 
 [^modules-meta-files-readme-nix]: Written at [`readme.nix`](modules/meta/files/readme.nix).
+
 [^modules-lib-options-hosts-nix]: Written at [`hosts.nix`](modules/lib/options/hosts.nix).
+
 [^modules-lib-options-closureChecks-nix]: Written at [`closureChecks.nix`](modules/lib/options/closureChecks.nix).

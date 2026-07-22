@@ -1,4 +1,8 @@
-{ config, ... }:
+{ config, inputs, ... }:
+let
+  mdnix = inputs.mdnix.lib;
+  at = config.flake.lib.writtenAt "modules/meta/files/readme.nix";
+in
 {
   text.readme = {
     order = [
@@ -9,62 +13,69 @@
       "closure-checks"
     ];
 
-    parts.header = ''
-      <!-- This file is generated. Do not edit directly. -->
-      <!-- Source: modules/meta/files/readme.nix. Regenerate with write-files (available in devshell). -->
-    '';
+    parts.header = [
+      (mdnix.p ''
+        <!-- This file is generated. Do not edit directly. -->
+        <!-- Source: modules/meta/files/readme.nix. Regenerate with write-files (available in devshell). -->
+      '')
+    ];
 
-    parts.how-this-works = {
-      source = "modules/meta/files/readme.nix";
-      text = ''
-        ## How This README Is Generated
+    parts.how-this-works = [
+      (mdnix.refs [ at.id ] (mdnix.h 2 "How This README Is Generated"))
+      (mdnix.p [
+        (mdnix.text ''
+          Each section is contributed by whichever module it documents, via
+          `text.readme.parts.<name>`, and assembled in the order listed by
+          `text.readme.order`. For example, the Hosts section below comes from
+        '')
+        (mdnix.ln "`modules/lib/options/hosts.nix`" "modules/lib/options/hosts.nix")
+        (mdnix.text ''
+          , not this file -
+          each module documents itself next to its own definition rather than everything
+          living in one place.'')
+      ])
+      (mdnix.p "Regenerate after editing any `parts.*` with:")
+      (mdnix.lang "bash" (mdnix.code "write-files"))
+      (mdnix.p "(available in the devshell).")
+      at.footnote
+    ];
 
-        Each section is contributed by whichever module it documents, via
-        `text.readme.parts.<name>`, and assembled in the order listed by
-        `text.readme.order`. For example, the Hosts section below comes from
-        [`modules/lib/options/hosts.nix`](modules/lib/options/hosts.nix), not this file -
-        each module documents itself next to its own definition rather than everything
-        living in one place.
+    parts.inputs-management = [
+      (mdnix.h 2 "Input Management")
+      (mdnix.p [
+        (mdnix.text "Inputs are pinned with ")
+        (mdnix.ln "nixtamal" "https://nixtamal.toast.al")
+        (mdnix.text " and resolved with ")
+        (mdnix.ln "with-inputs" "https://github.com/denful/with-inputs")
+        (mdnix.text ''
+          .
+          There is no `flake.lock`; pins live in
+        '')
+        (mdnix.ln "`nix/tamal/lock.json`" "nix/tamal/lock.json")
+        (mdnix.text ".")
+      ])
 
-        Regenerate after editing any `parts.*` with:
+      (mdnix.h 3 "Entry points")
+      (mdnix.p ''
+        | File | Purpose |
+        |------|---------|
+        | `default.nix` | Primary entry point; returns full flake outputs |
+        | `system.nix` | Convenience entry point; selects the NixOS config for the current hostname (impure - reads `/etc/hostname`) |
+        | `flake.nix` | Thin shim so flake-aware tools still work |
+      '')
 
-        ```bash
-        write-files
-        ```
+      (mdnix.h 3 "Switching")
+      (mdnix.lang "bash" (mdnix.code "nh os switch -f ./system.nix"))
 
-        (available in the devshell).
-      '';
-    };
-
-    parts.inputs-management = ''
-      ## Input Management
-
-      Inputs are pinned with [nixtamal](https://nixtamal.toast.al) and resolved with
-      [with-inputs](https://github.com/denful/with-inputs).
-      There is no `flake.lock`; pins live in [`nix/tamal/lock.json`](nix/tamal/lock.json).
-
-      ### Entry points
-
-      | File | Purpose |
-      |------|---------|
-      | `default.nix` | Primary entry point; returns full flake outputs |
-      | `system.nix` | Convenience entry point; selects the NixOS config for the current hostname (impure — reads `/etc/hostname`) |
-      | `flake.nix` | Thin shim so flake-aware tools still work |
-
-      ### Switching
-
-      ```bash
-      nh os switch -f ./system.nix
-      ```
-
-      ### Updating inputs
-
-      ```bash
-      nixtamal refresh             # refresh all non-frozen inputs
-      nixtamal refresh <name>      # refresh one input
-      nixtamal check-soundness     # verify all fetches resolve
-      ```
-    '';
+      (mdnix.h 3 "Updating inputs")
+      (mdnix.lang "bash" (
+        mdnix.code ''
+          nixtamal refresh             # refresh all non-frozen inputs
+          nixtamal refresh <name>      # refresh one input
+          nixtamal check-soundness     # verify all fetches resolve
+        ''
+      ))
+    ];
   };
 
   perSystem =

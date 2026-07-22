@@ -8,6 +8,10 @@
   inputs,
   ...
 }:
+let
+  mdnix = inputs.mdnix.lib;
+  at = config.flake.lib.writtenAt "modules/lib/options/hosts.nix";
+in
 {
   options.hosts = lib.mkOption {
     type = lib.types.attrsOf (lib.types.deferredModule);
@@ -31,17 +35,19 @@
     in
     {
       flake.nixosConfigurations = hosts |> lib.mapAttrs toNixos;
-      text.readme.parts.hosts = {
-        source = "modules/lib/options/hosts.nix";
-        text = ''
-          ## Hosts
-
+      text.readme.parts.hosts = [
+        (mdnix.refs [ at.id ] (mdnix.h 2 "Hosts"))
+        (mdnix.p ''
           The set of NixOS hosts is defined via an option which accepts deferred modules.
           Differentiating the hosts as a subset of the NixOS modules allows us to map over the hosts
           without string matching.
-
-          See usage at [`autolycus`](modules/hosts/autolycus/default.nix).
-        '';
-      };
+        '')
+        (mdnix.p [
+          (mdnix.text "See usage at ")
+          (mdnix.ln "`autolycus`" "modules/hosts/autolycus/default.nix")
+          (mdnix.text ".")
+        ])
+        at.footnote
+      ];
     };
 }
