@@ -1,7 +1,6 @@
 { config, inputs, ... }:
 let
   mdnix = inputs.mdnix.lib;
-  at = config.flake.lib.writtenAt "modules/meta/files/readme.nix";
 in
 {
   text.readme = {
@@ -21,7 +20,7 @@ in
     ];
 
     parts.how-this-works = [
-      (mdnix.refs [ at.id ] (mdnix.h 2 "How This README Is Generated"))
+      (mdnix.h 2 "How This README Is Generated" |> config.flake.lib.writtenAt "modules/meta/files/readme.nix")
       (mdnix.p [
         (mdnix.text ''
           Each section is contributed by whichever module it documents, via
@@ -37,7 +36,6 @@ in
       (mdnix.p "Regenerate after editing any `parts.*` with:")
       (mdnix.lang "bash" (mdnix.code "write-files"))
       (mdnix.p "(available in the devshell).")
-      at.footnote
     ];
 
   };

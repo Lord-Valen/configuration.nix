@@ -5,11 +5,10 @@
 { config, inputs, ... }:
 let
   mdnix = inputs.mdnix.lib;
-  at = config.flake.lib.writtenAt "modules/meta/inputs.nix";
 in
 {
   text.readme.parts.inputs-management = [
-    (mdnix.refs [ at.id ] (mdnix.h 2 "Input Management"))
+    (mdnix.h 2 "Input Management" |> config.flake.lib.writtenAt "modules/meta/inputs.nix")
     (mdnix.p [
       (mdnix.text "Inputs are pinned with ")
       (mdnix.ln "nixtamal" "https://nixtamal.toast.al")
@@ -44,6 +43,5 @@ in
         nixtamal check-soundness     # verify all fetches resolve
       ''
     ))
-    at.footnote
   ];
 }

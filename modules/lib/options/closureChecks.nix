@@ -10,7 +10,6 @@
 }:
 let
   mdnix = inputs.mdnix.lib;
-  at = config.flake.lib.writtenAt "modules/lib/options/closureChecks.nix";
 in
 {
   options.closureChecks = lib.mkOption {
@@ -90,7 +89,7 @@ in
       flake.checks = closureChecks |> lib.mapAttrsToList toClosureCheck |> lib.mkMerge;
 
       text.readme.parts.closure-checks = [
-        (mdnix.refs [ at.id ] (mdnix.h 2 "Closure Checks"))
+        (mdnix.h 2 "Closure Checks" |> config.flake.lib.writtenAt "modules/lib/options/closureChecks.nix")
         (mdnix.p ''
           Closure size checks are defined via the `closureChecks` option.
           Each entry logs the human-readable closure size; an optional `budget` field causes the check to fail if the size exceeds it.
@@ -100,7 +99,6 @@ in
           (mdnix.ln "`closureChecks/`" "modules/closureChecks/")
           (mdnix.text ".")
         ])
-        at.footnote
       ];
     };
 }

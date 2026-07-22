@@ -36,14 +36,16 @@
     );
   };
 
+  # `path` is a repo-relative path string.
   config.flake.lib.writtenAt =
-    path:
+    path: block:
     let
       mdnix = inputs.mdnix.lib;
-      id = builtins.replaceStrings [ "/" "." ] [ "-" "-" ] path;
+      id = lib.replaceStrings [ "/" "." ] [ "-" "-" ] path;
+      footnote = mdnix.fn id "Written at [`${baseNameOf path}`](${path}).";
     in
-    {
-      inherit id;
-      footnote = mdnix.fn id "Written at [`${builtins.baseNameOf path}`](${path}).";
+    (mdnix.refs [ id ] block)
+    // {
+      children = (block.children or [ ]) ++ [ footnote ];
     };
 }
