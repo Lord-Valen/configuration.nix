@@ -18,7 +18,7 @@ write-files
 
 (available in the devshell).
 
-## Input Management
+## Input Management[^modules-meta-inputs-nix]
 
 Inputs are pinned with [nixtamal](https://nixtamal.toast.al) and resolved with [with-inputs](https://github.com/denful/with-inputs).
 There is no `flake.lock`; pins live in
@@ -62,6 +62,8 @@ Each entry logs the human-readable closure size; an optional `budget` field caus
 See checks at [`closureChecks/`](modules/closureChecks/).
 
 [^modules-meta-files-readme-nix]: Written at [`readme.nix`](modules/meta/files/readme.nix).
+
+[^modules-meta-inputs-nix]: Written at [`inputs.nix`](modules/meta/inputs.nix).
 
 [^modules-lib-options-hosts-nix]: Written at [`hosts.nix`](modules/lib/options/hosts.nix).
 
