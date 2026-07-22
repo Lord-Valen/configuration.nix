@@ -27,7 +27,7 @@ There is no `flake.lock`; pins live in
 ### Entry points
 
 | File | Purpose |
-|------|---------|
+| --- | --- |
 | `default.nix` | Primary entry point; returns full flake outputs |
 | `system.nix` | Convenience entry point; selects the NixOS config for the current hostname (impure - reads `/etc/hostname`) |
 | `flake.nix` | Thin shim so flake-aware tools still work |

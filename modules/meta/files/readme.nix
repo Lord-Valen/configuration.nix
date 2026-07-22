@@ -56,13 +56,14 @@ in
       ])
 
       (mdnix.h 3 "Entry points")
-      (mdnix.p ''
-        | File | Purpose |
-        |------|---------|
-        | `default.nix` | Primary entry point; returns full flake outputs |
-        | `system.nix` | Convenience entry point; selects the NixOS config for the current hostname (impure - reads `/etc/hostname`) |
-        | `flake.nix` | Thin shim so flake-aware tools still work |
-      '')
+      (mdnix.table [ "File" "Purpose" ] [
+        [ "`default.nix`" "Primary entry point; returns full flake outputs" ]
+        [
+          "`system.nix`"
+          "Convenience entry point; selects the NixOS config for the current hostname (impure - reads `/etc/hostname`)"
+        ]
+        [ "`flake.nix`" "Thin shim so flake-aware tools still work" ]
+      ])
 
       (mdnix.h 3 "Switching")
       (mdnix.lang "bash" (mdnix.code "nh os switch -f ./system.nix"))
