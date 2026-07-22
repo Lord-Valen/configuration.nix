@@ -12,12 +12,9 @@ in
     (mdnix.p [
       (mdnix.text "Inputs are pinned with ")
       (mdnix.ln "nixtamal" "https://nixtamal.toast.al")
-      (mdnix.text " and resolved with ")
+      (mdnix.text "\nand resolved with ")
       (mdnix.ln "with-inputs" "https://github.com/denful/with-inputs")
-      (mdnix.text ''
-        .
-        There is no `flake.lock`; pins live in
-      '')
+      (mdnix.text ".\nThere is no `flake.lock`;\npins live in ")
       (mdnix.ln "`lock.json`" "nix/tamal/lock.json")
       (mdnix.text ".")
     ])

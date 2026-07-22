@@ -38,8 +38,8 @@ in
         (mdnix.h 2 "Hosts" |> config.flake.lib.writtenAt "modules/lib/options/hosts.nix")
         (mdnix.p ''
           The set of NixOS hosts is defined via an option which accepts deferred modules.
-          Differentiating the hosts as a subset of the NixOS modules allows us to map over the hosts
-          without string matching.
+          Differentiating the hosts as a subset of the NixOS modules
+          allows us to map over the hosts without string matching.
         '')
         (mdnix.p [
           (mdnix.text "See usage at ")

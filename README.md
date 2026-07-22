@@ -3,12 +3,13 @@
 
 ## How This README Is Generated[^modules-meta-files-readme-nix]
 
-Each section is contributed by whichever module it documents, via
-`text.readme.parts.<name>`, and assembled in the order listed by
-`text.readme.order`. For example, the Hosts section below comes from
+Each section is contributed by whichever module it documents,
+via `text.readme.parts.<name>`,
+and assembled in the order listed by `text.readme.order`.
+For example, the Hosts section below comes from
 [`hosts.nix`](modules/lib/options/hosts.nix), not this file -
-each module documents itself next to its own definition rather than everything
-living in one place.
+each module documents itself next to its own definition
+rather than everything living in one place.
 
 Regenerate after editing any `parts.*` with:
 
@@ -20,9 +21,10 @@ write-files
 
 ## Input Management[^modules-meta-inputs-nix]
 
-Inputs are pinned with [nixtamal](https://nixtamal.toast.al) and resolved with [with-inputs](https://github.com/denful/with-inputs).
-There is no `flake.lock`; pins live in
-[`lock.json`](nix/tamal/lock.json).
+Inputs are pinned with [nixtamal](https://nixtamal.toast.al)
+and resolved with [with-inputs](https://github.com/denful/with-inputs).
+There is no `flake.lock`;
+pins live in [`lock.json`](nix/tamal/lock.json).
 
 ### Entry points
 
@@ -49,15 +51,16 @@ nixtamal check-soundness     # verify all fetches resolve
 ## Hosts[^modules-lib-options-hosts-nix]
 
 The set of NixOS hosts is defined via an option which accepts deferred modules.
-Differentiating the hosts as a subset of the NixOS modules allows us to map over the hosts
-without string matching.
+Differentiating the hosts as a subset of the NixOS modules
+allows us to map over the hosts without string matching.
 
 See usage at [`autolycus`](modules/hosts/autolycus/default.nix).
 
 ## Closure Checks[^modules-lib-options-closureChecks-nix]
 
 Closure size checks are defined via the `closureChecks` option.
-Each entry logs the human-readable closure size; an optional `budget` field causes the check to fail if the size exceeds it.
+Each entry logs the human-readable closure size;
+an optional `budget` field causes the check to fail if the size exceeds it.
 
 See checks at [`closureChecks/`](modules/closureChecks/).
 

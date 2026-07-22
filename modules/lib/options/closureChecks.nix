@@ -92,7 +92,8 @@ in
         (mdnix.h 2 "Closure Checks" |> config.flake.lib.writtenAt "modules/lib/options/closureChecks.nix")
         (mdnix.p ''
           Closure size checks are defined via the `closureChecks` option.
-          Each entry logs the human-readable closure size; an optional `budget` field causes the check to fail if the size exceeds it.
+          Each entry logs the human-readable closure size;
+          an optional `budget` field causes the check to fail if the size exceeds it.
         '')
         (mdnix.p [
           (mdnix.text "See checks at ")
