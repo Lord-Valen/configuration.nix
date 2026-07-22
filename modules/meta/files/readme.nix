@@ -28,7 +28,7 @@ in
           `text.readme.parts.<name>`, and assembled in the order listed by
           `text.readme.order`. For example, the Hosts section below comes from
         '')
-        (mdnix.ln "`modules/lib/options/hosts.nix`" "modules/lib/options/hosts.nix")
+        (mdnix.ln "`hosts.nix`" "modules/lib/options/hosts.nix")
         (mdnix.text ''
           , not this file -
           each module documents itself next to its own definition rather than everything
@@ -51,7 +51,7 @@ in
           .
           There is no `flake.lock`; pins live in
         '')
-        (mdnix.ln "`nix/tamal/lock.json`" "nix/tamal/lock.json")
+        (mdnix.ln "`lock.json`" "nix/tamal/lock.json")
         (mdnix.text ".")
       ])
 

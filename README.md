@@ -6,7 +6,7 @@
 Each section is contributed by whichever module it documents, via
 `text.readme.parts.<name>`, and assembled in the order listed by
 `text.readme.order`. For example, the Hosts section below comes from
-[`modules/lib/options/hosts.nix`](modules/lib/options/hosts.nix), not this file -
+[`hosts.nix`](modules/lib/options/hosts.nix), not this file -
 each module documents itself next to its own definition rather than everything
 living in one place.
 
@@ -22,7 +22,7 @@ write-files
 
 Inputs are pinned with [nixtamal](https://nixtamal.toast.al) and resolved with [with-inputs](https://github.com/denful/with-inputs).
 There is no `flake.lock`; pins live in
-[`nix/tamal/lock.json`](nix/tamal/lock.json).
+[`lock.json`](nix/tamal/lock.json).
 
 ### Entry points
 
