@@ -6,6 +6,7 @@
       den.batteries.primary-user
       den.aspects.base
       den.aspects.nushell
+      den.aspects.flatpak
     ];
 
     user =
