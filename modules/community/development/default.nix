@@ -57,6 +57,7 @@
           home.packages = with pkgs; [
             reuse
             jq
+            forgejo-cli
           ];
           programs.jujutsu.settings = {
             user = {
