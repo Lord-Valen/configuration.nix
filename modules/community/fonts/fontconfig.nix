@@ -1,24 +1,27 @@
 {
+  den.aspects.fonts.nixos =
+    { pkgs, ... }:
+    {
+      fonts.packages = [ pkgs.sarasa-gothic ];
+    };
   den.aspects.fonts.homeManager =
     { pkgs, ... }:
     {
       fonts.fontconfig.enable = true;
-      fonts.fontconfig.defaultFonts =
-
-        {
-          sansSerif = [
-            "Iosevka Aile"
-            "Sarasa Gothic JP"
-          ];
-          serif = [
-            "Iosevka Etoile"
-            "Sarasa Gothic JP"
-          ];
-          monospace = [
-            "Iosevka Term SS05"
-            "Sarasa Term JP"
-          ];
-        };
+      fonts.fontconfig.defaultFonts = {
+        sansSerif = [
+          "Iosevka Aile"
+          "Sarasa Gothic JP"
+        ];
+        serif = [
+          "Iosevka Etoile"
+          "Sarasa Gothic JP"
+        ];
+        monospace = [
+          "Iosevka Term SS05"
+          "Sarasa Term JP"
+        ];
+      };
       home.packages =
         let
           iosevka-aile = pkgs.iosevka-bin.override { variant = "Aile"; };
