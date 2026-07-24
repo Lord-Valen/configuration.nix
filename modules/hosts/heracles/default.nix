@@ -78,6 +78,7 @@
         calibre
         vcv
         pangolin-cli
+        hermes-agent
       ];
       homeManager = {
         stylix.targets.qt.enable = false;

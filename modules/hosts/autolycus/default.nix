@@ -65,6 +65,7 @@
         lutris
         calibre
         pangolin-cli
+        hermes-agent
       ];
       homeManager = {
         stylix.targets.qt.enable = false;

@@ -1,6 +1,5 @@
 { den, ... }:
 {
-  den.aspects.development.includes = with den.aspects; [ claude ];
   den.aspects.claude.nixos = {
     nixpkgs.overlays = [
       (_final: prev: {
