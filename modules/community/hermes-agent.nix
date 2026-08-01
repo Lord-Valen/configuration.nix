@@ -11,7 +11,7 @@
       nixpkgs.overlays = [
         (final: _: {
           hermes-agent = inputs.llm-agents.packages.${final.system}.hermes-agent;
-          hermes-desktop = inputs.llm-agents.packages.${final.system}.hermes-desktop;
+          hermes-hud = inputs.llm-agents.packages.${final.system}.hermes-hud;
         })
       ];
     };
@@ -21,7 +21,7 @@
       {
         home.packages = with pkgs; [
           hermes-agent
-          hermes-desktop
+          hermes-hud
         ];
       };
   };
