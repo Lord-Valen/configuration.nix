@@ -10,5 +10,8 @@
     {
       fosrl-newt = unstable.fosrl-newt;
       fosrl-gerbil = unstable.fosrl-gerbil;
+      # Same network detection as of 1.21!
+      fosrl-pangolin = unstable.fosrl-pangolin;
+      pangolin-cli = unstable.pangolin-cli;
     };
 }
