@@ -64,7 +64,6 @@
         heroic
         lutris
         calibre
-        pangolin-cli
         hermes-agent
       ];
       homeManager = {

@@ -1,41 +1,21 @@
 {
-  den.aspects.servarr.nixos =
-    { lib, config, ... }:
-    {
-      services = {
-        caddy.virtualHosts."deluge.laughing-man.xyz".extraConfig = ''
-          reverse_proxy http://localhost:8112
-          reverse_proxy /api/ http://localhost:58846
-        '';
-        nginx.virtualHosts."deluge.laughing-man.xyz" = {
-          forceSSL = lib.mkDefault config.security.acme.acceptTerms;
-          enableACME = lib.mkDefault config.security.acme.acceptTerms;
-          locations."/".proxyPass = "http://localhost:8112";
-          locations."/api".proxyPass = "http://localhost:58846";
-        };
+  den.aspects.servarr.nixos = {
+    services.deluge.enable = true;
+    services.deluge.web.enable = true;
 
-        # TODO: Need secret management
-        #prometheus.exporters.deluge.enable = true;
-
-        deluge = {
-          enable = true;
-          web.enable = true;
-        };
-      };
-
-      networking.firewall = {
-        allowedTCPPortRanges = [
-          {
-            from = 6881;
-            to = 6889;
-          }
-        ];
-        allowedUDPPortRanges = [
-          {
-            from = 6881;
-            to = 6889;
-          }
-        ];
-      };
+    networking.firewall = {
+      allowedTCPPortRanges = [
+        {
+          from = 6881;
+          to = 6889;
+        }
+      ];
+      allowedUDPPortRanges = [
+        {
+          from = 6881;
+          to = 6889;
+        }
+      ];
     };
+  };
 }

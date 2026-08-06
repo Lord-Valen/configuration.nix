@@ -1,14 +1,14 @@
 {
   den.aspects.servarr.provides.theseus.nixos = {
-    services.newt.blueprint.private-resources.calibre = {
-      name = "Calibre";
-      mode = "http";
-      destination = "localhost";
-      destination-port = 8080;
-      full-domain = "calibre.laughing-man.xyz";
-      scheme = "http";
-      ssl = false;
-      enabled = true;
+    services.caddy.virtualHosts = {
+      "calibre.laughing-man.xyz".extraConfig = ''
+        @not_private not remote_ip private_ranges
+        respond @not_private "Access denied" 403 {
+          close
+        }
+
+        reverse_proxy http://localhost:8080
+      '';
     };
   };
 }

@@ -35,9 +35,7 @@
 
       prometheus
       grafana
-      pangolin
-      newt
-      cloudflare
+      caddy
       stationeers
     ];
 

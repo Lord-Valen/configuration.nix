@@ -1,15 +1,31 @@
 {
   den.aspects.servarr.provides.theseus.nixos = {
-    services.newt.blueprint.public-resources.jellyfin = {
-      name = "Jellyfin";
-      protocol = "http";
-      full-domain = "jellyfin.laughing-man.xyz";
-      enabled = true;
-      targets = [
+    networking.firewall.allowedUDPPorts = [ 7359 ];
+
+    services = {
+      caddy.virtualHosts = {
+        "jellyfin.laughing-man.xyz".extraConfig = ''
+          @metrics path /metrics
+          respond @metrics "Access denied" 403 {
+            close
+          }
+
+          reverse_proxy http://localhost:8096 {
+            flush_interval -1
+          }
+        '';
+      };
+
+      prometheus.scrapeConfigs = [
         {
-          hostname = "localhost";
-          port = 8096;
-          method = "http";
+          job_name = "jellyfin";
+          static_configs = [
+            {
+              targets = [
+                "localhost:8096"
+              ];
+            }
+          ];
         }
       ];
     };

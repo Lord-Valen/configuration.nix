@@ -1,14 +1,30 @@
 {
-  den.aspects.servarr.provides.theseus.nixos = {
-    services.newt.blueprint.private-resources.lidarr = {
-      name = "Lidarr";
-      mode = "http";
-      destination = "localhost";
-      destination-port = 8686;
-      full-domain = "lidarr.laughing-man.xyz";
-      scheme = "http";
-      ssl = false;
-      enabled = true;
+  den.aspects.servarr.provides.theseus.nixos = { config, ... }: {
+    services = {
+      caddy.virtualHosts = {
+        "lidarr.laughing-man.xyz".extraConfig = ''
+          @not_private not remote_ip private_ranges
+          respond @not_private "Access denied" 403 {
+            close
+          }
+
+          reverse_proxy http://localhost:8686
+        '';
+      };
+
+      prometheus.exporters.exportarr-lidarr.enable = config.services.prometheus.enable;
+      prometheus.scrapeConfigs = [
+        {
+          job_name = "lidarr";
+          static_configs = [
+            {
+              targets = [
+                "localhost:${toString config.services.prometheus.exporters.exportarr-lidarr.port}"
+              ];
+            }
+          ];
+        }
+      ];
     };
   };
 }

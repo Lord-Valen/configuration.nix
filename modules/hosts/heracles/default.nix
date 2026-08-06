@@ -77,7 +77,6 @@
         lutris
         calibre
         vcv
-        pangolin-cli
         hermes-agent
       ];
       homeManager = {

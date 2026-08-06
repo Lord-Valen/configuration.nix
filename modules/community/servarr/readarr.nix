@@ -1,32 +1,5 @@
 {
-  den.aspects.servarr.nixos =
-    { config, lib, ... }:
-    {
-      services = {
-        caddy.virtualHosts."readarr.laughing-man.xyz".extraConfig = ''
-          reverse_proxy http://localhost:8787
-        '';
-        nginx.virtualHosts."readarr.laughing-man.xyz" = {
-          forceSSL = lib.mkDefault config.security.acme.acceptTerms;
-          enableACME = lib.mkDefault config.security.acme.acceptTerms;
-          locations."/".proxyPass = "http://localhost:8787";
-        };
-
-        prometheus.exporters.exportarr-readarr.enable = true;
-        prometheus.scrapeConfigs = [
-          {
-            job_name = "readarr";
-            static_configs = [
-              {
-                targets = [
-                  "localhost:${toString config.services.prometheus.exporters.exportarr-readarr.port}"
-                ];
-              }
-            ];
-          }
-        ];
-
-        readarr.enable = true;
-      };
-    };
+  den.aspects.servarr.nixos = {
+    services.readarr.enable = true;
+  };
 }
