@@ -20,6 +20,7 @@
       networking
       kubo
       aria2
+      tailscale
 
       stylix
       stylix-catppuccin-mocha

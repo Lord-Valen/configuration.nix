@@ -10,6 +10,9 @@
 
           reverse_proxy http://localhost:6767
         '';
+        "bazarr.ling-grouper.ts.net".extraConfig = ''
+          reverse_proxy http://localhost:6767
+        '';
       };
       prometheus.exporters.exportarr-bazarr.enable = config.services.prometheus.enable;
       prometheus.scrapeConfigs = [

@@ -35,6 +35,7 @@
 
       prometheus
       grafana
+      tailscale
       caddy
       stationeers
     ];

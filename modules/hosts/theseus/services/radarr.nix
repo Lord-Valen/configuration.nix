@@ -10,6 +10,9 @@
 
           reverse_proxy http://localhost:7878
         '';
+        "radarr.ling-grouper.ts.net".extraConfig = ''
+          reverse_proxy http://localhost:7878
+        '';
       };
       prometheus.exporters.exportarr-radarr.enable = config.services.prometheus.enable;
       prometheus.scrapeConfigs = [

@@ -10,6 +10,9 @@
 
           reverse_proxy http://localhost:9696
         '';
+        "prowlarr.ling-grouper.ts.net".extraConfig = ''
+          reverse_proxy http://localhost:9696
+        '';
       };
       prometheus.exporters.exportarr-prowlarr.enable = config.services.prometheus.enable;
       prometheus.scrapeConfigs = [

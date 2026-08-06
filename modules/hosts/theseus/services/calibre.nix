@@ -9,6 +9,9 @@
 
         reverse_proxy http://localhost:8080
       '';
+      "calibre.ling-grouper.ts.net".extraConfig = ''
+        reverse_proxy http://localhost:8080
+      '';
     };
   };
 }

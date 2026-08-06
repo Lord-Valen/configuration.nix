@@ -13,6 +13,10 @@
             reverse_proxy http://localhost:8112
             reverse_proxy /api/ http://localhost:58846
           '';
+          "deluge.ling-grouper.ts.net".extraConfig = ''
+            reverse_proxy http://localhost:8112
+            reverse_proxy /api/ http://localhost:58846
+          '';
         };
 
         sops.secrets.deluge_secret = {

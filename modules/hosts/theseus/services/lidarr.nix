@@ -10,6 +10,9 @@
 
           reverse_proxy http://localhost:8686
         '';
+        "lidarr.ling-grouper.ts.net".extraConfig = ''
+          reverse_proxy http://localhost:8686
+        '';
       };
 
       prometheus.exporters.exportarr-lidarr.enable = config.services.prometheus.enable;

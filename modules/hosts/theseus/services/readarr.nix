@@ -10,6 +10,9 @@
 
           reverse_proxy http://localhost:8787
         '';
+        "readarr.ling-grouper.ts.net".extraConfig = ''
+          reverse_proxy http://localhost:8787
+        '';
       };
 
       prometheus.exporters.exportarr-readarr.enable = config.services.prometheus.enable;

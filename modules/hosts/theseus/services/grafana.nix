@@ -16,6 +16,9 @@
 
             reverse_proxy http://${addr}:${port}
           '';
+          "grafana.ling-grouper.ts.net".extraConfig = ''
+            reverse_proxy http://${addr}:${port}
+          '';
         };
 
         sops.secrets.grafana_secret_key = {

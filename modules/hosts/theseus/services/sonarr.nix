@@ -10,6 +10,9 @@
 
           reverse_proxy http://localhost:8989
         '';
+        "sonarr.ling-grouper.ts.net".extraConfig = ''
+          reverse_proxy http://localhost:8989
+        '';
       };
 
       prometheus.exporters.exportarr-sonarr.enable = config.services.prometheus.enable;
