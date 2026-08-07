@@ -8,6 +8,7 @@
     { config, ... }:
     {
       treefmt = {
+        projectRoot = ../..;
         programs = {
           nixfmt.enable = true;
           deadnix.enable = true;
