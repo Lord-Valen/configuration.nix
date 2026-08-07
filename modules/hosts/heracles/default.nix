@@ -78,6 +78,7 @@
         calibre
         vcv
         hermes-agent
+        deluge
       ];
       homeManager = {
         stylix.targets.qt.enable = false;

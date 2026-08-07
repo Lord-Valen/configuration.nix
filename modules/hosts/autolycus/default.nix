@@ -65,6 +65,7 @@
         lutris
         calibre
         hermes-agent
+        deluge
       ];
       homeManager = {
         stylix.targets.qt.enable = false;
