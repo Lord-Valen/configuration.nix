@@ -9,10 +9,7 @@
         ];
       };
       nixpkgs.overlays = [
-        (final: _: {
-          hermes-agent = inputs.llm-agents.packages.${final.system}.hermes-agent;
-          hermes-hud = inputs.llm-agents.packages.${final.system}.hermes-hud;
-        })
+        inputs.llm-agents.overlays.shared-nixpkgs
       ];
     };
 
@@ -20,8 +17,8 @@
       { pkgs, ... }:
       {
         home.packages = with pkgs; [
-          hermes-agent
-          hermes-hud
+          llm-agents.hermes-agent
+          llm-agents.hermes-hud
         ];
       };
   };
