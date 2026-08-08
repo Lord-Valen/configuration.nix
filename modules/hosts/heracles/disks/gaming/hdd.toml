@@ -1,0 +1,7 @@
+type = "disk"
+device = "/dev/disk/by-id/ata-WDC_WD20EZRX-00D8PB0_WD-WCC4M0320581"
+
+[content]
+type = "bcachefs"
+filesystem = "gaming"
+label = "hdd.hdd1"

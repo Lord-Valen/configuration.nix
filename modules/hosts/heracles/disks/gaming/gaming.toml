@@ -1,0 +1,10 @@
+type = "bcachefs_filesystem"
+mountpoint = "/home/lord-valen/Games"
+extraFormatArgs = [
+  "--compression=lz4",
+  "--background_compression=zstd",
+  "--foreground_target=cache",
+  "--promote_target=cache",
+  "--background_target=hdd",
+]
+mountOptions = ["defaults", "nofail"]

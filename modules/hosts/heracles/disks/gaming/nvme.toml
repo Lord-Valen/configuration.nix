@@ -1,0 +1,7 @@
+type = "disk"
+device = "/dev/disk/by-id/nvme-WD_BLACK_SN7100_1TB_25050X801157"
+
+[content]
+type = "bcachefs"
+filesystem = "gaming"
+label = "cache.nvme1"

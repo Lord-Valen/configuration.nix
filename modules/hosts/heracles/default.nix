@@ -12,6 +12,7 @@
       pc
       xanmod
       btrfs
+      bcachefs
       zsa
       drone
 
