@@ -30,6 +30,7 @@
       secureBoot
 
       colemak
+      japanese
       yubikey
       tablet
 

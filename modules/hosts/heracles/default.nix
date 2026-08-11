@@ -34,6 +34,7 @@
 
       fwupd
 
+      japanese
       ratbag
       yubikey
       tablet
