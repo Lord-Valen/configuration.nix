@@ -1,3 +1,7 @@
+{ config, ... }:
+let
+  inherit (config.flake.lib) caddy;
+in
 {
   den.aspects.grafana.provides.theseus = {
     nixos =
@@ -8,12 +12,7 @@
       in
       {
         services.caddy.virtualHosts = {
-          "grafana.laughing-man.xyz".extraConfig = ''
-            @not_private not remote_ip private_ranges
-            respond @not_private "Access denied" 403 {
-              close
-            }
-
+          "grafana.laughing-man.xyz".extraConfig = caddy.mkTrusted ''
             reverse_proxy http://${addr}:${port}
           '';
         };

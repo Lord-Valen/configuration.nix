@@ -1,17 +1,20 @@
+{ config, ... }:
+let
+  inherit (config.flake.lib) caddy;
+in
 {
   den.aspects.servarr.provides.theseus = {
     nixos =
       { config, ... }:
+      let
+        port = 8112;
+        apiPort = 58846;
+      in
       {
         services.caddy.virtualHosts = {
-          "deluge.laughing-man.xyz".extraConfig = ''
-            @not_private not remote_ip private_ranges
-            respond @not_private "Access denied" 403 {
-              close
-            }
-
-            reverse_proxy http://localhost:8112
-            reverse_proxy /api/ http://localhost:58846
+          "deluge.laughing-man.xyz".extraConfig = caddy.mkTrusted ''
+            reverse_proxy http://localhost:${toString port}
+            reverse_proxy /api/ http://localhost:${toString apiPort}
           '';
         };
 
