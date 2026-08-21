@@ -11,16 +11,16 @@
 }:
 buildGoModule (finalAttrs: {
   pname = "ssui-unwrapped";
-  version = "5.13.2";
+  version = "5.14.0";
 
   src = fetchFromGitHub {
     owner = "SteamServerUI";
     repo = "StationeersServerUI";
-    tag = "v${finalAttrs.version}";
-    hash = "sha256-FC06KFfxmQX/iRyKfZiFKquSyOWdKyzi/DRqs42f0ag=";
+    tag = "${finalAttrs.version}";
+    hash = "sha256-WLGZ09PXCDtNJSkYK/F/OaxSWHJkMt55s+z1giPnBl4=";
   };
 
-  vendorHash = "sha256-Cxv2aG+dhpmOtH99jZ0uFlXVEkNrcXvEwEjOd2TPZ2Y=";
+  vendorHash = "sha256-wojDO8Mu4w9ZMaSA4StoXhdQ8UlaA9YzWumJaVf1GB0=";
 
   nativeBuildInputs = [ makeBinaryWrapper ];
   buildInputs = [ steamcmd ];
