@@ -30,7 +30,6 @@ OF THIS SOFTWARE.
 let lock = builtins.fromJSON (builtins.readFile ./lock.json); in
 assert (lock.v == "1.1.0");
 let
-	local-patches = {};
 	hash-token = {
 		"0" = "sha256";
 		"1" = "sha512";
@@ -100,12 +99,6 @@ let
 	// lib.optionalAttrs (name != null) {inherit name;}
 	// lib.optionalAttrs (builtins.length kind.ms > 0) {urls = kind.ms;});
 
-	fetch-patch = patch-name: {ur, ha}:
-		pkgs.fetchpatch2 {
-			url = ur;
-			hash = ha.vl;
-		};
-
 	to-input = input-name: input:
 		let
 			name = input.sn;
@@ -126,18 +119,6 @@ let
 				else
 					throw "Unsupported input kind “${builtins.toString k}”.";
 		in
-		if builtins.length input.ps == 0 then
-			raw-input
-		else
-			pkgs.applyPatches {
-				src = raw-input;
-				name = "${if name != null then name else "src"}-patched";
-				patches = map (p:
-					if local-patches ? "${p}" then
-						local-patches."${p}"
-					else
-						fetch-patch p lock.p."${p}"
-				) input.ps;
-			};
+		raw-input;
 in
 builtins.mapAttrs to-input lock.i

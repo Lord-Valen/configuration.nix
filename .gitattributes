@@ -1,4 +1,6 @@
+**/lock.* linguist-generated
 **/*.lock linguist-generated
+nix/tamal/default.nix linguist-generated
 flake.nix linguist-generated
 .editorconfig linguist-generated
 README.md linguist-generated

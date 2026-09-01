@@ -9,7 +9,13 @@
         ];
       };
       nixpkgs.overlays = [
-        inputs.llm-agents.overlays.shared-nixpkgs
+        (final: prev: {
+          llm-agents = {
+            inherit (inputs.llm-agents.packages.${prev.stdenv.hostPlatform.system})
+              hermes-agent
+              hermes-hud;
+          };
+        })
       ];
     };
 
