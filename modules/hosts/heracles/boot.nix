@@ -1,14 +1,10 @@
-{
-  den.aspects.heracles.nixos = {
-    # Early KMS
-    hardware.amdgpu.initrd.enable = true;
-    boot = {
-      loader = {
-        systemd-boot.enable = true;
-        efi = {
-          canTouchEfiVariables = true;
-        };
-      };
+{ den, ... }: {
+  den.aspects.heracles = {
+    includes = with den.aspects; [
+      secureBoot
+    ];
+    nixos = {
+      boot.loader.efi.canTouchEfiVariables = true;
     };
   };
 }
