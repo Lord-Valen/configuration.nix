@@ -13,6 +13,7 @@
         socketActivation.enable = true;
         client.enable = true;
       };
+      stylix.targets.emacs.colors.enable = false;
     };
     elcoco = {
       source = ./basics.el;
@@ -39,6 +40,7 @@
           command-log-mode
           direnv
           treemacs
+          catppuccin-theme
         ];
     };
   };

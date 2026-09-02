@@ -221,3 +221,7 @@
   :delight
   :hook (emacs-startup . apheleia-global-mode))
 
+(use-package catppuccin-theme
+  :after emacs
+  :config
+  (load-theme 'catppuccin :no-confirm))
