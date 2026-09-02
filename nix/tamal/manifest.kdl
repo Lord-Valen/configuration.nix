@@ -75,7 +75,7 @@ inputs {
 			| sed "s|.*refs/tags/||"
 		}
 	}
-	with-inputs frozen=#true {
+	with-inputs {
 		archive {
 			url "https://github.com/denful/with-inputs/archive/{{fresh_value}}.tar.gz"
 		}
@@ -86,7 +86,7 @@ inputs {
 			| sed "s|.*refs/tags/||"
 		}
 	}
-	den frozen=#true {
+	den {
 		archive {
 			url "https://github.com/denful/den/archive/{{fresh_value}}.tar.gz"
 		}
@@ -97,7 +97,7 @@ inputs {
 			| sed "s|.*refs/tags/||"
 		}
 	}
-	import-tree frozen=#true {
+	import-tree {
 		archive {
 			url "https://github.com/denful/import-tree/archive/{{fresh_value}}.tar.gz"
 		}

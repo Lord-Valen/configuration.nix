@@ -9,7 +9,7 @@
         };
       };
       environment.systemPackages = with pkgs; [
-        ollama
+        ollama-rocm
       ];
     };
 }
