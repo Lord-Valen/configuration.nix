@@ -1,7 +1,11 @@
 {
-  den.aspects.heroic.homeManager =
-    { pkgs, ... }:
-    {
-      home.packages = with pkgs; [ heroic ];
-    };
+  den.aspects.heroic = {
+    homeManager =
+      { pkgs, ... }:
+      {
+        home.packages = with pkgs; [
+          heroic
+        ];
+      };
+  };
 }
