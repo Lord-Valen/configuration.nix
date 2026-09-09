@@ -13,12 +13,16 @@ in
   };
   "lvAutolycus" = lib.mkIf (hostName != "autolycus") {
     id = "OUKE7M7-JXGJNQZ-YHV522X-SR43FKG-YIUMSEH-OSLULFY-AODTU4X-OF7V4AI";
+    introducer = true;
+    autoAcceptFolders = true;
   };
   "Heracles" = lib.mkIf (hostName != "heracles") {
     id = "TA6LIVP-C6CPJ6S-GTVYJ62-YXT3BWL-67U6ND7-ISZGJJK-ASTROVP-DGBKKQB";
   };
   "lvHeracles" = lib.mkIf (hostName != "heracles") {
     id = "PYBY33V-VYJN4YU-L67K3CX-2HNOZYA-UW3HXRW-Q6IRUEZ-UY6DBPO-JY47NQ6";
+    introducer = true;
+    autoAcceptFolders = true;
   };
   "Theseus" = lib.mkIf (hostName != "theseus") {
     id = "JFJTOJX-S6ITXDO-PJ5CEYI-ZTCAUFJ-7J22EFK-H7VX4AA-KJZ3QLW-XED4WQG";
