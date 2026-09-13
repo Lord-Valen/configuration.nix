@@ -58,6 +58,7 @@
           wineasio
           pkgsi686Linux.pipewire.jack
         ];
+        environment.systemPackages = [ pkgs.mtkclient ];
       };
 
     to-users.homeManager.home.stateVersion = "24.05";

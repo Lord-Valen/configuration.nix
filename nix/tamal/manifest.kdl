@@ -8,7 +8,7 @@ inputs {
 			url "{{fresh_value}}"
 		}
 		fresh-cmd {
-			$ curl -sI "https://channels.nixos.org/nixos-26.05/nixexprs.tar.xz"
+			$ curl -sI "https://channels.nixos.org/nixos-26.05/nixexprs.tar.zst"
 			| grep -i "^link:"
 			| cut -d "<" -f2
 			| cut -d ">" -f1
@@ -19,7 +19,7 @@ inputs {
 			url "{{fresh_value}}"
 		}
 		fresh-cmd {
-			$ curl -sI "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
+			$ curl -sI "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst"
 			| grep -i "^link:"
 			| cut -d "<" -f2
 			| cut -d ">" -f1
