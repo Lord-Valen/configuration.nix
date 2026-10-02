@@ -24,6 +24,9 @@
             Type = "oneshot";
             ExecStart = "${lib.getExe pkgs.exos-wifi} %I";
             EnvironmentFile = config.sops.templates.exos-wifi.path;
+            Restart = "on-failure";
+            RestartSec = "5min";
+            RestartSteps = "6";
           };
         };
 
