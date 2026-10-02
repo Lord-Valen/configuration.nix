@@ -1,5 +1,5 @@
 { inputs, ... }: {
-  den.aspects.theseus = {
+  den.aspects.exos-wifi.provides.theseus = {
     nixos =
       {
         config,
@@ -24,6 +24,7 @@
             Type = "oneshot";
             ExecStart = "${lib.getExe pkgs.exos-wifi} %I";
             EnvironmentFile = config.sops.templates.exos-wifi.path;
+            # Make sure we try again if DNS fails or something
             Restart = "on-failure";
             RestartSec = "5min";
             RestartSteps = "6";

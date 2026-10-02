@@ -37,6 +37,7 @@
       grafana
       caddy
       stationeers
+      #exos-wifi
     ];
 
     nixos = {
