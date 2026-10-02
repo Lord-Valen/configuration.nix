@@ -25,6 +25,12 @@ inputs {
 			| cut -d ">" -f1
 		}
 	}
+	exos-wifi {
+		git {
+			repository "https://github.com/Lord-Valen/exos-wifi.git"
+			ref "738573be79f531d6902ade02fec29f060bcdfa7b"
+		}
+	}
 	home-manager {
 		archive {
 			url "https://github.com/nix-community/home-manager/archive/{{fresh_value}}.tar.gz"

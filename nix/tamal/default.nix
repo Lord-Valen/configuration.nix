@@ -61,6 +61,41 @@ let
 			// (if name != null then {inherit name;} else {}))
 		) kind.ur kind.ms;
 
+	builtin-fetch-git = {input-name, name, kind}:
+		let
+			ref =
+				let
+					type = builtins.elemAt kind.rf 0;
+					valu = builtins.elemAt kind.rf 1;
+				in
+				if type == 0 then # ref
+					valu
+				else if type == 1 then # branch
+					"refs/heads/${valu}"
+				else if type == 2 then # tag
+					"refs/tags/${valu}"
+				else
+					throw "Unsupported reference type “${builtins.toString type}”.";
+		in
+		try-fetch input-name (url:
+			let
+				args = {
+					inherit url ref;
+					rev = kind.lr;
+					submodules = kind.sm;
+					lfs = kind.lf;
+					shallow = true;
+				}
+				// (if name != null then {inherit name;} else {});
+				args' =
+					if builtins.compareVersions builtins.nixVersion "2.26" < 0 then
+						builtins.removeAttrs args [ "lfs" ]
+					else
+						args;
+			in
+			builtins.fetchGit args'
+		) kind.rp kind.ms;
+
 	builtin-to-input = input-name: input:
 		let
 			name = input.sn;
@@ -73,6 +108,12 @@ let
 				input-name = input-name;
 				kind = builtins.elemAt input.kd 1;
 				hash = input.ha;
+			}
+		else if k == 2 then
+			builtin-fetch-git {
+				inherit name;
+				input-name = input-name;
+				kind = builtins.elemAt input.kd 1;
 			}
 		else
 			throw "Unsupported input kind “${builtins.toString k}”.";
@@ -99,6 +140,26 @@ let
 	// lib.optionalAttrs (name != null) {inherit name;}
 	// lib.optionalAttrs (builtins.length kind.ms > 0) {urls = kind.ms;});
 
+	fetch-git = {input-name, name, kind, hash}:
+		let
+			using-mirrors = kind ? ms && (builtins.length kind.ms) > 0;
+			mirror-support = pkgs.fetchgit.__functionArgs ? "mirrors";
+		in
+		lib.warnIf (using-mirrors && !mirror-support)
+			"Upstream pkgs.fetchgit doesn’t yet support mirrors for 「${input-name}」"
+			pkgs.fetchgit ({
+				url = kind.rp;
+				rev = kind.lr;
+				fetchSubmodules = kind.sm;
+				fetchLFS = kind.lf;
+				deepClone = false;
+				hash = hash.vl;
+			}
+			// lib.optionalAttrs (name != null) {inherit name;}
+			// lib.optionalAttrs (using-mirrors && mirror-support) {
+				mirrors = kind.ms;
+			});
+
 	to-input = input-name: input:
 		let
 			name = input.sn;
@@ -114,6 +175,17 @@ let
 						fetch-zip {inherit input-name name kind hash;}
 					else if fetch_time == 1 then
 						builtin-fetch-tarball {inherit input-name name kind hash;}
+					else
+						throw "Unsupported fetch time ${fetch_time}."
+				else if k == 2 then
+					let
+						kind = builtins.elemAt input.kd 1;
+						fetch_time = kind.ft;
+					in
+					if fetch_time == 0 then
+						fetch-git {inherit input-name name kind hash;}
+					else if fetch_time == 1 then
+						builtin-fetch-git {inherit input-name name kind;}
 					else
 						throw "Unsupported fetch time ${fetch_time}."
 				else
