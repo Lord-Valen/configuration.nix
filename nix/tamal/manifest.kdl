@@ -28,7 +28,7 @@ inputs {
 	exos-wifi {
 		git {
 			repository "https://github.com/Lord-Valen/exos-wifi.git"
-			ref "738573be79f531d6902ade02fec29f060bcdfa7b"
+			ref "b8906f801973785fb7c54519b2e78adfc2aaa839"
 		}
 	}
 	home-manager {
