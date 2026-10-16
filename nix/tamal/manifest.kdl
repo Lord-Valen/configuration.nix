@@ -139,15 +139,6 @@ inputs {
 			| sed "s|.*refs/tags/||"
 		}
 	}
-	nixos-facter-modules frozen=#true {
-		archive {
-			url "https://github.com/nix-community/nixos-facter-modules/archive/{{fresh_value}}.tar.gz"
-		}
-		fresh-cmd {
-			$ git ls-remote --branches "https://github.com/nix-community/nixos-facter-modules.git" main
-			| cut -f1
-		}
-	}
 	stylix {
 		archive {
 			url "https://github.com/nix-community/stylix/archive/{{fresh_value}}.tar.gz"

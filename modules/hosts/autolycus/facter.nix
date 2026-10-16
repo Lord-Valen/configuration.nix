@@ -1,3 +1,7 @@
 {
-  den.aspects.autolycus.nixos.facter.reportPath = ./facter.json;
+  den.aspects.autolycus = {
+    nixos = {
+      hardware.facter.reportPath = ./facter.json;
+    };
+  };
 }

@@ -11,7 +11,6 @@
 
       pc
       btrfs
-      nixos-facter
       disko
       sops
 
