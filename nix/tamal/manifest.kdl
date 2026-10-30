@@ -1,7 +1,8 @@
 // ┏┓╻+╻ ╱┏┳┓┏┓┏┳┓┏┓╻
 // ┃┃┃┃┗━┓╹┃╹┣┫┃┃┃┣┫┃   Read the manpage:
 // ╹┗┛╹╱ ╹ ╹ ╹╹╹ ╹╹╹┗┛  $ man nixtamal-manifest
-version "1.4.0"
+version "1.5.0"
+default-fetch-time build
 inputs {
 	nixpkgs {
 		archive {
