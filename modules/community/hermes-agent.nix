@@ -1,6 +1,16 @@
-{ den, inputs, ... }:
+{ inputs, ... }:
 {
   den.aspects.hermes-agent = {
+    nixpkgs-overlays = _: [
+      (final: prev: {
+        llm-agents = {
+          inherit (inputs.llm-agents.packages.${prev.stdenv.hostPlatform.system})
+            hermes-agent
+            hermes-hud
+            ;
+        };
+      })
+    ];
     nixos = {
       nix.settings = {
         extra-trusted-substituters = [ "https://cache.numtide.com" ];
@@ -8,15 +18,6 @@
           "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
         ];
       };
-      nixpkgs.overlays = [
-        (final: prev: {
-          llm-agents = {
-            inherit (inputs.llm-agents.packages.${prev.stdenv.hostPlatform.system})
-              hermes-agent
-              hermes-hud;
-          };
-        })
-      ];
     };
 
     homeManager =

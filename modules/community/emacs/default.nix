@@ -1,8 +1,6 @@
 { inputs, ... }:
 {
-  den.aspects.emacs-overlay.nixos = {
-    nixpkgs.overlays = [ inputs.emacs-overlay.overlays.package ];
-  };
+  den.aspects.emacs-overlay.nixpkgs-overlays = _: [ inputs.emacs-overlay.overlays.package ];
   den.aspects.emacs = {
     homeManager = { ... }: {
       imports = [ inputs.elcoco.homeModules.default ];

@@ -141,7 +141,7 @@ let
 					{ urls = [ kind.ur ] ++ kind.ms; }
 				else
 					{ url = kind.ur; }
-			   )
+				)
 			// lib.optionalAttrs (isNonemptyString name) { inherit name; }
 			// lib.optionalAttrs (isNonemptyString kind.ex) { extension = kind.ex; }
 		);

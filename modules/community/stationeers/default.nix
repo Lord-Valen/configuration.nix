@@ -1,8 +1,10 @@
 { config, ... }:
 {
-  den.aspects.stationeers.nixos = {
-    imports = [ config.flake.nixosModules.ssui ];
-    nixpkgs.overlays = [ config.flake.overlays.ssui ];
-    services.ssui.enable = true;
+  den.aspects.stationeers = {
+    nixpkgs-overlays = _: [ config.flake.overlays.ssui ];
+    nixos = {
+      imports = [ config.flake.nixosModules.ssui ];
+      services.ssui.enable = true;
+    };
   };
 }

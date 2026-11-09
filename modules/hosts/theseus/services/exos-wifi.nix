@@ -1,5 +1,6 @@
 { inputs, ... }: {
   den.aspects.exos-wifi.provides.theseus = {
+    nixpkgs-overlays = _: [ inputs.exos-wifi.overlay ];
     nixos =
       {
         config,
@@ -8,8 +9,6 @@
         ...
       }:
       {
-        nixpkgs.overlays = [ inputs.exos-wifi.overlay ];
-
         sops.secrets.router_secret = {
           sopsFile = ../secrets/exos-wifi.yaml;
         };

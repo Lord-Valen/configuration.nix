@@ -9,7 +9,5 @@
       };
     });
   };
-  den.aspects.ratbag.nixos = {
-    nixpkgs.overlays = [ config.flake.overlays.ratbag ];
-  };
+  den.aspects.ratbag.nixpkgs-overlays = _: [ config.flake.overlays.ratbag ];
 }
