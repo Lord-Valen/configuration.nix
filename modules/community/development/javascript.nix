@@ -8,7 +8,11 @@
       extraPackages =
         epkgs: with epkgs; [
           typescript-mode
-          (treesit-grammars.with-grammars (g: [ g.tree-sitter-typescript ]))
+          (treesit-grammars.with-grammars (g: [
+            g.tree-sitter-javascript
+            g.tree-sitter-typescript
+            g.tree-sitter-tsx
+          ]))
         ];
     };
     nixos.programs.npm.enable = true;
@@ -18,7 +22,7 @@
         pnpm
         yarn
         bun
-        deno
+        typescript-language-server
       ];
     };
   };
