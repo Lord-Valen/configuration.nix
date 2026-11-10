@@ -6,18 +6,10 @@
 Each section is contributed by whichever module it documents,
 via `text.readme.parts.<name>`,
 and assembled in the order listed by `text.readme.order`.
-For example, the Hosts section below comes from
-[`hosts.nix`](modules/lib/options/hosts.nix), not this file -
-each module documents itself next to its own definition
+Each module documents itself next to its own definition
 rather than everything living in one place.
 
-Regenerate after editing any `parts.*` with:
-
-```bash
-write-files
-```
-
-(available in the devshell).
+Regenerate after editing any `parts.*` with `write-files` (available in the devshell).
 
 ## Input Management[^modules-meta-inputs-nix]
 
@@ -48,14 +40,6 @@ nixtamal refresh <name>      # refresh one input
 nixtamal check-soundness     # verify all fetches resolve
 ```
 
-## Hosts[^modules-lib-options-hosts-nix]
-
-The set of NixOS hosts is defined via an option which accepts deferred modules.
-Differentiating the hosts as a subset of the NixOS modules
-allows us to map over the hosts without string matching.
-
-See usage at [`autolycus`](modules/hosts/autolycus/default.nix).
-
 ## Closure Checks[^modules-lib-options-closureChecks-nix]
 
 Closure size checks are defined via the `closureChecks` option.
@@ -67,7 +51,5 @@ See checks at [`closureChecks/`](modules/closureChecks/).
 [^modules-meta-files-readme-nix]: Written at [`readme.nix`](modules/meta/files/readme.nix).
 
 [^modules-meta-inputs-nix]: Written at [`inputs.nix`](modules/meta/inputs.nix).
-
-[^modules-lib-options-hosts-nix]: Written at [`hosts.nix`](modules/lib/options/hosts.nix).
 
 [^modules-lib-options-closureChecks-nix]: Written at [`closureChecks.nix`](modules/lib/options/closureChecks.nix).
