@@ -1,8 +1,10 @@
 {
-  den.aspects.discord.homeManager =
-    { ... }:
-    {
-      # TODO: Use nixcord to install dorion.
-      # home.packages = with pkgs; [ dorion ];
-    };
+
+  den.aspects.discord = {
+    homeManager =
+      { pkgs, ... }:
+      {
+        home.packages = with pkgs; [ vesktop ];
+      };
+  };
 }
